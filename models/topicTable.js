@@ -1,58 +1,14 @@
-module.exports = function (sequelize, DataTypes) {
-    var Topics = sequelize.define("Topics", {
-        topic_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        topic_description: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        topic_number: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            defaultValue: 0
-        },
-        // topic_displayDate: {
-        //     type: DataTypes.DATEONLY,
-        //     allowNull: false,
-        //     validate: {
-        //         len: [1]
-        //     },
-        //     defaultValue: sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
-        // },
-        createdAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        }
-    });
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-    Topics.associate = function (models) {
-        Topics.belongsTo(models.Users, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
+const TopicSchema = new Schema({
+    topic_name: { type: String, required: true },
+    topic_description: { type: Text, required: true },
+    topic_number: { type: Number, required: true },
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
+});
 
-        Topics.hasMany(models.Posts, {
-            foreignKey: {
-                allowNull: false
-            },
-            onDelete: "cascade",
-            onUpdate: "cascade"
-        })
-    };
-    return Topics;
-}; 
+const Topic = mongoose.model("Topic", TopicSchema);
+
+module.exports = Topic;

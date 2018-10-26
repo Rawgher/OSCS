@@ -1,75 +1,15 @@
-module.exports = function (sequelize, DataTypes) {
-    var Posts = sequelize.define("Posts", {
-        post_subject: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        post_body: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        post_rating: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            },
-            defaultValue: 0
-        },
-        post_number: {
-            type: DataTypes.INTEGER,
-            alloNull: false,
-            defaultValue: 0
-        },
-    //    post_displayDate: {
-    //         type: DataTypes.DATEONLY,
-    //         allowNull: false,
-    //         validate: {
-    //             len: [1]
-    //         },
-    //         defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-    //     },
-        createdAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            validate: {
-                len: [1]
-            },
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        },
-    });
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-    Posts.associate = function (models) {
-        Posts.hasMany(models.Replies, {
-            foreignKey: {
-                allowNull: false
-            },
-            onDelete: "cascade",
-            onUpdate: "cascade"
-        });
+const PostSchema = new Schema({
+    post_subject: { type: String, required: true },
+    post_body: { type: Text, required: true },
+    post_rating: { type: Number, default: 0 },
+    post_number: { type: Number, required: true },
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
+});
 
-        Posts.belongsTo(models.Users, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
+const Post = mongoose.model("Post", PostSchema);
 
-        Posts.belongsTo(models.Topics, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
-    return Posts;
-}
+module.exports = Post;

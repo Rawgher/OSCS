@@ -1,61 +1,13 @@
-module.exports = function (sequelize, DataTypes) {
-    var Replies = sequelize.define("Replies", {
-        reply_content: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-        reply_rating: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            },
-            defaultValue: 0
-        },
-        // reply_createDate: {
-        //     type: DataTypes.DATEONLY,
-        //     allowNull: false,
-        //     validate: {
-        //         len: [1]
-        //     },
-        //     defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        // },
-        createdAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            validate: {
-                len: [1]
-            },
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            validate: {
-                len: [1]
-            },
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        },
-    });
+const ReplySchema = new Schema({
+    reply_content: { type: Text, required: true },
+    reply_rating: { type: Number, default: 0 },
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
+});
 
-    Replies.associate = function (models) {
-        Replies.belongsTo(models.Posts, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
+const Reply = mongoose.model("Reply", ReplySchema);
 
-        Replies.belongsTo(models.Users, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
-
-    return Replies;
-};
-
+module.exports = Reply;

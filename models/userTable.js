@@ -1,68 +1,16 @@
-module.exports = function (sequelize, DataTypes) {
-    var Users = sequelize.define("Users", {
-        user_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        user_firstName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        user_lastName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        user_pass: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        user_level: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            defaultValue: 0
-        },
-        createdAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        }
-    });
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-    Users.associate = function (models) {
-        Users.hasMany(models.Posts, {
-            foreignKey: {
-                allowNull: false
-            },
-            onDelete: "restrict",
-            onUpdate: "cascade"
-        });
+const UserSchema = new Schema({
+    user_name: { type: String, required: true },
+    user_firstName: { type: String, required: true },
+    user_lastName: { type: String, required: true },
+    user_pass: { type: String, required: true },
+    user_level: { type: Number, required: true },
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
+});
 
-        Users.hasMany(models.Replies, {
-            foreignKey: {
-                allowNull: false
-            },
-            onDelete: "restrict",
-            onUpdate: "cascade"
-        })
-    };
+const User = mongoose.model("User", UserSchema);
 
-    return Users;
-};
-
+module.exports = User;
