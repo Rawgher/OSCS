@@ -1,8 +1,12 @@
 import React from "react";
 import "./Logo.css";
+// added import of image -RDP
+import logo from "./images/brain.png"
+
 const Logo = () => (
   <div className="logoWrapper">
-    <img src="./images/brain.png" alt="Outline of Brain" />
+  {/* calling import to make image show -RDP */}
+    <img src={logo} alt="Outline of Brain" />
   </div>
 );
 
