@@ -4,6 +4,7 @@ import Books from "./pages/Books";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import LandingPage from "./pages/Landing-Page/Landing";
 
 const App = () => (
   <Router>
@@ -12,6 +13,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Books} />
         <Route exact path="/books" component={Books} />
+        <Route exact path="/Landing-Page" component={LandingPage} />
         <Route exact path="/books/:id" component={Detail} />
         <Route component={NoMatch} />
       </Switch>
