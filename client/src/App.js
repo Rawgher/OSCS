@@ -12,6 +12,7 @@ import Search from "./pages/Search-Page";
 import SignUp from "./pages/Sign-Up"
 import About from "./pages/About-Us"
 
+
 const App = () => (
   <Router>
     <div>
