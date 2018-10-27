@@ -1,3 +1,15 @@
-/* img {
-  background: url(./images/waves.png);
-} */
+img {
+  width: 200px;
+  margin: 200px;
+  padding: 10px;
+  /* background: url(./images/waves.png); */
+  border: solid 1px white;
+  background-size: 200px;
+  mask-repeat: no-repeat;
+}
+.logoWrapper {
+  text-align: center;
+}
+#root {
+  background: rgb(43, 43, 43);
+}
