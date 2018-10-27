@@ -10,6 +10,18 @@ img {
 .logoWrapper {
   text-align: center;
 }
+h2 {
+  color: white;
+  position: relative;
+  top: -190px;
+  font-size: 1rem;
+}
+/* span {
+  color: white;
+  font-size: 5rem;
+  margin: 0 -150px 0 -150px;
+  font-family: "Raleway", sans-serif;
+} */
 #root {
-  background: rgb(43, 43, 43);
+  background: rgb(36, 36, 36);
 }
