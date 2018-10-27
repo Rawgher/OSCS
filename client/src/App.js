@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
 import LandingPage from "./pages/Landing-Page/Landing";
 import Categories from "./pages/Forum-Categories";
 import NewPost from "./pages/Forum-NewPost";
@@ -16,7 +15,6 @@ import About from "./pages/About-Us"
 const App = () => (
   <Router>
     <div>
-      <Nav />
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/Forum/Categories" component={Categories} />
