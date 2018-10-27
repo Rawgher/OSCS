@@ -1,3 +1,27 @@
-/* img {
-  background: url(./images/waves.png);
+img {
+  width: 200px;
+  margin: 200px;
+  padding: 10px;
+  /* background: url(./images/waves.png); */
+  border: solid 1px white;
+  background-size: 200px;
+  mask-repeat: no-repeat;
+}
+.logoWrapper {
+  text-align: center;
+}
+h2 {
+  color: white;
+  position: relative;
+  top: -190px;
+  font-size: 1rem;
+}
+/* span {
+  color: white;
+  font-size: 5rem;
+  margin: 0 -150px 0 -150px;
+  font-family: "Raleway", sans-serif;
 } */
+#root {
+  background: rgb(36, 36, 36);
+}
