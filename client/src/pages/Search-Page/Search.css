@@ -1,0 +1,21 @@
+.EGA-search-wrapper {
+  text-align: center;
+}
+.EGA-searchbar-div {
+  display: flex;
+  justify-content: center;
+}
+
+.EGA-background-image {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.stretch {
+  width: 100%;
+  height: 100%;
+}

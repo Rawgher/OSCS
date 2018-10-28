@@ -1,27 +1,26 @@
-img {
+.EGA-logo-img {
   width: 200px;
   margin: 200px;
   padding: 10px;
-  /* background: url(./images/waves.png); */
   border: solid 1px white;
-  background-size: 200px;
-  mask-repeat: no-repeat;
 }
-.logoWrapper {
+.EGA-logo-img:hover {
+  box-shadow: 0 10px 20px black; /* goes x-axis, y-axis, blur, (stretch factor on x-axis, not used here), colour */
+}
+
+.EGA-logo-img:active {
+  box-shadow: 0 10px 20px white;
+}
+.EGA-logo-img:focus {
+  box-shadow: 0 10px 20px white;
+}
+
+.EGA-logo-wrapper {
   text-align: center;
 }
-h2 {
+.EGA-logo-h2 {
   color: white;
   position: relative;
   top: -190px;
   font-size: 1rem;
-}
-/* span {
-  color: white;
-  font-size: 5rem;
-  margin: 0 -150px 0 -150px;
-  font-family: "Raleway", sans-serif;
-} */
-#root {
-  background: rgb(36, 36, 36);
 }

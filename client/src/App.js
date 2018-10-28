@@ -9,9 +9,8 @@ import ThisPost from "./pages/Forum-ThisPost";
 import User from "./pages/Forum-UserPage";
 import Login from "./pages/Login-Page";
 import Search from "./pages/Search-Page";
-import SignUp from "./pages/Sign-Up"
-import About from "./pages/About-Us"
-
+import SignUp from "./pages/Sign-Up";
+import About from "./pages/About-Us";
 
 const App = () => (
   <Router>

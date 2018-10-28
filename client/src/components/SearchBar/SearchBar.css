@@ -1,0 +1,56 @@
+.EGA-searchbar-wrapper {
+  width: 100%;
+  text-align: center;
+  padding: 100px;
+}
+
+.PrimarySearchAppBar-search-2 {
+  border: 1px solid white;
+  margin: 200px 350px 425px 350px;
+  /* width: 600px !important; */
+}
+.PrimarySearchAppBar-search-5 {
+  width: 100%;
+}
+.MuiAppBar-colorPrimary-15 {
+  background-color: inherit !important ;
+}
+.MuiPaper-elevation4-23 {
+  box-shadow: none !important ;
+}
+
+input#EGA-search-bar {
+  margin: 0 auto;
+  width: 100%;
+  height: 45px;
+  padding: 0 20px;
+  font-size: 1rem;
+  border: 1px solid #d0cfce;
+  outline: none;
+  &:focus {
+    border: 1px solid #008abf;
+    transition: 0.35s ease;
+    color: #008abf;
+    &::-webkit-input-placeholder {
+      transition: opacity 0.45s ease;
+      opacity: 0;
+    }
+    &::-moz-placeholder {
+      transition: opacity 0.45s ease;
+      opacity: 0;
+    }
+    &:-ms-placeholder {
+      transition: opacity 0.45s ease;
+      opacity: 0;
+    }
+  }
+}
+
+.EGA-search-icon {
+  position: relative;
+  float: right;
+  width: 75px;
+  height: 75px;
+  top: -62px;
+  right: -75px;
+}
