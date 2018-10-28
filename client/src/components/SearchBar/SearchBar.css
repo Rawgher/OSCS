@@ -6,8 +6,7 @@
 
 .PrimarySearchAppBar-search-2 {
   border: 1px solid white;
-  margin: 200px 350px 425px 350px;
-  /* width: 600px !important; */
+  margin: 300px 350px 350px 350px;
 }
 .PrimarySearchAppBar-search-5 {
   width: 100%;
@@ -27,23 +26,6 @@ input#EGA-search-bar {
   font-size: 1rem;
   border: 1px solid #d0cfce;
   outline: none;
-  &:focus {
-    border: 1px solid #008abf;
-    transition: 0.35s ease;
-    color: #008abf;
-    &::-webkit-input-placeholder {
-      transition: opacity 0.45s ease;
-      opacity: 0;
-    }
-    &::-moz-placeholder {
-      transition: opacity 0.45s ease;
-      opacity: 0;
-    }
-    &:-ms-placeholder {
-      transition: opacity 0.45s ease;
-      opacity: 0;
-    }
-  }
 }
 
 .EGA-search-icon {
