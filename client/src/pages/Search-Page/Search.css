@@ -28,5 +28,5 @@
 
 .EGA-NavTabs {
   position: absolute;
-  right: 0;
+  justify-content: space-between;
 }

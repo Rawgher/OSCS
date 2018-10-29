@@ -1,12 +1,14 @@
 .EGA-searchbar-wrapper {
-  width: 100%;
+  width: 100% !important;
   text-align: center;
+  justify-content: center;
   padding: 100px;
 }
 
 .PrimarySearchAppBar-search-2 {
   border: 1px solid white;
-  margin: 300px 350px 350px 350px;
+  position: absolute;
+  margin: 50% 350px 350px 350px;
 }
 .PrimarySearchAppBar-search-5 {
   width: 100%;
@@ -36,3 +38,6 @@ input#EGA-search-bar {
   top: -62px;
   right: -75px;
 }
+
+/* .EGA-searchbar-div {
+} */
