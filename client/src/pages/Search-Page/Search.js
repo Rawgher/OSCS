@@ -3,11 +3,11 @@ import "./Search.css";
 import PrimarySearchAppBar from "../../components/SearchBar";
 import { Col, Row, Container } from "../../components/Grid";
 import background from "./images/background.png";
-// import NavTabs from "../../components/Nav";
+import NavTabs from "../../components/Nav";
 
 const Search = () => (
   <React.Fragment>
-    {/* <NavTabs className="EGA-NavTabs" /> */}
+    <NavTabs />
     <h2 className="EGA-search-logo-title">ONE STOP CODE SHOP</h2>
     <div className="EGA-search-wrapper">
       <div className="EGA-background-image">

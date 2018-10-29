@@ -35,28 +35,30 @@ class NavTabs extends React.Component {
 
   render() {
     const { value } = this.state;
-
+    const styles = {
+      tabPosition: {
+        right: "-65%"
+      }
+    };
     return (
       <NoSsr>
         <div>
-          <AppBar position="static">
+          <AppBar position="absolute">
             <Tabs value={value} onChange={this.handleChange}>
-              <LinkTab label="Page One" href="page1" />
-              <LinkTab label="Page Two" href="page2" />
-              <LinkTab label="Page Three" href="page3" />
+              >
+              <LinkTab
+                label="Documentation"
+                href="page1"
+                style={styles.tabPosition}
+              />
+              <LinkTab label="Forum" href="page2" style={styles.tabPosition} />
+              <LinkTab label="Login" href="page3" style={styles.tabPosition} />
             </Tabs>
           </AppBar>
-          {value === 0 && <TabContainer>Documentation</TabContainer>}
-          {value === 1 && <TabContainer>Forum</TabContainer>}
-          {value === 2 && <TabContainer>Login</TabContainer>}
         </div>
       </NoSsr>
     );
   }
 }
-
-NavTabs.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default NavTabs;
