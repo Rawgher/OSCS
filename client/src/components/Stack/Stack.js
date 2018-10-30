@@ -12,6 +12,8 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
+import VisibilityIcon from "@material-ui/icons/Visibility";
+import ThumbUpAlt from "@material-ui/icons/ThumbUpAlt"
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -20,7 +22,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 const styles = theme => ({
   card: {
     display: "flex",
-    maxWidth: 300,
+    maxWidth: 350,
   },
   details: {
     display: 'flex',
@@ -69,6 +71,14 @@ class RecipeReviewCard extends React.Component {
                 </Typography>
             </CardContent>
             <CardActions className={classes.center} disableActionSpacing>
+                <IconButton aria-label="Views">
+                    <VisibilityIcon />
+                    100
+                </IconButton>
+                <IconButton aria-label="Views">
+                    <ThumbUpAlt />
+                    100
+                </IconButton>
                 <IconButton aria-label="Add to favorites">
                     <FavoriteIcon />
                 </IconButton>
