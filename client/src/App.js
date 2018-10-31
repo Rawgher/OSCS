@@ -9,9 +9,8 @@ import ThisPost from "./pages/Forum-ThisPost";
 import User from "./pages/Forum-UserPage";
 import Login from "./pages/Login-Page";
 import Search from "./pages/Search-Page";
-import SignUp from "./pages/Sign-Up"
-import About from "./pages/About-Us"
-
+import SignUp from "./pages/Sign-Up";
+import About from "./pages/About-Us";
 
 const App = () => (
   <Router>
@@ -22,7 +21,7 @@ const App = () => (
         <Route exact path="/Forum/NewPost" component={NewPost} />
         <Route exact path="/Forum/Posts" component={Posts} />
         <Route exact path="/Forum/ThisPost" component={ThisPost} />
-        <Route exact path="/Forum/User" component={User} />
+        <Route exact path="/Forum/UserPage" component={User} />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Search" component={Search} />
         <Route exact path="/Register" component={SignUp} />
