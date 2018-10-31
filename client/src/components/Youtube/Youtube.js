@@ -1,6 +1,6 @@
 import React from 'react';
 import YouTube from 'react-youtube';
- 
+
 class Youtube extends React.Component {
   render() {
     const opts = {
@@ -10,16 +10,16 @@ class Youtube extends React.Component {
         autoplay: 1
       }
     };
- 
+
     return (
       <YouTube
-        videoId="2g811Eo7K8U"
+        videoId={this.props.videoId}
         opts={opts}
         onReady={this._onReady}
       />
     );
   }
- 
+
   _onReady(event) {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();

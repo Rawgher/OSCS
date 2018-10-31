@@ -1,14 +1,19 @@
-require ("dotenv")
+require("dotenv")
 
-var youtubeApiKey = process.env.youtubeKey
 
-        var queryURL = "https://www.googleapis.com/youtube/v3/search";
+export default {
+
+    youtubeSearch: function (search) {
+
+        const youtubeApiKey = process.env.youtubeKey
+
+        let queryURL = "https://www.googleapis.com/youtube/v3/search";
 
         // created search term that uses button clicked and what is typed in search bar
-        var q =;
+        let q = search.replace(/%20/g, "+");
 
         // options used to determine what will be displayed
-        var options = {
+        let options = {
             part: "snippet",
             key: youtubeApiKey,
             type: "video",
@@ -19,3 +24,21 @@ var youtubeApiKey = process.env.youtubeKey
             regionCode: "US",
             publishedAfter: "2017-01-01T00:00:00Z"
         };
+
+        console.log(queryURL + options)
+        return queryURL + options
+    },
+    youtubeParse: function (response) {
+        const docs = response.data.response.docs;
+        console.log(docs)
+        const videos = [];
+        docs.forEach(data => {
+            videos.push({
+                videoId: data.items.id.videoId,
+                thumbnail: data.items.snippet.thumbnails.high.url,
+                title: data.items.snippet.title
+            })
+        })
+        return videos;
+    }
+}
