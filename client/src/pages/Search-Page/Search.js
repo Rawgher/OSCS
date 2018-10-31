@@ -6,6 +6,22 @@ import background from "./images/background.png";
 import NavTabs from "../../components/Nav";
 
 class Search extends Component {
+  state = {
+    search: ""
+  };
+  enterPressed = event => {
+    event.preventDefault();
+    var code = event.keyCode || event.which;
+    if (code === 13) {
+    }
+  };
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -23,7 +39,10 @@ class Search extends Component {
             <Row>
               <Col size="md-12">
                 <div className="EGA-searchbar-div">
-                  <PrimarySearchAppBar />
+                  <PrimarySearchAppBar
+                    handleInputChange={this.handleInputChange}
+                    enterPressed={this.enterPressed}
+                  />
                 </div>
               </Col>
             </Row>
