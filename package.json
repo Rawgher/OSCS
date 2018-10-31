@@ -26,6 +26,7 @@
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.0.17",
+    "mongoose-seeder": "^1.2.1",
     "react-chat-widget": "^2.1.4-1"
   }
 }
