@@ -87,6 +87,9 @@ class PrimarySearchAppBar extends React.Component {
               </div>
               <InputBase
                 placeholder="Search…"
+                name="search"
+                onChange={this.props.handleInputChange}
+                onKeyPress={this.props.enterPressed}
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput
