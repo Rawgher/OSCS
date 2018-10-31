@@ -17,11 +17,11 @@ const App = () => (
     <div>
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/Forum-Categories" component={Categories} />
-        <Route exact path="/Forum-NewPost" component={NewPost} />
-        <Route exact path="/Forum-Posts" component={Posts} />
-        <Route exact path="/Forum-ThisPost" component={ThisPost} />
-        <Route exact path="/Forum-UserPage" component={User} />
+        <Route exact path="/Forum/Categories" component={Categories} />
+        <Route exact path="/Forum/NewPost" component={NewPost} />
+        <Route exact path="/Forum/Posts" component={Posts} />
+        <Route exact path="/Forum/ThisPost" component={ThisPost} />
+        <Route exact path="/Forum/UserPage" component={User} />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Search" component={Search} />
         <Route exact path="/Register" component={SignUp} />
