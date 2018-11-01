@@ -8,10 +8,7 @@ import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import ThumbUpAlt from "@material-ui/icons/ThumbUpAlt"
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
+import { VisibilityIcon, ThumbUpAlt, FavoriteIcon, ShareIcon } from "@material-ui/icons";
 
 const styles = theme => ({
   card: {
