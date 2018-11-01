@@ -34,7 +34,7 @@ class Search extends Component {
       .then(res =>
         youtubeAPI.youtubeParse(res))
       .then(videos => this.setState({ videos }))
-      .then(videos => console.log(videos))
+      .then(res => console.log(this.state.videos))
       .catch(err => console.log(err));
   }
 

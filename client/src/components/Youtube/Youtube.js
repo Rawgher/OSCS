@@ -11,13 +11,16 @@ class Youtube extends React.Component {
       }
     };
 
-    return (
-      <YouTube
-        videoId={this.props.videoId}
-        opts={opts}
-        onReady={this._onReady}
-      />
-    );
+    const { videos } = this.props;
+    return videos.map((a, id) => (
+      <div key={id}>
+        <YouTube
+          videoId={a.videoId}
+          opts={opts}
+          onReady={this._onReady}
+        />
+      </div>
+    ));
   }
 
   _onReady(event) {
