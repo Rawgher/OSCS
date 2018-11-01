@@ -1,11 +1,11 @@
-require("dotenv")
-
+require('dotenv').config()
 
 export default {
 
     youtubeSearch: function (search) {
 
         const youtubeApiKey = process.env.youtubeKey
+        console.log(youtubeApiKey)
 
         let queryURL = "https://www.googleapis.com/youtube/v3/search";
 
@@ -13,17 +13,7 @@ export default {
         let q = search.replace(/%20/g, "+");
 
         // options used to determine what will be displayed
-        let options = {
-            part: "snippet",
-            key: youtubeApiKey,
-            type: "video",
-            q: q,
-            maxResults: 5,
-            order: "viewCount",
-            relevanceLanguage: "en",
-            regionCode: "US",
-            publishedAfter: "2017-01-01T00:00:00Z"
-        };
+        let options = "&part=snippet&key=" + youtubeApiKey + "&type=video&q=" + q + "&maxResults=5&order=viewCount&relevanceLanguage=en&regionCode=US&publishedAfter=2017-01-01T00:00:00Z";
 
         console.log(queryURL + options)
         return queryURL + options
