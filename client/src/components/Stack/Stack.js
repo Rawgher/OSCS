@@ -36,6 +36,11 @@ const styles = theme => ({
 
 class RecipeReviewCard extends React.Component {
 
+  convertDate = props => {
+    var newDate = new Date(parseInt(props) * 1000);
+    return newDate.toLocaleDateString("en");
+  };
+
   render() {
     const { classes, results } = this.props;
 
@@ -48,7 +53,7 @@ class RecipeReviewCard extends React.Component {
                     </Avatar>
                 }
                 title={a.title}
-                subheader={a.date}
+                subheader={this.convertDate(a.date)}
             />
             <CardActions className={classes.center} disableActionSpacing center>
                 <IconButton aria-label="Views">
