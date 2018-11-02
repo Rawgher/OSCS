@@ -7,6 +7,7 @@ import NavTabs from "../../components/Nav";
 import Youtube from "../../components/Youtube";
 import axios from "axios";
 import youtubeAPI from "../../utils/YoutubeAPI";
+// import YoutubeDivs from '../../components/YoutubeDivs'
 
 class Search extends Component {
   state = {
@@ -68,6 +69,7 @@ class Search extends Component {
         <React.Fragment>
           <Youtube
             videos={this.state.videos} />
+          {/* <YoutubeDivs /> */}
         </React.Fragment>
       </div>
     );
