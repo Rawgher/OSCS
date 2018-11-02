@@ -45,6 +45,7 @@ class Search extends Component {
               <Col size="md-12">
                 <div className="EGA-searchbar-div">
                   <PrimarySearchAppBar
+                    value={this.state.search}
                     handleInputChange={this.handleInputChange}
                     enterPressed={this.enterPressed}
                   />
