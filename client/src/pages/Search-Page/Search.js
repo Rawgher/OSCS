@@ -18,8 +18,8 @@ class Search extends Component {
   enterPressed = event => {
     var code = event.keyCode || event.which;
     if (code === 13) {
-      const youtubeSearch = youtubeAPI.youtubeSearch(this.state.search)
-      this.getVideos(youtubeSearch)
+      const youtubeSearch = youtubeAPI.youtubeSearch(this.state.search);
+      this.getVideos(youtubeSearch);
     }
   };
 
@@ -31,47 +31,41 @@ class Search extends Component {
   };
 
   getVideos = youtubeSearch => {
-    axios.get(youtubeSearch)
-      .then(res =>
-        youtubeAPI.youtubeParse(res))
+    axios
+      .get(youtubeSearch)
+      .then(res => youtubeAPI.youtubeParse(res))
       .then(videos => this.setState({ videos }))
       .catch(err => console.log(err));
-  }
+  };
 
   render() {
     return (
-      <div>
-        <React.Fragment>
-          <NavTabs />
-          <h2 className="EGA-search-logo-title">ONE STOP CODE SHOP</h2>
-          <div className="EGA-search-wrapper">
-            <div className="EGA-background-image">
-              <img
-                src={background}
-                className="EGA-stretch"
-                alt="Grey Background"
-              />
-            </div>
-            <Container fluid>
-              <Row>
-                <Col size="md-12">
-                  <div className="EGA-searchbar-div">
-                    <PrimarySearchAppBar
-                      handleInputChange={this.handleInputChange}
-                      enterPressed={this.enterPressed}
-                    />
-                  </div>
-                </Col>
-              </Row>
-            </Container>
+      <React.Fragment>
+        <NavTabs />
+        <h2 className="EGA-search-logo-title">ONE STOP CODE SHOP</h2>
+        <div className="EGA-search-wrapper">
+          <div className="EGA-background-image">
+            <img
+              src={background}
+              className="EGA-stretch"
+              alt="Grey Background"
+            />
           </div>
-        </React.Fragment>
-        <React.Fragment>
-          <Youtube
-            videos={this.state.videos} />
-          {/* <YoutubeDivs /> */}
-        </React.Fragment>
-      </div>
+          <Container fluid>
+            <Row>
+              <Col size="md-12">
+                <div className="EGA-searchbar-div">
+                  <PrimarySearchAppBar
+                    handleInputChange={this.handleInputChange}
+                    enterPressed={this.enterPressed}
+                  />
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+        <Youtube videos={this.state.videos} />
+      </React.Fragment>
     );
   }
 }
