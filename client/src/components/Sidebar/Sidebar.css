@@ -1,0 +1,15 @@
+#profileButton {
+  color: rgb(255, 255, 255);
+  position: absolute;
+  right: 100px;
+  bottom: 160px;
+  width: 200px;
+  -webkit-transform: rotate(12deg);
+  z-index: 999 !important;
+}
+#profileButton:hover {
+  background: none;
+}
+#profileButton:focus {
+  outline: none;
+}
