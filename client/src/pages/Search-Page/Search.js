@@ -69,20 +69,7 @@ class Search extends Component {
               </Row>
             </Container>
           </div>
-          <Container fluid>
-            <Row>
-              <Col size="md-12">
-                <div className="EGA-searchbar-div">
-                  <PrimarySearchAppBar
-                    value={this.state.search}
-                    handleInputChange={this.handleInputChange}
-                    enterPressed={this.enterPressed}
-                  />
-                </div>
-              </Col>
-            </Row>
-          </Container>
-      </React.Fragment>
+        </React.Fragment>
         <React.Fragment>
           <Youtube
             videos={this.state.videos} />
