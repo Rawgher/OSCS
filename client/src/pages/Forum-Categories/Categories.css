@@ -1,0 +1,16 @@
+.ESH_th {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+.ESH_tcol1 {
+    width: 50%;
+}
+
+.ESH_tcol2 {
+    width: 20%;
+    text-align: center;
+}
+
+.ESH_tcol3 {
+    width: 30%;
+}
