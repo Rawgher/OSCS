@@ -4,10 +4,11 @@ import PrimarySearchAppBar from "../../components/SearchBar";
 import { Col, Row, Container } from "../../components/Grid";
 import background from "./images/background.png";
 import NavTabs from "../../components/Nav";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 import Youtube from "../../components/Youtube";
 import axios from "axios";
 import youtubeAPI from "../../utils/YoutubeAPI";
+import stackAPI from "../../utils/StackAPI";
 // import YoutubeDivs from '../../components/YoutubeDivs'
 
 class Search extends Component {
@@ -20,16 +21,12 @@ class Search extends Component {
   enterPressed = event => {
     var code = event.keyCode || event.which;
     if (code === 13) {
-<<<<<<< HEAD
       const youtubeSearch = youtubeAPI.youtubeSearch(this.state.search)
-      this.getVideos(youtubeSearch)
-      API.getStack(this.state.search).then( res => this.setState({ stackResults: res }));
-      console.log(this.state.stackResults);
-=======
-      const youtubeSearch = youtubeAPI.youtubeSearch(this.state.search);
       this.getVideos(youtubeSearch);
->>>>>>> master
+      const stackSearch = stackAPI.stackSearch(this.state.search);
+      this.getStack(stackSearch);
     }
+    
   };
 
   handleInputChange = event => {
@@ -45,6 +42,14 @@ class Search extends Component {
       .then(res => youtubeAPI.youtubeParse(res))
       .then(videos => this.setState({ videos }))
       .catch(err => console.log(err));
+  };
+
+  getStack = stackSearch => {
+    axios
+      .get(stackSearch)
+      .then(res => stackAPI.stackParse(res))
+      .then(stackResults => this.setState({ stackResults }))
+      .catch(err => console.log (err));
   };
 
   render() {
