@@ -6,6 +6,7 @@ import background from "./images/background.png";
 import NavTabs from "../../components/Nav";
 // import API from "../../utils/API";
 import Youtube from "../../components/Youtube";
+import Stack from "../../components/Stack";
 import axios from "axios";
 import youtubeAPI from "../../utils/YoutubeAPI";
 import stackAPI from "../../utils/StackAPI";
@@ -79,6 +80,7 @@ class Search extends Component {
           </Container>
         </div>
         <Youtube videos={this.state.videos} />
+        <Stack results={this.state.stackResults} />
       </React.Fragment>
     );
   }
