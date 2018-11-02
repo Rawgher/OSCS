@@ -8,7 +8,8 @@ import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-// import { VisibilityIcon, ThumbUpAlt, FavoriteIcon, ShareIcon } from '@material-ui/icons';
+// import { Visibility } from '@material-ui/icons';
+import { Visibility, ThumbUpAlt, Favorite, Share } from '@material-ui/icons';
 
 const styles = theme => ({
   card: {
@@ -63,18 +64,18 @@ class RecipeReviewCard extends React.Component {
             </CardContent>
             <CardActions className={classes.center} disableActionSpacing>
                 <IconButton aria-label="Views">
-                    {/* <VisibilityIcon /> */}
+                    <Visibility />
                     100
                 </IconButton>
                 <IconButton aria-label="Views">
-                    {/* <ThumbUpAlt /> */}
+                    <ThumbUpAlt />
                     100
                 </IconButton>
                 <IconButton aria-label="Add to favorites">
-                    {/* <FavoriteIcon /> */}
+                    <Favorite />
                 </IconButton>
                 <IconButton aria-label="Share">
-                    {/* <ShareIcon /> */}
+                    <Share />
                 </IconButton>
             </CardActions>
         </div>
