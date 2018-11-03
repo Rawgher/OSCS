@@ -12,19 +12,18 @@ class Categories extends Component {
 
   render() {
     return (
-      <Grid container>
-      <NavTabs />
-        <Grid item xs={12}>
-          <h4 className="ESH_main-title">FORUMS</h4>
-          <div className="ESH_line"></div>
-        </Grid>
-
-        <Grid container direction="row"
+      <div>
+        <Grid container
+          direction="row"
           justify="center"
           alignItems="center"
-          spacing={24}
-        >
-          <Grid item xs={12} m={9} className="ESH_forum-col">
+          spacing={24}>
+          <NavTabs />
+          <Grid item xs={12}>
+            <h4 className="ESH_main-title" style={{ marginTop: 70 }}>FORUMS</h4>
+            <div className="ESH_line"></div>
+          </Grid>
+          <Grid item s={12} m={9} className="ESH_forum-col" spacing={40}>
             <table>
               <tr className="th">
                 <th className="ESH_tcol1">TOPICS</th>
@@ -42,9 +41,9 @@ class Categories extends Component {
               ))} */}
             </table>
           </Grid>
-          <BackBtn />
         </Grid>
-      </Grid>
+        <BackBtn />
+      </div>
     );
   };
 };

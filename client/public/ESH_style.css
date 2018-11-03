@@ -15,7 +15,7 @@ body {
 .ESH_main-title {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 30px;
-    text-align: center;
+    text-align: center !important;
     color: #232323;
     margin: 50px 0;
 }
@@ -37,3 +37,4 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.12);
     margin: 20px 0;
 }
+

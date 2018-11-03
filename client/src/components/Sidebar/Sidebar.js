@@ -58,8 +58,6 @@ class Sidebar extends React.Component {
     left: false,
     bottom: false,
     right: false,
-    // need array for top posts
-    //topPosts
   };
 
   toggleDrawer = (side, open) => () => {
@@ -74,7 +72,7 @@ class Sidebar extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List>
-          {["Inbox", "Favorites", "Submissions", "Top Posts"].map(
+          {["Inbox", "Favorites", "Submissions"].map(
             (text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>
