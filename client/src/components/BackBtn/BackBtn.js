@@ -1,4 +1,5 @@
 import React from "react";
+import "./BackBtn.css";
 
 const BackBtn = () => (
     <div className="go-back">

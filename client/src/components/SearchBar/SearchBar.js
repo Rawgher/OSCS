@@ -30,7 +30,7 @@ const styles = theme => ({
     }
   },
   searchIcon: {
-    width: theme.spacing.unit * 9,
+    width: theme.spacing.unit * 6,
     height: "100%",
     position: "absolute",
     pointerEvents: "none",
