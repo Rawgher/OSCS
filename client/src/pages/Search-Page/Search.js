@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Search.css";
 import PrimarySearchAppBar from "../../components/SearchBar";
 import { Col, Row, Container } from "../../components/Grid";
-import background from "./images/background.png";
 import NavTabs from "../../components/Nav";
 // import API from "../../utils/API";
 import Youtube from "../../components/Youtube";
@@ -12,6 +11,7 @@ import youtubeAPI from "../../utils/YoutubeAPI";
 import stackAPI from "../../utils/StackAPI";
 import Sidebar from "../../components/Sidebar";
 import Chat from "../../components/Chat";
+
 import APIMenuList from "../../components/APIMenuList";
 // import YoutubeDivs from '../../components/YoutubeDivs'
 
@@ -58,8 +58,7 @@ class Search extends Component {
   render() {
     return (
       <React.Fragment>
-        <NavTabs />
-        <h2 className="EGA-search-logo-title">ONE STOP CODE SHOP</h2>
+        <h4 className="EGA-search-logo-title">ONE STOP CODE SHOP</h4>
         <div className="EGA-search-wrapper">
           <Container fluid>
             <Row>

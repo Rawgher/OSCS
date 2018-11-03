@@ -1,5 +1,6 @@
 .EGA-search-wrapper {
   text-align: center;
+  margin-top: 200px;
 }
 .EGA-searchbar-div {
   display: flex;
@@ -7,8 +8,8 @@
 }
 .EGA-search-logo-title {
   position: absolute;
-  top: 40px;
   left: 40px;
+  top: 40px;
   color: white;
   font-size: 1.2rem;
 }
