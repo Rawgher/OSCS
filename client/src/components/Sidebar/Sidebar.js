@@ -60,7 +60,8 @@ class Sidebar extends React.Component {
     right: false,
   };
 
-  toggleDrawer = (side, open) => () => {
+  toggleDrawer(side, open) {
+    console.log("toggle drawer working");
     this.setState({
       [side]: open
     });
@@ -88,20 +89,20 @@ class Sidebar extends React.Component {
     );
 
     return (
-      <div>
-        <Button id="profileButton" onClick={this.toggleDrawer("left", true)}>
+      <div id="profile-drawer-container">
+        <Button disableRipple="true" disableFocusRipple="true" id="profileButton" onClick={() => this.toggleDrawer("left", true)}>
           My Profile
         </Button>
         <SwipeableDrawer
           open={this.state.left}
-          onClose={this.toggleDrawer("left", false)}
-          onOpen={this.toggleDrawer("left", true)}
+          onClose={() => this.toggleDrawer("left", false)}
+          onOpen={() => this.toggleDrawer("left", true)}
         >
           <div
             tabIndex={0}
             role="button"
-            onClick={this.toggleDrawer("left", false)}
-            onKeyDown={this.toggleDrawer("left", false)}
+            onClick={() => this.toggleDrawer("left", false)}
+            onKeyDown={() => this.toggleDrawer("left", false)}
           >
             {sideList}
           </div>

@@ -9,6 +9,9 @@ import Stack from "../../components/Stack";
 import axios from "axios";
 import youtubeAPI from "../../utils/YoutubeAPI";
 import stackAPI from "../../utils/StackAPI";
+import Sidebar from "../../components/Sidebar";
+import Chat from "../../components/Chat";
+
 import APIMenuList from "../../components/APIMenuList";
 // import YoutubeDivs from '../../components/YoutubeDivs'
 
@@ -22,12 +25,11 @@ class Search extends Component {
   enterPressed = event => {
     var code = event.keyCode || event.which;
     if (code === 13) {
-      const youtubeSearch = youtubeAPI.youtubeSearch(this.state.search)
+      const youtubeSearch = youtubeAPI.youtubeSearch(this.state.search);
       this.getVideos(youtubeSearch);
       const stackSearch = stackAPI.stackSearch(this.state.search);
       this.getStack(stackSearch);
     }
-    
   };
 
   handleInputChange = event => {
@@ -50,7 +52,7 @@ class Search extends Component {
       .get(stackSearch)
       .then(res => stackAPI.stackParse(res))
       .then(stackResults => this.setState({ stackResults }))
-      .catch(err => console.log (err));
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -85,6 +87,17 @@ class Search extends Component {
                   <Youtube id="test" videos={this.state.videos} />
                   <Stack results={this.state.stackResults} />
                 </div>
+              </div>
+            </Col>
+            <Col size="md-2">
+              <Sidebar />
+              <Chat />
+              <div className="EGA-background-image">
+                <img
+                  src={background}
+                  className="EGA-stretch"
+                  alt="Grey Background"
+                />
               </div>
             </Col>
           </Row>
