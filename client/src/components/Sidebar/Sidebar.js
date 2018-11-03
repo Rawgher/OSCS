@@ -59,7 +59,7 @@ class Sidebar extends React.Component {
     bottom: false,
     right: false,
     // need array for top posts
-    topPosts
+    //topPosts
   };
 
   toggleDrawer = (side, open) => () => {

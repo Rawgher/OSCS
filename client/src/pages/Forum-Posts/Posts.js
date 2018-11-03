@@ -8,7 +8,7 @@ class Posts extends Component {
   state = {
     // TODO: change topic state to topic user clicks on
     topic: "HTML",
-    posts,
+    //posts,
   };
 
   render() {
@@ -33,13 +33,13 @@ class Posts extends Component {
               </tr>
 
               {/* TODO: find correct keys for mapping */}
-              {this.state.posts.map(post => (
+              {/* {this.state.posts.map(post => (
                 <tr>
                   <td><a href={`/Forum/${post._id}`}>{post.title}</a></td>
                   <td className="ESH_tcol2">{post.postNum}</td>
                   <td>{post.updatedAt}</td>
                 </tr>
-              ))}
+              ))} */}
             </table>
           </Grid>
           <BackBtn />

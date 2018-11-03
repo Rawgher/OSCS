@@ -9,14 +9,14 @@ class UserPage extends Component {
 
     // TODO: get correct state key-value pairs!!
     state = {
-        userPosts,
         userID: 1,
         username: "blah",
         firstName: "first",
         lastName: "last",
         email: "email@email.com",
-        userReplies,
-        favorites
+        // userPosts,
+        // userReplies,
+        // favorites
     };
 
     render() {
@@ -36,20 +36,20 @@ class UserPage extends Component {
                         <div className="ESH_body-title">POSTS</div>
                         <PostList>
                             {/* TODO: find correct keys for post key-value pairing */}
-                            {this.state.userPosts.map(post => (
+                            {/* {this.state.userPosts.map(post => (
                                 <PostListItem key={post._id}>
                                     <Link to={`/Forum/${post._id}`}>
                                         {post.title}
                                     </Link>
                                     {post.date}
                                 </PostListItem>
-                            ))}
+                            ))} */}
                         </PostList>
 
                         <div className="ESH_body-title">COMMENTS</div>
                         <PostList>
                             {/* TODO: find correct keys for reply key-value pairing */}
-                            {this.state.userReplies.map(reply => (
+                            {/* {this.state.userReplies.map(reply => (
                                 <PostListItem key={reply._id}>
                                     <Link to={`/Forum/${reply.postID}`}>
                                         {reply.postTitle}
@@ -57,20 +57,20 @@ class UserPage extends Component {
                                     {reply.message}
                                     {reply.date}
                                 </PostListItem>
-                            ))}
+                            ))} */}
                         </PostList>
 
                         <div className="ESH_body-title">FAVORITES</div>
                         <PostList>
                             {/* TODO: find correct keys for favorites key-value pairing */}
-                            {this.state.favorites.map(fav => (
+                            {/* {this.state.favorites.map(fav => (
                                 <PostListItem key={fav._id}>
                                     <Link to={fav.type == "forum" ? `/Forum/${fav.postID}` : fav.url}>
                                         {fav.title}
                                     </Link>
                                     {fav.teaser}
                                 </PostListItem>
-                            ))}
+                            ))} */}
                         </PostList>
                     </Grid>
 

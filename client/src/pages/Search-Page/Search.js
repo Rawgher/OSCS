@@ -10,6 +10,7 @@ import youtubeAPI from "../../utils/YoutubeAPI";
 import Sidebar from "../../components/Sidebar";
 import APIMenuList from "../../components/APIMenuList";
 // import YoutubeDivs from '../../components/YoutubeDivs'
+import Stack from "../../components/Stack";
 
 class Search extends Component {
   state = {

@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
 import BackBtn from "../../components/BackBtn";
 import "./ThisPost.css";
 
 
 class ThisPost extends Component {
   state = {
-    topic = "HTML",
-    post,
-    comments
+    topic: "HTML",
+    // post,
+    // comments
   };
 
   render() {
@@ -38,17 +37,16 @@ class ThisPost extends Component {
 
             <ul class="ESH_user-posts">
               {/* TODO: find correct keys for mapping */}
-              {this.state.comments.map(comment => (
+              {/* {this.state.comments.map(comment => (
                 <li>
                   {comment.body}
                   <i>on {comment.updatedAt}</i>
-                  <i>by <Link to="/Forum/UserPage"> {comment.author}</Link></i>
+                  <i>by <a href="/Forum/UserPage"> {comment.author}</a></i>
                 </li>
-              ))}
+              ))} */}
             </ul>
 
-            <form action={`/Forum/${this.state.post._id}`} method="post">
-                {/* START HERE */}
+            {/* <form action={`/Forum/${this.state.post._id}`} method="post">
                 <div className="input-field">
                     <textarea id="textarea1" placeholder="Write your comment here." class="materialize-textarea"
                         name="replyBody"></textarea>
@@ -57,7 +55,7 @@ class ThisPost extends Component {
                 <button class="btn waves-effect waves-light comment-submit" type="submit" name="action" id="submit">Submit
                     <i class="material-icons right">send</i>
                 </button>
-            </form>
+            </form> */}
 
             <BackBtn />
             
@@ -65,7 +63,7 @@ class ThisPost extends Component {
 
         </Grid>
 
-        <Sidebar />
+        {/* <Sidebar /> */}
 
       </Grid>
     );
