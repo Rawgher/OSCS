@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import { Visibility, ThumbUpAlt, Favorite, Share } from '@material-ui/icons';
 
 const styles = theme => ({
@@ -20,12 +18,6 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     margin: 'auto'
-  },
-  content: {
-    flex: '1 0 auto',
-  },
-  cover: {
-    width: "auto",
   },
   avatar: {
     width: "60px",
@@ -51,7 +43,7 @@ class RecipeReviewCard extends React.Component {
         <div className={classes.details}>
             <CardHeader
                 avatar={
-                    <Avatar aria-label="Stack Overflow result" className={classes.avatar} src="./images/jrsStackLogo.png">
+                    <Avatar className={classes.avatar} alt="Stack Overflow result" src="./images/jrsStackLogo.png">
                     </Avatar>
                 }
                 title={a.title}
