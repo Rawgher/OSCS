@@ -20,11 +20,10 @@
   box-shadow: none !important ;
 }
 
-input#EGA-search-bar {
-  margin: 0 auto;
+.EGA-searchbar-div input {
+  margin: 5 auto !important;
   width: 100%;
   height: 45px;
-  padding: 0 20px;
   font-size: 1rem;
   border: 1px solid #d0cfce;
   outline: none;
