@@ -23,7 +23,7 @@ const styles = theme => ({
     },
     marginRight: theme.spacing.unit * 2,
     marginLeft: 0,
-    width: 300,
+    width: "100%",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing.unit * 3,
       width: "auto"
@@ -48,7 +48,7 @@ const styles = theme => ({
     paddingBottom: theme.spacing.unit,
     paddingLeft: theme.spacing.unit * 10,
     transition: theme.transitions.create("width"),
-    width: 300,
+    width: "100%",
     [theme.breakpoints.up("md")]: {
       width: 300
     }
