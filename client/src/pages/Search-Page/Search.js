@@ -10,6 +10,8 @@ import Stack from "../../components/Stack";
 import axios from "axios";
 import youtubeAPI from "../../utils/YoutubeAPI";
 import stackAPI from "../../utils/StackAPI";
+import Sidebar from "../../components/Sidebar";
+import APIMenuList from "../../components/APIMenuList";
 // import YoutubeDivs from '../../components/YoutubeDivs'
 
 class Search extends Component {
@@ -59,13 +61,6 @@ class Search extends Component {
         <NavTabs />
         <h2 className="EGA-search-logo-title">ONE STOP CODE SHOP</h2>
         <div className="EGA-search-wrapper">
-          <div className="EGA-background-image">
-            <img
-              src={background}
-              className="EGA-stretch"
-              alt="Grey Background"
-            />
-          </div>
           <Container fluid>
             <Row>
               <Col size="md-12">
@@ -79,8 +74,34 @@ class Search extends Component {
             </Row>
           </Container>
         </div>
-        <Youtube videos={this.state.videos} />
-        <Stack results={this.state.stackResults} />
+        <Container fluid>
+          <Row>
+            <Col size="md-1" />
+            <Col size="md-2">
+              <div id="EGA-sideTabs">
+                <APIMenuList />
+              </div>
+            </Col>
+            <Col size="md-7">
+              <div id="EGA-externalPadding">
+                <div id="EGA-videoContainer" style={{ minHeight: 10 }}>
+                  <Youtube id="test" videos={this.state.videos} />
+                  <Stack results={this.state.stackResults} />
+                </div>
+              </div>
+            </Col>
+            <Col size="md-2">
+              <div className="EGA-background-image">
+                <img
+                  src={background}
+                  className="EGA-stretch"
+                  alt="Grey Background"
+                />
+                <Sidebar />
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </React.Fragment>
     );
   }
