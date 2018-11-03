@@ -69,7 +69,7 @@ class LoginBox extends React.Component {
                 />
               </Row>
               <Button variant="contained" color="success">
-                Submit
+                Login
               </Button>
             </Form>
           </div>

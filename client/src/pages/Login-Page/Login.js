@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginBox from '../../components/Auth/Login';
+import RegisterBox from '../../components/Auth/Register';
 
 class Login extends React.Component {
     state = {
@@ -12,6 +13,7 @@ class Login extends React.Component {
         return (
             <div>
                <LoginBox />
+               <RegisterBox />
             </div>
         )
     }
