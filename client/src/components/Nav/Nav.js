@@ -5,6 +5,7 @@ import Tabs from "@material-ui/core/Tabs";
 import NoSsr from "@material-ui/core/NoSsr";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
+import "./Nav.css";
 
 function TabContainer(props) {
   return (
@@ -20,7 +21,7 @@ TabContainer.propTypes = {
 
 function LinkTab(props) {
   return (
-    <Tab component="a" onClick={event => event.preventDefault()} {...props} />
+    <Tab component="a" {...props} />
   );
 }
 
@@ -51,8 +52,8 @@ class NavTabs extends React.Component {
                 href="page1"
                 style={styles.tabPosition}
               />
-              <LinkTab label="Forum" href="page2" style={styles.tabPosition} />
-              <LinkTab label="Login" href="page3" style={styles.tabPosition} />
+              <LinkTab label="Forum" href="/Forum/Categories" style={styles.tabPosition} />
+              <LinkTab label="Login" href="/Login" style={styles.tabPosition} />
             </Tabs>
           </AppBar>
         </div>
