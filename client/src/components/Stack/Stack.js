@@ -13,11 +13,13 @@ import { Visibility, ThumbUpAlt, Favorite, Share } from '@material-ui/icons';
 const styles = theme => ({
   card: {
     display: "flex",
-    maxWidth: 350,
+    maxWidth: 320,
+    margin: 20
   },
   details: {
     display: 'flex',
     flexDirection: 'column',
+    margin: 'auto'
   },
   content: {
     flex: '1 0 auto',
@@ -49,7 +51,7 @@ class RecipeReviewCard extends React.Component {
         <div className={classes.details}>
             <CardHeader
                 avatar={
-                    <Avatar aria-label="Stack Overflow result" className={classes.avatar} src="https://media.wired.com/photos/5926db217034dc5f91becd6b/master/w_1904,c_limit/so-logo-s.jpg">
+                    <Avatar aria-label="Stack Overflow result" className={classes.avatar} src="./images/jrsStackLogo.png">
                     </Avatar>
                 }
                 title={a.title}
