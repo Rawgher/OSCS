@@ -1,32 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import classnames from 'classnames';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import red from '@material-ui/core/colors/red';
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import ThumbUpAlt from "@material-ui/icons/ThumbUpAlt"
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { Visibility, ThumbUpAlt, Favorite, Share } from '@material-ui/icons';
 
 const styles = theme => ({
   card: {
     display: "flex",
-    maxWidth: 350,
+    maxWidth: 320,
+    margin: 20
   },
   details: {
     display: 'flex',
     flexDirection: 'column',
+    margin: 'auto'
   },
   content: {
     flex: '1 0 auto',
@@ -44,51 +37,45 @@ const styles = theme => ({
 });
 
 class RecipeReviewCard extends React.Component {
-  state = { expanded: false };
 
-  handleExpandClick = () => {
-    this.setState(state => ({ expanded: !state.expanded }));
+  convertDate = props => {
+    var newDate = new Date(parseInt(props) * 1000);
+    return newDate.toLocaleDateString("en");
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, results } = this.props;
 
-    return (
-      <Card className={classes.card}>
+    return results.map((a, id) => (
+      <Card className={classes.card} key={id}>
         <div className={classes.details}>
             <CardHeader
                 avatar={
-                    <Avatar aria-label="Stack Overflow result" className={classes.avatar} src="https://media.wired.com/photos/5926db217034dc5f91becd6b/master/w_1904,c_limit/so-logo-s.jpg">
+                    <Avatar aria-label="Stack Overflow result" className={classes.avatar} src="./images/jrsStackLogo.png">
                     </Avatar>
                 }
-                title="Shrimp and Chorizo Paella"
-                subheader="September 14, 2016"
+                title={a.title}
+                subheader={this.convertDate(a.date)}
             />
-            <CardContent className={classes.content}>
-                <Typography component="p">
-                    This impressive paella is a perfect party dish and a fun meal to cook together with your
-                    guests. Add 1 cup of frozen peas along with the mussels, if you like.
-                </Typography>
-            </CardContent>
-            <CardActions className={classes.center} disableActionSpacing>
+            <CardActions className={classes.center} disableActionSpacing center>
                 <IconButton aria-label="Views">
-                    <VisibilityIcon />
-                    100
+                    <Visibility />
+                    {a.viewCount}
                 </IconButton>
                 <IconButton aria-label="Views">
                     <ThumbUpAlt />
-                    100
+                    {a.score}
                 </IconButton>
                 <IconButton aria-label="Add to favorites">
-                    <FavoriteIcon />
+                    <Favorite />
                 </IconButton>
                 <IconButton aria-label="Share">
-                    <ShareIcon />
+                    <Share />
                 </IconButton>
             </CardActions>
         </div>
       </Card>
-    );
+    ));
   }
 }
 

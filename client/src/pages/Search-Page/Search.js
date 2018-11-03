@@ -4,9 +4,12 @@ import PrimarySearchAppBar from "../../components/SearchBar";
 import { Col, Row, Container } from "../../components/Grid";
 import background from "./images/background.png";
 import NavTabs from "../../components/Nav";
+// import API from "../../utils/API";
 import Youtube from "../../components/Youtube";
+import Stack from "../../components/Stack";
 import axios from "axios";
 import youtubeAPI from "../../utils/YoutubeAPI";
+import stackAPI from "../../utils/StackAPI";
 import Sidebar from "../../components/Sidebar";
 import APIMenuList from "../../components/APIMenuList";
 // import YoutubeDivs from '../../components/YoutubeDivs'
@@ -15,15 +18,19 @@ import Stack from "../../components/Stack";
 class Search extends Component {
   state = {
     search: "",
+    stackResults: [],
     videos: []
   };
 
   enterPressed = event => {
     var code = event.keyCode || event.which;
     if (code === 13) {
-      const youtubeSearch = youtubeAPI.youtubeSearch(this.state.search);
+      const youtubeSearch = youtubeAPI.youtubeSearch(this.state.search)
       this.getVideos(youtubeSearch);
+      const stackSearch = stackAPI.stackSearch(this.state.search);
+      this.getStack(stackSearch);
     }
+    
   };
 
   handleInputChange = event => {
@@ -39,6 +46,14 @@ class Search extends Component {
       .then(res => youtubeAPI.youtubeParse(res))
       .then(videos => this.setState({ videos }))
       .catch(err => console.log(err));
+  };
+
+  getStack = stackSearch => {
+    axios
+      .get(stackSearch)
+      .then(res => stackAPI.stackParse(res))
+      .then(stackResults => this.setState({ stackResults }))
+      .catch(err => console.log (err));
   };
 
   render() {
@@ -72,6 +87,7 @@ class Search extends Component {
               <div id="EGA-externalPadding">
                 <div id="EGA-videoContainer" style={{ minHeight: 10 }}>
                   <Youtube id="test" videos={this.state.videos} />
+                  <Stack results={this.state.stackResults} />
                 </div>
               </div>
             </Col>
