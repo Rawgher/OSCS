@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import Grid from '@material-ui/core/Grid';
 import Sidebar from "../../components/Sidebar";
+import BackBtn from "../../components/BackBtn";
 import "./Posts.css";
 
 class Posts extends Component {
@@ -41,10 +42,9 @@ class Posts extends Component {
               ))}
             </table>
           </Grid>
-
-          <Sidebar />
-
+          <BackBtn />
         </Grid>
+        <Sidebar />
       </Grid>
     );
   };

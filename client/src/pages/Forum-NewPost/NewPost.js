@@ -1,6 +1,7 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
 import Sidebar from "../../components/Sidebar";
+import BackBtn from "../../components/BackBtn";
 import "./NewPost.css";
 
 const NewPost = () => (
@@ -31,10 +32,9 @@ const NewPost = () => (
           </button>
         </form>
       </Grid>
-
-      <Sidebar />
-      
+      <BackBtn/>
     </Grid>
+    <Sidebar />
   </Grid >
 );
 

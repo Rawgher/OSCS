@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Grid from '@material-ui/core/Grid';
 import Sidebar from "../../components/Sidebar";
+import BackBtn from "../../components/BackBtn";
 import "./Categories.css";
 
 class Categories extends Component {
@@ -28,7 +29,7 @@ class Categories extends Component {
                 <th className="ESH_tcol2">POSTS</th>
                 <th className="ESH_tcol3">FRESHNESS</th>
               </tr>
-              
+
               {/* TODO: find correct keys for mapping */}
               {this.state.topics.map(topic => (
                 <tr>
@@ -39,10 +40,9 @@ class Categories extends Component {
               ))}
             </table>
           </Grid>
-
-          <Sidebar/>
-          
+          <BackBtn />
         </Grid>
+        <Sidebar />
       </Grid>
     );
   };
