@@ -28,7 +28,7 @@ const styles = theme => ({
   }
 });
 
-class RecipeReviewCard extends React.Component {
+class StackCards extends React.Component {
 
   convertDate = props => {
     var newDate = new Date(parseInt(props) * 1000);
@@ -71,8 +71,8 @@ class RecipeReviewCard extends React.Component {
   }
 }
 
-RecipeReviewCard.propTypes = {
+StackCards.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(RecipeReviewCard);
+export default withStyles(styles)(StackCards);

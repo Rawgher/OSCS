@@ -1,38 +1,54 @@
-import React from 'react';
-import Form from '../../Form';
-import { Row } from '../../Grid';
-import TextField from '@material-ui/core/TextField';
-import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import { Visibility, VisibilityOff, Email } from '@material-ui/icons';
+import React from "react";
+import Form from "../../Form";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import { Container, Row } from "../../Grid";
+import { Card, CardHeader, CardContent } from "@material-ui/core/";
+import TextField from "@material-ui/core/TextField";
+import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import { Visibility, VisibilityOff, Email } from "@material-ui/icons";
+import "./LoginBox.css";
+
+const styles = theme => ({
+  card: {
+    display: "flex",
+    maxWidth: 320,
+    margin: 20
+  },
+  center: {
+    margin: "auto"
+  }
+});
 
 class LoginBox extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
-    handleChange = prop => event => {
-        this.setState({ [prop]: event.target.value });
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: ""
     };
+  }
 
-    handleClickShowPassword = () => {
-        this.setState(state => ({ showPassword: !state.showPassword }));
-    };
+  handleChange = prop => event => {
+    this.setState({ [prop]: event.target.value });
+  };
 
-    render() {
-      return (
-        <React.Fragment>
-        <div className="inner-container">
-          <div className="header">
-            Login
-          </div>
+  handleClickShowPassword = () => {
+    this.setState(state => ({ showPassword: !state.showPassword }));
+  };
 
-          <div className="box">
+  render() {
+    const { classes } = this.props;
+    return (
+      <Card className={classes.card}>
+        <Container fluid>
+          <CardHeader title="Login" />
+          <CardContent>
             <Form>
               <Row>
-                <TextField 
+                <TextField
                   variant="outlined"
                   label="Email"
                   value={this.state.email}
@@ -43,17 +59,17 @@ class LoginBox extends React.Component {
                           <Email />
                         </IconButton>
                       </InputAdornment>
-                    ),
+                    )
                   }}
                 />
               </Row>
               <Row>
-                <TextField 
+                <TextField
                   variant="outlined"
-                  type={this.state.showPassword ? 'text' : 'password'}
+                  type={this.state.showPassword ? "text" : "password"}
                   label="Password"
                   value={this.state.password}
-                  onChange={this.handleChange('password')}
+                  onChange={this.handleChange("password")}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -61,10 +77,14 @@ class LoginBox extends React.Component {
                           aria-label="Toggle password visibility"
                           onClick={this.handleClickShowPassword}
                         >
-                          {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
+                          {this.state.showPassword ? (
+                            <VisibilityOff />
+                          ) : (
+                            <Visibility />
+                          )}
                         </IconButton>
                       </InputAdornment>
-                    ),
+                    )
                   }}
                 />
               </Row>
@@ -72,11 +92,15 @@ class LoginBox extends React.Component {
                 Login
               </Button>
             </Form>
-          </div>
-        </div>
-        </React.Fragment>
-      );
-    }
+          </CardContent>
+        </Container>
+      </Card>
+    );
+  }
 }
 
-export default LoginBox;
+LoginBox.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(LoginBox);
