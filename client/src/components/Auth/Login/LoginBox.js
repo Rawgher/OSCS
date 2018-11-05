@@ -31,10 +31,6 @@ class LoginBox extends React.Component {
     };
   }
 
-  handleChange = prop => event => {
-    this.setState({ [prop]: event.target.value });
-  };
-
   handleClickShowPassword = () => {
     this.setState(state => ({ showPassword: !state.showPassword }));
   };
@@ -46,12 +42,13 @@ class LoginBox extends React.Component {
         <Container fluid>
           <CardHeader title="Login" />
           <CardContent>
-            <Form>
+            <Form action="/" onSubmit={(e) => console.log('submitted')}>
               <Row>
                 <TextField
                   variant="outlined"
                   label="Email"
                   value={this.state.email}
+                  onChange={this.onChange}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -69,7 +66,7 @@ class LoginBox extends React.Component {
                   type={this.state.showPassword ? "text" : "password"}
                   label="Password"
                   value={this.state.password}
-                  onChange={this.handleChange("password")}
+                  onChange={this.onChange}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -88,7 +85,7 @@ class LoginBox extends React.Component {
                   }}
                 />
               </Row>
-              <Button variant="contained" color="success">
+              <Button type="submit" variant="contained" color="success">
                 Login
               </Button>
             </Form>

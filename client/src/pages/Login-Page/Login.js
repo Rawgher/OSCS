@@ -23,6 +23,17 @@ class Login extends React.Component {
     this.setState({ isRegisterOpen: true, isLoginOpen: false });
   }
 
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit() {
+      (e) => console.log("submitted");
+  }
+
   render() {
     return (
       <Container>
@@ -51,7 +62,7 @@ class Login extends React.Component {
           <Row>
             <Fade isOpen={this.state.isLoginOpen} duration={500}>
               {/* <div > */}
-                <LoginBox className="box-container" />
+                <LoginBox className="box-container" onSubmit={this.handleFormSubmit} onChange={this.handleInputChange} />
               {/* </div> */}
             </Fade>
             <Fade isOpen={this.state.isRegisterOpen} duration={500}>
