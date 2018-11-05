@@ -1,0 +1,48 @@
+.chat-button {
+  position: fixed !important;
+  bottom: 20px;
+  right: 20px;
+  float: right;
+}
+
+.chat-box {
+  position: fixed !important;
+  bottom: 20px;
+  right: 100px;
+  float: right;
+}
+
+.black-border {
+  border: 0px solid transparent;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.header {
+  background: yellowgreen;
+  text-align: center;
+  padding: 10px;
+}
+
+.messages {
+  padding: 10px;
+}
+
+.ng-space {
+  height: 80vh;
+  width: 30vw;
+  background: white;
+}
+
+.flex {
+  display: flex;
+}
+
+.message-submit {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.message-input {
+}

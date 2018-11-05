@@ -2,18 +2,23 @@ import React, { Component } from "react";
 import "./Search.css";
 import PrimarySearchAppBar from "../../components/SearchBar";
 import { Col, Row, Container } from "../../components/Grid";
-import background from "./images/background.png";
 import NavTabs from "../../components/Nav";
+// import API from "../../utils/API";
 import Youtube from "../../components/Youtube";
+import Stack from "../../components/Stack";
 import axios from "axios";
 import youtubeAPI from "../../utils/YoutubeAPI";
+import stackAPI from "../../utils/StackAPI";
 import Sidebar from "../../components/Sidebar";
+import Chat from "../../components/Chat";
+
 import APIMenuList from "../../components/APIMenuList";
 // import YoutubeDivs from '../../components/YoutubeDivs'
 
 class Search extends Component {
   state = {
     search: "",
+    stackResults: [],
     videos: []
   };
 
@@ -22,6 +27,8 @@ class Search extends Component {
     if (code === 13) {
       const youtubeSearch = youtubeAPI.youtubeSearch(this.state.search);
       this.getVideos(youtubeSearch);
+      const stackSearch = stackAPI.stackSearch(this.state.search);
+      this.getStack(stackSearch);
     }
   };
 
@@ -40,11 +47,18 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
+  getStack = stackSearch => {
+    axios
+      .get(stackSearch)
+      .then(res => stackAPI.stackParse(res))
+      .then(stackResults => this.setState({ stackResults }))
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <React.Fragment>
-        <NavTabs />
-        <h2 className="EGA-search-logo-title">ONE STOP CODE SHOP</h2>
+        <h4 className="EGA-search-logo-title">ONE STOP CODE SHOP</h4>
         <div className="EGA-search-wrapper">
           <Container fluid>
             <Row>
@@ -71,17 +85,19 @@ class Search extends Component {
               <div id="EGA-externalPadding">
                 <div id="EGA-videoContainer" style={{ minHeight: 10 }}>
                   <Youtube id="test" videos={this.state.videos} />
+                  <Stack results={this.state.stackResults} />
                 </div>
               </div>
             </Col>
             <Col size="md-2">
+              <Sidebar />
+              <Chat />
               <div className="EGA-background-image">
                 <img
                   src={background}
                   className="EGA-stretch"
                   alt="Grey Background"
                 />
-                <Sidebar />
               </div>
             </Col>
           </Row>

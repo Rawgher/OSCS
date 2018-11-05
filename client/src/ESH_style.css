@@ -1,0 +1,43 @@
+body {
+    color: #3d3d3d;
+    font-family: 'Pontano Sans', sans-serif;
+}
+
+.ESH_line {
+    background-color: #50697D;
+    padding: .8px 20px;
+    width: 60px;
+    margin: 5px auto;
+    height: 1px;
+    clear: both;
+}
+
+.ESH_main-title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 30px;
+    text-align: center !important;
+    color: #232323;
+    margin: 80px 0 20px;
+}
+
+.ESH_forum-col {
+    padding-right: 1.5rem;
+    margin-top: 70px;
+}
+
+.ESH_body-title {
+    padding: 15px 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.ESH_account-info {
+    padding: 10px 30px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    margin: 20px 0;
+}
+
+th, .ESH_accountt-info, .ESH_body-title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+  }

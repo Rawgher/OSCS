@@ -30,7 +30,7 @@ const styles = theme => ({
     }
   },
   searchIcon: {
-    width: theme.spacing.unit * 9,
+    width: theme.spacing.unit * 6,
     height: "100%",
     position: "absolute",
     pointerEvents: "none",
@@ -88,6 +88,7 @@ class PrimarySearchAppBar extends React.Component {
               <InputBase
                 placeholder="Search…"
                 name="search"
+                value={this.props.value}
                 onChange={this.props.handleInputChange}
                 onKeyPress={this.props.enterPressed}
                 classes={{

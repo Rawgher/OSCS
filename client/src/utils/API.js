@@ -1,9 +1,11 @@
 import axios from "axios";
+// import env from '../../../.env';
 
 export default {
   // Gets all books
-  getBooks: function() {
-    return axios.get("/api/books");
+  getStack: (jrsSearchTerm) => {
+    var queryURL = `https://api.stackexchange.com/2.2/similar?pagesize=5&order=desc&sort=relevance&title=${jrsSearchTerm}&site=stackoverflow&key=bDGLxdw38J9H0puc2BctAQ((`;
+    return axios.get(queryURL);
   },
   // Gets the book with the given id
   getBook: function(id) {
