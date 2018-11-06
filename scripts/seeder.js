@@ -3,7 +3,7 @@ const db = require("../models");
 
 mongoose.connect(
     process.env.MONGODB_URI ||
-    "mongodb://localhost/3000"
+    "mongodb://localhost/OSCSmongotest"
 );
 
 const userSeed = [
@@ -52,7 +52,7 @@ const userSeed = [
         "createdAt": "=new Date(2018, 10, 28)",
         "updatedAt": "=new Date(2018, 10, 28)"
     }
-],
+]
 
 const topicsSeed = [
     {
@@ -95,7 +95,7 @@ const topicsSeed = [
         "createdAt": "=new Date(2018, 10, 28)",
         "updatedAt": "=new Date(2018, 10, 28)"
     }
-],
+]
 
 const postsSeed = [
     {
@@ -163,7 +163,11 @@ const postsSeed = [
     }
 ]
 
+// const repliesSeed = [
+//     {
 
+//     }
+// ]
 
 db.User
   .remove({})
@@ -201,14 +205,14 @@ db.User
     process.exit(1);
   });
 
-  db.Reply
-  .remove({})
-  .then(() => db.Reply.collection.insertMany(repliesSeed))
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+//   db.Reply
+//   .remove({})
+//   .then(() => db.Reply.collection.insertMany(repliesSeed))
+//   .then(data => {
+//     console.log(data.result.n + " records inserted!");
+//     process.exit(0);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     process.exit(1);
+//   });
