@@ -1,6 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NoMatch from "./pages/NoMatch";
+import Callback from "./pages/Callback";
+import Auth from "./utils/Authentication/auth";
+import history from "./utils/Authentication/history";
 import LandingPage from "./pages/Landing-Page/Landing";
 import Categories from "./pages/Forum-Categories";
 import NewPost from "./pages/Forum-NewPost";
@@ -16,6 +19,14 @@ import background from "./images/background.png";
 import { Col, Row, Container } from "./components/Grid";
 import Sidebar from "./components/Sidebar";
 
+const auth = new Auth();
+
+const handleAuthentication = (nextState, replace) => {
+  if (/acceess_token|id_token|error/.test(nextState.location.hash)) {
+    auth.handleAuthentication();
+  }
+}
+
 const App = () => (
   <div>
     <NavTabs />
@@ -29,10 +40,10 @@ const App = () => (
         <Sidebar />
       </div>
     </Col>
-    <Router>
+    <Router history={history}>
       <div>
         <Switch>
-          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/" auth={auth} render={(props) => <LandingPage auth={auth} {...props} />} />
           <Route exact path="/Forum/Categories" component={Categories} />
           <Route exact path="/Forum/NewPost" component={NewPost} />
           <Route exact path="/Forum/Posts" component={Posts} />
@@ -42,6 +53,10 @@ const App = () => (
           <Route exact path="/Search" component={Search} />
           <Route exact path="/Register" component={SignUp} />
           <Route exact path="/AboutUs" component={About} />
+          <Route path="/callback" render={(props) => {
+            handleAuthentication(props);
+            return <Callback {...props} />
+          }} />
           <Route component={NoMatch} />
         </Switch>
       </div>
