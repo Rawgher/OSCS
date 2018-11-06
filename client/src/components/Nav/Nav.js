@@ -44,7 +44,6 @@ class NavTabs extends React.Component {
         <div>
           <AppBar id="EGA-appBar" position="absolute">
             <Tabs value={value} onChange={this.handleChange}>
-              >
               <LinkTab label="Home" href="/search" style={styles.tabPosition} />
               <LinkTab
                 label="Documentation"

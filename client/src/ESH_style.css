@@ -4,7 +4,7 @@ body {
 }
 
 .ESH_line {
-  background-color: rgb(255, 115, 0) !important;
+  /* background-color: #50697d; */
   padding: 0.8px 20px;
   width: 60px;
   margin: 5px auto;
@@ -45,6 +45,7 @@ th,
 }
 .EGA-orange {
   color: rgb(255, 115, 0) !important;
+  font-weight: 700;
 }
 
 table {
