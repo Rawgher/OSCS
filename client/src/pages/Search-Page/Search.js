@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Search.css";
 import PrimarySearchAppBar from "../../components/SearchBar";
 import { Col, Row, Container } from "../../components/Grid";
-import NavTabs from "../../components/Nav";
 // import API from "../../utils/API";
 import Youtube from "../../components/Youtube";
 import Stack from "../../components/Stack";
@@ -92,13 +91,6 @@ class Search extends Component {
             <Col size="md-2">
               <Sidebar />
               <Chat />
-              <div className="EGA-background-image">
-                <img
-                  src={background}
-                  className="EGA-stretch"
-                  alt="Grey Background"
-                />
-              </div>
             </Col>
           </Row>
         </Container>

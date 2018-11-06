@@ -1,51 +1,51 @@
 .nav-wrapper {
-    height: 50px;
-    line-height: 50px;
+  height: 50px;
+  line-height: 50px;
 }
 
 .ESH_searchbar {
-    border: 1px solid #cccccc;
+  border: 1px solid #cccccc;
 }
 
 .searchbar i {
-    padding-left: 7px;
+  padding-left: 7px;
 }
 
 .ESH_create-post {
-    margin: 30px 0 0;
+  margin: 30px 0 0;
 }
 
 .ESH_create-btn {
-    width: 100%;
-    font-weight: bold;
-    letter-spacing: 1.5px;
+  width: 100%;
+  font-weight: bold;
+  letter-spacing: 1.5px;
 }
 
 .ESH_top-posts {
-    margin: 30px 0 0;
+  margin: 30px 0 0;
 }
 
 .ESH_top-posts li {
-    padding: 8px 0;
+  padding: 8px 0;
 }
 
 .ESH_title {
-    font-family: 'Roboto Condensed', sans-serif;
-    font-size: 20px;
-    border-bottom: 1.5px solid #50697D;
-    padding: 0 0 10px;
-    margin: 0 0 15px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 20px;
+  border-bottom: 1.5px solid #50697d;
+  padding: 0 0 10px;
+  margin: 0 0 15px;
 }
 
 #profileButton {
   color: rgb(255, 255, 255);
   background: transparent;
   position: fixed;
-  right: 0px;
-  bottom: 120px;
+  right: 100px;
+  bottom: 170px;
   width: 200px;
   -webkit-transform: rotate(14deg);
-  /* z-index: 999 !important; */
+  /* z-index:99 !important; */
 }
 #profileButton:hover {
   background: none;
