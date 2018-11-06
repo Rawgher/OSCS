@@ -14,7 +14,6 @@ import "./LoginBox.css";
 const styles = theme => ({
   card: {
     display: "flex",
-    maxWidth: 320,
     margin: 20
   },
   center: {

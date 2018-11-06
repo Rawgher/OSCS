@@ -31,13 +31,13 @@ class Login extends React.Component {
   };
 
   handleFormSubmit() {
-      (e) => console.log("submitted");
+    e => console.log("submitted");
   }
 
   render() {
     return (
       <Container>
-        <Col size="md-6">
+        <Col size="sm-12">
           <Row>
             <div
               className={
@@ -60,16 +60,22 @@ class Login extends React.Component {
           </Row>
 
           <Row>
-            <Fade isOpen={this.state.isLoginOpen} duration={500}>
-              {/* <div > */}
-                <LoginBox className="box-container" onSubmit={this.handleFormSubmit} onChange={this.handleInputChange} />
-              {/* </div> */}
-            </Fade>
-            <Fade isOpen={this.state.isRegisterOpen} duration={500}>
-              {/* <div > */}
-                <RegisterBox className="box-container"/>
-              {/* </div> */}
-            </Fade>
+            <Container>
+              <Fade isOpen={this.state.isLoginOpen} duration={500}>
+                {/* <div > */}
+                <LoginBox
+                  className="box-container"
+                  onSubmit={this.handleFormSubmit}
+                  onChange={this.handleInputChange}
+                />
+                {/* </div> */}
+              </Fade>
+              <Fade isOpen={this.state.isRegisterOpen} duration={500}>
+                {/* <div > */}
+                <RegisterBox className="box-container" />
+                {/* </div> */}
+              </Fade>
+            </Container>
           </Row>
         </Col>
       </Container>

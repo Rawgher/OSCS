@@ -31,7 +31,7 @@ export default class Fade extends React.Component {
     return (
       <Transition in={this.props.isOpen} timeout={this.props.duration}>
         {state => {
-          if (state == "exited") return null;
+          if (state === "exited") return null;
           return React.Children.map(this.props.children, (child, idx) => {
             return React.cloneElement(child, {
               style: Object.assign(
