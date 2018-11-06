@@ -36,7 +36,7 @@ class NavTabs extends React.Component {
     const { value } = this.state;
     const styles = {
       tabPosition: {
-        right: "-65%"
+        right: "-55%"
       }
     };
     return (
@@ -45,6 +45,7 @@ class NavTabs extends React.Component {
           <AppBar id="EGA-appBar" position="absolute">
             <Tabs value={value} onChange={this.handleChange}>
               >
+              <LinkTab label="Home" href="/search" style={styles.tabPosition} />
               <LinkTab
                 label="Documentation"
                 href="page1"
