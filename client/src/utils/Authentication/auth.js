@@ -5,7 +5,7 @@ export default class Auth {
     auth0 = new auth0.WebAuth({
         domain: 'jschneid94.auth0.com',
         clientID: 'o6MYkHDzWDiu6MV1VFJzKwrtEfehPMbB',
-        redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : '',
+        redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : 'http://localhost:3000/callback',
         responseType: 'token id_token',
         scope: 'openid'
     });

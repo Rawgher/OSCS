@@ -30,12 +30,22 @@ class NavTabs extends React.Component {
     value: 0
   };
 
+  login = () => {
+    this.props.auth.login();
+    console.log("I am being clicked");
+  }
+
+  logout = () => {
+    this.props.auth.logout();
+  }
+
   handleChange = (event, value) => {
     this.setState({ value });
   };
 
   render() {
     const { value } = this.state;
+    const { isAuthenticated } = this.props.auth;
     const styles = {
       tabPosition: {
         right: "-65%"
@@ -53,7 +63,16 @@ class NavTabs extends React.Component {
                 style={styles.tabPosition}
               />
               <LinkTab label="Forum" href="/Forum/Categories" style={styles.tabPosition} />
-              <LinkTab label="Login" href="/Login" style={styles.tabPosition} />
+              {
+                isAuthenticated() && (
+                  <LinkTab label="Logout" onClick={this.logout} style={styles.tabPosition} />
+                )
+              }
+              {
+                !isAuthenticated() && (
+                  <LinkTab label="Login" onClick={this.login} style={styles.tabPosition} />
+                )
+              }
             </Tabs>
           </AppBar>
         </div>

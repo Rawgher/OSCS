@@ -29,7 +29,7 @@ const handleAuthentication = (nextState, replace) => {
 
 const App = () => (
   <div>
-    <NavTabs />
+    <NavTabs auth={auth} />
     <Col size="md-2">
       <div className="EGA-background-image">
         <img
