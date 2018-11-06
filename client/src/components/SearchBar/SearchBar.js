@@ -73,7 +73,7 @@ class PrimarySearchAppBar extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar id="EGA-searchBar" position="static">
           <Toolbar>
             <Typography
               className={classes.title}

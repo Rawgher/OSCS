@@ -36,7 +36,7 @@ class NavTabs extends React.Component {
     const { value } = this.state;
     const styles = {
       tabPosition: {
-        right: "-55%"
+        right: "-50%"
       }
     };
     return (

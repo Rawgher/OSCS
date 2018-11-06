@@ -41,11 +41,11 @@
   color: rgb(255, 255, 255);
   background: transparent;
   position: fixed;
-  right: 0px;
-  bottom: 145px;
+  right: 100px;
+  bottom: 170px;
   width: 200px;
   -webkit-transform: rotate(14deg);
-  /* z-index: 999 !important; */
+  /* z-index:99 !important; */
 }
 #profileButton:hover {
   background: none;

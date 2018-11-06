@@ -38,5 +38,6 @@
   right: -75px;
 }
 
-/* .EGA-searchbar-div {
-} */
+#EGA-searchBar {
+  background: none !important;
+}
