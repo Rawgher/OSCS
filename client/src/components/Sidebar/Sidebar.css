@@ -49,7 +49,9 @@
 }
 #profileButton:hover {
   background: none;
+  color: rgb(255, 115, 0) !important;
 }
 #profileButton:focus {
   outline: none;
+  color: rgb(255, 115, 0) !important;
 }

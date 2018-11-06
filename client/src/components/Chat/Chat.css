@@ -4,7 +4,12 @@
   right: 20px;
   float: right;
 }
-
+.MuiButton-contained-14:hover {
+  background: rgb(255, 115, 0) !important;
+}
+.MuiButton-contained-14:focus {
+  background-color: #e0e0e0;
+}
 .chat-box {
   position: fixed !important;
   bottom: 20px;

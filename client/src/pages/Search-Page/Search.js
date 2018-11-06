@@ -57,7 +57,9 @@ class Search extends Component {
   render() {
     return (
       <React.Fragment>
-        <h4 className="EGA-search-logo-title">ONE STOP CODE SHOP</h4>
+        <h4 className="EGA-search-logo-title">
+          <span className="EGA-orange">ONE STOP</span> CODE SHOP
+        </h4>
         <div className="EGA-search-wrapper">
           <Container fluid>
             <Row>
