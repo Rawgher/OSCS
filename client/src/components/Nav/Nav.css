@@ -10,3 +10,7 @@
   position: absolute;
   right: 0;
 }
+#EGA-appBar {
+  background: none !important;
+  box-shadow: none !important;
+}
