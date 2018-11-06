@@ -4,7 +4,7 @@ body {
 }
 
 .ESH_line {
-  background-color: #50697d;
+  background-color: rgb(255, 115, 0) !important;
   padding: 0.8px 20px;
   width: 60px;
   margin: 5px auto;
@@ -16,7 +16,7 @@ body {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 30px;
   text-align: center !important;
-  color: #232323;
+  color: white;
   margin: 80px 0 20px;
 }
 
@@ -45,4 +45,8 @@ th,
 }
 .EGA-orange {
   color: rgb(255, 115, 0) !important;
+}
+
+table {
+  color: white;
 }
