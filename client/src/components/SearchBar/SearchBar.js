@@ -86,6 +86,7 @@ class PrimarySearchAppBar extends React.Component {
                 <SearchIcon />
               </div>
               <InputBase
+                id="EGA-searchField"
                 placeholder="Search…"
                 name="search"
                 value={this.props.value}

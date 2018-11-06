@@ -5,7 +5,7 @@
   padding: 100px;
 }
 
-.PrimarySearchAppBar-search-2 {
+/* .PrimarySearchAppBar-search-2 {
   border: 1px solid white;
   position: absolute;
   margin: 50% 350px 150px 350px;
@@ -18,7 +18,7 @@
 }
 .MuiPaper-elevation4-23 {
   box-shadow: none !important ;
-}
+} */
 
 .EGA-searchbar-div input {
   margin: 5 auto !important;
@@ -40,4 +40,19 @@
 
 #EGA-searchBar {
   background: none !important;
+  box-shadow: none !important;
+  width: 420px;
+  margin: 0 !important;
+  width: 100%;
+}
+
+#EGA-searchField {
+  width: 400px;
+  padding-left: 60px;
+  margin: 0;
+  border: 1px solid white;
+  border-radius: 7px;
+}
+#EGA-searchField:focus {
+  box-shadow: none;
 }
