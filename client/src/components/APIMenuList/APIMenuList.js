@@ -7,6 +7,7 @@ import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { withStyles } from "@material-ui/core/styles";
+import "./APIMenuList.css";
 
 const styles = theme => ({
   root: {
@@ -41,13 +42,13 @@ class APIMenuList extends React.Component {
     return (
       <div className={classes.root}>
         <Paper className={classes.paper}>
-          <MenuList>
-            <MenuItem>Youtube</MenuItem>
-            <MenuItem>Stack Overflow</MenuItem>
-            <MenuItem>Amazon</MenuItem>
-            <MenuItem>GitHub</MenuItem>
-            <MenuItem>Spotify</MenuItem>
-            <MenuItem>Forum</MenuItem>
+          <MenuList id="EGA-apiMenuList">
+            <MenuItem className="EGA-apiListItem">Youtube</MenuItem>
+            <MenuItem className="EGA-apiListItem">Stack Overflow</MenuItem>
+            <MenuItem className="EGA-apiListItem">Amazon</MenuItem>
+            <MenuItem className="EGA-apiListItem">GitHub</MenuItem>
+            <MenuItem className="EGA-apiListItem">Spotify</MenuItem>
+            <MenuItem className="EGA-apiListItem">Forum</MenuItem>
           </MenuList>
         </Paper>
         <div>

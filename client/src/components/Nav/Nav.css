@@ -14,3 +14,17 @@
   background: none !important;
   box-shadow: none !important;
 }
+
+.EGA-linkTabColor {
+  color: rgb(255, 115, 0);
+}
+
+a {
+  text-decoration: none !important;
+}
+a:hover {
+  color: rgb(255, 115, 0) !important;
+}
+.MuiPrivateTabIndicator-root-200 {
+  background-color: rgb(255, 115, 0) !important;
+}
