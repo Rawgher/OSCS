@@ -7,7 +7,7 @@ class DocumentationPage extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-12">
+          <Col size="md-12" id="EGA-documentationPageMain">
             <Documentation />
           </Col>
         </Row>
