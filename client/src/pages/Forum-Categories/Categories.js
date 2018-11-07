@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Grid from '@material-ui/core/Grid';
+import Grid from "@material-ui/core/Grid";
 import BackBtn from "../../components/BackBtn";
 import "../../ESH_style.css";
 import "./Categories.css";
@@ -12,17 +12,19 @@ class Categories extends Component {
   render() {
     return (
       <div>
-        <Grid container
+        <Grid
+          container
           direction="row"
           justify="center"
           alignItems="center"
-          spacing={24}>
+          spacing={24}
+        >
           <Grid item xs={12}>
             <h4 className="ESH_main-title">FORUMS</h4>
-            <div className="ESH_line"></div>
+            <div className="ESH_line" />
           </Grid>
-          <Grid item s={12} m={12} className="ESH_forum-col" spacing={40}>
-            <table style={{width: 900}}>
+          <Grid item s={12} m={12} className="ESH_forum-col" spacing={24}>
+            <table style={{ width: 900 }}>
               <tr className="th">
                 <th className="ESH_tcol1">TOPICS</th>
                 <th className="ESH_tcol2">POSTS</th>
@@ -47,7 +49,7 @@ class Categories extends Component {
         </Grid>
       </div>
     );
-  };
-};
+  }
+}
 
 export default Categories;

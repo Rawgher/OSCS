@@ -15,17 +15,14 @@ import NavTabs from "../src/components/Nav";
 import background from "./images/background.png";
 import { Col, Row, Container } from "./components/Grid";
 import Sidebar from "./components/Sidebar";
+import DocumentationPage from "./pages/Documentation/Documentation";
 
 const App = () => (
   <div>
     <NavTabs />
     <Col size="md-2">
       <div className="EGA-background-image">
-        <img
-          src={background}
-          className="EGA-stretch"
-          alt="Grey Background"
-        />
+        <img src={background} className="EGA-stretch" alt="Grey Background" />
         <Sidebar />
       </div>
     </Col>
@@ -42,6 +39,7 @@ const App = () => (
           <Route exact path="/Search" component={Search} />
           <Route exact path="/Register" component={SignUp} />
           <Route exact path="/AboutUs" component={About} />
+          <Route exact path="/Documentation" component={DocumentationPage} />
           <Route component={NoMatch} />
         </Switch>
       </div>
