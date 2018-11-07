@@ -10,7 +10,29 @@
   position: absolute;
   right: 0;
 }
+#EGA-appBar {
+  background: none !important;
+  box-shadow: none !important;
+}
 
-.MuiTab-label-128 a:hover {
-  color: black !important;
+.EGA-linkTabColor {
+  color: rgb(255, 115, 0);
+}
+
+a {
+  text-decoration: none !important;
+}
+a:hover {
+  color: rgb(255, 115, 0) !important;
+}
+
+/* The following styles are a bit of a work around, since I cannot access a single entry point on the Material ui component */
+.MuiPrivateTabIndicator-root-200 {
+  background-color: rgb(255, 115, 0) !important;
+}
+.MuiPrivateTabIndicator-colorSecondary-201 {
+  background-color: rgb(255, 115, 0) !important;
+}
+.MuiPrivateTabIndicator-colorSecondary-104 {
+  background-color: rgb(255, 115, 0) !important;
 }

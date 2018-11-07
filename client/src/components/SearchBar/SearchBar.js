@@ -30,7 +30,7 @@ const styles = theme => ({
     }
   },
   searchIcon: {
-    width: theme.spacing.unit * 9,
+    width: theme.spacing.unit * 6,
     height: "100%",
     position: "absolute",
     pointerEvents: "none",
@@ -73,7 +73,7 @@ class PrimarySearchAppBar extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar id="EGA-searchBar" position="static">
           <Toolbar>
             <Typography
               className={classes.title}
@@ -86,8 +86,10 @@ class PrimarySearchAppBar extends React.Component {
                 <SearchIcon />
               </div>
               <InputBase
+                id="EGA-searchField"
                 placeholder="Search…"
                 name="search"
+                value={this.props.value}
                 onChange={this.props.handleInputChange}
                 onKeyPress={this.props.enterPressed}
                 classes={{

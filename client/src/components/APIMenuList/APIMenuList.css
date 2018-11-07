@@ -1,0 +1,26 @@
+#EGA-apiMenuList {
+  background: #2c2c2c !important;
+  color: white !important;
+  border-radius: 7px;
+}
+#EGA-sideTabs {
+  color: white !important;
+}
+.MuiMenuItem-root-195 {
+  color: white !important;
+}
+.MuiMenuItem-root-159 {
+  color: white !important;
+}
+.EGA-apiListItem:hover {
+  background: rgb(255, 115, 0) !important;
+}
+.EGA-apiListItem:focus {
+  background: rgb(255, 115, 0) !important;
+}
+.APIMenuList-paper-154 {
+  background: none !important;
+}
+.APIMenuList-paper-190 {
+  background: none !important;
+}

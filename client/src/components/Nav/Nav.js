@@ -5,6 +5,7 @@ import Tabs from "@material-ui/core/Tabs";
 import NoSsr from "@material-ui/core/NoSsr";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
+import "./Nav.css";
 
 function TabContainer(props) {
   return (
@@ -19,9 +20,7 @@ TabContainer.propTypes = {
 };
 
 function LinkTab(props) {
-  return (
-    <Tab component="a" onClick={event => event.preventDefault()} {...props} />
-  );
+  return <Tab component="a" {...props} />;
 }
 
 class NavTabs extends React.Component {
@@ -37,22 +36,26 @@ class NavTabs extends React.Component {
     const { value } = this.state;
     const styles = {
       tabPosition: {
-        right: "-65%"
+        right: "-50%"
       }
     };
     return (
       <NoSsr>
         <div>
-          <AppBar position="absolute">
+          <AppBar id="EGA-appBar" position="absolute">
             <Tabs value={value} onChange={this.handleChange}>
-              >
+              <LinkTab label="Home" href="/search" style={styles.tabPosition} />
               <LinkTab
                 label="Documentation"
                 href="page1"
                 style={styles.tabPosition}
               />
-              <LinkTab label="Forum" href="page2" style={styles.tabPosition} />
-              <LinkTab label="Login" href="page3" style={styles.tabPosition} />
+              <LinkTab
+                label="Forum"
+                href="/Forum/Categories"
+                style={styles.tabPosition}
+              />
+              <LinkTab label="Login" href="/Login" style={styles.tabPosition} />
             </Tabs>
           </AppBar>
         </div>
