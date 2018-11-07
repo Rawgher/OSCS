@@ -45,7 +45,7 @@ class Categories extends Component {
         </Row>
       </Container>
     );
-  };
-};
+  }
+}
 
 export default Categories;
