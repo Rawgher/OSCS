@@ -6,6 +6,9 @@
 #EGA-sideTabs {
   color: white !important;
 }
+.MuiMenuItem-root-195 {
+  color: white !important;
+}
 .MuiMenuItem-root-159 {
   color: white !important;
 }
@@ -16,5 +19,8 @@
   background: rgb(255, 115, 0) !important;
 }
 .APIMenuList-paper-154 {
+  background: none !important;
+}
+.APIMenuList-paper-190 {
   background: none !important;
 }
