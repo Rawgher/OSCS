@@ -17,7 +17,8 @@ body {
   font-size: 30px;
   text-align: center !important;
   color: white;
-  margin: 80px 0 20px;
+  margin: 110px 0 20px;
+  letter-spacing: 1px;
 }
 
 .ESH_forum-col {
@@ -37,11 +38,12 @@ body {
 }
 
 th,
-.ESH_accountt-info,
+.ESH_account-info,
 .ESH_body-title {
   font-family: "Roboto Condensed", sans-serif;
   font-weight: normal;
   font-size: 18px;
+  letter-spacing: 1px;
 }
 .EGA-orange {
   color: rgb(255, 115, 0) !important;

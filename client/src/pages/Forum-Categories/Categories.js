@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Grid from '@material-ui/core/Grid';
-import BackBtn from "../../components/BackBtn";
+import { Col, Row, Container } from "../../components/Grid";
+import ForumSidebar from "../../components/Forum-Sidebar";
 import "../../ESH_style.css";
 import "./Categories.css";
 
@@ -11,24 +11,21 @@ class Categories extends Component {
 
   render() {
     return (
-      <div>
-        <Grid container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={24}>
-          <Grid item xs={12}>
-            <h4 className="ESH_main-title">FORUMS</h4>
+      <Container>
+        <Row>
+          <Col size="md-9">
+            <h3 className="ESH_main-title">FORUMS</h3>
             <div className="ESH_line"></div>
-          </Grid>
-          <Grid item s={12} m={12} className="ESH_forum-col" spacing={40}>
-            <table style={{width: 900}}>
+          </Col>
+        </Row>
+        <Row className="ESH_forum-col">
+          <Col size="md-9">
+            <table style={{ width: "100%" }}>
               <tr className="th">
                 <th className="ESH_tcol1">TOPICS</th>
                 <th className="ESH_tcol2">POSTS</th>
                 <th className="ESH_tcol3">FRESHNESS</th>
               </tr>
-
               <tr>
                 <td>topic here adkfjasdfij alksdjfaoids fladkjf </td>
                 <td className="ESH_tcol2">20</td>
@@ -43,9 +40,10 @@ class Categories extends Component {
                 </tr>
               ))} */}
             </table>
-          </Grid>
-        </Grid>
-      </div>
+          </Col>
+          <ForumSidebar />
+        </Row>
+      </Container>
     );
   };
 };
