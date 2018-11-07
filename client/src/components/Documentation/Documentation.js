@@ -117,7 +117,7 @@ class ProgressMobileStepper extends React.Component {
           <MobileStepper
             // steps={maxSteps}
             variant="progress"
-            steps={6}
+            steps={4}
             position="static"
             activeStep={this.state.activeStep}
             className={classes.root}
