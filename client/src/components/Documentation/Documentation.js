@@ -79,16 +79,9 @@ class ProgressMobileStepper extends React.Component {
     }));
   };
 
-  // resetSteps = () => {
-  //   this.setState(state => ({
-  //     activeStep: (state.activeStep = 0)
-  //   }));
-  // };
-
   render() {
     const { classes, theme } = this.props;
     const { activeStep } = this.state;
-    // const maxSteps = tutorialSteps.length;
 
     return (
       <div id="EGA-documentationMain">
@@ -115,7 +108,6 @@ class ProgressMobileStepper extends React.Component {
             ))}
           </AutoPlaySwipeableViews>
           <MobileStepper
-            // steps={maxSteps}
             variant="progress"
             steps={4}
             position="static"
