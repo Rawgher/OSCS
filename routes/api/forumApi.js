@@ -2,7 +2,7 @@ const router = require("express").Router();
 const forumController = require("../../controllers/forumController");
 
 router
-    .route("/")
+    .route("/Forum")
     .get(forumController.findAllTopics)
     .post();
 
