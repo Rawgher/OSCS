@@ -3,9 +3,9 @@ import history from './history';
 
 export default class Auth {
     auth0 = new auth0.WebAuth({
-        domain: 'jschneid94.auth0.com',
-        clientID: 'o6MYkHDzWDiu6MV1VFJzKwrtEfehPMbB',
-        redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : 'http://localhost:3000/callback',
+        domain: 'oscs.auth0.com',
+        clientID: 'awW6u7vuS8tI5bk42ZYJqalcfbhCTbwg',
+        redirectUri: 'http://localhost:3000/callback',
         responseType: 'token id_token',
         scope: 'openid'
     });

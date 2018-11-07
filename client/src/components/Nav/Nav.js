@@ -32,11 +32,12 @@ class NavTabs extends React.Component {
 
   login = () => {
     this.props.auth.login();
-    console.log("I am being clicked");
+    console.log("I am being logged in");
   }
 
   logout = () => {
     this.props.auth.logout();
+    console.log("I am being logged out");
   }
 
   handleChange = (event, value) => {

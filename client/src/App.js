@@ -10,9 +10,7 @@ import NewPost from "./pages/Forum-NewPost";
 import Posts from "./pages/Forum-Posts";
 import ThisPost from "./pages/Forum-ThisPost";
 import User from "./pages/Forum-UserPage";
-import Login from "./pages/Login-Page";
 import Search from "./pages/Search-Page";
-import SignUp from "./pages/Sign-Up";
 import About from "./pages/About-Us";
 import NavTabs from "../src/components/Nav";
 import background from "./images/background.png";
@@ -43,15 +41,13 @@ const App = () => (
     <Router history={history}>
       <div>
         <Switch>
-          <Route exact path="/" auth={auth} render={(props) => <LandingPage auth={auth} {...props} />} />
+          <Route exact path="/" render={(props) => <LandingPage auth={auth} {...props} />} />
           <Route exact path="/Forum/Categories" component={Categories} />
           <Route exact path="/Forum/NewPost" component={NewPost} />
           <Route exact path="/Forum/Posts" component={Posts} />
           <Route exact path="/Forum/ThisPost" component={ThisPost} />
           <Route exact path="/Forum/UserPage" component={User} />
-          <Route exact path="/Login" component={Login} />
           <Route exact path="/Search" component={Search} />
-          <Route exact path="/Register" component={SignUp} />
           <Route exact path="/AboutUs" component={About} />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
