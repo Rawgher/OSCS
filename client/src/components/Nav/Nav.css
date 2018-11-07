@@ -4,13 +4,14 @@
 .MuiPaper-root-17 {
   position: absolute;
   top: 20px;
-  right: 20px;
+  /* right: 20px; */
 }
 .EGA-Nav {
   position: absolute;
   right: 0;
 }
 #EGA-appBar {
+  max-width: 90%;
   background: none !important;
   box-shadow: none !important;
 }

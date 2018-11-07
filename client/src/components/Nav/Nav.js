@@ -36,7 +36,7 @@ class NavTabs extends React.Component {
     const { value } = this.state;
     const styles = {
       tabPosition: {
-        right: "-50%"
+        right: "-48%"
       }
     };
     return (
@@ -47,7 +47,7 @@ class NavTabs extends React.Component {
               <LinkTab label="Home" href="/search" style={styles.tabPosition} />
               <LinkTab
                 label="Documentation"
-                href="page1"
+                href="/Documentation"
                 style={styles.tabPosition}
               />
               <LinkTab
