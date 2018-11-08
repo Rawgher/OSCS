@@ -15,7 +15,13 @@
   background: none !important;
   box-shadow: none !important;
 }
-
+.EGA-search-logo-title {
+  position: absolute;
+  left: 40px;
+  color: white;
+  font-size: 1.2rem;
+  top: 0;
+}
 .EGA-linkTabColor {
   color: rgb(255, 115, 0);
 }

@@ -43,6 +43,9 @@ class NavTabs extends React.Component {
       <NoSsr>
         <div>
           <AppBar id="EGA-appBar" position="absolute">
+            <h4 className="EGA-search-logo-title">
+              <span className="EGA-orange">ONE STOP</span> CODE SHOP
+            </h4>
             <Tabs value={value} onChange={this.handleChange}>
               <LinkTab label="Home" href="/search" style={styles.tabPosition} />
               <LinkTab
