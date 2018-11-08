@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import { Visibility, ThumbUpAlt, Favorite, Share } from '@material-ui/icons';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+// import CardContent from '@material-ui/core/CardContent';
+import CardActions from "@material-ui/core/CardActions";
+import Avatar from "@material-ui/core/Avatar";
+import IconButton from "@material-ui/core/IconButton";
+// import Typography from '@material-ui/core/Typography';
+import { Visibility, ThumbUpAlt, Favorite, Share } from "@material-ui/icons";
 
 const styles = theme => ({
   card: {
@@ -17,27 +17,26 @@ const styles = theme => ({
     margin: 20
   },
   details: {
-    display: 'flex',
-    flexDirection: 'column',
-    margin: 'auto'
+    display: "flex",
+    flexDirection: "column",
+    margin: "auto"
   },
   content: {
-    flex: '1 0 auto',
+    flex: "1 0 auto"
   },
   cover: {
-    width: "auto",
+    width: "auto"
   },
   avatar: {
     width: "60px",
     height: "60px"
   },
   center: {
-      margin: "auto"
+    margin: "auto"
   }
 });
 
 class RecipeReviewCard extends React.Component {
-
   convertDate = props => {
     var newDate = new Date(parseInt(props) * 1000);
     return newDate.toLocaleDateString("en");
@@ -49,30 +48,33 @@ class RecipeReviewCard extends React.Component {
     return results.map((a, id) => (
       <Card className={classes.card} key={id}>
         <div className={classes.details}>
-            <CardHeader
-                avatar={
-                    <Avatar aria-label="Stack Overflow result" className={classes.avatar} src="./images/jrsStackLogo.png">
-                    </Avatar>
-                }
-                title={a.title}
-                subheader={this.convertDate(a.date)}
-            />
-            <CardActions className={classes.center} disableActionSpacing center>
-                <IconButton aria-label="Views">
-                    <Visibility />
-                    {a.viewCount}
-                </IconButton>
-                <IconButton aria-label="Views">
-                    <ThumbUpAlt />
-                    {a.score}
-                </IconButton>
-                <IconButton aria-label="Add to favorites">
-                    <Favorite />
-                </IconButton>
-                <IconButton aria-label="Share">
-                    <Share />
-                </IconButton>
-            </CardActions>
+          <CardHeader
+            avatar={
+              <Avatar
+                aria-label="Stack Overflow result"
+                className={classes.avatar}
+                src="./images/jrsStackLogo.png"
+              />
+            }
+            title={a.title}
+            subheader={this.convertDate(a.date)}
+          />
+          <CardActions className={classes.center} disableActionSpacing center>
+            <IconButton aria-label="Views">
+              <Visibility />
+              {a.viewCount}
+            </IconButton>
+            <IconButton aria-label="Views">
+              <ThumbUpAlt />
+              {a.score}
+            </IconButton>
+            <IconButton aria-label="Add to favorites">
+              <Favorite />
+            </IconButton>
+            <IconButton aria-label="Share">
+              <Share />
+            </IconButton>
+          </CardActions>
         </div>
       </Card>
     ));
@@ -80,7 +82,7 @@ class RecipeReviewCard extends React.Component {
 }
 
 RecipeReviewCard.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(RecipeReviewCard);

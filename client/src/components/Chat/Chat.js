@@ -2,7 +2,6 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import "./Chat.css";
 import ChatBox from "./ChatBox.js";
-import Icon from "@material-ui/core/Icon";
 import ChatIcon from "@material-ui/icons/Chat";
 import CloseIcon from "@material-ui/icons/Close";
 
