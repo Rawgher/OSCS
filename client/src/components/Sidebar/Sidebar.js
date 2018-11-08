@@ -26,7 +26,7 @@ class Sidebar extends React.Component {
     top: false,
     left: false,
     bottom: false,
-    right: false,
+    right: false
   };
 
   toggleDrawer(side, open) {
@@ -34,7 +34,7 @@ class Sidebar extends React.Component {
     this.setState({
       [side]: open
     });
-  };
+  }
 
   render() {
     const { classes } = this.props;
@@ -42,16 +42,14 @@ class Sidebar extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List>
-          {["Inbox", "Favorites", "Submissions"].map(
-            (text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            )
-          )}
+          {["Inbox", "Favorites", "Submissions"].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
         </List>
         <Divider />
       </div>
@@ -59,7 +57,10 @@ class Sidebar extends React.Component {
 
     return (
       <div id="profile-drawer-container">
-        <Button disableRipple="true" disableFocusRipple="true" id="profileButton" onClick={() => this.toggleDrawer("left", true)}>
+        <Button
+          id="profileButton"
+          onClick={() => this.toggleDrawer("left", true)}
+        >
           My Profile
         </Button>
         <SwipeableDrawer
