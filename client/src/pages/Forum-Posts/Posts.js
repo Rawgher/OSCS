@@ -1,25 +1,39 @@
 import React, { Component } from "react";
-import Grid from '@material-ui/core/Grid';
+import Grid from "@material-ui/core/Grid";
 import Sidebar from "../../components/Sidebar";
 import BackBtn from "../../components/BackBtn";
+import { Col, Row, Container } from "../../components/Grid";
+import Chat from "../../components/Chat";
+import NavTabs from "../../components/Nav";
+import Background from "../../components/Background";
 import "./Posts.css";
 
 class Posts extends Component {
   state = {
     // TODO: change topic state to topic user clicks on
-    topic: "HTML",
+    topic: "HTML"
     //posts,
   };
 
   render() {
     return (
       <Grid container>
+        <Container fluid>
+          <Background />
+          <Row>
+            <Col size="md-12">
+              <NavTabs />
+            </Col>
+          </Row>
+        </Container>
         <Grid item xs={12}>
           <h4 className="ESH_main-title">TOPIC // {this.state.topic}</h4>
-          <div className="ESH_line"></div>
+          <div className="ESH_line" />
         </Grid>
 
-        <Grid container direction="row"
+        <Grid
+          container
+          direction="row"
           justify="center"
           alignItems="center"
           spacing={24}
@@ -45,9 +59,10 @@ class Posts extends Component {
           <BackBtn />
         </Grid>
         <Sidebar />
+        <Chat />
       </Grid>
     );
-  };
-};
+  }
+}
 
 export default Posts;
