@@ -60,7 +60,7 @@ class Search extends Component {
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs />
+              <NavTabs auth={this.props.auth}/>
             </Col>
           </Row>
         </Container>
