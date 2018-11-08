@@ -43,7 +43,6 @@ class Sidebar extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List>
-<<<<<<< HEAD
           <UserProfile />
           {["Inbox", "Favorites", "Submissions"].map(
             (text, index) => (
@@ -55,16 +54,6 @@ class Sidebar extends React.Component {
               </ListItem>
             )
           )}
-=======
-          {["Inbox", "Favorites", "Submissions"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
->>>>>>> master
         </List>
         <Divider />
       </div>

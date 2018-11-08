@@ -9,11 +9,8 @@ import youtubeAPI from "../../utils/YoutubeAPI";
 import stackAPI from "../../utils/StackAPI";
 import Sidebar from "../../components/Sidebar";
 import Chat from "../../components/Chat";
-<<<<<<< HEAD
-=======
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
->>>>>>> master
 import APIMenuList from "../../components/APIMenuList";
 
 class Search extends Component {
@@ -63,7 +60,7 @@ class Search extends Component {
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs />
+              <NavTabs auth={this.props.auth}/>
             </Col>
           </Row>
         </Container>
