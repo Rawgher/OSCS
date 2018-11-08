@@ -1,0 +1,26 @@
+.ESH_create-post {
+    margin: 30px 0 0;
+}
+
+.ESH_create-btn {
+    width: 100%;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.ESH_top-posts {
+    margin: 30px 0 0;
+}
+
+.ESH_top-posts li {
+    padding: 8px 0;
+}
+
+.ESH_title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
+    color: white;
+    border-bottom: 1.5px solid white !important;
+    padding: 0 0 10px;
+    margin: 0 0 15px;
+}

@@ -42,7 +42,6 @@ class Categories extends Component {
                 <th className="ESH_tcol2">POSTS</th>
                 <th className="ESH_tcol3">FRESHNESS</th>
               </tr>
-
               <tr>
                 <td>topic here adkfjasdfij alksdjfaoids fladkjf </td>
                 <td className="ESH_tcol2">20</td>
