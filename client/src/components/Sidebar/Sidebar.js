@@ -32,6 +32,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
+import UserProfile from "../UserProfile";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
@@ -73,6 +74,7 @@ class Sidebar extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List>
+          <UserProfile />
           {["Inbox", "Favorites", "Submissions"].map(
             (text, index) => (
               <ListItem button key={text}>
