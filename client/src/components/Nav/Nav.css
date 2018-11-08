@@ -15,7 +15,13 @@
   background: none !important;
   box-shadow: none !important;
 }
-
+.EGA-search-logo-title {
+  position: absolute;
+  left: 40px;
+  color: white;
+  font-size: 1.2rem;
+  top: 0 !important;
+}
 .EGA-linkTabColor {
   color: rgb(255, 115, 0);
 }
@@ -35,5 +41,23 @@ a:hover {
   background-color: rgb(255, 115, 0) !important;
 }
 .MuiPrivateTabIndicator-colorSecondary-104 {
+  background-color: rgb(255, 115, 0) !important;
+}
+.MuiPrivateTabIndicator-root-174 {
+  background-color: rgb(255, 115, 0) !important;
+}
+.MuiPrivateTabIndicator-colorSecondary-176 {
+  background-color: rgb(255, 115, 0) !important;
+}
+.MuiTabs-indicator-161 {
+  background-color: rgb(255, 115, 0) !important;
+}
+.MuiPrivateTabIndicator-root-208 {
+  background-color: rgb(255, 115, 0) !important;
+}
+.MuiPrivateTabIndicator-colorSecondary-210 {
+  background-color: rgb(255, 115, 0) !important;
+}
+.MuiTabs-indicator-195 {
   background-color: rgb(255, 115, 0) !important;
 }

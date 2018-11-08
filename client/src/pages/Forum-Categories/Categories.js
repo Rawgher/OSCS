@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import { Col, Row, Container } from "../../components/Grid";
-import ForumSidebar from "../../components/Forum-Sidebar";
+import Grid from "@material-ui/core/Grid";
 import "../../ESH_style.css";
 import "./Categories.css";
+import { Col, Row, Container } from "../../components/Grid";
+import Sidebar from "../../components/Sidebar";
+import Chat from "../../components/Chat";
+import NavTabs from "../../components/Nav";
+import Background from "../../components/Background";
 
 class Categories extends Component {
   // state = {
@@ -11,16 +15,28 @@ class Categories extends Component {
 
   render() {
     return (
-      <Container>
-        <Row>
-          <Col size="md-9">
-            <h3 className="ESH_main-title">FORUMS</h3>
-            <div className="ESH_line"></div>
-          </Col>
-        </Row>
-        <Row className="ESH_forum-col">
-          <Col size="md-9">
-            <table style={{ width: "100%" }}>
+      <div>
+        <Container fluid>
+          <Background />
+          <Row>
+            <Col size="md-12">
+              <NavTabs />
+            </Col>
+          </Row>
+        </Container>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={24}
+        >
+          <Grid item xs={12}>
+            <h4 className="ESH_main-title">FORUMS</h4>
+            <div className="ESH_line" />
+          </Grid>
+          <Grid item s={12} m={12} className="ESH_forum-col" spacing={24}>
+            <table style={{ width: 900 }}>
               <tr className="th">
                 <th className="ESH_tcol1">TOPICS</th>
                 <th className="ESH_tcol2">POSTS</th>
@@ -40,10 +56,11 @@ class Categories extends Component {
                 </tr>
               ))} */}
             </table>
-          </Col>
-          <ForumSidebar />
-        </Row>
-      </Container>
+          </Grid>
+        </Grid>
+        <Sidebar />
+        <Chat />
+      </div>
     );
   }
 }
