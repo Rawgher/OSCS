@@ -12,10 +12,7 @@ import ThisPost from "./pages/Forum-ThisPost";
 import User from "./pages/Forum-UserPage";
 import Search from "./pages/Search-Page";
 import About from "./pages/About-Us";
-import NavTabs from "../src/components/Nav";
-import background from "./images/background.png";
-import { Col, Row, Container } from "./components/Grid";
-import Sidebar from "./components/Sidebar";
+import DocumentationPage from "./pages/Documentation/Documentation";
 
 const auth = new Auth();
 
@@ -26,38 +23,28 @@ const handleAuthentication = (nextState, replace) => {
 }
 
 const App = () => (
-  <div>
-    <NavTabs auth={auth} />
-    <Col size="md-2">
-      <div className="EGA-background-image">
-        <img
-          src={background}
-          className="EGA-stretch"
-          alt="Grey Background"
-        />
-        <Sidebar />
-      </div>
-    </Col>
-    <Router history={history}>
-      <div>
-        <Switch>
-          <Route exact path="/" render={(props) => <LandingPage auth={auth} {...props} />} />
-          <Route exact path="/Forum/Categories" component={Categories} />
-          <Route exact path="/Forum/NewPost" component={NewPost} />
-          <Route exact path="/Forum/Posts" component={Posts} />
-          <Route exact path="/Forum/ThisPost" component={ThisPost} />
-          <Route exact path="/Forum/UserPage" component={User} />
-          <Route exact path="/Search" component={Search} />
-          <Route exact path="/AboutUs" component={About} />
-          <Route path="/callback" render={(props) => {
+  <Router history={history}>
+    <div>
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/Forum/Categories" component={Categories} />
+        <Route exact path="/Forum/NewPost" component={NewPost} />
+        <Route exact path="/Forum/Posts" component={Posts} />
+        <Route exact path="/Forum/ThisPost" component={ThisPost} />
+        <Route exact path="/Forum/UserPage" component={User} />
+        <Route exact path="/Login" component={Login} />
+        <Route exact path="/Search" component={Search} />
+        <Route exact path="/Register" component={SignUp} />
+        <Route exact path="/AboutUs" component={About} />
+        <Route exact path="/Documentation" component={DocumentationPage} />
+        <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} />
           }} />
-          <Route component={NoMatch} />
-        </Switch>
-      </div>
-    </Router>
-  </div>
+        <Route component={NoMatch} />
+      </Switch>
+    </div>
+  </Router>
 );
 
 export default App;

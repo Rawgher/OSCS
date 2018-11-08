@@ -1,0 +1,10 @@
+#EGA-documentationPageMain {
+  margin: auto;
+  width: 100%;
+}
+.react-swipeable-view-container {
+  align-items: center !important;
+}
+#EGA-documentationMain {
+  margin-top: 4%;
+}

@@ -47,18 +47,21 @@ class NavTabs extends React.Component {
     const { isAuthenticated } = this.props.auth;
     const styles = {
       tabPosition: {
-        right: "-50%"
+        right: "-48%"
       }
     };
     return (
       <NoSsr>
         <div>
           <AppBar id="EGA-appBar" position="absolute">
+            <h4 className="EGA-search-logo-title">
+              <span className="EGA-orange">ONE STOP</span> CODE SHOP
+            </h4>
             <Tabs value={value} onChange={this.handleChange}>
               <LinkTab label="Home" href="/search" style={styles.tabPosition} />
               <LinkTab
                 label="Documentation"
-                href="page1"
+                href="/Documentation"
                 style={styles.tabPosition}
               />
               <LinkTab label="Forum" href="/Forum/Categories" style={styles.tabPosition} />

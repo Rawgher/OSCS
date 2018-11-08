@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -7,6 +8,19 @@ import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import { Visibility, ThumbUpAlt, Favorite, Share } from '@material-ui/icons';
+=======
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+// import CardContent from '@material-ui/core/CardContent';
+import CardActions from "@material-ui/core/CardActions";
+import Avatar from "@material-ui/core/Avatar";
+import IconButton from "@material-ui/core/IconButton";
+// import Typography from '@material-ui/core/Typography';
+import { Visibility, ThumbUpAlt, Favorite, Share } from "@material-ui/icons";
+>>>>>>> master
 
 const styles = theme => ({
   card: {
@@ -15,21 +29,34 @@ const styles = theme => ({
     margin: 20
   },
   details: {
-    display: 'flex',
-    flexDirection: 'column',
-    margin: 'auto'
+    display: "flex",
+    flexDirection: "column",
+    margin: "auto"
   },
+<<<<<<< HEAD
+=======
+  content: {
+    flex: "1 0 auto"
+  },
+  cover: {
+    width: "auto"
+  },
+>>>>>>> master
   avatar: {
     width: "60px",
     height: "60px"
   },
   center: {
-      margin: "auto"
+    margin: "auto"
   }
 });
 
+<<<<<<< HEAD
 class StackCards extends React.Component {
 
+=======
+class RecipeReviewCard extends React.Component {
+>>>>>>> master
   convertDate = props => {
     var newDate = new Date(parseInt(props) * 1000);
     return newDate.toLocaleDateString("en");
@@ -41,6 +68,7 @@ class StackCards extends React.Component {
     return results.map((a, id) => (
       <Card className={classes.card} key={id}>
         <div className={classes.details}>
+<<<<<<< HEAD
             <CardHeader
                 avatar={
                     <Avatar className={classes.avatar} alt="Stack Overflow result" src="./images/jrsStackLogo.png">
@@ -65,14 +93,51 @@ class StackCards extends React.Component {
                     <Share />
                 </IconButton>
             </CardActions>
+=======
+          <CardHeader
+            avatar={
+              <Avatar
+                aria-label="Stack Overflow result"
+                className={classes.avatar}
+                src="./images/jrsStackLogo.png"
+              />
+            }
+            title={a.title}
+            subheader={this.convertDate(a.date)}
+          />
+          <CardActions className={classes.center} disableActionSpacing center>
+            <IconButton aria-label="Views">
+              <Visibility />
+              {a.viewCount}
+            </IconButton>
+            <IconButton aria-label="Views">
+              <ThumbUpAlt />
+              {a.score}
+            </IconButton>
+            <IconButton aria-label="Add to favorites">
+              <Favorite />
+            </IconButton>
+            <IconButton aria-label="Share">
+              <Share />
+            </IconButton>
+          </CardActions>
+>>>>>>> master
         </div>
       </Card>
     ));
   }
 }
 
+<<<<<<< HEAD
 StackCards.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(StackCards);
+=======
+RecipeReviewCard.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(RecipeReviewCard);
+>>>>>>> master
