@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
-import BackBtn from "../../components/BackBtn";
 import "../../ESH_style.css";
 import "./Categories.css";
+import { Col, Row, Container } from "../../components/Grid";
+import Sidebar from "../../components/Sidebar";
+import Chat from "../../components/Chat";
+import NavTabs from "../../components/Nav";
+import Background from "../../components/Background";
 
 class Categories extends Component {
   // state = {
@@ -12,6 +16,14 @@ class Categories extends Component {
   render() {
     return (
       <div>
+        <Container fluid>
+          <Background />
+          <Row>
+            <Col size="md-12">
+              <NavTabs />
+            </Col>
+          </Row>
+        </Container>
         <Grid
           container
           direction="row"
@@ -47,6 +59,8 @@ class Categories extends Component {
             </table>
           </Grid>
         </Grid>
+        <Sidebar />
+        <Chat />
       </div>
     );
   }
