@@ -3,7 +3,7 @@ import { Container } from '../../components/Grid';
 
 const Callback = () => (
     <Container>
-        <h4>Loading...</h4>
+        <h4>You are logging in...</h4>
     </Container>
 );
 

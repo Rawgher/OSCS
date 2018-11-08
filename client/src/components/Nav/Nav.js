@@ -20,9 +20,7 @@ TabContainer.propTypes = {
 };
 
 function LinkTab(props) {
-  return (
-    <Tab component="a" {...props} />
-  );
+  return <Tab component="a" {...props} />;
 }
 
 class NavTabs extends React.Component {
@@ -49,15 +47,15 @@ class NavTabs extends React.Component {
     const { isAuthenticated } = this.props.auth;
     const styles = {
       tabPosition: {
-        right: "-65%"
+        right: "-50%"
       }
     };
     return (
       <NoSsr>
         <div>
-          <AppBar position="absolute">
+          <AppBar id="EGA-appBar" position="absolute">
             <Tabs value={value} onChange={this.handleChange}>
-              >
+              <LinkTab label="Home" href="/search" style={styles.tabPosition} />
               <LinkTab
                 label="Documentation"
                 href="page1"

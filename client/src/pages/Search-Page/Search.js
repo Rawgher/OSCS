@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import "./Search.css";
 import PrimarySearchAppBar from "../../components/SearchBar";
 import { Col, Row, Container } from "../../components/Grid";
-import background from "../../images/background.png";
-import NavTabs from "../../components/Nav";
+// import API from "../../utils/API";
 import Youtube from "../../components/Youtube";
 import Stack from "../../components/Stack";
 import axios from "axios";
@@ -57,7 +56,9 @@ class Search extends Component {
   render() {
     return (
       <React.Fragment>
-        <h4 className="EGA-search-logo-title">ONE STOP CODE SHOP</h4>
+        <h4 className="EGA-search-logo-title">
+          <span className="EGA-orange">ONE STOP</span> CODE SHOP
+        </h4>
         <div className="EGA-search-wrapper">
           <Container fluid>
             <Row>
@@ -91,13 +92,6 @@ class Search extends Component {
             <Col size="md-2">
               <Sidebar />
               <Chat />
-              <div className="EGA-background-image">
-                <img
-                  src={background}
-                  className="EGA-stretch"
-                  alt="Grey Background"
-                />
-              </div>
             </Col>
           </Row>
         </Container>
