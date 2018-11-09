@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Grid from '@material-ui/core/Grid';
-import BackBtn from "../../components/BackBtn";
+import Grid from "@material-ui/core/Grid";
+// import BackBtn from "../../components/BackBtn";
 import axios from "axios";
 import "../../ESH_style.css";
 import "./Categories.css";
@@ -17,12 +17,15 @@ class Categories extends Component {
     topics: []
   };
 
-  componentDidMount(){
-    axios.get('api/forum/categories').then(res=>{
-      this.setState({topic: res.data});
-    }).catch(err=>{
-      console.log("this is err=>", err);
-    })
+  componentDidMount() {
+    axios
+      .get("api/forum/categories")
+      .then(res => {
+        this.setState({ topic: res.data });
+      })
+      .catch(err => {
+        console.log("this is err=>", err);
+      });
   }
 
   render() {
@@ -62,7 +65,9 @@ class Categories extends Component {
               {/* TODO: find correct keys for mapping */}
               {this.state.topics.map(topic => (
                 <tr>
-                  <td><a href={`/Forum/${topic._id}`}>{topic.topic_name}</a></td>
+                  <td>
+                    <a href={`/Forum/${topic._id}`}>{topic.topic_name}</a>
+                  </td>
                   <td className="ESH_tcol2">{topic.topic_posts}</td>
                   <td>{topic.updatedAt}</td>
                 </tr>

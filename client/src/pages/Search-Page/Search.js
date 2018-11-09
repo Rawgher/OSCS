@@ -26,16 +26,13 @@ class Search extends Component {
     var code = event.keyCode || event.which;
     if (code === 13) {
       const youtubeSearch = youtubeAPI.youtubeSearch(this.state.search);
-      //   googleAPI.googleSearch(this.state.search) {
-      //     if (err) {
-      //         reject(err);
-      //     } else {
-      //         resolve(JSON.parse(body));
-      //     }
-      // }
-      const googleSearch = googleAPI.googleSearch(this.state.search);
+
+      // const googleSearch = googleAPI.googleSearch(this.state.search);
+      const googleSearch = googleAPI
+        .googleSearch(this.state.search)
+        .then(res => this.setState({ googleSearch: res }));
       this.getVideos(youtubeSearch);
-      console.log(googleSearch);
+      // console.log(googleSearch);
       this.getGoogle(googleSearch);
       const stackSearch = stackAPI.stackSearch(this.state.search);
       this.getStack(stackSearch);

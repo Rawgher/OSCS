@@ -38,20 +38,24 @@ export default {
     }
     const query = search;
     bingWebSearch(query);
+    // bingWebSearch(query).then(result => {
+    //   return result;
+    // });
   },
   bingParse: function(response) {
-    const res = response.webPages.value;
+    // const res = response.webPages.value;
+    const res = response;
     console.log(res);
 
     const googleSearch = [];
 
-    for (let i = 0; i < res.length; i++) {
-      googleSearch.push({
-        name: res[i].name,
-        url: res[i].url,
-        snippet: res[i].snippet
-      });
-    }
+    // for (let i = 0; i < res.length; i++) {
+    //   googleSearch.push({
+    //     name: res[i].name,
+    //     url: res[i].url,
+    //     snippet: res[i].snippet
+    //   });
+    // }
     console.log(googleSearch);
     return googleSearch;
   }

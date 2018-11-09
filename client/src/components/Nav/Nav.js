@@ -31,12 +31,12 @@ class NavTabs extends React.Component {
   login = () => {
     this.props.auth.login();
     console.log("I am being logged in");
-  }
+  };
 
   logout = () => {
     this.props.auth.logout();
     console.log("I am being logged out");
-  }
+  };
 
   handleChange = (event, value) => {
     this.setState({ value });
@@ -64,17 +64,25 @@ class NavTabs extends React.Component {
                 href="/Documentation"
                 style={styles.tabPosition}
               />
-              <LinkTab label="Forum" href="/Forum/Categories" style={styles.tabPosition} />
-              {
-                isAuthenticated() && (
-                  <LinkTab label="Logout" onClick={this.logout} style={styles.tabPosition} />
-                )
-              }
-              {
-                !isAuthenticated() && (
-                  <LinkTab label="Login" onClick={this.login} style={styles.tabPosition} />
-                )
-              }
+              <LinkTab
+                label="Forum"
+                href="/Forum/Categories"
+                style={styles.tabPosition}
+              />
+              {isAuthenticated() && (
+                <LinkTab
+                  label="Logout"
+                  onClick={this.logout}
+                  style={styles.tabPosition}
+                />
+              )}
+              {!isAuthenticated() && (
+                <LinkTab
+                  label="Login"
+                  onClick={this.login}
+                  style={styles.tabPosition}
+                />
+              )}
             </Tabs>
           </AppBar>
         </div>
