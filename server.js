@@ -15,8 +15,23 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
+// app.use(express.static("./public")).get("*", function(req, res) {
+//   res.sendfile("./public/index.html");
+// });
+
+app.get("*", function(req, res) {
+  const index = path.join(__dirname, "build", ".public/index.html");
+  res.sendFile(index);
+});
+
 // Connect to the Mongo DB
+<<<<<<< HEAD
 mongoose.connect(process.env.MONGODB_URI ||  "mongodb://localhost/OSCSmongotest");
+=======
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"
+);
+>>>>>>> master
 
 // Start the API server
 app.listen(PORT, function() {

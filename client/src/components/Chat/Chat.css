@@ -4,7 +4,10 @@
   right: 20px;
   float: right;
 }
-.MuiButton-contained-14:hover {
+.MuiButton-contained-151:hover {
+  background: rgb(255, 115, 0) !important;
+}
+.MuiButton-contained-111:hover {
   background: rgb(255, 115, 0) !important;
 }
 .MuiButton-contained-14:focus {
@@ -15,6 +18,10 @@
   bottom: 20px;
   right: 100px;
   float: right;
+}
+.EGA-orange {
+  color: rgb(255, 115, 0) !important;
+  font-weight: 700;
 }
 
 .black-border {

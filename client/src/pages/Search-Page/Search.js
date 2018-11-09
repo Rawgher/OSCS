@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Search.css";
 import PrimarySearchAppBar from "../../components/SearchBar";
 import { Col, Row, Container } from "../../components/Grid";
-// import API from "../../utils/API";
 import Youtube from "../../components/Youtube";
 import Stack from "../../components/Stack";
 import axios from "axios";
@@ -10,9 +9,9 @@ import youtubeAPI from "../../utils/YoutubeAPI";
 import stackAPI from "../../utils/StackAPI";
 import Sidebar from "../../components/Sidebar";
 import Chat from "../../components/Chat";
-
+import NavTabs from "../../components/Nav";
+import Background from "../../components/Background";
 import APIMenuList from "../../components/APIMenuList";
-// import YoutubeDivs from '../../components/YoutubeDivs'
 
 class Search extends Component {
   state = {
@@ -57,9 +56,14 @@ class Search extends Component {
   render() {
     return (
       <React.Fragment>
-        <h4 className="EGA-search-logo-title">
-          <span className="EGA-orange">ONE STOP</span> CODE SHOP
-        </h4>
+        <Container fluid>
+          <Background />
+          <Row>
+            <Col size="md-12">
+              <NavTabs auth={this.props.auth}/>
+            </Col>
+          </Row>
+        </Container>
         <div className="EGA-search-wrapper">
           <Container fluid>
             <Row>
