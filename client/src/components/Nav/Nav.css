@@ -34,30 +34,9 @@ a:hover {
 }
 
 /* The following styles are a bit of a work around, since I cannot access a single entry point on the Material ui component */
-.MuiPrivateTabIndicator-root-200 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiPrivateTabIndicator-colorSecondary-201 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiPrivateTabIndicator-colorSecondary-104 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiPrivateTabIndicator-root-174 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiPrivateTabIndicator-colorSecondary-176 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiTabs-indicator-161 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiPrivateTabIndicator-root-208 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiPrivateTabIndicator-colorSecondary-210 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiTabs-indicator-195 {
+
+.MuiPrivateTabIndicator-root-62,
+.MuiPrivateTabIndicator-colorSecondary-64,
+.MuiTabs-indicator-46 {
   background-color: rgb(255, 115, 0) !important;
 }
