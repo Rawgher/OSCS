@@ -8,13 +8,13 @@ import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
 import "./NewPost.css";
 
-const NewPost = () => (
+const NewPost = (props) => (
   <Grid container>
     <Container fluid>
       <Background />
       <Row>
         <Col size="md-12">
-          <NavTabs auth={this.props.auth} />
+          <NavTabs auth={props.auth} />
         </Col>
       </Row>
     </Container>

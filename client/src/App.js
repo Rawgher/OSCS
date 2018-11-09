@@ -27,7 +27,7 @@ const App = () => (
     <div>
       <Switch>
         <Route exact path="/" render={(props) => <LandingPage auth={auth} {...props} />} /> 
-        <Route exact path="/Forum/Categories" render={(props) => <Categories auth={auth} />} />
+        <Route exact path="/Forum/Categories" render={(props) => <Categories auth={auth} {...props} />} />
         <Route exact path="/Forum/NewPost" render={(props) => <NewPost auth={auth} {...props} />} />
         <Route exact path="/Forum/Posts" render={(props) => <Posts auth={auth} {...props} />} />
         <Route exact path="/Forum/ThisPost" render={(props) => <ThisPost auth={auth} {...props} />} />
