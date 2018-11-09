@@ -6,9 +6,8 @@ import "./Forum-Sidebar.css";
 
 const ForumSidebar = () => (
     <Col size="md-3">
-        <Button variant="contained" size="large" color="primary" type="submit" name="action" id="create-post" href="/Forum/NewPost">
+        <Button variant="contained" size="large" color="primary" type="submit" name="action" id="create-post" href="/Forum/NewPost" style={{width:"100%"}}>
             CREATE POST
-            <Icon>create</Icon>
         </Button>
 
         <div class="ESH_top-posts">
