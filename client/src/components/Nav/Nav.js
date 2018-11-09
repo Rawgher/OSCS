@@ -54,7 +54,7 @@ class NavTabs extends React.Component {
     const { isAuthenticated } = this.props.auth;
     const styles = {
       tabPosition: {
-        right: "-48%"
+        left: "48%"
       }
     };
     return (
@@ -64,6 +64,7 @@ class NavTabs extends React.Component {
             <span className="EGA-orange">ONE STOP</span> CODE SHOP
           </h4>
           <Tabs
+            indicatorColor="disabled"
             onClick={event => event.preventDefault()}
             value={value}
             onChange={this.handleChange}
