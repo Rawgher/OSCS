@@ -5,6 +5,7 @@ export default {
     if (!SUBSCRIPTION_KEY) {
       throw new Error("Missing the AZURE_SUBSCRIPTION_KEY environment varable");
     }
+
     function bingWebSearch(query) {
       https.get(
         {
@@ -26,6 +27,7 @@ export default {
             }
             console.log("\nJSON Response:\n");
             console.dir(JSON.parse(body), { colors: false, depth: null });
+
             let returnBody = JSON.parse(body);
             return returnBody;
           });
@@ -38,6 +40,7 @@ export default {
     }
     const query = search;
     bingWebSearch(query);
+    // return bingWebSearch(query);
     // bingWebSearch(query).then(result => {
     //   return result;
     // });
