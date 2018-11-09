@@ -26,7 +26,9 @@ a {
 a:hover {
   color: rgb(255, 115, 0) !important;
 }
-
+.MuiPaper-elevation2-14,
+.MuiPaper-rounded-11,
+.APIMenuList-paper-137,
 .MuiPaper-elevation2-15,
 .MuiPaper-rounded-12,
 .APIMenuList-paper-427,
@@ -34,4 +36,9 @@ a:hover {
 .MuiTab-root-47:focus,
 .MuiTab-textColorInherit-49:focus {
   background: none !important;
+}
+
+.MuiTab-textColorInherit-49,
+.MuiTab-selected-52 {
+  opacity: unset;
 }
