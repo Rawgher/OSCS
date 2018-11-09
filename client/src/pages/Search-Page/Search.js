@@ -16,6 +16,7 @@ import APIMenuList from "../../components/APIMenuList";
 class Search extends Component {
   state = {
     search: "",
+    googleSearch: [],
     stackResults: [],
     videos: []
   };
@@ -24,7 +25,17 @@ class Search extends Component {
     var code = event.keyCode || event.which;
     if (code === 13) {
       const youtubeSearch = youtubeAPI.youtubeSearch(this.state.search);
+      //   googleAPI.googleSearch(this.state.search) {
+      //     if (err) {
+      //         reject(err);
+      //     } else {
+      //         resolve(JSON.parse(body));
+      //     }
+      // }
+      const googleSearch = googleAPI.googleSearch(this.state.search);
       this.getVideos(youtubeSearch);
+      console.log(googleSearch);
+      this.getGoogle(googleSearch);
       const stackSearch = stackAPI.stackSearch(this.state.search);
       this.getStack(stackSearch);
     }
@@ -45,6 +56,14 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
+  getGoogle = googleSearch => {
+    axios
+      .get(googleSearch)
+      .then(res => googleAPI.bingParse(res))
+      .then(googleSearch => this.setState({ googleSearch }))
+      .catch(err => console.log(err));
+  };
+
   getStack = stackSearch => {
     axios
       .get(stackSearch)
@@ -60,7 +79,7 @@ class Search extends Component {
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs auth={this.props.auth}/>
+              <NavTabs auth={this.props.auth} />
             </Col>
           </Row>
         </Container>
