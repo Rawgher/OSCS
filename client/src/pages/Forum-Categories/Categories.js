@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import Grid from "@material-ui/core/Grid";
+import Grid from '@material-ui/core/Grid';
+import BackBtn from "../../components/BackBtn";
+import axios from "axios";
 import "../../ESH_style.css";
 import "./Categories.css";
 import { Col, Row, Container } from "../../components/Grid";
@@ -8,10 +10,20 @@ import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
 
+// TODO: get request to database to access topics for state below
+
 class Categories extends Component {
-  // state = {
-  //   topics
-  // };
+  state = {
+    topics: []
+  };
+
+  componentDidMount(){
+    axios.get('api/forum/categories').then(res=>{
+      this.setState({topic: res.data});
+    }).catch(err=>{
+      console.log("this is err=>", err);
+    })
+  }
 
   render() {
     return (
@@ -48,13 +60,13 @@ class Categories extends Component {
                 <td>11/3/2018</td>
               </tr>
               {/* TODO: find correct keys for mapping */}
-              {/* {this.state.topics.map(topic => (
+              {this.state.topics.map(topic => (
                 <tr>
-                  <td><a href={`/Forum/${topic._id}`}>{topic.topic}</a></td>
-                  <td className="ESH_tcol2">{topic.postNum}</td>
+                  <td><a href={`/Forum/${topic._id}`}>{topic.topic_name}</a></td>
+                  <td className="ESH_tcol2">{topic.topic_posts}</td>
                   <td>{topic.updatedAt}</td>
                 </tr>
-              ))} */}
+              ))}
             </table>
           </Grid>
         </Grid>
