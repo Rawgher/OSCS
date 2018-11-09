@@ -8,3 +8,8 @@
 #EGA-documentationMain {
   margin-top: 4%;
 }
+#EGA-documentationMain div div button:focus {
+  background: rgb(255, 115, 0) !important;
+  opacity: 0.7;
+  color: white;
+}
