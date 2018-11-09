@@ -15,7 +15,7 @@ const NewPost = () => (
       <Background />
       <Row>
         <Col size="md-12">
-          <NavTabs />
+          <NavTabs auth={this.props.auth} />
         </Col>
       </Row>
     </Container>

@@ -26,15 +26,15 @@ const App = () => (
   <Router history={history}>
     <div>
       <Switch>
-        <Route exact path="/" render={(props) => <LandingPage auth={auth} {...props} />} />
-        <Route exact path="/Forum/Categories" component={Categories} />
-        <Route exact path="/Forum/NewPost" component={NewPost} />
-        <Route exact path="/Forum/Posts" component={Posts} />
-        <Route exact path="/Forum/ThisPost" component={ThisPost} />
-        <Route exact path="/Forum/UserPage" component={User} />
+        <Route exact path="/" render={(props) => <LandingPage auth={auth} {...props} />} /> 
+        <Route exact path="/Forum/Categories" render={(props) => <Categories auth={auth} />} />
+        <Route exact path="/Forum/NewPost" render={(props) => <NewPost auth={auth} {...props} />} />
+        <Route exact path="/Forum/Posts" render={(props) => <Posts auth={auth} {...props} />} />
+        <Route exact path="/Forum/ThisPost" render={(props) => <ThisPost auth={auth} {...props} />} />
+        <Route exact path="/Forum/UserPage" render={(props) => <User auth={auth} {...props} />} />
         <Route exact path="/Search" render={(props) => <Search auth={auth} {...props} />} />
-        <Route exact path="/AboutUs" component={About} />
-        <Route exact path="/Documentation" component={DocumentationPage} />
+        <Route exact path="/AboutUs" render={(props) => <About auth={auth} {...props} />} />
+        <Route exact path="/Documentation" render={(props) => <DocumentationPage auth={auth} {...props} />} />
         <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} />
