@@ -3,7 +3,7 @@ const db = require("../models");
 
 mongoose.connect(
     process.env.MONGODB_URI ||
-    "mongodb://localhost/OSCSmongotest"
+    "mongodb://localhost/OSCSmongo"
 );
 
 const userSeed = [
