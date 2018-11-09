@@ -32,6 +32,11 @@ a {
 a:hover {
   color: rgb(255, 115, 0) !important;
 }
+.MuiButtonBase-root-59:focus,
+.MuiTab-root-47:focus,
+.MuiTab-textColorInherit-49:focus {
+  background: none !important;
+}
 
 /* The following styles are a bit of a work around, since I cannot access a single entry point on the Material ui component */
 .MuiPrivateTabIndicator-root-200 {
@@ -59,5 +64,10 @@ a:hover {
   background-color: rgb(255, 115, 0) !important;
 }
 .MuiTabs-indicator-195 {
+  background-color: rgb(255, 115, 0) !important;
+}
+.MuiPrivateTabIndicator-root-62,
+.MuiPrivateTabIndicator-colorSecondary-64,
+.MuiTabs-indicator-46 {
   background-color: rgb(255, 115, 0) !important;
 }
