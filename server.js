@@ -25,13 +25,7 @@ app.get("*", function(req, res) {
 });
 
 // Connect to the Mongo DB
-<<<<<<< HEAD
 mongoose.connect(process.env.MONGODB_URI ||  "mongodb://localhost/OSCSmongotest");
-=======
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"
-);
->>>>>>> master
 
 // Start the API server
 app.listen(PORT, function() {
