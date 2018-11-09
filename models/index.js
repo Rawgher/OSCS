@@ -1,3 +1,6 @@
 module.exports = {
-  Book: require("./book")
+  Topic: require("./topicTable"),
+  Reply: require("./replyTable"),
+  Post: require("./postTable"),
+  User: require("./userTable")
 };
