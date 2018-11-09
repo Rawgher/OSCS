@@ -18,7 +18,7 @@ router
 
 // display all topics
 router
-    .route("/categories")
+    .route("/Categories")
     .get(forumController.findAllTopics)
     .post(forumController.createTopic);
 
