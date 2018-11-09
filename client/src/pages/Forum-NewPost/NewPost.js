@@ -1,15 +1,16 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
 import BackBtn from "../../components/BackBtn";
 import { Col, Row, Container } from "../../components/Grid";
-import Sidebar from "../../components/Sidebar";
+import ForumSidebar from "../../components/Forum-Sidebar";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
 import "./NewPost.css";
 
 const NewPost = () => (
-  <Grid container>
+  <React.Fragment>
     <Container fluid>
       <Background />
       <Row>
@@ -19,50 +20,47 @@ const NewPost = () => (
       </Row>
     </Container>
 
-    <Grid item xs={12}>
-      <h4 className="ESH_main-title">CREATE NEW POST</h4>
-      <div className="ESH_line" />
-    </Grid>
+    <Container>
+      <Row>
+        <Col size="md-12">
+          <h4 className="ESH_main-title">CREATE NEW POST</h4>
+          <div className="ESH_line" />
+        </Col>
+      </Row>
 
-    <Grid
-      container
-      direction="row"
-      justify="center"
-      alignItems="center"
-      spacing={24}
-    >
-      <Grid item xs={12} m={9} className="ESH_forum-col">
-        <form className="col s12" action="/add-a-post" method="post">
-          <div className="input-field col-sm-12">
-            <input id="post_title" type="text" name="post_title" />
-            <label for="post_title" id="textarea1">
-              Post Title
+      <Row>
+        <Col size="md-9" className="ESH_forum-col">
+          <form action="/add-a-post" method="post">
+            <div className="input-field">
+              <input id="post_title" type="text" name="post_title" />
+              <label for="post_title" id="textarea1">
+                Post Title
             </label>
-          </div>
-          <div className="input-field col-sm-12">
-            <textarea
-              id="textarea1"
-              className="materialize-textarea"
-              name="post_body"
-            />
-            <label id="textarea1">Description (Required)</label>
-          </div>
-          <button
-            className="btn waves-effect waves-light"
-            type="submit"
-            name="action"
-            id="submit"
-          >
-            Submit
-            <i class="material-icons right">send</i>
-          </button>
-        </form>
-      </Grid>
-      <BackBtn />
-    </Grid>
-    <Sidebar />
-    <Chat />
-  </Grid>
+            </div>
+            <div className="input-field">
+              <textarea
+                id="textarea1"
+                className="materialize-textarea"
+                name="post_body"
+              />
+              <label id="textarea1">Description (Required)</label>
+            </div>
+            <Button variant="contained" size="large" color="primary" type="submit" name="action" id="submit">
+              Submit
+              <Icon> send</Icon>
+            </Button>
+          </form>
+
+          <BackBtn />
+
+        </Col>
+
+        <ForumSidebar />
+
+      </Row>
+      <Chat />
+    </Container>
+  </React.Fragment>
 );
 
 export default NewPost;
