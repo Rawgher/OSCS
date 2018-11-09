@@ -1,32 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { orange } from "@material-ui/core/colors";
 import Tabs from "@material-ui/core/Tabs";
-import { withStyles } from "@material-ui/core/styles";
-// import NoSsr from "@material-ui/core/NoSsr";
 import { Link } from "react-router-dom";
 import Tab from "@material-ui/core/Tab";
-import Typography from "@material-ui/core/Typography";
 import "./Nav.css";
-
-function TabContainer(props) {
-  return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
-      {props.children}
-    </Typography>
-  );
-}
-
-TabContainer.propTypes = {
-  children: PropTypes.node.isRequired
-};
-
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper
-  }
-});
 
 class NavTabs extends React.Component {
   state = {
@@ -48,25 +27,34 @@ class NavTabs extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
     const { value } = this.state;
-
+    const theme = createMuiTheme({
+      overrides: {
+        MuiTabs: {
+          indicator: {
+            backgroundColor: orange[700]
+            // display: "none"
+          }
+        }
+      }
+    });
     const { isAuthenticated } = this.props.auth;
     const styles = {
       tabPosition: {
-        right: "-48%"
+        left: "48%"
       }
     };
     return (
-      <div className={classes.root}>
+      <MuiThemeProvider theme={theme}>
         <AppBar id="EGA-appBar" position="absolute">
           <h4 className="EGA-search-logo-title">
             <span className="EGA-orange">ONE STOP</span> CODE SHOP
           </h4>
           <Tabs
+            onChange={this.handleChange}
+            // indicatorColor="none"
             onClick={event => event.preventDefault()}
             value={value}
-            onChange={this.handleChange}
           >
             <Tab
               label="Home"
@@ -102,11 +90,9 @@ class NavTabs extends React.Component {
             )}
           </Tabs>
         </AppBar>
-      </div>
+      </MuiThemeProvider>
     );
   }
 }
-NavTabs.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-export default withStyles(styles)(NavTabs);
+
+export default NavTabs;

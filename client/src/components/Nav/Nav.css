@@ -1,17 +1,11 @@
-.EGA-navbar {
-  background-color: inherit !important;
-}
 .MuiPaper-root-17 {
   position: absolute;
   top: 20px;
-  /* right: 20px; */
-}
-.EGA-Nav {
-  position: absolute;
-  right: 0;
 }
 #EGA-appBar {
-  max-width: 90%;
+  position: absolute !important;
+  max-width: 90% !important;
+  margin: auto !important;
   background: none !important;
   box-shadow: none !important;
 }
@@ -31,43 +25,4 @@ a {
 }
 a:hover {
   color: rgb(255, 115, 0) !important;
-}
-.MuiButtonBase-root-59:focus,
-.MuiTab-root-47:focus,
-.MuiTab-textColorInherit-49:focus {
-  background: none !important;
-}
-
-/* The following styles are a bit of a work around, since I cannot access a single entry point on the Material ui component */
-.MuiPrivateTabIndicator-root-200 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiPrivateTabIndicator-colorSecondary-201 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiPrivateTabIndicator-colorSecondary-104 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiPrivateTabIndicator-root-174 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiPrivateTabIndicator-colorSecondary-176 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiTabs-indicator-161 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiPrivateTabIndicator-root-208 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiPrivateTabIndicator-colorSecondary-210 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiTabs-indicator-195 {
-  background-color: rgb(255, 115, 0) !important;
-}
-.MuiPrivateTabIndicator-root-62,
-.MuiPrivateTabIndicator-colorSecondary-64,
-.MuiTabs-indicator-46 {
-  background-color: rgb(255, 115, 0) !important;
 }
