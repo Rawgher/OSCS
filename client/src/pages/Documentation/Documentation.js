@@ -17,7 +17,7 @@ class DocumentationPage extends Component {
           </Col>
         </Row>
         <Row>
-          <Col size="md-12" id="EGA-documentationPageMain">
+          <Col size="md-12 sm-12 xs-6" id="EGA-documentationPageMain">
             <Documentation />
           </Col>
         </Row>
