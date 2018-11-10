@@ -6,10 +6,13 @@
 #EGA-sideTabs {
   color: white !important;
 }
-.MuiMenuItem-root-195 {
+.MuiMenuItem-root-904 {
   color: white !important;
 }
 .MuiMenuItem-root-159 {
+  color: white !important;
+}
+.EGA-apiListItem {
   color: white !important;
 }
 .EGA-apiListItem:hover {
@@ -18,7 +21,7 @@
 .EGA-apiListItem:focus {
   background: rgb(255, 115, 0) !important;
 }
-.APIMenuList-paper-154 {
+.APIMenuList-paper-138 {
   background: none !important;
 }
 .APIMenuList-paper-190 {

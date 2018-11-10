@@ -11,7 +11,6 @@ const styles = theme => ({
 });
 
 class UserProfile extends React.Component {
-  
   componentDidMount() {
     console.log("Profile chip loaded");
   }
@@ -21,8 +20,13 @@ class UserProfile extends React.Component {
     return (
       <div>
         <Chip
-          avatar={<Avatar alt="#" src="#" />}
-          label="#"
+          avatar={
+            <Avatar
+              alt="#"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfDb5XEj5NRS8CkhJx2DpO0Hw6ysCbIo0V5kFzqOHUGSLrs9dy"
+            />
+          }
+          label="Jordan Shneiderpants"
           className={classes.chip}
         />
       </div>
