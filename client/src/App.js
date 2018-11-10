@@ -14,16 +14,16 @@ import Search from "./pages/Search-Page";
 import About from "./pages/About-Us";
 import DocumentationPage from "./pages/Documentation/Documentation";
 
-const auth = new Auth();
+// const auth = new Auth();
 
-const handleAuthentication = (nextState, replace) => {
-  if (/acceess_token|id_token|error/.test(nextState.location.hash)) {
-    auth.handleAuthentication();
-  }
-};
+// const handleAuthentication = (nextState, replace) => {
+//   if (/acceess_token|id_token|error/.test(nextState.location.hash)) {
+//     auth.handleAuthentication();
+//   }
+// };
 
 const App = () => (
-  <Router history={history}>
+  <Router>
     <div>
       <Switch>
         <Route
