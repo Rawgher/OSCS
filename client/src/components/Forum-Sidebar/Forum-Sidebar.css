@@ -7,7 +7,6 @@
 }
 
 .ESH_title {
-    font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
     color: white;
     padding: 0 0 10px;
@@ -15,8 +14,10 @@
 
 #create-post {
     margin: 10px 0;
+    color: black !important;
 }
 
 #create-post:hover {
-    color: white !important;
+    background: rgb(255, 115, 0) !important;
+    color: black !important;
 }

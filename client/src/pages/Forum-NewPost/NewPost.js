@@ -82,7 +82,7 @@ class NewPost extends Component {
                   <label id="textarea1" className="active">Description</label>
                 </div>
 
-                <Button variant="contained" size="large" color="primary" type="submit" name="action" id="submit" onClick={this.handleFormSubmit}>
+                <Button variant="contained" size="large" type="submit" name="action" id="submit" onClick={this.handleFormSubmit}>
                   Submit
                   <Icon style={{ marginLeft: 15 }}>send</Icon>
                 </Button>

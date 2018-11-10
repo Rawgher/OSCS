@@ -1,3 +1,10 @@
-#submit {
-    letter-spacing: 1px;
+/* label focus color */
+.input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: rgb(255, 115, 0) !important;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: .8px solid rgb(255, 115, 0) !important;
+    box-shadow: 0 .8px 0 0 rgb(255, 115, 0) !important;
 }

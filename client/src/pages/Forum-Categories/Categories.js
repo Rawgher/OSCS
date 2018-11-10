@@ -15,13 +15,14 @@ class Categories extends Component {
     topics: []
   };
 
-  componentDidMount(){
-    axios.get('/api/forum/categories').then(res=>{
-      this.setState({topic: res.data});
-    }).catch(err=>{
+  componentDidMount() {
+    axios.get('/api/forum/categories').then(res => {
+      this.setState({ topics: res.data });
+      console.log("it worked!");
+    }).catch(err => {
       console.log("this is err=>", err);
     })
-  }
+  };
 
   render() {
     return (
@@ -49,16 +50,13 @@ class Categories extends Component {
                   <th className="ESH_tcol2">POSTS</th>
                   <th className="ESH_tcol3">FRESHNESS</th>
                 </tr>
-                <tr>
-                  <td>topic here adkfjasdfij alksdjfaoids fladkjf </td>
-                  <td className="ESH_tcol2">20</td>
-                  <td>11/3/2018</td>
-                </tr>
-                {/* TODO: find correct keys for mapping */}
+
                 {this.state.topics.map(topic => (
                   <tr>
-                    <td><a href={`/Forum/${topic._id}`}>{topic.topic_name}</a></td>
-                    <td className="ESH_tcol2">{topic.topic_posts}</td>
+                    <td><a href={`/forum/${topic.topic_number}`}>{topic.topic_name}</a>
+                      <br/>{topic.topic_description}
+                    </td>
+                    <td className="ESH_tcol2">{topic.topic_posts.length}</td>
                     <td>{topic.updatedAt}</td>
                   </tr>
                 ))}
