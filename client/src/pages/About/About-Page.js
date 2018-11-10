@@ -5,6 +5,7 @@ import Sidebar from "../../components/Sidebar";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
+import "./About-Page.css";
 
 class AboutPage extends Component {
   render() {

@@ -13,6 +13,20 @@
 #EGA-teamContainer div div button {
   color: white;
 }
+#EGA-teamContainer div div a {
+  color: white;
+}
 #EGA-aboutSite h1 {
   color: white;
+}
+#EGA-aboutSiteTitle,
+#EGA-aboutTeamTitle {
+  font-size: 2rem;
+}
+
+#EGA-cardContainer {
+  display: inline-flex;
+}
+#EGA-aboutPageContainer {
+  margin-top: 40px;
 }

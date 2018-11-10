@@ -2,20 +2,21 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Card from "../../components/Card";
+import TheTeam from "../../utils/TheTeam.json";
 import "./About.css";
 
 class About extends React.Component {
   state = {
-    open: false
+    TheTeam
   };
 
   render() {
     return (
-      <Container>
+      <Container id="EGA-aboutPageContainer">
         <Row>
           <Col size="md-12 sm-12 xs-6">
             <div id="EGA-aboutSite">
-              <h1>About the Site</h1>
+              <h1 id="EGA-aboutSiteTitle">About the Site</h1>
             </div>
           </Col>
         </Row>
@@ -23,13 +24,20 @@ class About extends React.Component {
         <Row>
           <Col size="md-12 sm-12 xs-6">
             <div id="EGA-teamContainer">
-              <h1>The Team</h1>
-              <Card>Elaine</Card>
-              <Card>Enea</Card>
-              <Card>Roger</Card>
-              <Card>Jordan</Card>
-              <Card>Collin</Card>
-              <Card>Celia</Card>
+              <h1 id="EGA-aboutTeamTitle">The Team</h1>
+              <div id="EGA-cardContainer">
+                {this.state.TheTeam.map(TheTeam => (
+                  <Card
+                    id={TheTeam.id}
+                    key={TheTeam.id}
+                    image={TheTeam.image}
+                    name={TheTeam.name}
+                    description={TheTeam.description}
+                    githubURL={TheTeam.githubURL}
+                    linkedInURL={TheTeam.linkedInURL}
+                  />
+                ))}
+              </div>
             </div>
           </Col>
         </Row>
