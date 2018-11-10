@@ -1,20 +1,19 @@
-const express = require("express");
-
-const mongoose = require("mongoose");
-const routes = require("./routes");
-const app = express();
-const PORT = process.env.PORT || 3001;
-
-// Socket.io stuff
+let express = require("express");
+let app = require("express")();
 let server = require("http").Server(app);
 let io = require("socket.io")(server);
-const portt = process.env.port || 8989;
+let port = 3001;
+
+app.use("/assets", express.static(__dirname + "/dist"));
+
 let users = {};
+
 getUsers = () => {
   return Object.keys(users).map(function(key) {
     return users[key].username;
   });
 };
+
 createSocket = user => {
   let cur_user = users[user.uid],
     updated_user = {
@@ -24,6 +23,7 @@ createSocket = user => {
     };
   users = Object.assign(users, updated_user);
 };
+
 createUser = user => {
   users = Object.assign(
     {
@@ -36,6 +36,7 @@ createUser = user => {
     users
   );
 };
+
 removeSocket = socket_id => {
   let uid = "";
   Object.keys(users).map(function(key) {
@@ -63,39 +64,13 @@ removeSocket = socket_id => {
     users = clone_users;
   }
 };
-server.listen(portt, () => {
-  console.log("Running server on 127.0.0.1:" + PORT);
-});
-// Back to your regularly scheduled code
 
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-// Add routes, both API and view
-app.use(routes);
 
-// app.use(express.static("./public")).get("*", function(req, res) {
-//   res.sendfile("./public/index.html");
-// });
 
-app.get("*", function(req, res) {
-  const index = path.join(__dirname, "build", ".public/index.html");
-  res.sendFile(index);
+server.listen(port, () => {
+  console.log("Running server on 127.0.0.1:" + port);
 });
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/OSCSmongo");
-
-// Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-});
-
-// More Socket.io stuff
 io.on("connection", socket => {
   let query = socket.request._query,
     user = {
