@@ -10,8 +10,6 @@ import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
 
-// TODO: get request to database to access topics for state below
-
 class Categories extends Component {
   state = {
     topics: []
@@ -19,7 +17,7 @@ class Categories extends Component {
 
   componentDidMount(){
     axios.get('/api/forum/categories').then(res=>{
-      this.setState({topic: res.data});
+      this.setState({topics: res.data});
     }).catch(err=>{
       console.log("this is err=>", err);
     })
@@ -62,7 +60,7 @@ class Categories extends Component {
               {/* TODO: find correct keys for mapping */}
               {this.state.topics.map(topic => (
                 <tr>
-                  <td><a href={`/Forum/${topic._id}`}>{topic.topic_name}</a></td>
+                  <td><a href={`/forum/${topic.topic_name}`}>{topic.topic_name}</a></td>
                   <td className="ESH_tcol2">{topic.topic_posts}</td>
                   <td>{topic.updatedAt}</td>
                 </tr>
