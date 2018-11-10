@@ -33,42 +33,42 @@ const App = () => (
         />
         <Route
           exact
-          path="/Forum/Categories"
+          path="/forum/categories"
           render={props => <Categories auth={auth} />}
         />
         <Route
           exact
-          path="/Forum/NewPost"
+          path="/forum/newpost"
           render={props => <NewPost auth={auth} {...props} />}
         />
         <Route
           exact
-          path="/Forum/Posts"
+          path="/forum/posts"
           render={props => <Posts auth={auth} {...props} />}
         />
         <Route
           exact
-          path="/Forum/ThisPost"
+          path="/forum/thispost"
           render={props => <ThisPost auth={auth} {...props} />}
         />
         <Route
           exact
-          path="/Forum/UserPage"
+          path="/forum/userpage"
           render={props => <User auth={auth} {...props} />}
         />
         <Route
           exact
-          path="/Search"
+          path="/search"
           render={props => <Search auth={auth} {...props} />}
         />
         <Route
           exact
-          path="/AboutUs"
+          path="/aboutus"
           render={props => <About auth={auth} {...props} />}
         />
         <Route
           exact
-          path="/Documentation"
+          path="/documentation"
           render={props => <DocumentationPage auth={auth} {...props} />}
         />
         <Route
