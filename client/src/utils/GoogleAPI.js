@@ -1,16 +1,17 @@
+import { resolve } from "url";
+const https = require("https");
+
 export default {
-  googleSearch: function(search) {
-    const https = require("https");
+  bingSearch: function(search) {
     const SUBSCRIPTION_KEY = "1e61ef8e51744e889d109185995b9489";
     if (!SUBSCRIPTION_KEY) {
       throw new Error("Missing the AZURE_SUBSCRIPTION_KEY environment varable");
     }
-
-    function bingWebSearch(query) {
+    return new Promise((resolve, reject) => {
       https.get(
         {
           hostname: "api.cognitive.microsoft.com",
-          path: "/bing/v7.0/search?q=" + encodeURIComponent(query),
+          path: "/bing/v7.0/search?q=" + encodeURIComponent(search),
           headers: { "Ocp-Apim-Subscription-Key": SUBSCRIPTION_KEY }
         },
         res => {
@@ -29,22 +30,17 @@ export default {
             console.dir(JSON.parse(body), { colors: false, depth: null });
 
             let returnBody = JSON.parse(body);
-            return returnBody;
+            resolve(returnBody);
           });
           res.on("error", e => {
             console.log("Error: " + e.message);
-            throw e;
+            reject(e);
           });
         }
       );
-    }
-    const query = search;
-    bingWebSearch(query);
-    // return bingWebSearch(query);
-    // bingWebSearch(query).then(result => {
-    //   return result;
-    // });
+    });
   },
+
   bingParse: function(response) {
     // const res = response.webPages.value;
     const res = response;
