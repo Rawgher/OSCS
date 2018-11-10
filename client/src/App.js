@@ -27,14 +27,14 @@ const App = () => (
     <div>
       <Switch>
         <Route exact path="/" render={(props) => <LandingPage auth={auth} {...props} />} /> 
-        <Route exact path="/Forum/Categories" render={(props) => <Categories auth={auth} />} />
-        <Route exact path="/Forum/NewPost" render={(props) => <NewPost auth={auth} {...props} />} />
-        <Route exact path="/Forum/Posts" render={(props) => <Posts auth={auth} {...props} />} />
-        <Route exact path="/Forum/ThisPost" render={(props) => <ThisPost auth={auth} {...props} />} />
-        <Route exact path="/Forum/UserPage" render={(props) => <User auth={auth} {...props} />} />
-        <Route exact path="/Search" render={(props) => <Search auth={auth} {...props} />} />
-        <Route exact path="/AboutUs" render={(props) => <About auth={auth} {...props} />} />
-        <Route exact path="/Documentation" render={(props) => <DocumentationPage auth={auth} {...props} />} />
+        <Route exact path="/forum/categories" render={(props) => <Categories auth={auth} />} />
+        <Route exact path="/forum/newpost" render={(props) => <NewPost auth={auth} {...props} />} />
+        <Route exact path="/forum/posts" render={(props) => <Posts auth={auth} {...props} />} />
+        <Route exact path="/forum/thispost" render={(props) => <ThisPost auth={auth} {...props} />} />
+        <Route exact path="/forum/userpage" render={(props) => <User auth={auth} {...props} />} />
+        <Route exact path="/search" render={(props) => <Search auth={auth} {...props} />} />
+        <Route exact path="/aboutus" render={(props) => <About auth={auth} {...props} />} />
+        <Route exact path="/documentation" render={(props) => <DocumentationPage auth={auth} {...props} />} />
         <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} />
