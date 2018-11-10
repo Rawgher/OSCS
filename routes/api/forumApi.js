@@ -3,34 +3,34 @@ const forumController = require("../../controllers/forumController");
 
 // login
 router
-    .route("/Login")
+    .route("/login")
     .get(forumController.findUserById)
 
 // account registration
 router
-    .route("/Registration")
+    .route("/registration")
     .post(forumController.createUser)
 
 // user account information
 router
-    .route("/Forum/UserPage")
+    .route("/forum/userPage")
     .get(forumController.findUserById);
 
 // display all topics
 router
-    .route("/Categories")
+    .route("/categories")
     .get(forumController.findAllTopics)
     .post(forumController.createTopic);
 
 // display all posts of a topic
 router
-    .route("/Forum/Posts")
+    .route("/forum/posts")
     .get(forumController.findTopicById)
     .post(forumController.createPost);
 
 // display all replies of a topic
 router
-    .route("/Forum/ThisPost")
+    .route("/forum/thispost")
     .get(forumController.findPostById)
     .post(forumController.createReply)
 
