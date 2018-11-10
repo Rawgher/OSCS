@@ -1,5 +1,5 @@
 import React from "react";
-import TransitionGroup from "react-transition-group";
+// import TransitionGroup from "react-transition-group";
 import LoginBox from "../../components/Auth/Login";
 import RegisterBox from "../../components/Auth/Register";
 import { Container, Col, Row } from "../../components/Grid";

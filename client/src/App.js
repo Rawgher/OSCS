@@ -13,6 +13,8 @@ import User from "./pages/Forum-UserPage";
 import Search from "./pages/Search-Page";
 import About from "./pages/About-Us";
 import DocumentationPage from "./pages/Documentation/Documentation";
+import Login from "./pages/Login-Page";
+import SignUp from "./pages/Sign-Up";
 
 // const auth = new Auth();
 
@@ -70,6 +72,16 @@ const App = () => (
           exact
           path="/Documentation"
           component={DocumentationPage}
+        />
+        <Route
+          exact
+          path="/login"
+          component={Login}
+        />
+        <Route
+          exact
+          path="/signup"
+          component={Login}
         />
         {/* <Route
           path="/callback"

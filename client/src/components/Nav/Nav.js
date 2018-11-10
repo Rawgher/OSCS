@@ -17,10 +17,11 @@ class NavTabs extends React.Component {
   //   console.log("I am being logged in");
   // };
 
-  // logout = () => {
-  //   this.props.auth.logout();
-  //   console.log("I am being logged out");
-  // };
+  logout = () => {
+    localStorage.removeItem('jwtToken');
+    console.log("I am being logged out");
+    window.location.reload();
+  };
 
   handleChange = (event, value) => {
     this.setState({ value });
@@ -73,21 +74,20 @@ class NavTabs extends React.Component {
               to="/Forum/Categories"
               style={styles.tabPosition}
             />
-            <Tab label="Login" style={styles.tabPosition} />
-            {/* {isAuthenticated() && (
+            {localStorage.getItem('jwtToken') && (
               <Tab
                 label="Logout"
                 onClick={this.logout}
                 style={styles.tabPosition}
               />
             )}
-            {!isAuthenticated() && (
+            {!localStorage.getItem('jwtToken') && (
               <Tab
                 label="Login"
                 onClick={this.login}
                 style={styles.tabPosition}
               />
-            )} */}
+            )}
           </Tabs>
         </AppBar>
       </MuiThemeProvider>

@@ -10,6 +10,7 @@ import Button from "@material-ui/core/Button";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { Visibility, VisibilityOff, Email } from "@material-ui/icons";
 import "./LoginBox.css";
+import axios from 'axios';
 
 const styles = theme => ({
   card: {
@@ -25,7 +26,7 @@ class LoginBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      username: "",
       password: ""
     };
   }
@@ -34,19 +35,38 @@ class LoginBox extends React.Component {
     this.setState(state => ({ showPassword: !state.showPassword }));
   };
 
+  onSubmit = (e) => {
+    e.preventDefault();
+
+    const { username, password } = this.state;
+
+    axios.post('/api/auth/login', { username, password })
+    .then((result) => {
+      localStorage.setItem('jwtToken', result.data.token);
+      this.setStage({ message: '' });
+      this.props.history.push('/');
+    })
+    .catch((error) => {
+      if(error.response.status === 401) {
+        this.setState({ message: 'Login failed. Username or password does not match.'});
+      }
+    });
+  }
+
   render() {
     const { classes } = this.props;
+    const { username, password, message } = this.state;
     return (
       <Card className={classes.card}>
         <Container fluid>
           <CardHeader title="Login" />
           <CardContent>
-            <Form action="/" onSubmit={(e) => console.log('submitted')}>
+            <Form action="/" onSubmit={this.onSubmit}>
               <Row>
                 <TextField
                   variant="outlined"
-                  label="Email"
-                  value={this.state.email}
+                  label="Username"
+                  value={username}
                   onChange={this.onChange}
                   InputProps={{
                     endAdornment: (
@@ -64,7 +84,7 @@ class LoginBox extends React.Component {
                   variant="outlined"
                   type={this.state.showPassword ? "text" : "password"}
                   label="Password"
-                  value={this.state.password}
+                  value={password}
                   onChange={this.onChange}
                   InputProps={{
                     endAdornment: (

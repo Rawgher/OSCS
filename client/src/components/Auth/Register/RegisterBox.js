@@ -8,7 +8,7 @@ import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import { Visibility, VisibilityOff, Email, Person } from "@material-ui/icons";
+import { Visibility, VisibilityOff, Person } from "@material-ui/icons";
 import "./RegisterBox.js";
 
 const styles = theme => ({
@@ -25,8 +25,9 @@ class RegisterBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      firstName: "",
+      lastName: "",
       username: "",
-      email: "",
       password: ""
     };
   }
@@ -41,6 +42,7 @@ class RegisterBox extends React.Component {
 
   render() {
     const { classes } = this.props;
+    const { firstName, lastName, username, password } = this.state;
     return (
       <Card className={classes.card}>
         <Container fluid>
@@ -50,8 +52,20 @@ class RegisterBox extends React.Component {
               <Row>
                 <TextField
                   variant="outlined"
+                  label="First Name"
+                  value={firstName}
+                />
+                <TextField
+                  variant="outlined"
+                  label="Last Name"
+                  value={lastName}
+                />
+              </Row>
+              <Row>
+                <TextField
+                  variant="outlined"
                   label="Username"
-                  value={this.state.username}
+                  value={username}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -66,25 +80,9 @@ class RegisterBox extends React.Component {
               <Row>
                 <TextField
                   variant="outlined"
-                  label="Email"
-                  value={this.state.email}
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <IconButton>
-                          <Email />
-                        </IconButton>
-                      </InputAdornment>
-                    )
-                  }}
-                />
-              </Row>
-              <Row>
-                <TextField
-                  variant="outlined"
                   type={this.state.showPassword ? "text" : "password"}
                   label="Password"
-                  value={this.state.password}
+                  value={password}
                   onChange={this.handleChange("password")}
                   InputProps={{
                     endAdornment: (
