@@ -32,8 +32,8 @@ class NavTabs extends React.Component {
       overrides: {
         MuiTabs: {
           indicator: {
-            backgroundColor: orange[700]
-            // display: "none"
+            backgroundColor: orange[700],
+            display: "none"
           }
         }
       }
@@ -51,10 +51,9 @@ class NavTabs extends React.Component {
             <span className="EGA-orange">ONE STOP</span> CODE SHOP
           </h4>
           <Tabs
-            onChange={this.handleChange}
-            // indicatorColor="none"
-            onClick={event => event.preventDefault()}
             value={value}
+            onChange={this.handleChange}
+            onClick={event => event.preventDefault()}
           >
             <Tab
               label="Home"
