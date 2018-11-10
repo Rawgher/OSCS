@@ -13,7 +13,7 @@ class DocumentationPage extends Component {
         <Background />
         <Row>
           <Col size="md-12">
-            <NavTabs auth={this.props.auth} />
+            <NavTabs />
           </Col>
         </Row>
         <Row>
