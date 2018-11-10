@@ -29,6 +29,7 @@ class LoginBox extends React.Component {
       username: "",
       password: ""
     };
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleClickShowPassword = () => {
@@ -39,39 +40,45 @@ class LoginBox extends React.Component {
     this.setState({ [prop]: event.target.value });
   };
 
-  onSubmit = (e) => {
+  handleSubmit = (e) => {
+    console.log("Am i working");
     e.preventDefault();
+    
 
     const { username, password } = this.state;
 
     axios.post('/api/auth/login', { username, password })
     .then((result) => {
+      console.log('test1');
       localStorage.setItem('jwtToken', result.data.token);
-      this.setStage({ message: '' });
+      this.setState({ message: '' });
       this.props.history.push('/');
     })
     .catch((error) => {
       if(error.response.status === 401) {
+        console.log("tes2")
         this.setState({ message: 'Login failed. Username or password does not match.'});
       }
     });
   }
 
   render() {
-    const { classes, onChange } = this.props;
+    const { classes } = this.props;
     const { username, password, message } = this.state;
     return (
       <Card className={classes.card}>
         <Container fluid>
           <CardHeader title="Login" />
           <CardContent>
-            <Form action="/" onSubmit={this.onSubmit}>
+            <form onSubmit={this.handleSubmit}>
               <Row>
                 <TextField
                   variant="outlined"
                   label="Username"
+                  name="username"
                   value={username}
                   onChange={this.handleChange("username")}
+                  required
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -88,8 +95,10 @@ class LoginBox extends React.Component {
                   variant="outlined"
                   type={this.state.showPassword ? "text" : "password"}
                   label="Password"
+                  name="password"
                   value={password}
                   onChange={this.handleChange("password")}
+                  required
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -111,7 +120,7 @@ class LoginBox extends React.Component {
               <Button type="submit" variant="contained" color="success">
                 Login
               </Button>
-            </Form>
+            </form>
           </CardContent>
         </Container>
       </Card>

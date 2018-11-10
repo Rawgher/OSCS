@@ -55,12 +55,14 @@ class RegisterBox extends React.Component {
                   label="First Name"
                   value={firstName}
                   onChange={this.handleChange("firstName")}
+                  required
                 />
                 <TextField
                   variant="outlined"
                   label="Last Name"
                   value={lastName}
                   onChange={this.handleChange("lastName")}
+                  required
                 />
               </Row>
               <Row>
@@ -69,6 +71,7 @@ class RegisterBox extends React.Component {
                   label="Username"
                   value={username}
                   onChange={this.handleChange("username")}
+                  required
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -87,6 +90,7 @@ class RegisterBox extends React.Component {
                   label="Password"
                   value={password}
                   onChange={this.handleChange("password")}
+                  required
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
