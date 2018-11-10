@@ -1,4 +1,3 @@
-import { resolve } from "url";
 const https = require("https");
 
 export default {
@@ -7,6 +6,7 @@ export default {
     if (!SUBSCRIPTION_KEY) {
       throw new Error("Missing the AZURE_SUBSCRIPTION_KEY environment varable");
     }
+
     return new Promise((resolve, reject) => {
       https.get(
         {
@@ -42,20 +42,19 @@ export default {
   },
 
   bingParse: function(response) {
-    // const res = response.webPages.value;
-    const res = response;
+    const res = response.webPages.value;
     console.log(res);
 
-    const googleSearch = [];
+    const bingSearch = [];
 
-    // for (let i = 0; i < res.length; i++) {
-    //   googleSearch.push({
-    //     name: res[i].name,
-    //     url: res[i].url,
-    //     snippet: res[i].snippet
-    //   });
-    // }
-    console.log(googleSearch);
-    return googleSearch;
+    for (let i = 0; i < res.length; i++) {
+      bingSearch.push({
+        name: res[i].name,
+        url: res[i].url,
+        snippet: res[i].snippet
+      });
+    }
+    console.log(bingSearch);
+    return bingSearch;
   }
 };

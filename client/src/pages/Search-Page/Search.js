@@ -7,50 +7,30 @@ import Stack from "../../components/Stack";
 import axios from "axios";
 import youtubeAPI from "../../utils/YoutubeAPI";
 import stackAPI from "../../utils/StackAPI";
-import googleAPI from "../../utils/GoogleAPI";
+import bingAPI from "../../utils/BingAPI";
 import Sidebar from "../../components/Sidebar";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
 import APIMenuList from "../../components/APIMenuList";
+import Bing from "../../components/Bing";
 
 class Search extends Component {
   state = {
     search: "",
-    googleSearch: [],
+    bingSearch: [],
     stackResults: [],
     videos: []
   };
-
-  // componentDidMount() {
-  //   const response = googleAPI.googleSearch("react");
-  //   this.setState({ googleSearch: response });
-  // }
 
   enterPressed = event => {
     var code = event.keyCode || event.which;
     if (code === 13) {
       const youtubeSearch = youtubeAPI.youtubeSearch(this.state.search);
-
-      this.googleSearch(this.state.search);
+      this.bingSearch(this.state.search);
       this.getVideos(youtubeSearch);
-      // console.log(googleSearch);
-      // this.getGoogle(googleSearch);
       const stackSearch = stackAPI.stackSearch(this.state.search);
       this.getStack(stackSearch);
-
-      // const googleSearch = googleAPI
-      //   .googleSearch(this.state.search)
-      //   .then(
-      //     setTimeout(function(res) {
-      //       this.setState({ googleSearch: res }).then(
-      //         this.getGoogle(googleSearch)
-      //       );
-      //     }, 10000)
-      //   )
-      //   .catch(err => {
-      //     console.log(err);
-      //   });
     }
   };
 
@@ -69,18 +49,11 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
-  googleSearch = search => {
-    googleAPI
+  bingSearch = search => {
+    bingAPI
       .bingSearch(search)
-      .then(res => this.setState({ googleSearch: res }))
-      .then(() => console.log(this.state.googleSearch));
-  };
-
-  getGoogle = googleSearch => {
-    axios
-      .get(googleSearch)
-      .then(res => googleAPI.bingParse(res))
-      .then(googleSearch => this.setState({ googleSearch }))
+      .then(res => bingAPI.bingParse(res))
+      .then(bingSearch => this.setState({ bingSearch }))
       .catch(err => console.log(err));
   };
 
@@ -130,6 +103,7 @@ class Search extends Component {
                 <div id="EGA-videoContainer" style={{ minHeight: 10 }}>
                   <Youtube id="test" videos={this.state.videos} />
                   <Stack results={this.state.stackResults} />
+                  <Bing bing={this.state.bingSearch} />
                 </div>
               </div>
             </Col>
