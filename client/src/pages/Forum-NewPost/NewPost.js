@@ -12,7 +12,7 @@ import "./NewPost.css";
 
 class NewPost extends Component {
   state = {
-    title: ""
+    post_title: ""
   };
 
   handleInputChange = event => {
@@ -59,16 +59,16 @@ class NewPost extends Component {
           <Row>
             <Col size="md-9" className="ESH_forum-col">
               <form>
-                <TextField
-                  label="Post Title"
-                  value={this.state.title}
-                  onChange={this.handleInputChange}
-                  margin="normal"
-                />
-
                 <div className="input-field">
-                  <input id="post_title" type="text" name="post_title" />
-                  <label for="post_title" id="textarea1">
+                  <input 
+                    id="post_title" 
+                    type="text" 
+                    name="post_title" 
+                    value={this.state.post_title}
+                    onChange={this.handleInputChange} 
+                    placeholder="Post Title"
+                  />
+                  <label for="post_title" id="textarea1" className="active">
                     Post Title
                   </label>
                 </div>
@@ -77,8 +77,9 @@ class NewPost extends Component {
                     id="textarea1"
                     className="materialize-textarea"
                     name="post_body"
+                    placeholder="Description"
                   />
-                  <label id="textarea1">Description (Required)</label>
+                  <label id="textarea1" className="active">Description</label>
                 </div>
 
                 <Button variant="contained" size="large" color="primary" type="submit" name="action" id="submit" onClick={this.handleFormSubmit}>
