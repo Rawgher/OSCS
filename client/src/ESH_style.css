@@ -23,7 +23,7 @@ a:hover {
   font-size: 30px;
   text-align: center !important;
   color: white;
-  margin: 90px 0 20px;
+  margin: 90px 0 40px;
 }
 
 .ESH_forum-col {
@@ -77,6 +77,10 @@ textarea:focus::-moz-placeholder {
 }
 textarea:focus:-ms-input-placeholder {
   color: transparent !important;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  opacity: 
 }
 
 #submit:hover {
