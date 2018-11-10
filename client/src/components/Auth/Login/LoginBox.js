@@ -35,6 +35,10 @@ class LoginBox extends React.Component {
     this.setState(state => ({ showPassword: !state.showPassword }));
   };
 
+  handleChange = prop => event => {
+    this.setState({ [prop]: event.target.value });
+  };
+
   onSubmit = (e) => {
     e.preventDefault();
 
@@ -54,7 +58,7 @@ class LoginBox extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, onChange } = this.props;
     const { username, password, message } = this.state;
     return (
       <Card className={classes.card}>
@@ -67,7 +71,7 @@ class LoginBox extends React.Component {
                   variant="outlined"
                   label="Username"
                   value={username}
-                  onChange={this.onChange}
+                  onChange={this.handleChange("username")}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -85,7 +89,7 @@ class LoginBox extends React.Component {
                   type={this.state.showPassword ? "text" : "password"}
                   label="Password"
                   value={password}
-                  onChange={this.onChange}
+                  onChange={this.handleChange("password")}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">

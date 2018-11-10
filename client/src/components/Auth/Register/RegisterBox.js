@@ -54,11 +54,13 @@ class RegisterBox extends React.Component {
                   variant="outlined"
                   label="First Name"
                   value={firstName}
+                  onChange={this.handleChange("firstName")}
                 />
                 <TextField
                   variant="outlined"
                   label="Last Name"
                   value={lastName}
+                  onChange={this.handleChange("lastName")}
                 />
               </Row>
               <Row>
@@ -66,6 +68,7 @@ class RegisterBox extends React.Component {
                   variant="outlined"
                   label="Username"
                   value={username}
+                  onChange={this.handleChange("username")}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
