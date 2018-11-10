@@ -4,6 +4,8 @@ class Bing extends React.Component {
   render() {
     const { bing } = this.props;
 
+    // make text white, name is a clickable link, add bottom white border
+    // make title orange on hover
     return bing.map((a, id) => (
       <div>
         <div key={id}>
