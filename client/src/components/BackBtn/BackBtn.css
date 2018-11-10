@@ -1,18 +1,18 @@
 .go-back {
     margin: 50px 0;
-    font-family: 'Roboto Condensed', sans-serif;
     font-size: 15px;
 }
 
 .go-back a {
-    color: #838383 !important;
+    color: rgb(39,39,39) !important;
+    font-weight: bold;
 }
 
 .go-back a:hover {
-    color: #616161;
+    color: black !important;
     text-decoration: none;
 }
-
+/* 
 .go-back a:link {
     font-weight: bold;
-}
+} */
