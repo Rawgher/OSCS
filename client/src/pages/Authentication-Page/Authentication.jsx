@@ -65,8 +65,6 @@ class Authentication extends React.Component {
                 {/* <div > */}
                 <LoginBox
                   className="box-container"
-                  onSubmit={this.handleFormSubmit}
-                  onChange={this.handleInputChange}
                 />
                 {/* </div> */}
               </Fade>

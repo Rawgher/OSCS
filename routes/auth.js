@@ -4,7 +4,9 @@ const User = require("../models/userTable");
 
 router.post("/signup", function(req, res) {
   console.log("user signup");
-  console.log(req.body);
+  console.log(req.body, req.session);
+//   req.session.username = req.body.username;
+
   const { firstName, username, password } = req.body;
 
   User.findOne({ user_name: username }, (err, user) => {
@@ -16,10 +18,11 @@ router.post("/signup", function(req, res) {
       });
     } else {
       const newUser = new User({
-        user_firstName: firstName,
+        user_firstName: req.body.firstName,
         user_name: username,
         password: password
       });
+      console.log("creating new user: ", newUser);
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);
         res.json(savedUser);

@@ -1,11 +1,14 @@
 const express = require("express");
-
+const morgan = require('morgan');
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
+const session = require("express-session");
+const passport = require("./config/passport");
 
 // Define middleware here
+app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
@@ -14,6 +17,24 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
+
+// Sessions
+app.use(
+  session({
+    secret: "OSCS-session",
+    resave: false,
+    saveUninitialized: false
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// app.post('/api/auth/signup', (req, res) => {
+//   console.log("session test");
+//   req.session.username = req.body.username;
+//   res.end();
+// })
 
 // app.post('/api/auth/signup', (req, res, next) => {
 //   console.log("server post username: " + req.body.username);
@@ -30,7 +51,7 @@ app.get("*", function(req, res) {
 });
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI ||  "mongodb://localhost/OSCSmongo");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/OSCSmongo");
 
 // Start the API server
 app.listen(PORT, function() {
