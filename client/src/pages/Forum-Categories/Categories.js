@@ -15,7 +15,6 @@ class Categories extends Component {
 
   componentDidMount() {
     axios.get('/api/forum/categories').then(res => {
-      console.log(res.data);
       this.setState({ topics: res.data });
       
     }).catch(err => {

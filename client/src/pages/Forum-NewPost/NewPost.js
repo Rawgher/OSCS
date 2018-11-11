@@ -13,7 +13,8 @@ import "./NewPost.css";
 
 class NewPost extends Component {
   state = {
-    post_title: ""
+    post_subject: "",
+    post_body: ""
   };
 
   handleInputChange = event => {
@@ -26,16 +27,19 @@ class NewPost extends Component {
   // fix routing for creating new post
   handleFormSubmit = event => {
     event.preventDefault();
-    // if (this.state.title && this.state.author) {
-    //   API.saveBook({
-    //     title: this.state.title,
-    //     author: this.state.author,
-    //     synopsis: this.state.synopsis
-    //   })
-    //     .then(res => this.loadBooks())
-    //     .catch(err => console.log(err));
-    // }
+    if (this.state.post_subject && this.state.post_body) {
+      axios.post('/api/forum/forum/posts').then(res => {
+        
+      }).catch(err => {
+        console.log("this is err=>", err);
+      })
+    };
+
   };
+
+
+
+
 
   render() {
     return (
@@ -61,12 +65,12 @@ class NewPost extends Component {
             <Col size="md-9" className="ESH_forum-col">
               <form>
                 <div className="input-field">
-                  <input 
-                    id="post_title" 
-                    type="text" 
-                    name="post_title" 
+                  <input
+                    id="post_title"
+                    type="text"
+                    name="post_title"
                     value={this.state.post_title}
-                    onChange={this.handleInputChange} 
+                    onChange={this.handleInputChange}
                     placeholder="Post Title"
                   />
                   <label for="post_title" id="textarea1" className="active">
