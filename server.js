@@ -15,6 +15,11 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
+// app.post('/api/auth/signup', (req, res, next) => {
+//   console.log("server post username: " + req.body.username);
+//   res.end();
+// })
+
 // app.use(express.static("./public")).get("*", function(req, res) {
 //   res.sendfile("./public/index.html");
 // });

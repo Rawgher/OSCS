@@ -1,5 +1,5 @@
-import React from "react";
-import { Router, Route, Switch } from "react-router-dom";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Authentication from "./pages/Authentication-Page";
 import NoMatch from "./pages/NoMatch";
 import LandingPage from "./pages/Landing-Page/Landing";

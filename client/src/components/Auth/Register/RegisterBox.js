@@ -7,7 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import { Visibility, VisibilityOff, Email, Person } from "@material-ui/icons";
+import { Visibility, VisibilityOff, Person } from "@material-ui/icons";
 import "./RegisterBox.js";
 import axios from "axios";
 
@@ -47,15 +47,17 @@ class RegisterBox extends React.Component {
     e.preventDefault();
     console.log("sign-up, username: " + this.state.username);
 
-    const { username, password } = this.state
+    const { firstName, username, password } = this.state
+    console.log(firstName, username, password);
     axios
-      .post("/signup", {
+      .post("api/auth/signup", {
+        user_firstName: firstName,
         user_name: username,
         user_pass: password
       })
       .then(response => {
         console.log(response);
-        if (response.data) {
+        if (!response.data.errmsg) {
           console.log("successful signup");
           this.setState({
             redirectTo: "/search"
@@ -84,6 +86,7 @@ class RegisterBox extends React.Component {
                 <TextField
                   variant="outlined"
                   label="First Name"
+                  name="firstName"
                   value={firstName}
                   onChange={this.handleChange}
                   required
@@ -91,6 +94,7 @@ class RegisterBox extends React.Component {
                 <TextField
                   variant="outlined"
                   label="Last Name"
+                  name="lastName"
                   value={lastName}
                   onChange={this.handleChange}
                   required
@@ -100,7 +104,9 @@ class RegisterBox extends React.Component {
                 <TextField
                   variant="outlined"
                   label="Username"
+                  name="username"
                   value={username}
+                  onChange={this.handleChange}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -117,6 +123,7 @@ class RegisterBox extends React.Component {
                   variant="outlined"
                   type={this.state.showPassword ? "text" : "password"}
                   label="Password"
+                  name="password"
                   value={password}
                   onChange={this.handleChange}
                   InputProps={{
