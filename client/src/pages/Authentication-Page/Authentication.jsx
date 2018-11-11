@@ -5,7 +5,7 @@ import RegisterBox from "../../components/Auth/Register";
 import { Container, Col, Row } from "../../components/Grid";
 import Fade from "../../components/Transitions/Fade/Fade";
 
-class Login extends React.Component {
+class Authentication extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -83,4 +83,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default Authentication;
