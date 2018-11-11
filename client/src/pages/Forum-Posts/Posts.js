@@ -6,14 +6,24 @@ import { Col, Row, Container } from "../../components/Grid";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
+import axios from "axios";
 import "./Posts.css";
+
+    // TODO: change topic state to topic user clicks on
 
 class Posts extends Component {
   state = {
-    // TODO: change topic state to topic user clicks on
-    topic: "HTML"
-    //posts,
+    posts: []
   };
+
+    componentDidMount(){
+      axios.get('/api/forum/posts').then(res=>{
+        this.setState({posts: res.data});
+      }).catch(err=>{
+        console.log("this is err=>", err);
+      })
+    }
+  
 
   render() {
     return (

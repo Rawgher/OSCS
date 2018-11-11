@@ -13,7 +13,7 @@ router
 
 // user account information
 router
-    .route("/forum/userPage")
+    .route("/forum/userpage")
     .get(forumController.findUserById);
 
 // display all topics

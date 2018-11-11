@@ -7,11 +7,13 @@ import Stack from "../../components/Stack";
 import axios from "axios";
 import youtubeAPI from "../../utils/YoutubeAPI";
 import stackAPI from "../../utils/StackAPI";
+import bingAPI from "../../utils/BingAPI";
 import Sidebar from "../../components/Sidebar";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
 import APIMenuList from "../../components/APIMenuList";
+import Bing from "../../components/Bing";
 
 class Search extends Component {
   constructor(props) {
@@ -20,6 +22,7 @@ class Search extends Component {
 
   state = {
     search: "",
+    bingSearch: [],
     stackResults: [],
     videos: []
   };
@@ -28,6 +31,7 @@ class Search extends Component {
     var code = event.keyCode || event.which;
     if (code === 13) {
       const youtubeSearch = youtubeAPI.youtubeSearch(this.state.search);
+      this.bingSearch(this.state.search);
       this.getVideos(youtubeSearch);
       const stackSearch = stackAPI.stackSearch(this.state.search);
       this.getStack(stackSearch);
@@ -46,6 +50,14 @@ class Search extends Component {
       .get(youtubeSearch)
       .then(res => youtubeAPI.youtubeParse(res))
       .then(videos => this.setState({ videos }))
+      .catch(err => console.log(err));
+  };
+
+  bingSearch = search => {
+    bingAPI
+      .bingSearch(search)
+      .then(res => bingAPI.bingParse(res))
+      .then(bingSearch => this.setState({ bingSearch }))
       .catch(err => console.log(err));
   };
 
@@ -96,6 +108,7 @@ class Search extends Component {
                 <div id="EGA-videoContainer" style={{ minHeight: 10 }}>
                   <Youtube id="test" videos={this.state.videos} />
                   <Stack results={this.state.stackResults} />
+                  <Bing bing={this.state.bingSearch} />
                 </div>
               </div>
             </Col>

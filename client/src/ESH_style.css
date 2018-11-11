@@ -1,6 +1,11 @@
 body {
   color: #3d3d3d;
-  font-family: "Pontano Sans", sans-serif;
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+}
+
+a:hover,
+a:focus {
+  color: rgb(255, 115, 0) !important;
 }
 
 .ESH_line {
@@ -13,11 +18,10 @@ body {
 }
 
 .ESH_main-title {
-  font-family: "Roboto Condensed", sans-serif;
   font-size: 30px;
   text-align: center !important;
   color: white;
-  margin: 80px 0 20px;
+  margin: 90px 0 20px;
 }
 
 .ESH_forum-col {
@@ -39,11 +43,40 @@ body {
 th,
 .ESH_accountt-info,
 .ESH_body-title {
-  font-family: "Roboto Condensed", sans-serif;
   font-weight: normal;
   font-size: 18px;
 }
 
 table {
   color: white;
+}
+
+/* Magic that makes the placeholder disappear when cursor is inside. */
+input:focus::-webkit-input-placeholder {
+  color: transparent !important;
+}
+input:focus:-moz-placeholder {
+  color: transparent !important;
+}
+input:focus::-moz-placeholder {
+  color: transparent !important;
+}
+input:focus:-ms-input-placeholder {
+  color: transparent !important;
+}
+textarea:focus::-webkit-input-placeholder {
+  color: transparent !important;
+}
+textarea:focus:-moz-placeholder {
+  color: transparent !important;
+}
+textarea:focus::-moz-placeholder {
+  color: transparent !important;
+}
+textarea:focus:-ms-input-placeholder {
+  color: transparent !important;
+}
+
+#submit:hover {
+  background: rgb(255, 115, 0) !important;
 }

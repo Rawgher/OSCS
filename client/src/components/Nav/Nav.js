@@ -63,13 +63,13 @@ class NavTabs extends React.Component {
             <Tab
               label="Documentation"
               component={Link}
-              to="/Documentation"
+              to="/documentation"
               style={styles.tabPosition}
             />
             <Tab
               label="Forum"
               component={Link}
-              to="/Forum/Categories"
+              to="/forum/categories"
               style={styles.tabPosition}
             />
             {/* {isAuthenticated() && (
