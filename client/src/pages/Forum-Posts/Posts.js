@@ -13,7 +13,6 @@ import "./Posts.css";
 
 class Posts extends Component {
   state = {
-    // selected_topic: {topic.topic},
     posts: []
   };
 
