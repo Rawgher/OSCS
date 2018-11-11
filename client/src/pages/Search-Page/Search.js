@@ -14,6 +14,10 @@ import Background from "../../components/Background";
 import APIMenuList from "../../components/APIMenuList";
 
 class Search extends Component {
+  constructor(props) {
+    super(props)
+  };
+
   state = {
     search: "",
     stackResults: [],
@@ -79,6 +83,7 @@ class Search extends Component {
           </Container>
         </div>
         <Container fluid>
+          {/* <h3>{this.props.user}</h3> */}
           <Row>
             <Col size="md-1" />
             <Col size="md-2">
@@ -95,7 +100,7 @@ class Search extends Component {
               </div>
             </Col>
             <Col size="md-2">
-              <Sidebar />
+              <Sidebar user={this.props.user} />
               <Chat />
             </Col>
           </Row>

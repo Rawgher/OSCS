@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { Container, Row } from "../../Grid";
@@ -31,7 +32,8 @@ class RegisterBox extends React.Component {
       email: "",
       password: "",
       confirmPassword: "",
-      message: ""
+      message: "",
+      redirectTo: null
     };
   }
 
@@ -47,7 +49,7 @@ class RegisterBox extends React.Component {
     e.preventDefault();
     console.log("sign-up, username: " + this.state.username);
 
-    const { firstName, username, password } = this.state
+    const { firstName, username, password } = this.state;
     console.log(firstName, username, password);
     axios
       .post("api/auth/signup", {
@@ -75,83 +77,87 @@ class RegisterBox extends React.Component {
   render() {
     const { classes } = this.props;
     const { firstName, lastName, username, password, message } = this.state;
-    return (
-      <Card className={classes.card}>
-        <Container fluid>
-          <CardHeader title="Sign Up" />
-          <CardContent>
-            <h5>{message}</h5>
-            <form onSubmit={this.handleSubmit}>
-              <Row>
-                <TextField
-                  variant="outlined"
-                  label="First Name"
-                  name="firstName"
-                  value={firstName}
-                  onChange={this.handleChange}
-                  required
-                />
-                <TextField
-                  variant="outlined"
-                  label="Last Name"
-                  name="lastName"
-                  value={lastName}
-                  onChange={this.handleChange}
-                  required
-                />
-              </Row>
-              <Row>
-                <TextField
-                  variant="outlined"
-                  label="Username"
-                  name="username"
-                  value={username}
-                  onChange={this.handleChange}
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <IconButton>
-                          <Person />
-                        </IconButton>
-                      </InputAdornment>
-                    )
-                  }}
-                />
-              </Row>
-              <Row>
-                <TextField
-                  variant="outlined"
-                  type={this.state.showPassword ? "text" : "password"}
-                  label="Password"
-                  name="password"
-                  value={password}
-                  onChange={this.handleChange}
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <IconButton
-                          aria-label="Toggle password visibility"
-                          onClick={this.handleClickShowPassword}
-                        >
-                          {this.state.showPassword ? (
-                            <VisibilityOff />
-                          ) : (
-                            <Visibility />
-                          )}
-                        </IconButton>
-                      </InputAdornment>
-                    )
-                  }}
-                />
-              </Row>
-              <Button type="submit" variant="contained" color="success">
-                Sign-Up
-              </Button>
-            </form>
-          </CardContent>
-        </Container>
-      </Card>
-    );
+    if (this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }} />;
+    } else {
+      return (
+        <Card className={classes.card}>
+          <Container fluid>
+            <CardHeader title="Sign Up" />
+            <CardContent>
+              <h5>{message}</h5>
+              <form onSubmit={this.handleSubmit}>
+                <Row>
+                  <TextField
+                    variant="outlined"
+                    label="First Name"
+                    name="firstName"
+                    value={firstName}
+                    onChange={this.handleChange}
+                    required
+                  />
+                  <TextField
+                    variant="outlined"
+                    label="Last Name"
+                    name="lastName"
+                    value={lastName}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </Row>
+                <Row>
+                  <TextField
+                    variant="outlined"
+                    label="Username"
+                    name="username"
+                    value={username}
+                    onChange={this.handleChange}
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton>
+                            <Person />
+                          </IconButton>
+                        </InputAdornment>
+                      )
+                    }}
+                  />
+                </Row>
+                <Row>
+                  <TextField
+                    variant="outlined"
+                    type={this.state.showPassword ? "text" : "password"}
+                    label="Password"
+                    name="password"
+                    value={password}
+                    onChange={this.handleChange}
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="Toggle password visibility"
+                            onClick={this.handleClickShowPassword}
+                          >
+                            {this.state.showPassword ? (
+                              <VisibilityOff />
+                            ) : (
+                              <Visibility />
+                            )}
+                          </IconButton>
+                        </InputAdornment>
+                      )
+                    }}
+                  />
+                </Row>
+                <Button type="submit" variant="contained" color="success">
+                  Sign-Up
+                </Button>
+              </form>
+            </CardContent>
+          </Container>
+        </Card>
+      );
+    }
   }
 }
 

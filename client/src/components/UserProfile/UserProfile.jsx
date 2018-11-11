@@ -16,7 +16,7 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, user } = this.props;
     return (
       <div>
         <Chip
@@ -26,7 +26,7 @@ class UserProfile extends React.Component {
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfDb5XEj5NRS8CkhJx2DpO0Hw6ysCbIo0V5kFzqOHUGSLrs9dy"
             />
           }
-          label="Jordan Shneiderpants"
+          label = {user}
           className={classes.chip}
         />
       </div>

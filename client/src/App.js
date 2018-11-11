@@ -64,7 +64,7 @@ class App extends Component {
             <Route exact path="/Forum/Posts" component={Posts} />
             <Route exact path="/Forum/ThisPost" component={ThisPost} />
             <Route exact path="/Forum/UserPage" component={User} />
-            <Route path="/Search" render={() => <Search updateUser={this.updateUser} />} />
+            <Route path="/Search" render={() => <Search updateUser={this.updateUser} user={this.state.username} />} />
             <Route exact path="/AboutUs" component={About} />
             <Route exact path="/Documentation" component={DocumentationPage} />
             <Route path="/login" render={() => <Authentication updateUser={this.updateUser} />} />
