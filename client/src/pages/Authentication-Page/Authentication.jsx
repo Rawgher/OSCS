@@ -5,7 +5,7 @@ import RegisterBox from "../../components/Auth/Register";
 import { Container, Col, Row } from "../../components/Grid";
 import Fade from "../../components/Transitions/Fade/Fade";
 
-class Login extends React.Component {
+class Authentication extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,17 +21,6 @@ class Login extends React.Component {
 
   showRegisterBox() {
     this.setState({ isRegisterOpen: true, isLoginOpen: false });
-  }
-
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit() {
-    e => console.log("submitted");
   }
 
   render() {
@@ -63,11 +52,7 @@ class Login extends React.Component {
             <Container>
               <Fade isOpen={this.state.isLoginOpen} duration={500}>
                 {/* <div > */}
-                <LoginBox
-                  className="box-container"
-                  onSubmit={this.handleFormSubmit}
-                  onChange={this.handleInputChange}
-                />
+                <LoginBox className="box-container" updateUser={this.props.updateUser} />
                 {/* </div> */}
               </Fade>
               <Fade isOpen={this.state.isRegisterOpen} duration={500}>
@@ -83,4 +68,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default Authentication;
