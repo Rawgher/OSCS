@@ -17,7 +17,10 @@ const styles = {
     height: 140
   },
   image: {
-    maxWidth: "50%"
+    width: "90%",
+    margin: "auto",
+    textAlign: "center",
+    display: "flex"
   }
 };
 

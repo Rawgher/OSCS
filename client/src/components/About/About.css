@@ -1,6 +1,16 @@
 #EGA-teamContainer div {
   background: none;
 }
+#EGA-teamContainer div button:hover {
+  background: none;
+}
+#EGA-teamContainer div button:focus {
+  background: none;
+}
+#EGA-teamContainer div button div {
+  outline: none;
+}
+
 #EGA-teamContainer h1 {
   color: white;
 }
