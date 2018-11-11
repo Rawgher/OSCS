@@ -41,7 +41,7 @@ a:focus {
 }
 
 th,
-.ESH_accountt-info,
+.ESH_account-info,
 .ESH_body-title {
   font-weight: normal;
   font-size: 18px;
@@ -77,10 +77,6 @@ textarea:focus:-ms-input-placeholder {
   color: transparent !important;
 }
 
-::-webkit-input-placeholder { /* WebKit browsers */
-  opacity: 
-}
-
-#submit:hover {
+#submit:hover, #submit:active {
   background: rgb(255, 115, 0) !important;
 }
