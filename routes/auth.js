@@ -7,9 +7,8 @@ router.post("/signup", function(req, res) {
   console.log(req.body, req.session);
 //   req.session.username = req.body.username;
 
-  const { firstName, username, password } = req.body;
-
-  User.findOne({ user_name: username }, (err, user) => {
+  User.findOne({ user_name: req.body.user_name }, (err, user) => {
+    
     if (err) {
       console.log("User.js post error: ", err);
     } else if (user) {
@@ -18,9 +17,9 @@ router.post("/signup", function(req, res) {
       });
     } else {
       const newUser = new User({
-        user_firstName: req.body.firstName,
-        user_name: username,
-        password: password
+        user_firstName: req.body.user_firstName,
+        user_name: req.body.user_name,
+        user_pass: req.body.user_pass
       });
       console.log("creating new user: ", newUser);
       newUser.save((err, savedUser) => {
