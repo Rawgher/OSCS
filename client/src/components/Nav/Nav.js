@@ -13,13 +13,13 @@ class NavTabs extends React.Component {
   };
 
   login = () => {
-    this.props.auth.login();
+    window.location.assign("/login");
     console.log("I am being logged in");
   };
 
   logout = () => {
-    this.props.auth.logout();
     console.log("I am being logged out");
+    window.location.reload();
   };
 
   handleChange = (event, value) => {
@@ -38,7 +38,6 @@ class NavTabs extends React.Component {
         }
       }
     });
-    const { isAuthenticated } = this.props.auth;
     const styles = {
       tabPosition: {
         left: "48%"
@@ -73,20 +72,20 @@ class NavTabs extends React.Component {
               to="/forum/categories"
               style={styles.tabPosition}
             />
-            {isAuthenticated() && (
+            {/* {isAuthenticated() && (
               <Tab
                 label="Logout"
                 onClick={this.logout}
                 style={styles.tabPosition}
               />
             )}
-            {!isAuthenticated() && (
+            {!isAuthenticated() && ( */}
               <Tab
                 label="Login"
                 onClick={this.login}
                 style={styles.tabPosition}
               />
-            )}
+            {/* )} */}
           </Tabs>
         </AppBar>
       </MuiThemeProvider>
