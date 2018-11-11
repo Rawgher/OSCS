@@ -3,11 +3,9 @@ body {
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
 }
 
-a:link, a:active, a:visited {
+a:hover,
+a:focus {
   color: rgb(255, 115, 0) !important;
-}
-a:hover {
-  color: black !important;
 }
 
 .ESH_line {

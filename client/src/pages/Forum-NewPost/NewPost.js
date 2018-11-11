@@ -8,6 +8,7 @@ import ForumSidebar from "../../components/Forum-Sidebar";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
+import axios from "axios"
 import "./NewPost.css";
 
 class NewPost extends Component {

@@ -1,0 +1,28 @@
+.RDPwhiteBorder {
+  border-bottom: 1px solid white;
+  margin: 1.5rem;
+}
+
+.RDPwhiteText {
+  color: white;
+}
+
+.RDPhoverLink:hover {
+  color: rgb(255, 115, 0);
+}
+
+.RDPleftAlign {
+  text-align: left;
+}
+
+.RDPtitleSize {
+  font-size: 2rem;
+}
+
+.RDPpaddingTop {
+  padding-top: 1rem;
+}
+
+.RDPpaddingBot {
+  padding-bottom: 1rem;
+}

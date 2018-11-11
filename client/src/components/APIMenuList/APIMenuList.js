@@ -48,7 +48,7 @@ class APIMenuList extends React.Component {
             <MenuItem className="EGA-apiListItem">Stack Overflow</MenuItem>
             <MenuItem className="EGA-apiListItem">Amazon</MenuItem>
             <MenuItem className="EGA-apiListItem">GitHub</MenuItem>
-            <MenuItem className="EGA-apiListItem">Spotify</MenuItem>
+            <MenuItem className="EGA-apiListItem">Bing</MenuItem>
             <MenuItem className="EGA-apiListItem">Forum</MenuItem>
           </MenuList>
         </Paper>
@@ -72,7 +72,7 @@ class APIMenuList extends React.Component {
                       </MenuItem>
                       <MenuItem onClick={this.handleClose}>Amazon</MenuItem>
                       <MenuItem onClick={this.handleClose}>GitHub</MenuItem>
-                      <MenuItem onClick={this.handleClose}>Spotify</MenuItem>
+                      <MenuItem onClick={this.handleClose}>Bing</MenuItem>
                       <MenuItem onClick={this.handleClose}>Forum</MenuItem>
                     </MenuList>
                   </ClickAwayListener>
