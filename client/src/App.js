@@ -63,7 +63,7 @@ const App = () => (
         />
         <Route
           exact
-          path="/About"
+          path="/about"
           render={props => <About auth={auth} {...props} />}
         />
         <Route

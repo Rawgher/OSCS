@@ -40,9 +40,7 @@ class NavTabs extends React.Component {
     });
     const { isAuthenticated } = this.props.auth;
     const styles = {
-      tabPosition: {
-        left: "48%"
-      }
+      tabPosition: {}
     };
     return (
       <MuiThemeProvider theme={theme}>
@@ -51,6 +49,7 @@ class NavTabs extends React.Component {
             <span className="EGA-orange">ONE STOP</span> CODE SHOP
           </h4>
           <Tabs
+            id="EGA-tabsContainer"
             value={value}
             onChange={this.handleChange}
             onClick={event => event.preventDefault()}
@@ -58,7 +57,13 @@ class NavTabs extends React.Component {
             <Tab
               label="Home"
               component={Link}
-              to="/search"
+              to="/Search"
+              style={styles.tabPosition}
+            />
+            <Tab
+              label="About"
+              component={Link}
+              to="/About"
               style={styles.tabPosition}
             />
             <Tab

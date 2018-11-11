@@ -1,5 +1,6 @@
 #EGA-teamContainer div {
   background: none;
+  margin: auto;
 }
 #EGA-teamContainer div button:hover {
   background: none;
@@ -36,7 +37,6 @@
 
 #EGA-cardContainer {
   display: inline-flex;
-}
-#EGA-aboutPageContainer {
-  margin-top: 40px;
+  width: 100%;
+  margin: auto;
 }

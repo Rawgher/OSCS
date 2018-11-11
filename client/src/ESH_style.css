@@ -2,7 +2,10 @@ body {
   color: #3d3d3d;
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
 }
-
+p,
+h1 {
+  color: white;
+}
 a:hover,
 a:focus {
   color: rgb(255, 115, 0) !important;
