@@ -2,6 +2,8 @@ const passport = require('passport');
 const LocalStrategy = require('./localStrategy');
 const User = require("../models/userTable");
 
+// console.log("is this happening");
+
 // Called on login, saves the id to session req.session.passport.user
 passport.serializeUser((user, done) => {
     console.log('*** serializeUser called, user: ', user);

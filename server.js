@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const morgan = require('morgan');
 const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -9,14 +10,12 @@ const passport = require("./config/passport");
 
 // Define middleware here
 app.use(morgan('dev'));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-// Add routes, both API and view
-app.use(routes);
 
 // Sessions
 app.use(
@@ -29,6 +28,9 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Add routes, both API and view
+app.use(routes);
 
 // app.post('/api/auth/signup', (req, res) => {
 //   console.log("session test");

@@ -38,7 +38,6 @@ class NavTabs extends React.Component {
         }
       }
     });
-    // const { isAuthenticated } = this.props.auth;
     const styles = {
       tabPosition: {
         left: "48%"

@@ -11,8 +11,48 @@ import User from "./pages/Forum-UserPage";
 import Search from "./pages/Search-Page";
 import About from "./pages/About-Us";
 import DocumentationPage from "./pages/Documentation/Documentation";
+import axios from 'axios';
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      loggedIn: false,
+      username: null
+    }
+
+    this.getUser = this.getUser.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.updateUser = this.updateUser.bind(this);
+  }
+
+  componentDidMount() {
+    this.getUser();
+  }
+
+  updateUser(userObject) {
+    this.setState(userObject);
+  }
+
+  getUser() {
+    axios.get("api/auth/").then(response => {
+      console.log("Get user response: ", response.data)
+      if (response.data.user) {
+        console.log("Get user: there is a user saved in the server session: ");
+        this.setState({
+          loggedIn: true,
+          username: response.data.user.user_name
+        })
+      } else {
+        console.log("Get user: no user");
+        this.setState({
+          loggedIn: false,
+          username: null
+        })
+      }
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -24,10 +64,10 @@ class App extends Component {
             <Route exact path="/Forum/Posts" component={Posts} />
             <Route exact path="/Forum/ThisPost" component={ThisPost} />
             <Route exact path="/Forum/UserPage" component={User} />
-            <Route exact path="/Search" component={Search} />
+            <Route path="/Search" render={() => <Search updateUser={this.updateUser} />} />
             <Route exact path="/AboutUs" component={About} />
             <Route exact path="/Documentation" component={DocumentationPage} />
-            <Route exact path="/login" component={Authentication} />
+            <Route path="/login" render={() => <Authentication updateUser={this.updateUser} />} />
             <Route component={NoMatch} />
           </Switch>
         </div>

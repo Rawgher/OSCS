@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/userTable");
+const passport = require("../config/passport");
 
 router.post("/signup", function(req, res) {
   console.log("user signup");
   console.log(req.body, req.session);
-//   req.session.username = req.body.username;
+  //   req.session.username = req.body.username;
 
   User.findOne({ user_name: req.body.user_name }, (err, user) => {
-    
     if (err) {
       console.log("User.js post error: ", err);
     } else if (user) {
@@ -29,6 +29,32 @@ router.post("/signup", function(req, res) {
     }
   });
 });
+
+router.get("/", (req, res, next) => {
+  console.log("===== user!! =====", req.user);
+  if (req.user) {
+    res.json({ user: req.user });
+  } else {
+    res.json({ user: null });
+  }
+});
+
+router.post(
+  "/login",
+  function(req, res, next) {
+    console.log("routes/user.js, login, req.body: ", req.body);
+    next();
+  },
+  passport.authenticate("local"),
+// console.log("this should be authentication"),
+  (req, res) => {
+    console.log("logged in", req.user);
+    var userInfo = {
+      user_name: req.user.user_name
+    };
+    res.send(userInfo);
+  }
+);
 
 module.exports = router;
 

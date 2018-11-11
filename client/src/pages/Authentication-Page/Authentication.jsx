@@ -23,17 +23,6 @@ class Authentication extends React.Component {
     this.setState({ isRegisterOpen: true, isLoginOpen: false });
   }
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit() {
-    e => console.log("submitted");
-  }
-
   render() {
     return (
       <Container>
@@ -63,9 +52,7 @@ class Authentication extends React.Component {
             <Container>
               <Fade isOpen={this.state.isLoginOpen} duration={500}>
                 {/* <div > */}
-                <LoginBox
-                  className="box-container"
-                />
+                <LoginBox className="box-container" updateUser={this.props.updateUser} />
                 {/* </div> */}
               </Fade>
               <Fade isOpen={this.state.isRegisterOpen} duration={500}>

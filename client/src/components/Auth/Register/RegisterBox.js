@@ -78,7 +78,7 @@ class RegisterBox extends React.Component {
     return (
       <Card className={classes.card}>
         <Container fluid>
-          <CardHeader title="Register" />
+          <CardHeader title="Sign Up" />
           <CardContent>
             <h5>{message}</h5>
             <form onSubmit={this.handleSubmit}>
