@@ -8,8 +8,6 @@ import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
 
-// TODO: get request to database to access topics for state below
-
 class Categories extends Component {
   state = {
     topics: []
@@ -17,8 +15,9 @@ class Categories extends Component {
 
   componentDidMount() {
     axios.get('/api/forum/categories').then(res => {
+      console.log(res.data);
       this.setState({ topics: res.data });
-      console.log("it worked!");
+      
     }).catch(err => {
       console.log("this is err=>", err);
     })
@@ -57,7 +56,7 @@ class Categories extends Component {
                       <br/>{topic.topic_description}
                     </td>
                     <td className="ESH_tcol2">{topic.topic_posts.length}</td>
-                    <td>{topic.updatedAt}</td>
+                    <td>{topic.topic_update}</td>
                   </tr>
                 ))}
               </table>
