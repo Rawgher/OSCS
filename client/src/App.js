@@ -11,7 +11,7 @@ import Posts from "./pages/Forum-Posts";
 import ThisPost from "./pages/Forum-ThisPost";
 import User from "./pages/Forum-UserPage";
 import Search from "./pages/Search-Page";
-import About from "./pages/About-Us";
+import About from "./pages/About";
 import DocumentationPage from "./pages/Documentation/Documentation";
 
 const auth = new Auth();
@@ -63,7 +63,7 @@ const App = () => (
         />
         <Route
           exact
-          path="/aboutus"
+          path="/About"
           render={props => <About auth={auth} {...props} />}
         />
         <Route
