@@ -30,6 +30,10 @@ class NewPost extends Component {
     });
   };
 
+  // ======= ELAINE ========
+  //  Use this for user_id
+  // {this.props.user_id}
+
   // fix routing for creating new post
   handleFormSubmit = event => {
     event.preventDefault();
@@ -67,8 +71,6 @@ class NewPost extends Component {
 
           <Row>
             <Col size="md-9" className="ESH_forum-col">
-              <h2>{this.props.user_id}</h2>
-              <h2>{this.props.username}</h2>
               <form>
                 <div className="input-field">
                   <input

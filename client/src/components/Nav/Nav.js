@@ -12,11 +12,6 @@ class NavTabs extends React.Component {
     value: 0
   };
 
-  login = () => {
-    window.location.assign("/login");
-    console.log("I am being logged in");
-  };
-
   logout = () => {
     console.log("I am being logged out");
     window.location.reload();
@@ -82,7 +77,8 @@ class NavTabs extends React.Component {
             {!isAuthenticated() && ( */}
               <Tab
                 label="Login"
-                onClick={this.login}
+                component={Link}
+                to="/login"
                 style={styles.tabPosition}
               />
             {/* )} */}
