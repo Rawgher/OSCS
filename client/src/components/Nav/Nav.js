@@ -12,14 +12,9 @@ class NavTabs extends React.Component {
     value: 0
   };
 
-  login = () => {
-    this.props.auth.login();
-    console.log("I am being logged in");
-  };
-
   logout = () => {
-    this.props.auth.logout();
     console.log("I am being logged out");
+    window.location.reload();
   };
 
   handleChange = (event, value) => {
@@ -38,11 +33,8 @@ class NavTabs extends React.Component {
         }
       }
     });
-    const { isAuthenticated } = this.props.auth;
     const styles = {
-      tabPosition: {
-        left: "48%"
-      }
+      tabPosition: {}
     };
     return (
       <MuiThemeProvider theme={theme}>
@@ -51,6 +43,7 @@ class NavTabs extends React.Component {
             <span className="EGA-orange">ONE STOP</span> CODE SHOP
           </h4>
           <Tabs
+            id="EGA-tabsContainer"
             value={value}
             onChange={this.handleChange}
             onClick={event => event.preventDefault()}
@@ -58,7 +51,13 @@ class NavTabs extends React.Component {
             <Tab
               label="Home"
               component={Link}
-              to="/search"
+              to="/Search"
+              style={styles.tabPosition}
+            />
+            <Tab
+              label="About"
+              component={Link}
+              to="/AboutUs"
               style={styles.tabPosition}
             />
             <Tab
@@ -73,20 +72,21 @@ class NavTabs extends React.Component {
               to="/forum/categories"
               style={styles.tabPosition}
             />
-            {isAuthenticated() && (
+            {/* {isAuthenticated() && (
               <Tab
                 label="Logout"
                 onClick={this.logout}
                 style={styles.tabPosition}
               />
             )}
-            {!isAuthenticated() && (
-              <Tab
-                label="Login"
-                onClick={this.login}
-                style={styles.tabPosition}
-              />
-            )}
+            {!isAuthenticated() && ( */}
+            <Tab
+              label="Login"
+              component={Link}
+              to="/login"
+              style={styles.tabPosition}
+            />
+            {/* )} */}
           </Tabs>
         </AppBar>
       </MuiThemeProvider>

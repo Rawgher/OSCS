@@ -1,64 +1,65 @@
 import React, { Component } from "react";
-import Grid from "@material-ui/core/Grid";
-// import { Link } from "react-router-dom";
-import { PostList } from "../../components/PostList";
+import axios from "axios";
+import { PostList, PostListItem } from "../../components/PostList";
+import { Col, Row, Container } from "../../components/Grid";
 import BackBtn from "../../components/BackBtn";
 import "./UserPage.css";
 
 class UserPage extends Component {
   // TODO: get correct state key-value pairs!!
   state = {
-    userID: 1,
-    username: "blah",
-    firstName: "first",
-    lastName: "last",
-    email: "email@email.com"
-    // userPosts,
-    // userReplies,
-    // favorites
+    user: []
   };
+
+  componentDidMount() {
+    axios
+      .get("/api/forum/userpage")
+      .then(res => {
+        console.log(res.data);
+        this.setState({ user: res.data });
+      })
+      .catch(err => {
+        console.log("this is err=>", err);
+      });
+  }
 
   render() {
     return (
-      <Grid container>
-        <Grid item xs={12}>
-          <h4 className="ESH_main-title">USER // {this.state.userID}</h4>
-          <div className="ESH_line" />
-        </Grid>
+      <Container>
+        <Row>
+          <Col size="md-12">
+            <h4 className="ESH_main-title">USER // {this.state.username}</h4>
+            <div className="ESH_line" />
+          </Col>
+        </Row>
 
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={24}
-        >
-          <Grid item xs={12} m={8} className="ESH_forum-col">
+        <Row>
+          <Col size="md-9" className="ESH_forum-col">
             <div className="ESH_body-title">POSTS</div>
             <PostList>
               {/* TODO: find correct keys for post key-value pairing */}
-              {/* {this.state.userPosts.map(post => (
-                                <PostListItem key={post._id}>
-                                    <Link to={`/Forum/${post._id}`}>
-                                        {post.title}
-                                    </Link>
-                                    {post.date}
-                                </PostListItem>
-                            ))} */}
+              {this.state.user_posts.map(post => (
+                <PostListItem key={post._id}>
+                  <a href={`/forum/${post._id}`}>
+                    {post.post_subject}
+                  </a>
+                  {post.updatedAt}
+                </PostListItem>
+              ))}
             </PostList>
 
             <div className="ESH_body-title">COMMENTS</div>
             <PostList>
               {/* TODO: find correct keys for reply key-value pairing */}
-              {/* {this.state.userReplies.map(reply => (
-                                <PostListItem key={reply._id}>
-                                    <Link to={`/Forum/${reply.postID}`}>
-                                        {reply.postTitle}
-                                    </Link>
-                                    {reply.message}
-                                    {reply.date}
-                                </PostListItem>
-                            ))} */}
+              {this.state.user_replies.map(reply => (
+                <PostListItem key={reply._id}>
+                  <a href={`/forum/${reply.postID}`}>
+                    {reply.postTitle}
+                  </a>
+                  {reply.message}
+                  {reply.date}
+                </PostListItem>
+              ))}
             </PostList>
 
             <div className="ESH_body-title">FAVORITES</div>
@@ -73,9 +74,10 @@ class UserPage extends Component {
                                 </PostListItem>
                             ))} */}
             </PostList>
-          </Grid>
+            <BackBtn />
+          </Col>
 
-          <Grid item xs={12} m={4} className="ESH_account-info">
+          <Col size="md-3" className="ESH_account-info">
             <table>
               <tbody>
                 <tr>
@@ -97,11 +99,9 @@ class UserPage extends Component {
                 </tr>
               </tbody>
             </table>
-          </Grid>
-
-          <BackBtn />
-        </Grid>
-      </Grid>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

@@ -2,12 +2,19 @@ body {
   color: #3d3d3d;
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
 }
-
+a,
+p,
+h1 {
+  color: white;
+}
 a:hover,
 a:focus {
   color: rgb(255, 115, 0) !important;
 }
 
+table {
+  color: white;
+}
 .ESH_line {
   /* background-color: #50697d; */
   padding: 0.8px 20px;
@@ -21,7 +28,7 @@ a:focus {
   font-size: 30px;
   text-align: center !important;
   color: white;
-  margin: 90px 0 20px;
+  margin: 90px 0 40px;
 }
 
 .ESH_forum-col {
@@ -41,14 +48,10 @@ a:focus {
 }
 
 th,
-.ESH_accountt-info,
+.ESH_account-info,
 .ESH_body-title {
   font-weight: normal;
   font-size: 18px;
-}
-
-table {
-  color: white;
 }
 
 /* Magic that makes the placeholder disappear when cursor is inside. */
@@ -75,8 +78,4 @@ textarea:focus::-moz-placeholder {
 }
 textarea:focus:-ms-input-placeholder {
   color: transparent !important;
-}
-
-#submit:hover {
-  background: rgb(255, 115, 0) !important;
 }

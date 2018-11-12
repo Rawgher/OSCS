@@ -32,7 +32,7 @@ class Categories extends Component {
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs auth={this.props.auth} />
+              <NavTabs />
             </Col>
           </Row>
         </Container>
@@ -62,12 +62,12 @@ class Categories extends Component {
                       {topic.topic_description}
                     </td>
                     <td className="ESH_tcol2">{topic.topic_posts.length}</td>
-                    <td>{topic.topic_update}</td>
+                    <td>{topic.updatedAt}</td>
                   </tr>
                 ))}
               </table>
             </Col>
-            <ForumSidebar />
+            <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
         </Container>
         <Chat />

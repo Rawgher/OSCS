@@ -1,9 +1,12 @@
 const express = require("express");
-
+const bodyParser = require("body-parser");
+const morgan = require('morgan');
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
+const session = require("express-session");
+const passport = require("./config/passport");
 
 // Socket.io stuff
 let server = require("http").Server(app);
@@ -69,14 +72,39 @@ server.listen(portt, () => {
 // Back to your regularly scheduled code
 
 // Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// Sessions
+app.use(
+  session({
+    secret: "OSCS-session",
+    resave: false,
+    saveUninitialized: false
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Add routes, both API and view
 app.use(routes);
+
+// app.post('/api/auth/signup', (req, res) => {
+//   console.log("session test");
+//   req.session.username = req.body.username;
+//   res.end();
+// })
+
+// app.post('/api/auth/signup', (req, res, next) => {
+//   console.log("server post username: " + req.body.username);
+//   res.end();
+// })
 
 // app.use(express.static("./public")).get("*", function(req, res) {
 //   res.sendfile("./public/index.html");
