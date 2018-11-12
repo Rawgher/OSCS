@@ -25,10 +25,9 @@
 }
 #EGA-teamContainer div button .MuiCardContent-root-103 {
   outline: none;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 #EGA-teamContainer div button div img {
-  margin: 40px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: opacity 0.5s;
 }
@@ -52,7 +51,8 @@
   color: white;
 }
 #EGA-aboutSiteTitle,
-#EGA-aboutTeamTitle {
+#EGA-aboutTeamTitle,
+#EGA-aboutTeamContactTitle {
   font-size: 2rem;
 }
 
@@ -61,5 +61,11 @@
   width: 100%;
   margin: auto;
 }
-#EGA-cardContainer div button div img {
+#EGA-cardContainer div button .MuiCardActionArea-root-95:hover,
+#EGA-cardContainer div button .MuiCardActionArea-focusHighlight-97 {
+  opacity: 0 !important;
+  background: none !important;
+}
+#EGA-cardContainer div button .MuiTouchRipple-root-255 {
+  overflow: unset;
 }

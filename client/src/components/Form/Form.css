@@ -15,3 +15,34 @@
   color: white !important;
   border-color: white;
 }
+
+#EGA-contactForm {
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+#EGA-contactForm div {
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  border-color: white;
+  color: white;
+}
+#EGA-contactForm div div {
+  padding: 0px 40px 0px 40px;
+}
+#EGA-contactForm div,
+#EGA-contactForm div label {
+  color: white;
+}
+#outlined-multiline-static {
+  min-height: 100px;
+}
+#EGA-contactForm div div fieldset {
+  color: white;
+  border-color: white;
+}
+#EGA-contactForm div div input:focus {
+  border-color: rgb(255, 115, 0);
+  box-shadow: 0 1px 0 0 rgb(255, 115, 0);
+}

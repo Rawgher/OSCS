@@ -58,6 +58,7 @@ class About extends React.Component {
         </Row>
         <Row>
           <Col size="md-12 sm-12 xs-12">
+            <h1 id="EGA-aboutTeamContactTitle">Ask us a question!</h1>
             <Form />
           </Col>
         </Row>
