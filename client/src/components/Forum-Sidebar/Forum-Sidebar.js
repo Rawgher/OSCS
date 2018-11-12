@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Button from '@material-ui/core/Button';
+import { Link } from "react-router-dom";
 import { Col } from "../../components/Grid";
 import "./Forum-Sidebar.css";
 
@@ -11,7 +12,7 @@ class ForumSidebar extends Component {
     render() {
         return (
             <Col size="md-3">
-                <Button variant="contained" size="large" type="submit" name="action" id="create-post" href="/Forum/NewPost" style={{ width: "100%" }}>
+                <Button variant="contained" size="large" type="submit" name="action" id="create-post" component={Link} to="/Forum/NewPost" style={{ width: "100%" }}>
                     CREATE POST
             </Button>
                 <div class="ESH_top-posts">

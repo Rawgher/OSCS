@@ -12,3 +12,7 @@
 #submit:hover, #submit:active, #submit:focus {
     background: rgb(255, 115, 0) !important;
 }
+
+#topic_name {
+    margin-bottom: 32px;
+}
