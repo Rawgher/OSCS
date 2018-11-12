@@ -1,21 +1,39 @@
 import React, { Component } from "react";
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import TextField from '@material-ui/core/TextField';
+import { Redirect } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
 import BackBtn from "../../components/BackBtn";
 import { Col, Row, Container } from "../../components/Grid";
 import ForumSidebar from "../../components/Forum-Sidebar";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
-import axios from "axios"
+import axios from "axios";
 import "./NewPost.css";
 
+// TODO: set post_author to current user id
 class NewPost extends Component {
   state = {
+<<<<<<< HEAD
     post_subject: "",
     post_body: ""
+=======
+    post_title: "",
+    post_body: "",
+    post_author: "Curious George"
+>>>>>>> master
   };
+
+  constructor() {
+    super();
+    this.state = {
+      post_title: ""
+    };
+  }
+
+  componentDidMount() {
+    this.props.getUser();
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -24,9 +42,14 @@ class NewPost extends Component {
     });
   };
 
+  // ======= ELAINE ========
+  //  Use this for user_id
+  // {this.props.user_id}
+
   // fix routing for creating new post
   handleFormSubmit = event => {
     event.preventDefault();
+<<<<<<< HEAD
     if (this.state.post_subject && this.state.post_body) {
       axios.post('/api/forum/forum/posts').then(res => {
         
@@ -35,6 +58,18 @@ class NewPost extends Component {
       })
     };
 
+=======
+    console.log(this.props.user_id, this.props.username);
+    if (this.state.post_title && this.state.post_body) {
+      axios
+        .post({
+          post_author: this.state.post_author,
+          post_subject: this.state.posts_title,
+          post_body: this.state.post_body
+        })
+        .catch(err => console.log(err));
+    }
+>>>>>>> master
   };
 
 
@@ -48,7 +83,7 @@ class NewPost extends Component {
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs auth={this.props.auth} />
+              <NavTabs />
             </Col>
           </Row>
         </Container>
@@ -83,28 +118,37 @@ class NewPost extends Component {
                     className="materialize-textarea"
                     name="post_body"
                     placeholder="Description"
+                    value={this.state.post_body}
+                    onChange={this.handleInputChange}
                   />
-                  <label id="textarea1" className="active">Description</label>
+                  <label id="textarea1" className="active">
+                    Description
+                  </label>
                 </div>
 
-                <Button variant="contained" size="large" type="submit" name="action" id="submit" onClick={this.handleFormSubmit}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  type="submit"
+                  name="action"
+                  id="submit"
+                  onClick={this.handleFormSubmit}
+                >
                   Submit
                   <Icon style={{ marginLeft: 15 }}>send</Icon>
                 </Button>
               </form>
 
               <BackBtn />
-
             </Col>
 
-            <ForumSidebar />
-
+            <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
           <Chat />
         </Container>
       </React.Fragment>
-    )
+    );
   }
-};
+}
 
 export default NewPost;

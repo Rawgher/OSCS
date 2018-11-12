@@ -14,3 +14,10 @@
 .ESH_tcol3 {
   width: 30%;
 }
+
+td a:link,
+td a:hover,
+td a:focus,
+td a:visited {
+  color: rgb(255, 115, 0) !important;
+}

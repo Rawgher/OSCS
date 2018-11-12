@@ -1,9 +1,8 @@
-import React from "react";
-import { Router, Route, Switch } from "react-router-dom";
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Authentication from "./pages/Authentication-Page";
 import NoMatch from "./pages/NoMatch";
-import Callback from "./pages/Callback";
-import Auth from "./utils/Authentication/auth";
-import history from "./utils/Authentication/history";
 import LandingPage from "./pages/Landing-Page/Landing";
 import Categories from "./pages/Forum-Categories";
 import NewPost from "./pages/Forum-NewPost";
@@ -13,75 +12,105 @@ import User from "./pages/Forum-UserPage";
 import Search from "./pages/Search-Page";
 import About from "./pages/About";
 import DocumentationPage from "./pages/Documentation/Documentation";
+import axios from "axios";
 
-const auth = new Auth();
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loggedIn: false,
+      username: null,
+      user_id: null
+    };
 
-const handleAuthentication = (nextState, replace) => {
-  if (/acceess_token|id_token|error/.test(nextState.location.hash)) {
-    auth.handleAuthentication();
+    this.getUser = this.getUser.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.updateUser = this.updateUser.bind(this);
   }
-};
 
-const App = () => (
-  <Router history={history}>
-    <div>
-      <Switch>
-        <Route
-          exact
-          path="/"
-          render={props => <LandingPage auth={auth} {...props} />}
-        />
-        <Route
-          exact
-          path="/forum/categories"
-          render={props => <Categories auth={auth} />}
-        />
-        <Route
-          exact
-          path="/forum/newpost"
-          render={props => <NewPost auth={auth} {...props} />}
-        />
-        <Route
-          exact
-          path="/forum/posts"
-          render={props => <Posts auth={auth} {...props} />}
-        />
-        <Route
-          exact
-          path="/forum/thispost"
-          render={props => <ThisPost auth={auth} {...props} />}
-        />
-        <Route
-          exact
-          path="/forum/userpage"
-          render={props => <User auth={auth} {...props} />}
-        />
-        <Route
-          exact
-          path="/search"
-          render={props => <Search auth={auth} {...props} />}
-        />
-        <Route
-          exact
-          path="/About"
-          render={props => <About auth={auth} {...props} />}
-        />
-        <Route
-          exact
-          path="/documentation"
-          render={props => <DocumentationPage auth={auth} {...props} />}
-        />
-        <Route
-          path="/callback"
-          render={props => {
-            handleAuthentication(props);
-            return <Callback {...props} />;
-          }}
-        />
-        <Route component={NoMatch} />
-      </Switch>
-    </div>
-  </Router>
-);
+  componentDidMount() {
+    this.getUser();
+  }
+
+  updateUser(userObject) {
+    this.setState(userObject);
+  }
+
+  getUser() {
+    axios.get("api/auth/").then(response => {
+      console.log("Get user response: ", response.data);
+      if (response.data.user) {
+        console.log("Get user: there is a user saved in the server session: ");
+        this.setState({
+          loggedIn: true,
+          username: response.data.user.user_name,
+          user_id: response.data.user._id
+        });
+      } else {
+        console.log("Get user: no user");
+        this.setState({
+          loggedIn: false,
+          username: null
+        });
+      }
+    });
+  }
+
+  render() {
+    return (
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path="/" render={() => <LandingPage />} />
+            <Route
+              exact path="/forum/categories"
+              render={() => (
+                <Categories
+                  updateUser={this.updateUser}
+                  loggedIn={this.state.loggedIn}
+                />
+              )}
+            />
+            <Route
+              exact path="/forum/newPost"
+              render={() => (
+                <NewPost
+                  getUser={this.getUser}
+                  loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+                  user_id={this.state.user_id}
+                />
+              )}
+            />
+            <Route exact path="/Forum/Posts" render={() => <Posts />} />
+            <Route exact path="/Forum/ThisPost" render={() => <ThisPost />} />
+            <Route exact path="/Forum/UserPage" render={() => <User />} />
+            <Route
+              exact path="/Search"
+              render={() => (
+                <Search
+                  updateUser={this.updateUser}
+                  loggedIn={this.state.loggedIn}
+                  user={this.state.username}
+                  user_id={this.state.user_id}
+                />
+              )}
+            />
+            <Route exact path="/AboutUs" render={() => <About />} />
+            <Route
+              exact path="/Documentation"
+              render={() => <DocumentationPage />}
+            />
+            <Route
+              exact path="/login"
+              render={() => <Authentication updateUser={this.updateUser} />}
+            />
+            <Route render={() => <NoMatch />} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
+}
 
 export default App;

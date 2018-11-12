@@ -1,22 +1,47 @@
-import React from "react";
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 import { Col } from "../../components/Grid";
 import "./Forum-Sidebar.css";
 
-const ForumSidebar = () => (
-    <Col size="md-3">
-        <Button variant="contained" size="large" type="submit" name="action" id="create-post" href="/Forum/NewPost" style={{width:"100%"}}>
-            CREATE POST
-        </Button>
+class ForumSidebar extends Component {
+  state = {
+    popular_posts: [],
+    disabled: true
+  };
 
+  componentDidMount() {
+    if(this.props.loggedIn === true) {
+        this.setState({ disabled: false })
+    }
+  }
+
+  render() {
+    console.log(this.props.loggedIn);
+    return (
+      <Col size="md-3">
+        <Button
+          variant="contained"
+          size="large"
+          component={Link}
+          to="/forum/newPost"
+          disabled= {this.state.disabled}
+          style={{ width: "100%" }}
+        >
+          CREATE POST
+        </Button>
         <div class="ESH_top-posts">
-            <div class="ESH_title">POPULAR POSTS</div>
-            <ul>
-                <li><a href="#">this.post_subject</a></li>
-            </ul>
+          <div class="ESH_title">POPULAR POSTS</div>
+          <ul>
+            {/* TODO: get array of popular posts */}
+            {/* {this.state.popular_posts.map(pp => (
+                        <li><a href={`/forum/${pp.id}`}>{pp.title}</a></li>
+                    ))} */}
+          </ul>
         </div>
-    </Col>
-);
+      </Col>
+    );
+  }
+}
 
 export default ForumSidebar;

@@ -4,21 +4,27 @@
   right: 20px;
   float: right;
 }
-.chat-button:hover {
+
+.MuiButton-contained-14:hover {
   background: rgb(255, 115, 0) !important;
 }
-.chat-button:focus {
-  background-color: #d5d5d5 !important;
+
+.MuiButton-contained-14:focus {
+  background-color: #e0e0e0;
 }
+
 .chat-box {
   position: fixed !important;
   bottom: 20px;
   right: 100px;
   float: right;
 }
-.EGA-orange {
-  color: rgb(255, 115, 0) !important;
-  font-weight: 700;
+
+.users-box {
+  position: fixed !important;
+  bottom: 20px;
+  right: 500px;
+  float: right;
 }
 
 .black-border {
@@ -27,8 +33,16 @@
   overflow: hidden;
 }
 
-.header {
-  background: yellowgreen;
+.chat-header {
+  background: rgb(255, 115, 0);
+  text-align: center;
+  padding: 5px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.chat-users {
+  background: grey;
   text-align: center;
   padding: 10px;
 }
@@ -39,7 +53,7 @@
 
 .ng-space {
   height: 80vh;
-  width: 30vw;
+  width: 350px;
   background: white;
 }
 
@@ -54,4 +68,42 @@
 }
 
 .message-input {
+}
+
+.users-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.users-header:hover {
+  cursor: pointer;
+}
+
+#header-username {
+  font-weight: bolder;
+}
+
+.my-messages {
+  text-align: right;
+}
+
+.messages {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 50vh;
+}
+
+.messages::-webkit-scrollbar {
+  width: 12px;
+  background: lightgray;
+}
+
+.messages::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: rgb(255, 115, 0);
 }
