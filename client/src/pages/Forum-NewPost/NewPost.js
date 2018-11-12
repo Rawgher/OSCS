@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import axios from "axios";
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
@@ -8,6 +7,7 @@ import ForumSidebar from "../../components/Forum-Sidebar";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
+import axios from "axios";
 import "./NewPost.css";
 
 // TODO: set post_author to current user id
@@ -18,6 +18,17 @@ class NewPost extends Component {
     post_author: "Curious George"
   };
 
+  constructor() {
+    super();
+    this.state = {
+      post_title: ""
+    };
+  }
+
+  componentDidMount() {
+    this.props.getUser();
+  }
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -25,9 +36,15 @@ class NewPost extends Component {
     });
   };
 
+  // ======= ELAINE ========
+  //  Use this for user_id
+  // {this.props.user_id}
+
+  // fix routing for creating new post
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.post_title && this.state.post_body) {
+    console.log(this.props.user_id, this.props.username);
+   if (this.state.post_title && this.state.post_body) {
       axios
         .post({
           post_author: this.state.post_author,
@@ -47,7 +64,7 @@ class NewPost extends Component {
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs auth={this.props.auth} />
+              <NavTabs />
             </Col>
           </Row>
         </Container>
@@ -85,27 +102,34 @@ class NewPost extends Component {
                     value={this.state.post_body}
                     onChange={this.handleInputChange}
                   />
-                  <label id="textarea1" className="active">Description</label>
+                  <label id="textarea1" className="active">
+                    Description
+                  </label>
                 </div>
 
-                <Button variant="contained" size="large" type="submit" name="action" id="submit" onClick={this.handleFormSubmit}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  type="submit"
+                  name="action"
+                  id="submit"
+                  onClick={this.handleFormSubmit}
+                >
                   Submit
                   <Icon style={{ marginLeft: 15 }}>send</Icon>
                 </Button>
               </form>
 
               <BackBtn />
-
             </Col>
 
             <ForumSidebar />
-
           </Row>
           <Chat />
         </Container>
       </React.Fragment>
-    )
+    );
   }
-};
+}
 
 export default NewPost;

@@ -46,11 +46,11 @@ router.post(
     next();
   },
   passport.authenticate("local"),
-// console.log("this should be authentication"),
   (req, res) => {
     console.log("logged in", req.user);
     var userInfo = {
-      user_name: req.user.user_name
+      user_name: req.user.user_name,
+      user_id: req.user._id
     };
     res.send(userInfo);
   }

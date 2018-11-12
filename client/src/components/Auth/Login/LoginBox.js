@@ -57,7 +57,8 @@ class LoginBox extends React.Component {
           // update App.js state
           this.props.updateUser({
             loggedIn: true,
-            user_name: response.data.user_name
+            username: response.data.user_name,
+            user_id: response.data.user_id
           });
           this.setState({
             redirectTo: "/search"
