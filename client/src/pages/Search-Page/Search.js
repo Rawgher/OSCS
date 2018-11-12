@@ -76,7 +76,7 @@ class Search extends Component {
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs auth={this.props.auth} />
+              <NavTabs />
             </Col>
           </Row>
         </Container>
@@ -95,7 +95,8 @@ class Search extends Component {
           </Container>
         </div>
         <Container fluid>
-          {/* <h3>{this.props.user}</h3> */}
+          <h3>{this.props.user}</h3>
+          <h3>{this.props.user_id}</h3>
           <Row>
             <Col size="md-1" />
             <Col size="md-2">
