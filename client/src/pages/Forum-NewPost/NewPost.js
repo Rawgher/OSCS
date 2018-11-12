@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
-import TextField from "@material-ui/core/TextField";
 import BackBtn from "../../components/BackBtn";
 import { Col, Row, Container } from "../../components/Grid";
 import ForumSidebar from "../../components/Forum-Sidebar";
@@ -46,41 +45,36 @@ class NewPost extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.props.user_id, this.props.username);
-   if (this.state.post_title && this.state.post_body) {
+    if (this.state.post_title && this.state.post_body) {
       axios
         .post({
           post_author: this.state.post_author,
           post_subject: this.state.posts_title,
           post_body: this.state.post_body
         })
-        .catch(
-          err => console.log(err)
-        );
+        .catch(err => console.log(err));
     }
   };
 
   render() {
-    if (this.props.loggedIn === false) {
-      <Redirect to="/forum/categories" />;
-    } else {
-      return (
-        <React.Fragment>
-          <Container fluid>
-            <Background />
-            <Row>
-              <Col size="md-12">
-                <NavTabs />
-              </Col>
-            </Row>
-          </Container>
+    return (
+      <React.Fragment>
+        <Container fluid>
+          <Background />
+          <Row>
+            <Col size="md-12">
+              <NavTabs />
+            </Col>
+          </Row>
+        </Container>
 
-          <Container>
-            <Row>
-              <Col size="md-12">
-                <h4 className="ESH_main-title">CREATE NEW POST</h4>
-                <div className="ESH_line" />
-              </Col>
-            </Row>
+        <Container>
+          <Row>
+            <Col size="md-12">
+              <h4 className="ESH_main-title">CREATE NEW POST</h4>
+              <div className="ESH_line" />
+            </Col>
+          </Row>
 
           <Row>
             <Col size="md-9" className="ESH_forum-col">
@@ -112,29 +106,28 @@ class NewPost extends Component {
                   </label>
                 </div>
 
-                  <Button
-                    variant="contained"
-                    size="large"
-                    type="submit"
-                    name="action"
-                    id="submit"
-                    onClick={this.handleFormSubmit}
-                  >
-                    Submit
-                    <Icon style={{ marginLeft: 15 }}>send</Icon>
-                  </Button>
-                </form>
+                <Button
+                  variant="contained"
+                  size="large"
+                  type="submit"
+                  name="action"
+                  id="submit"
+                  onClick={this.handleFormSubmit}
+                >
+                  Submit
+                  <Icon style={{ marginLeft: 15 }}>send</Icon>
+                </Button>
+              </form>
 
-                <BackBtn />
-              </Col>
+              <BackBtn />
+            </Col>
 
-              <ForumSidebar />
-            </Row>
-            <Chat />
-          </Container>
-        </React.Fragment>
-      );
-    }
+            <ForumSidebar loggedIn={this.props.loggedIn} />
+          </Row>
+          <Chat />
+        </Container>
+      </React.Fragment>
+    );
   }
 }
 

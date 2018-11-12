@@ -70,6 +70,9 @@ class Search extends Component {
   };
 
   render() {
+    if (this.props.loggedIn === true) {
+      console.log("logged in");
+    }
     return (
       <React.Fragment>
         <Container fluid>
@@ -95,8 +98,8 @@ class Search extends Component {
           </Container>
         </div>
         <Container fluid>
-          <h3>{this.props.user}</h3>
-          <h3>{this.props.user_id}</h3>
+          {/* <h3>{this.props.user}</h3>
+          <h3>{this.props.user_id}</h3> */}
           <Row>
             <Col size="md-1" />
             <Col size="md-2">
