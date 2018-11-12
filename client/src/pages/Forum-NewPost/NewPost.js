@@ -1,6 +1,7 @@
-import axios from "axios";
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
 import BackBtn from "../../components/BackBtn";
 import { Col, Row, Container } from "../../components/Grid";
 import ForumSidebar from "../../components/Forum-Sidebar";
@@ -44,16 +45,14 @@ class NewPost extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.props.user_id, this.props.username);
-   if (this.state.post_title && this.state.post_body) {
+    if (this.state.post_title && this.state.post_body) {
       axios
         .post({
           post_author: this.state.post_author,
           post_subject: this.state.posts_title,
           post_body: this.state.post_body
         })
-        .catch(
-          err => console.log(err)
-        );
+        .catch(err => console.log(err));
     }
   };
 
@@ -123,7 +122,7 @@ class NewPost extends Component {
               <BackBtn />
             </Col>
 
-            <ForumSidebar />
+            <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
           <Chat />
         </Container>
