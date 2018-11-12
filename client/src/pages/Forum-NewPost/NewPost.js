@@ -12,7 +12,14 @@ import Background from "../../components/Background";
 import axios from "axios";
 import "./NewPost.css";
 
+// TODO: set post_author to current user id
 class NewPost extends Component {
+  state = {
+    post_title: "",
+    post_body: "",
+    post_author: "Curious George"
+  };
+
   constructor() {
     super();
     this.state = {
@@ -39,15 +46,17 @@ class NewPost extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.props.user_id, this.props.username);
-    // if (this.state.title && this.state.author) {
-    //   API.saveBook({
-    //     title: this.state.title,
-    //     author: this.state.author,
-    //     synopsis: this.state.synopsis
-    //   })
-    //     .then(res => this.loadBooks())
-    //     .catch(err => console.log(err));
-    // }
+   if (this.state.post_title && this.state.post_body) {
+      axios
+        .post({
+          post_author: this.state.post_author,
+          post_subject: this.state.posts_title,
+          post_body: this.state.post_body
+        })
+        .catch(
+          err => console.log(err)
+        );
+    }
   };
 
   render() {
@@ -73,33 +82,35 @@ class NewPost extends Component {
               </Col>
             </Row>
 
-            <Row>
-              <Col size="md-9" className="ESH_forum-col">
-                <form>
-                  <div className="input-field">
-                    <input
-                      id="post_title"
-                      type="text"
-                      name="post_title"
-                      value={this.state.post_title}
-                      onChange={this.handleInputChange}
-                      placeholder="Post Title"
-                    />
-                    <label for="post_title" id="textarea1" className="active">
-                      Post Title
-                    </label>
-                  </div>
-                  <div className="input-field">
-                    <textarea
-                      id="textarea1"
-                      className="materialize-textarea"
-                      name="post_body"
-                      placeholder="Description"
-                    />
-                    <label id="textarea1" className="active">
-                      Description
-                    </label>
-                  </div>
+          <Row>
+            <Col size="md-9" className="ESH_forum-col">
+              <form>
+                <div className="input-field">
+                  <input
+                    id="post_title"
+                    type="text"
+                    name="post_title"
+                    value={this.state.post_title}
+                    onChange={this.handleInputChange}
+                    placeholder="Post Title"
+                  />
+                  <label for="post_title" id="textarea1" className="active">
+                    Post Title
+                  </label>
+                </div>
+                <div className="input-field">
+                  <textarea
+                    id="textarea1"
+                    className="materialize-textarea"
+                    name="post_body"
+                    placeholder="Description"
+                    value={this.state.post_body}
+                    onChange={this.handleInputChange}
+                  />
+                  <label id="textarea1" className="active">
+                    Description
+                  </label>
+                </div>
 
                   <Button
                     variant="contained"
