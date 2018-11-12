@@ -9,6 +9,7 @@ const PostSchema = new Schema({
     post_rating: { type: Number, default: 0 },
     post_number: { type: Number, required: true, unique: true},
     post_replies: [{ type: Schema.Types.ObjectId, ref: "Reply"}],
+    post_update: { type: Date, default: Date.now },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
 });

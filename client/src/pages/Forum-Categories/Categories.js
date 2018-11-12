@@ -8,21 +8,22 @@ import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
 
-// TODO: get request to database to access topics for state below
-
 class Categories extends Component {
   state = {
     topics: []
   };
 
   componentDidMount() {
-    axios.get('/api/forum/categories').then(res => {
-      this.setState({ topics: res.data });
-      console.log("it worked!");
-    }).catch(err => {
-      console.log("this is err=>", err);
-    })
-  };
+    axios
+      .get("/api/forum/categories")
+      .then(res => {
+        console.log(res.data);
+        this.setState({ topics: res.data });
+      })
+      .catch(err => {
+        console.log("this is err=>", err);
+      });
+  }
 
   render() {
     return (
@@ -31,7 +32,7 @@ class Categories extends Component {
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs auth={this.props.auth} />
+              <NavTabs />
             </Col>
           </Row>
         </Container>
@@ -53,8 +54,12 @@ class Categories extends Component {
 
                 {this.state.topics.map(topic => (
                   <tr>
-                    <td><a href={`/forum/${topic.topic_number}`}>{topic.topic_name}</a>
-                      <br/>{topic.topic_description}
+                    <td>
+                      <a href={`/forum/${topic.topic_number}`}>
+                        {topic.topic_name}
+                      </a>
+                      <br />
+                      {topic.topic_description}
                     </td>
                     <td className="ESH_tcol2">{topic.topic_posts.length}</td>
                     <td>{topic.updatedAt}</td>
@@ -62,7 +67,7 @@ class Categories extends Component {
                 ))}
               </table>
             </Col>
-            <ForumSidebar />
+            <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
         </Container>
         <Chat />

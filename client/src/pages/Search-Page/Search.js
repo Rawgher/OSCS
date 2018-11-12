@@ -7,15 +7,22 @@ import Stack from "../../components/Stack";
 import axios from "axios";
 import youtubeAPI from "../../utils/YoutubeAPI";
 import stackAPI from "../../utils/StackAPI";
+import bingAPI from "../../utils/BingAPI";
 import Sidebar from "../../components/Sidebar";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
 import APIMenuList from "../../components/APIMenuList";
+import Bing from "../../components/Bing";
 
 class Search extends Component {
+  constructor(props) {
+    super(props)
+  };
+
   state = {
     search: "",
+    bingSearch: [],
     stackResults: [],
     videos: []
   };
@@ -24,6 +31,7 @@ class Search extends Component {
     var code = event.keyCode || event.which;
     if (code === 13) {
       const youtubeSearch = youtubeAPI.youtubeSearch(this.state.search);
+      this.bingSearch(this.state.search);
       this.getVideos(youtubeSearch);
       const stackSearch = stackAPI.stackSearch(this.state.search);
       this.getStack(stackSearch);
@@ -45,6 +53,14 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
+  bingSearch = search => {
+    bingAPI
+      .bingSearch(search)
+      .then(res => bingAPI.bingParse(res))
+      .then(bingSearch => this.setState({ bingSearch }))
+      .catch(err => console.log(err));
+  };
+
   getStack = stackSearch => {
     axios
       .get(stackSearch)
@@ -54,13 +70,16 @@ class Search extends Component {
   };
 
   render() {
+    if (this.props.loggedIn === true) {
+      console.log("logged in");
+    }
     return (
       <React.Fragment>
         <Container fluid>
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs auth={this.props.auth} />
+              <NavTabs />
             </Col>
           </Row>
         </Container>
@@ -79,6 +98,8 @@ class Search extends Component {
           </Container>
         </div>
         <Container fluid>
+          {/* <h3>{this.props.user}</h3>
+          <h3>{this.props.user_id}</h3> */}
           <Row>
             <Col size="md-1" />
             <Col size="md-2">
@@ -91,11 +112,12 @@ class Search extends Component {
                 <div id="EGA-videoContainer" style={{ minHeight: 10 }}>
                   <Youtube id="test" videos={this.state.videos} />
                   <Stack results={this.state.stackResults} />
+                  <Bing bing={this.state.bingSearch} />
                 </div>
               </div>
             </Col>
             <Col size="md-2">
-              <Sidebar />
+              <Sidebar user={this.props.user} />
               <Chat />
             </Col>
           </Row>
