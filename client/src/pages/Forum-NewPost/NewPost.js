@@ -1,14 +1,8 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import axios from "axios";
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-//import { Link } from "react-router-dom";
-=======
 import { Redirect } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
->>>>>>> master
 import BackBtn from "../../components/BackBtn";
 import { Col, Row, Container } from "../../components/Grid";
 import ForumSidebar from "../../components/Forum-Sidebar";
@@ -22,7 +16,7 @@ class NewPost extends Component {
   state = {
     post_title: "",
     post_body: "",
-    post_author: "Curious George"
+    post_author: ""
   };
 
   constructor() {
@@ -54,6 +48,7 @@ class NewPost extends Component {
           post_body: this.state.post_body
         })
         .then(function (res) {
+          // TODO: change routing!!!
           res.redirect(`/posts/${res._id}`);
         })
         .catch(
