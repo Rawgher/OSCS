@@ -3,14 +3,13 @@ body {
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
 }
 
+p,
+h1 {
+  color: white;
+}
 a:hover,
 a:focus {
   color: rgb(255, 115, 0) !important;
-}
-
-table {
-  color: white;
-}
 
 .ESH_line {
   /* background-color: #50697d; */

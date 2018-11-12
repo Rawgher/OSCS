@@ -1,6 +1,37 @@
+#EGA-teamContainer {
+  opacity: 0.5;
+}
 #EGA-teamContainer div {
   background: none;
+  margin: auto;
+  box-shadow: none;
+  border: none;
 }
+
+#EGA-teamContainer:hover {
+  background: none;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 1;
+}
+#EGA-teamContainer div button:hover {
+  background: none;
+}
+#EGA-teamContainer div button:focus {
+  background: none;
+}
+#EGA-teamContainer div button .MuiCardContent-root-103 {
+  outline: none;
+  margin-top: 10px;
+}
+#EGA-teamContainer div button div img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: opacity 0.5s;
+}
+
 #EGA-teamContainer h1 {
   color: white;
 }
@@ -20,13 +51,21 @@
   color: white;
 }
 #EGA-aboutSiteTitle,
-#EGA-aboutTeamTitle {
+#EGA-aboutTeamTitle,
+#EGA-aboutTeamContactTitle {
   font-size: 2rem;
 }
 
 #EGA-cardContainer {
   display: inline-flex;
+  width: 100%;
+  margin: auto;
 }
-#EGA-aboutPageContainer {
-  margin-top: 40px;
+#EGA-cardContainer div button .MuiCardActionArea-root-95:hover,
+#EGA-cardContainer div button .MuiCardActionArea-focusHighlight-97 {
+  opacity: 0 !important;
+  background: none !important;
+}
+#EGA-cardContainer div button .MuiTouchRipple-root-255 {
+  overflow: unset;
 }
