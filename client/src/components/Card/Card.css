@@ -1,6 +1,10 @@
 .fancy-card {
   transition: all 250ms ease-in;
 }
+.fancy-card div button span {
+  background: none !important;
+  overflow: unset;
+}
 
 .fancy-card .v-border:before,
 .fancy-card .v-border:after {

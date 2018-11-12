@@ -57,7 +57,7 @@ class NavTabs extends React.Component {
             <Tab
               label="About"
               component={Link}
-              to="/About"
+              to="/AboutUs"
               style={styles.tabPosition}
             />
             <Tab
@@ -80,12 +80,12 @@ class NavTabs extends React.Component {
               />
             )}
             {!isAuthenticated() && ( */}
-              <Tab
-                label="Login"
-                component={Link}
-                to="/login"
-                style={styles.tabPosition}
-              />
+            <Tab
+              label="Login"
+              component={Link}
+              to="/login"
+              style={styles.tabPosition}
+            />
             {/* )} */}
           </Tabs>
         </AppBar>
