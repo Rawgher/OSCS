@@ -8,6 +8,10 @@ a:focus {
   color: rgb(255, 115, 0) !important;
 }
 
+table {
+  color: white;
+}
+
 .ESH_line {
   /* background-color: #50697d; */
   padding: 0.8px 20px;
@@ -47,10 +51,6 @@ th,
   font-size: 18px;
 }
 
-table {
-  color: white;
-}
-
 /* Magic that makes the placeholder disappear when cursor is inside. */
 input:focus::-webkit-input-placeholder {
   color: transparent !important;
@@ -75,8 +75,4 @@ textarea:focus::-moz-placeholder {
 }
 textarea:focus:-ms-input-placeholder {
   color: transparent !important;
-}
-
-#submit:hover, #submit:active {
-  background: rgb(255, 115, 0) !important;
 }

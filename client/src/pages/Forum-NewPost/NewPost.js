@@ -1,19 +1,21 @@
 import React, { Component } from "react";
+import axios from "axios";
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import TextField from '@material-ui/core/TextField';
 import BackBtn from "../../components/BackBtn";
 import { Col, Row, Container } from "../../components/Grid";
 import ForumSidebar from "../../components/Forum-Sidebar";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
-import axios from "axios"
 import "./NewPost.css";
 
+// TODO: set post_author to current user id
 class NewPost extends Component {
   state = {
-    post_title: ""
+    post_title: "",
+    post_body: "",
+    post_author: "Curious George"
   };
 
   handleInputChange = event => {
@@ -23,18 +25,19 @@ class NewPost extends Component {
     });
   };
 
-  // fix routing for creating new post
   handleFormSubmit = event => {
     event.preventDefault();
-    // if (this.state.title && this.state.author) {
-    //   API.saveBook({
-    //     title: this.state.title,
-    //     author: this.state.author,
-    //     synopsis: this.state.synopsis
-    //   })
-    //     .then(res => this.loadBooks())
-    //     .catch(err => console.log(err));
-    // }
+    if (this.state.post_title && this.state.post_body) {
+      axios
+        .post({
+          post_author: this.state.post_author,
+          post_subject: this.state.posts_title,
+          post_body: this.state.post_body
+        })
+        .catch(
+          err => console.log(err)
+        );
+    }
   };
 
   render() {
@@ -61,12 +64,12 @@ class NewPost extends Component {
             <Col size="md-9" className="ESH_forum-col">
               <form>
                 <div className="input-field">
-                  <input 
-                    id="post_title" 
-                    type="text" 
-                    name="post_title" 
+                  <input
+                    id="post_title"
+                    type="text"
+                    name="post_title"
                     value={this.state.post_title}
-                    onChange={this.handleInputChange} 
+                    onChange={this.handleInputChange}
                     placeholder="Post Title"
                   />
                   <label for="post_title" id="textarea1" className="active">
@@ -79,6 +82,8 @@ class NewPost extends Component {
                     className="materialize-textarea"
                     name="post_body"
                     placeholder="Description"
+                    value={this.state.post_body}
+                    onChange={this.handleInputChange}
                   />
                   <label id="textarea1" className="active">Description</label>
                 </div>
