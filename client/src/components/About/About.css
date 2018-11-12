@@ -1,6 +1,21 @@
+#EGA-teamContainer {
+  opacity: 0.5;
+}
 #EGA-teamContainer div {
   background: none;
   margin: auto;
+  box-shadow: none;
+  border: none;
+}
+
+#EGA-teamContainer:hover {
+  background: none;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 1;
 }
 #EGA-teamContainer div button:hover {
   background: none;
@@ -8,8 +23,14 @@
 #EGA-teamContainer div button:focus {
   background: none;
 }
-#EGA-teamContainer div button div {
+#EGA-teamContainer div button .MuiCardContent-root-103 {
   outline: none;
+  margin-top: 100px;
+}
+#EGA-teamContainer div button div img {
+  margin: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: opacity 0.5s;
 }
 
 #EGA-teamContainer h1 {
@@ -39,4 +60,6 @@
   display: inline-flex;
   width: 100%;
   margin: auto;
+}
+#EGA-cardContainer div button div img {
 }

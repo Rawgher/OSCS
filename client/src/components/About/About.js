@@ -4,6 +4,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import Card from "../../components/Card";
 import TheTeam from "../../utils/TheTeam.json";
 import "./About.css";
+import Form from "../Form/Form";
 
 class About extends React.Component {
   state = {
@@ -57,13 +58,7 @@ class About extends React.Component {
         </Row>
         <Row>
           <Col size="md-12 sm-12 xs-12">
-            <form>
-              <label>
-                Name:
-                <input type="text" name="name" />
-              </label>
-              <input type="submit" value="Submit" />
-            </form>
+            <Form />
           </Col>
         </Row>
       </Container>

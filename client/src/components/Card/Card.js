@@ -19,10 +19,12 @@ const styles = {
     height: 140
   },
   image: {
-    width: "90%",
+    maxWidth: "75%",
     margin: "auto",
     textAlign: "center",
-    display: "flex"
+    display: "flex",
+    borderRadius: "50%",
+    border: "1px solid white"
   }
 };
 
