@@ -67,7 +67,7 @@ class Categories extends Component {
                 ))}
               </table>
             </Col>
-            <ForumSidebar />
+            <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
         </Container>
         <Chat />

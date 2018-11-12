@@ -1,8 +1,14 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import axios from "axios";
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 //import { Link } from "react-router-dom";
+=======
+import { Redirect } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
+>>>>>>> master
 import BackBtn from "../../components/BackBtn";
 import { Col, Row, Container } from "../../components/Grid";
 import ForumSidebar from "../../components/Forum-Sidebar";
@@ -132,7 +138,7 @@ class NewPost extends Component {
               <BackBtn />
             </Col>
 
-            <ForumSidebar />
+            <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
           <Chat />
         </Container>
