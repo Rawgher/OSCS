@@ -13,16 +13,13 @@ import "./NewPost.css";
 
 // TODO: set post_author to current user id
 class NewPost extends Component {
-  state = {
-    post_title: "",
-    post_body: "",
-    post_author: ""
-  };
-
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      post_title: ""
+      post_title: "",
+      post_body: "",
+      post_author: "",
+      post_topic: ""
     };
   }
 
@@ -44,12 +41,13 @@ class NewPost extends Component {
       axios
         .post({
           post_author: this.props.user_id,
-          post_subject: this.state.posts_title,
-          post_body: this.state.post_body
+          post_subject: this.state.post_title,
+          post_body: this.state.post_body,
+          post_topic: this.state.post_topic
         })
         .then(function (res) {
           // TODO: change routing!!!
-          res.redirect(`/posts/${res._id}`);
+          res.redirect(`/forum/categories`);
         })
         .catch(
           err => console.log(err)
@@ -94,13 +92,13 @@ class NewPost extends Component {
                   </label>
                 </div>
                 <div className="input-field">
-                  <select className="browser-default" id="topic_name" name="topic_name">
+                  <select className="browser-default" id="post_topic" name="post_topic" onChange= {this.handleInputChange.bind(this)}>
                     <option value="" disabled selected>Choose Topic</option>
-                    <option value="1">HTML</option>
-                    <option value="2">CSS</option>
-                    <option value="3">Javascript</option>
-                    <option value="4">API/AJAX</option>
-                    <option value="5">mySQL</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="API AJAX">API/AJAX</option>
+                    <option value="mySQL">mySQL</option>
                   </select>
                 </div>
                 <div className="input-field">

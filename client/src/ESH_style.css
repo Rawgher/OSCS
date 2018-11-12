@@ -7,9 +7,11 @@ p,
 h1 {
   color: white;
 }
+
 a:hover,
 a:focus {
   color: rgb(255, 115, 0) !important;
+}
 
 .ESH_line {
   /* background-color: #50697d; */
