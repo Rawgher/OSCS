@@ -2,7 +2,7 @@ body {
   color: #3d3d3d;
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
 }
-
+a,
 p,
 h1 {
   color: white;
@@ -10,7 +10,11 @@ h1 {
 a:hover,
 a:focus {
   color: rgb(255, 115, 0) !important;
+}
 
+table {
+  color: white;
+}
 .ESH_line {
   /* background-color: #50697d; */
   padding: 0.8px 20px;
