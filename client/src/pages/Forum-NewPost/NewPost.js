@@ -1,20 +1,27 @@
 import React, { Component } from "react";
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import TextField from '@material-ui/core/TextField';
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
+import TextField from "@material-ui/core/TextField";
 import BackBtn from "../../components/BackBtn";
 import { Col, Row, Container } from "../../components/Grid";
 import ForumSidebar from "../../components/Forum-Sidebar";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
-import axios from "axios"
+import axios from "axios";
 import "./NewPost.css";
 
 class NewPost extends Component {
-  state = {
-    post_title: ""
-  };
+  constructor() {
+    super();
+    this.state = {
+      post_title: ""
+    };
+  }
+
+  componentDidMount() {
+    this.props.getUser();
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -26,6 +33,7 @@ class NewPost extends Component {
   // fix routing for creating new post
   handleFormSubmit = event => {
     event.preventDefault();
+    console.log(this.props.user_id, this.props.username);
     // if (this.state.title && this.state.author) {
     //   API.saveBook({
     //     title: this.state.title,
@@ -44,7 +52,7 @@ class NewPost extends Component {
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs auth={this.props.auth} />
+              <NavTabs />
             </Col>
           </Row>
         </Container>
@@ -59,14 +67,16 @@ class NewPost extends Component {
 
           <Row>
             <Col size="md-9" className="ESH_forum-col">
+              <h2>{this.props.user_id}</h2>
+              <h2>{this.props.username}</h2>
               <form>
                 <div className="input-field">
-                  <input 
-                    id="post_title" 
-                    type="text" 
-                    name="post_title" 
+                  <input
+                    id="post_title"
+                    type="text"
+                    name="post_title"
                     value={this.state.post_title}
-                    onChange={this.handleInputChange} 
+                    onChange={this.handleInputChange}
                     placeholder="Post Title"
                   />
                   <label for="post_title" id="textarea1" className="active">
@@ -80,27 +90,34 @@ class NewPost extends Component {
                     name="post_body"
                     placeholder="Description"
                   />
-                  <label id="textarea1" className="active">Description</label>
+                  <label id="textarea1" className="active">
+                    Description
+                  </label>
                 </div>
 
-                <Button variant="contained" size="large" type="submit" name="action" id="submit" onClick={this.handleFormSubmit}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  type="submit"
+                  name="action"
+                  id="submit"
+                  onClick={this.handleFormSubmit}
+                >
                   Submit
                   <Icon style={{ marginLeft: 15 }}>send</Icon>
                 </Button>
               </form>
 
               <BackBtn />
-
             </Col>
 
             <ForumSidebar />
-
           </Row>
           <Chat />
         </Container>
       </React.Fragment>
-    )
+    );
   }
-};
+}
 
 export default NewPost;
