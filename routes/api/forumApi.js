@@ -2,47 +2,30 @@ const router = require("express").Router();
 const forumController = require("../../controllers/forumController");
 
 // login
-router
-    .route("/login")
-    .get(forumController.findUserById)
+router.route("/login").get(forumController.findUserById);
 
 // account registration
-router
-    .route("/registration")
-    .post(forumController.createUser)
+router.route("/registration").post(forumController.createUser);
 
 // user account information
-router
-    .route("/forum/userpage")
-    .get(forumController.findUserById);
+router.route("/forum/user/:id").get(forumController.findUserById);
 
 // display all topics
 router
-    .route("/categories")
-    .get(forumController.findAllTopics)
-    .post(forumController.createTopic);
+  .route("/categories")
+  .get(forumController.findAllTopics)
+  .post(forumController.createTopic);
 
 // display all posts of a topic
 router
-    .route("/forum/posts")
-    .get(forumController.findTopicById)
-    .post(forumController.createPost);
+  .route("/forum/:id")
+  .get(forumController.findTopicById)
+  .post(forumController.createPost);
 
 // display all replies of a topic
 router
-    .route("/forum/thispost")
-    .get(forumController.findPostById)
-    .post(forumController.createReply)
-
-
-
-
-
-
-
-
-
-
-
+  .route("/forum/post/:id")
+  .get(forumController.findPostById)
+  .post(forumController.createReply);
 
 module.exports = router;
