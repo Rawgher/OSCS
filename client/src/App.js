@@ -74,7 +74,7 @@ class App extends Component {
             />
             <Route
               exact
-              path="/forum/newPost"
+              path="/forum/newpost"
               render={() => (
                 <NewPost
                   getUser={this.getUser}

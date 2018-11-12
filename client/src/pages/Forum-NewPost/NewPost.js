@@ -42,6 +42,7 @@ class NewPost extends Component {
   // {this.props.user_id}
 
   // fix routing for creating new post
+  // RDP - not posting properly. doesn't look like there is a controller route to handle it
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.props.user_id, this.props.username);
@@ -49,6 +50,7 @@ class NewPost extends Component {
       axios
         .post({
           post_author: this.state.post_author,
+          // should this line be posts_title or post_title?
           post_subject: this.state.posts_title,
           post_body: this.state.post_body
         })
@@ -79,6 +81,7 @@ class NewPost extends Component {
           <Row>
             <Col size="md-9" className="ESH_forum-col">
               <form>
+                {/* RDP - Need an input for selecting which category the post goes under */}
                 <div className="input-field">
                   <input
                     id="post_title"

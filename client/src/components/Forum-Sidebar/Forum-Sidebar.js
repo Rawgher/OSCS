@@ -11,8 +11,8 @@ class ForumSidebar extends Component {
   };
 
   componentDidMount() {
-    if(this.props.loggedIn === true) {
-        this.setState({ disabled: false })
+    if (this.props.loggedIn === true) {
+      this.setState({ disabled: false });
     }
   }
 
@@ -24,8 +24,8 @@ class ForumSidebar extends Component {
           variant="contained"
           size="large"
           component={Link}
-          to="/forum/newPost"
-          disabled= {this.state.disabled}
+          to="/forum/newpost"
+          disabled={this.state.disabled}
           style={{ width: "100%" }}
         >
           CREATE POST
