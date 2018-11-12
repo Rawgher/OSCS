@@ -4,6 +4,10 @@ import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
 import "./Youtube.css"
 
+// ===== TODO =====
+// add function on favorite hover to "Unfavorited"
+// add function on unfavorited hover to "Favorite"
+
 class Youtube extends React.Component {
   render() {
     const opts = {
@@ -21,10 +25,12 @@ class Youtube extends React.Component {
     return videos.map((a, id) => (
       <div key={id}>
         <YouTube videoId={a.videoId} opts={opts} onReady={this._onReady} />
-        <Button variant="contained" size="large" id="favorite">
-          Favorite
-          <Icon style={{ marginLeft: 15 }}>grade</Icon>
-        </Button>
+        <div class="fav-div">
+          <Button variant="contained" size="large" id="favorite">
+            Favorite
+            <Icon style={{ marginLeft: 15, color: "#FFFF00" }}>grade</Icon>
+          </Button>
+        </div>
       </div>
     ));
   }

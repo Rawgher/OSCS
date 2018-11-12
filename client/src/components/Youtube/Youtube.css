@@ -1,4 +1,12 @@
 #favorite {
-    right: 0;
     margin: 10px 0 20px;
+}
+
+#favorite:active,
+#favorite:focus {
+    background-color: #e0e0e0 !important;
+}
+
+.fav-div {
+    text-align: right;
 }
