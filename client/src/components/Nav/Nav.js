@@ -51,13 +51,13 @@ class NavTabs extends React.Component {
             <Tab
               label="Home"
               component={Link}
-              to="/Search"
+              to="/search"
               style={styles.tabPosition}
             />
             <Tab
               label="About"
               component={Link}
-              to="/AboutUs"
+              to="/aboutus"
               style={styles.tabPosition}
             />
             <Tab

@@ -17,8 +17,12 @@ class NewPost extends Component {
     this.state = {
       post_title: "",
       post_body: "",
+      // RDP - Collin, might want to switch this back to setting it as this.props.username?
       post_author: "",
-      post_topic: ""
+      // RDP - Collin, can you figure the way to get the actual topic schema here?
+      post_topic: "",
+      // RDP - added state to handle page redirect
+      redirect: false
     };
   }
 
@@ -36,26 +40,35 @@ class NewPost extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.props.user_id, this.props.username);
+    console.log(
+      this.state.post_author,
+      this.state.post_topic,
+      this.state.post_title,
+      this.state.post_body
+    );
     if (this.state.post_title && this.state.post_body) {
       axios
-        .post("/api/forum/posts", {
+        .post("/api/forum/newpost", {
+          // RDP - Collin, if you change username above, you'll need to change this
           post_author: this.props.user_id,
           post_subject: this.state.post_title,
           post_body: this.state.post_body,
           post_topic: this.state.post_topic
         })
-        .then(function (res) {
-          // TODO: change routing!!!
-          console.log("it worked");
-          res.redirect(`/forum/categories`);
-        })
-        .catch(
-          err => console.log(err)
-        );
+        // RDP - added this set state to handle redirect, might want to some sort of confirmation for the user that it posted instead
+        .then(() => this.setState({ redirect: true }))
+        .catch(err => console.log(err));
     }
   };
 
   render() {
+    // RDP - added state for redirect
+    const { redirect } = this.state;
+
+    if (redirect) {
+      return <Redirect to="/forum/categories" />;
+    }
+    // RDP - end of addition
     return (
       <React.Fragment>
         <Container fluid>
@@ -92,8 +105,15 @@ class NewPost extends Component {
                   </label>
                 </div>
                 <div className="input-field">
-                  <select className="browser-default" id="post_topic" name="post_topic" onChange= {this.handleInputChange.bind(this)}>
-                    <option value="" disabled selected>Choose Topic</option>
+                  <select
+                    className="browser-default"
+                    id="post_topic"
+                    name="post_topic"
+                    onChange={this.handleInputChange.bind(this)}
+                  >
+                    <option value="" disabled selected>
+                      Choose Topic
+                    </option>
                     <option value="HTML">HTML</option>
                     <option value="CSS">CSS</option>
                     <option value="Javascript">Javascript</option>
