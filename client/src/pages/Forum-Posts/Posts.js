@@ -9,21 +9,23 @@ import Background from "../../components/Background";
 import axios from "axios";
 import "./Posts.css";
 
-    // TODO: change topic state to topic user clicks on
+// TODO: change topic state to topic user clicks on
 
 class Posts extends Component {
   state = {
     posts: []
   };
 
-    componentDidMount(){
-      axios.get('/api/forum/posts').then(res=>{
-        this.setState({posts: res.data});
-      }).catch(err=>{
-        console.log("this is err=>", err);
+  componentDidMount() {
+    axios
+      .get("/api/forum/:id")
+      .then(res => {
+        this.setState({ posts: res.data });
       })
-    }
-  
+      .catch(err => {
+        console.log("this is err=>", err);
+      });
+  }
 
   render() {
     return (
@@ -57,13 +59,15 @@ class Posts extends Component {
               </tr>
 
               {/* TODO: find correct keys for mapping */}
-              {/* {this.state.posts.map(post => (
+              {this.state.posts.map(post => (
                 <tr>
-                  <td><a href={`/Forum/${post._id}`}>{post.title}</a></td>
+                  <td>
+                    <a href={`/forum/post/${post._id}`}>{post.title}</a>
+                  </td>
                   <td className="ESH_tcol2">{post.postNum}</td>
                   <td>{post.updatedAt}</td>
                 </tr>
-              ))} */}
+              ))}
             </table>
           </Grid>
           <BackBtn />

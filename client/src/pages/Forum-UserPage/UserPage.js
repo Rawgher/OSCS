@@ -12,7 +12,7 @@ class UserPage extends Component {
 
   componentDidMount() {
     axios
-      .get("/api/forum/userpage")
+      .get("/api/forum/user/:id")
       .then(res => {
         console.log(res.data);
         this.setState({ user: res.data });
@@ -38,26 +38,23 @@ class UserPage extends Component {
             <PostList>
               {this.state.user_posts.map(post => (
                 <PostListItem key={post._id}>
-                  <a href={`/forum/${post._id}`}>
-                    {post.post_subject}
-                  </a>
+                  <a href={`/forum/post/${post._id}`}>{post.post_subject}</a>
                   {post.updatedAt}
                 </PostListItem>
-              ))}
+              ))}{" "}
+              */}
             </PostList>
 
             <div className="ESH_body-title">COMMENTS</div>
             <PostList>
               {/* TODO: find correct keys for reply key-value pairing */}
-              {this.state.user_replies.map(reply => (
+              {/* {this.state.user_replies.map(reply => (
                 <PostListItem key={reply._id}>
-                  <a href={`/forum/${reply.postID}`}>
-                    {reply.postTitle}
-                  </a>
+                  <a href={`/forum/post/${reply.postID}`}>{reply.postTitle}</a>
                   {reply.message}
                   {reply.date}
                 </PostListItem>
-              ))}
+              ))} */}
             </PostList>
 
             <div className="ESH_body-title">FAVORITES</div>
@@ -65,7 +62,7 @@ class UserPage extends Component {
               {/* TODO: find correct keys for favorites key-value pairing */}
               {/* {this.state.favorites.map(fav => (
                                 <PostListItem key={fav._id}>
-                                    <Link to={fav.type == "forum" ? `/Forum/${fav.postID}` : fav.url}>
+                                    <Link to={fav.type == "forum" ? `/forum/post/${fav.postID}` : fav.url}>
                                         {fav.title}
                                     </Link>
                                     {fav.teaser}

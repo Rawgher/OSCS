@@ -12,18 +12,8 @@ import Background from "../../components/Background";
 import "./NewPost.css";
 
 class NewPost extends Component {
-<<<<<<< HEAD
-  state = {
-    post_subject: "",
-    post_body: ""
-  };
-
-  constructor() {
-    super();
-=======
   constructor(props) {
     super(props);
->>>>>>> master
     this.state = {
       post_title: "",
       post_body: "",
