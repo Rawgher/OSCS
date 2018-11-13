@@ -17,15 +17,18 @@ router
   .post(forumController.createTopic);
 
 // display all posts of a topic
-router
-  .route("/posts")
-  .get(forumController.findTopicById)
-  .post(forumController.createPost);
+router.route("/posts").get(forumController.findPostById);
 
 // display all replies of a topic
 router
   .route("/post/:id")
   .get(forumController.findPostById)
   .post(forumController.createReply);
+
+// creating a new post
+router
+  .route("/newpost")
+  .get(forumController.findTopicById)
+  .post(forumController.createPost);
 
 module.exports = router;
