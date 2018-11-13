@@ -74,7 +74,7 @@ class App extends Component {
             />
             <Route
               exact
-              path="/forum/newPost"
+              path="/forum/newpost"
               render={() => (
                 <NewPost
                   getUser={this.getUser}
@@ -84,16 +84,12 @@ class App extends Component {
                 />
               )}
             />
+            <Route exact path="/forum/:id" render={() => (<Posts loggedIn={this.state.loggedIn}/>)} />
+            <Route exact path="/forum/post/:id" render={() => (<ThisPost loggedIn={this.state.loggedIn}/>)} />
+            <Route exact path="/forum/user/:id" render={() => (<User loggedIn={this.state.loggedIn}/>)} />
             <Route
               exact
-              path="/Forum/Posts"
-              render={() => <Posts loggedIn={this.state.loggedIn} />}
-            />
-            <Route exact path="/Forum/ThisPost" render={() => (<ThisPost loggedIn={this.state.loggedIn}/>)} />
-            <Route exact path="/Forum/UserPage" render={() => (<User loggedIn={this.state.loggedIn}/>)} />
-            <Route
-              exact
-              path="/Search"
+              path="/search"
               render={() => (
                 <Search
                   updateUser={this.updateUser}
@@ -103,16 +99,16 @@ class App extends Component {
                 />
               )}
             />
-            <Route exact path="/AboutUs" render={() => (<About loggedIn={this.state.loggedIn} />)} />
+            <Route exact path="/aboutus" render={() => (<About loggedIn={this.state.loggedIn} />)} />
             <Route
               exact
-              path="/Documentation"
+              path="/documentation"
               render={() => (<DocumentationPage loggedIn={this.state.loggedIn} />)}
             />
             <Route
               exact
               path="/login"
-              render={() => <Authentication updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>}
+              render={() => (<Authentication updateUser={this.updateUser} loggedIn={this.state.loggedIn} />)}
             />
             <Route render={() => <NoMatch />} />
           </Switch>

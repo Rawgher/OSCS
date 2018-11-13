@@ -5,7 +5,6 @@ import { orange } from "@material-ui/core/colors";
 import Tabs from "@material-ui/core/Tabs";
 import { Link } from "react-router-dom";
 import Tab from "@material-ui/core/Tab";
-import LoginControl from "../LoginControl";
 import "./Nav.css";
 
 class NavTabs extends React.Component {
@@ -42,9 +41,7 @@ class NavTabs extends React.Component {
       }
     });
     const styles = {
-      tabPosition: {
-        left: "48%"
-      }
+      tabPosition: {}
     };
     return (
       <MuiThemeProvider theme={theme}>
@@ -53,6 +50,7 @@ class NavTabs extends React.Component {
             <span className="EGA-orange">ONE STOP</span> CODE SHOP
           </h4>
           <Tabs
+            id="EGA-tabsContainer"
             value={value}
             onChange={this.handleChange}
             onClick={event => event.preventDefault()}
@@ -61,6 +59,12 @@ class NavTabs extends React.Component {
               label="Home"
               component={Link}
               to="/search"
+              style={styles.tabPosition}
+            />
+            <Tab
+              label="About"
+              component={Link}
+              to="/aboutus"
               style={styles.tabPosition}
             />
             <Tab
@@ -89,7 +93,6 @@ class NavTabs extends React.Component {
                 to="/login"
                 style={styles.tabPosition}
               />
-              // <LoginControl loggedIn={this.props.loggedIn}/>
              )}
           </Tabs>
         </AppBar>

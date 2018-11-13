@@ -1,0 +1,98 @@
+.fancy-card {
+  transition: all 250ms ease-in;
+}
+.fancy-card div button span {
+  background: none !important;
+  overflow: unset;
+}
+
+.fancy-card .v-border:before,
+.fancy-card .v-border:after {
+  width: 0%;
+  height: 1px;
+  left: 50%;
+  transition: all 250ms ease-out;
+  background: #fff;
+}
+.fancy-card .v-border:before {
+  content: "";
+  top: -2%;
+  position: absolute;
+}
+.fancy-card .v-border:after {
+  content: "";
+  bottom: 0;
+  position: absolute;
+}
+
+/*horizontal elements (left & right)*/
+.fancy-card .h-border {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+.fancy-card .h-border:before,
+.fancy-card .h-border:after {
+  height: 0%;
+  top: 50%;
+  width: 1px;
+  transition: all 250ms ease-out;
+  background: #fff;
+}
+/* These bring the verticals line in */
+.fancy-card .h-border:before {
+  content: "";
+  left: 10%;
+  height: 0%;
+  position: absolute;
+}
+.fancy-card .h-border:after {
+  content: "";
+  right: 10%;
+  position: absolute;
+}
+
+/*hover states for interactivity*/
+.fancy-card:active .v-border:before,
+.fancy-card:active .v-border:after,
+.fancy-card:hover .v-border:before,
+.fancy-card:hover .v-border:after {
+  width: 100%;
+  left: 0%;
+}
+/* Shifts the verticals up and increases their size */
+.fancy-card:active .h-border:before,
+.fancy-card:active .h-border:after,
+.fancy-card:hover .h-border:before,
+.fancy-card:hover .h-border:after {
+  height: 117%;
+  top: -10%;
+}
+
+/*hovering over card, shadow effect*/
+.fancy-card:active,
+.fancy-card:hover {
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.3);
+}
+/*hovering over card, adjust primary element*/
+.fancy-card:active .content .primary,
+.fancy-card:hover .content .primary {
+  opacity: 0;
+  transform: translate3d(0px, 20px, 1px);
+  transition: all 200ms linear 0ms;
+}
+/*hoverijng over card, adjust secondary element*/
+.fancy-card:active .content .secondary,
+.fancy-card:hover .content .secondary {
+  opacity: 1;
+  transform: translate3d(0px, 0px, 1px);
+  transition: all 200ms linear 200ms;
+}
+
+/*hovering over card, adjust background overlay*/
+.fancy-card:active .bg-overlay,
+.fancy-card:hover .bg-overlay {
+  background: rgba(0, 0, 0, 0.45);
+}

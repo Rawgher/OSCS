@@ -3,11 +3,15 @@
   top: 20px;
 }
 #EGA-appBar {
-  position: absolute !important;
-  max-width: 90% !important;
+  position: relative !important;
+  max-width: 100% !important;
   margin: auto !important;
   background: none !important;
   box-shadow: none !important;
+}
+#EGA-tabsContainer {
+  display: flex;
+  justify-content: flex-end;
 }
 .EGA-search-logo-title {
   position: absolute;
@@ -25,4 +29,7 @@ a {
 }
 a:hover {
   color: rgb(255, 115, 0) !important;
+}
+.EGA-orange {
+  color: rgb(255, 115, 0);
 }
