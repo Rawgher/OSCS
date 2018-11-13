@@ -32,6 +32,7 @@ class NavTabs extends React.Component {
             loggedIn: false,
             username: null
           });
+          window.location.reload();
         }
       })
       .catch(error => {

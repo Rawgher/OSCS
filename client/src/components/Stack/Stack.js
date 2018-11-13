@@ -39,10 +39,19 @@ const styles = theme => ({
 });
 
 class StackCards extends React.Component {
+  state = {
+    disabled: true
+  };
   convertDate = props => {
     var newDate = new Date(parseInt(props) * 1000);
     return newDate.toLocaleDateString("en");
   };
+
+  componentDidMount() {
+    if (this.props.loggedIn === true) {
+      this.setState({ disabled: false });
+    }
+  }
 
   render() {
     const { classes, results } = this.props;
@@ -79,7 +88,11 @@ class StackCards extends React.Component {
               <ThumbUpAlt />
               {a.score}
             </IconButton>
-            <IconButton aria-label="Add to favorites">
+            <IconButton
+              aria-label="Add to favorites"
+              disabled={this.state.disabled}
+              disableRipple={this.state.disabled}
+            >
               <Favorite />
             </IconButton>
             <IconButton aria-label="Share">

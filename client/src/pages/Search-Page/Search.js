@@ -112,9 +112,19 @@ class Search extends Component {
             <Col size="md-7">
               <div id="EGA-externalPadding">
                 <div id="EGA-videoContainer" style={{ minHeight: 10 }}>
-                  <Youtube id="test" videos={this.state.videos} />
-                  <Stack results={this.state.stackResults} />
-                  <Bing bing={this.state.bingSearch} />
+                  <Youtube
+                    id="test"
+                    loggedIn={this.props.loggedIn}
+                    videos={this.state.videos}
+                  />
+                  <Stack
+                    loggedIn={this.props.loggedIn}
+                    results={this.state.stackResults}
+                  />
+                  <Bing
+                    bing={this.state.bingSearch}
+                    loggedIn={this.props.loggedIn}
+                  />
                 </div>
               </div>
             </Col>

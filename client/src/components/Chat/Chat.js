@@ -46,6 +46,9 @@ class Chat extends React.Component {
     if (this.state.username.length) {
       this.initChat();
     }
+    if (this.props.loggedIn === true) {
+      this.setState({ disabled: false });
+    }
   }
 
   generateUID() {
@@ -123,12 +126,6 @@ class Chat extends React.Component {
         this.initChat();
       }
     );
-  }
-
-  componentDidMount() {
-    if (this.props.loggedIn === true) {
-      this.setState({ disabled: false });
-    }
   }
 
   render() {

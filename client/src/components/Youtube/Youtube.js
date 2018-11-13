@@ -2,13 +2,23 @@ import React from "react";
 import YouTube from "react-youtube";
 import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
-import "./Youtube.css"
+import "./Youtube.css";
 
 // ===== TODO =====
 // add function on favorite hover to "Unfavorited"
 // add function on unfavorited hover to "Favorite"
 
 class Youtube extends React.Component {
+  state = {
+    disabled: true
+  };
+
+  componentDidMount() {
+    if (this.props.loggedIn === true) {
+      this.setState({ disabled: false });
+    }
+  }
+
   render() {
     const opts = {
       // height: "390",
@@ -26,7 +36,13 @@ class Youtube extends React.Component {
       <div key={id}>
         <YouTube videoId={a.videoId} opts={opts} onReady={this._onReady} />
         <div class="fav-div">
-          <Button variant="contained" size="large" id="favorite">
+          <Button
+            variant="contained"
+            size="large"
+            id="favorite"
+            disabled={this.state.disabled}
+            disableRipple={this.state.disabled}
+          >
             Favorite
             <Icon style={{ marginLeft: 15, color: "#FFFF00" }}>favorite</Icon>
           </Button>
