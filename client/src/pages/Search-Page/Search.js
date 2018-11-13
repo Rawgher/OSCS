@@ -102,8 +102,6 @@ class Search extends Component {
           </Container>
         </div>
         <Container fluid>
-          {/* <h3>{this.props.user}</h3>
-          <h3>{this.props.user_id}</h3> */}
           <Row>
             <Col size="md-1" />
             <Col size="md-2">
@@ -122,7 +120,7 @@ class Search extends Component {
             </Col>
             <Col size="md-2">
               <Sidebar username={this.props.username} />
-              <Chat />
+              <Chat loggedIn={this.props.loggedIn} />
             </Col>
           </Row>
         </Container>

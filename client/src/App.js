@@ -80,6 +80,7 @@ class App extends Component {
               render={() => (
                 <NewPost
                   getUser={this.getUser}
+                  updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}
                   user_id={this.state.user_id}
