@@ -28,7 +28,7 @@ class Youtube extends React.Component {
         <div class="fav-div">
           <Button variant="contained" size="large" id="favorite">
             Favorite
-            <Icon style={{ marginLeft: 15, color: "#FFFF00" }}>grade</Icon>
+            <Icon style={{ marginLeft: 15, color: "#FFFF00" }}>favorite</Icon>
           </Button>
         </div>
       </div>

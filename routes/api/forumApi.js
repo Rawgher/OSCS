@@ -24,7 +24,7 @@ router
 
 // display all posts of a topic
 router
-    .route("/forum/posts")
+    .route("/posts")
     .get(forumController.findTopicById)
     .post(forumController.createPost);
 

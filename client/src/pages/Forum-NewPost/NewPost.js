@@ -11,7 +11,6 @@ import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
 import "./NewPost.css";
 
-// TODO: set post_author to current user id
 class NewPost extends Component {
   constructor(props) {
     super(props);
@@ -39,7 +38,7 @@ class NewPost extends Component {
     console.log(this.props.user_id, this.props.username);
     if (this.state.post_title && this.state.post_body) {
       axios
-        .post({
+        .post("/api/forum/posts", {
           post_author: this.props.user_id,
           post_subject: this.state.post_title,
           post_body: this.state.post_body,
@@ -47,6 +46,7 @@ class NewPost extends Component {
         })
         .then(function (res) {
           // TODO: change routing!!!
+          console.log("it worked");
           res.redirect(`/forum/categories`);
         })
         .catch(
