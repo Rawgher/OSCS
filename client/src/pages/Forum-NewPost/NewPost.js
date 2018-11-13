@@ -16,15 +16,10 @@ class NewPost extends Component {
   state = {
     post_title: "",
     post_body: "",
-    post_author: "Curious George"
+    post_author: this.props.username,
+    // RDP- currently hardcoded - Collin, can you figure the way to get the actual topic here?
+    post_topic: "CSS"
   };
-
-  constructor() {
-    super();
-    this.state = {
-      post_title: ""
-    };
-  }
 
   componentDidMount() {
     this.props.getUser();
@@ -42,16 +37,21 @@ class NewPost extends Component {
   // {this.props.user_id}
 
   // fix routing for creating new post
-  // RDP - not posting properly. doesn't look like there is a controller route to handle it
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.props.user_id, this.props.username);
+    console.log(
+      this.state.post_author,
+      this.state.post_topic,
+      this.state.post_title,
+      this.state.post_body
+    );
     if (this.state.post_title && this.state.post_body) {
       axios
-        .post({
+        .post("/api/forum/newpost", {
           post_author: this.state.post_author,
-          // should this line be posts_title or post_title?
-          post_subject: this.state.posts_title,
+          post_topic: this.state.post_topic,
+          post_subject: this.state.post_title,
           post_body: this.state.post_body
         })
         .catch(err => console.log(err));

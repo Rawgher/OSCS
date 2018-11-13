@@ -8,7 +8,7 @@ router.route("/login").get(forumController.findUserById);
 router.route("/registration").post(forumController.createUser);
 
 // user account information
-router.route("/forum/user/:id").get(forumController.findUserById);
+router.route("/user/:id").get(forumController.findUserById);
 
 // display all topics
 router
@@ -17,15 +17,15 @@ router
   .post(forumController.createTopic);
 
 // display all posts of a topic
-router
-  .route("/forum/:id")
-  .get(forumController.findTopicById)
-  .post(forumController.createPost);
+router.route("/:id").get(forumController.findTopicById);
 
 // display all replies of a topic
 router
-  .route("/forum/post/:id")
+  .route("/post/:id")
   .get(forumController.findPostById)
   .post(forumController.createReply);
+
+// posts new post to database
+router.route("/newpost").post(forumController.createPost);
 
 module.exports = router;
