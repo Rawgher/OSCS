@@ -63,7 +63,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={() => <LandingPage />} />
             <Route
-              exact path="/forum/categories"
+              exact
+              path="/forum/categories"
               render={() => (
                 <Categories
                   updateUser={this.updateUser}
@@ -72,7 +73,8 @@ class App extends Component {
               )}
             />
             <Route
-              exact path="/forum/newPost"
+              exact
+              path="/forum/newPost"
               render={() => (
                 <NewPost
                   getUser={this.getUser}
@@ -82,11 +84,16 @@ class App extends Component {
                 />
               )}
             />
-            <Route exact path="/Forum/Posts" render={() => <Posts />} />
-            <Route exact path="/Forum/ThisPost" render={() => <ThisPost />} />
-            <Route exact path="/Forum/UserPage" render={() => <User />} />
             <Route
-              exact path="/Search"
+              exact
+              path="/Forum/Posts"
+              render={() => <Posts loggedIn={this.state.loggedIn} />}
+            />
+            <Route exact path="/Forum/ThisPost" render={() => (<ThisPost loggedIn={this.state.loggedIn}/>)} />
+            <Route exact path="/Forum/UserPage" render={() => (<User loggedIn={this.state.loggedIn}/>)} />
+            <Route
+              exact
+              path="/Search"
               render={() => (
                 <Search
                   updateUser={this.updateUser}
@@ -96,14 +103,16 @@ class App extends Component {
                 />
               )}
             />
-            <Route exact path="/AboutUs" render={() => <About />} />
+            <Route exact path="/AboutUs" render={() => (<About loggedIn={this.state.loggedIn} />)} />
             <Route
-              exact path="/Documentation"
-              render={() => <DocumentationPage />}
+              exact
+              path="/Documentation"
+              render={() => (<DocumentationPage loggedIn={this.state.loggedIn} />)}
             />
             <Route
-              exact path="/login"
-              render={() => <Authentication updateUser={this.updateUser} />}
+              exact
+              path="/login"
+              render={() => <Authentication updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>}
             />
             <Route render={() => <NoMatch />} />
           </Switch>

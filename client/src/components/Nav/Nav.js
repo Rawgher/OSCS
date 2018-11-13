@@ -5,12 +5,20 @@ import { orange } from "@material-ui/core/colors";
 import Tabs from "@material-ui/core/Tabs";
 import { Link } from "react-router-dom";
 import Tab from "@material-ui/core/Tab";
+import LoginControl from "../LoginControl";
 import "./Nav.css";
 
 class NavTabs extends React.Component {
   state = {
     value: 0
   };
+
+  isAuthenticated = () => {
+    if (this.props.loggedIn === true) {
+      return true;
+  }
+  return false;
+}
 
   logout = () => {
     console.log("I am being logged out");
@@ -67,21 +75,22 @@ class NavTabs extends React.Component {
               to="/forum/categories"
               style={styles.tabPosition}
             />
-            {/* {isAuthenticated() && (
+            {this.isAuthenticated() && (
               <Tab
                 label="Logout"
                 onClick={this.logout}
                 style={styles.tabPosition}
               />
             )}
-            {!isAuthenticated() && ( */}
+            {!this.isAuthenticated() && (
               <Tab
                 label="Login"
                 component={Link}
                 to="/login"
                 style={styles.tabPosition}
               />
-            {/* )} */}
+              // <LoginControl loggedIn={this.props.loggedIn}/>
+             )}
           </Tabs>
         </AppBar>
       </MuiThemeProvider>

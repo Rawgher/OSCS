@@ -79,7 +79,7 @@ class Search extends Component {
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs />
+              <NavTabs loggedIn={this.props.loggedIn} />
             </Col>
           </Row>
         </Container>

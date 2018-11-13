@@ -1,18 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardActions from '@material-ui/core/CardActions';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import { Visibility, ThumbUpAlt, Favorite, Share } from '@material-ui/icons';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardActions from "@material-ui/core/CardActions";
+import Avatar from "@material-ui/core/Avatar";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import { Visibility, ThumbUpAlt, Favorite, Share } from "@material-ui/icons";
 
 const styles = theme => ({
+  cardHeader: {
+    paddingBottom: 0,
+    marginRight: 0,
+    marginLeft: 0
+  },
   card: {
     display: "flex",
-    maxWidth: 320,
+    maxWidth: "auto",
     margin: 20
+  },
+  cardContent: {
+    margin: "auto"
   },
   details: {
     display: "flex",
@@ -21,7 +30,8 @@ const styles = theme => ({
   },
   avatar: {
     width: "60px",
-    height: "60px"
+    height: "60px",
+    margin: "auto"
   },
   center: {
     margin: "auto"
@@ -29,7 +39,6 @@ const styles = theme => ({
 });
 
 class StackCards extends React.Component {
-
   convertDate = props => {
     var newDate = new Date(parseInt(props) * 1000);
     return newDate.toLocaleDateString("en");
@@ -41,30 +50,42 @@ class StackCards extends React.Component {
     return results.map((a, id) => (
       <Card className={classes.card} key={id}>
         <div className={classes.details}>
-            <CardHeader
-                avatar={
-                    <Avatar className={classes.avatar} alt="Stack Overflow result" src="./images/jrsStackLogo.png">
-                    </Avatar>
-                }
-                title={a.title}
-                subheader={this.convertDate(a.date)}
-            />
-            <CardActions className={classes.center} disableActionSpacing center>
-                <IconButton aria-label="Views">
-                    <Visibility />
-                    {a.viewCount}
-                </IconButton>
-                <IconButton aria-label="Views">
-                    <ThumbUpAlt />
-                    {a.score}
-                </IconButton>
-                <IconButton aria-label="Add to favorites">
-                    <Favorite />
-                </IconButton>
-                <IconButton aria-label="Share">
-                    <Share />
-                </IconButton>
-            </CardActions>
+          <CardHeader
+            className={classes.cardHeader}
+            avatar={
+              <Avatar
+                className={classes.avatar}
+                alt="Stack Overflow result"
+                src="./images/jrsStackLogo.png"
+              />
+            }
+            title={
+              <Typography variant="h5" gutterBottom>
+                {a.title}
+              </Typography>
+            }
+            subheader={
+              <Typography variant="h6" gutterBottom>
+                {this.convertDate(a.date)}
+              </Typography>
+            }
+          />
+          <CardActions className={classes.center} disableActionSpacing center>
+            <IconButton aria-label="Views">
+              <Visibility />
+              {a.viewCount}
+            </IconButton>
+            <IconButton aria-label="Views">
+              <ThumbUpAlt />
+              {a.score}
+            </IconButton>
+            <IconButton aria-label="Add to favorites">
+              <Favorite />
+            </IconButton>
+            <IconButton aria-label="Share">
+              <Share />
+            </IconButton>
+          </CardActions>
         </div>
       </Card>
     ));
@@ -72,7 +93,7 @@ class StackCards extends React.Component {
 }
 
 StackCards.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(StackCards);
