@@ -14,26 +14,15 @@ class Categories extends Component {
   };
 
   componentDidMount() {
-<<<<<<< HEAD
-    axios.get('/api/forum/categories').then(res => {
-      this.setState({ topics: res.data });
-      
-    }).catch(err => {
-      console.log("this is err=>", err);
-    })
-  };
-=======
     axios
       .get("/api/forum/categories")
       .then(res => {
-        console.log(res.data);
         this.setState({ topics: res.data });
       })
       .catch(err => {
         console.log("this is err=>", err);
       });
   }
->>>>>>> master
 
   render() {
     return (

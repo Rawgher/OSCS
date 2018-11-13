@@ -14,14 +14,8 @@ import "./NewPost.css";
 // TODO: set post_author to current user id
 class NewPost extends Component {
   state = {
-<<<<<<< HEAD
     post_subject: "",
     post_body: ""
-=======
-    post_title: "",
-    post_body: "",
-    post_author: "Curious George"
->>>>>>> master
   };
 
   constructor() {
@@ -49,16 +43,6 @@ class NewPost extends Component {
   // fix routing for creating new post
   handleFormSubmit = event => {
     event.preventDefault();
-<<<<<<< HEAD
-    if (this.state.post_subject && this.state.post_body) {
-      axios.post('/api/forum/forum/posts').then(res => {
-        
-      }).catch(err => {
-        console.log("this is err=>", err);
-      })
-    };
-
-=======
     console.log(this.props.user_id, this.props.username);
     if (this.state.post_title && this.state.post_body) {
       axios
@@ -69,7 +53,6 @@ class NewPost extends Component {
         })
         .catch(err => console.log(err));
     }
->>>>>>> master
   };
 
 
