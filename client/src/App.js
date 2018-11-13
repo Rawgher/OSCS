@@ -63,7 +63,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={() => <LandingPage />} />
             <Route
-              exact path="/forum/categories"
+              exact
+              path="/forum/categories"
               render={() => (
                 <Categories
                   updateUser={this.updateUser}
@@ -72,7 +73,8 @@ class App extends Component {
               )}
             />
             <Route
-              exact path="/forum/newPost"
+              exact
+              path="/forum/newpost"
               render={() => (
                 <NewPost
                   getUser={this.getUser}
@@ -82,11 +84,12 @@ class App extends Component {
                 />
               )}
             />
-            <Route exact path="/Forum/Posts" render={() => <Posts />} />
-            <Route exact path="/Forum/ThisPost" render={() => <ThisPost />} />
-            <Route exact path="/Forum/UserPage" render={() => <User />} />
+            <Route exact path="/forum/:id" render={() => <Posts />} />
+            <Route exact path="/forum/post/:id" render={() => <ThisPost />} />
+            <Route exact path="/forum/user/:id" render={() => <User />} />
             <Route
-              exact path="/Search"
+              exact
+              path="/search"
               render={() => (
                 <Search
                   updateUser={this.updateUser}
@@ -96,13 +99,15 @@ class App extends Component {
                 />
               )}
             />
-            <Route exact path="/AboutUs" render={() => <About />} />
+            <Route exact path="/aboutus" render={() => <About />} />
             <Route
-              exact path="/Documentation"
+              exact
+              path="/documentation"
               render={() => <DocumentationPage />}
             />
             <Route
-              exact path="/login"
+              exact
+              path="/login"
               render={() => <Authentication updateUser={this.updateUser} />}
             />
             <Route render={() => <NoMatch />} />
