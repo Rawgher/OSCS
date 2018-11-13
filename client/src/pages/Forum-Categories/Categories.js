@@ -46,30 +46,32 @@ class Categories extends Component {
           <Row>
             <Col size="md-9" className="ESH_forum-col">
               <table style={{ width: "100%" }}>
-                <tr className="th">
-                  <th className="ESH_tcol1">TOPICS</th>
-                  <th className="ESH_tcol2">POSTS</th>
-                  <th className="ESH_tcol3">FRESHNESS</th>
-                </tr>
-
-                {this.state.topics.map(topic => (
-                  <tr>
-                    <td>
-                      <a href={`/forum/${topic._id}`}>{topic.topic_name}</a>
-                      <br />
-                      {topic.topic_description}
-                    </td>
-                    <td className="ESH_tcol2">{topic.topic_posts.length}</td>
-                    <td>{topic.updatedAt}</td>
+                <tbody>
+                  <tr className="th">
+                    <th className="ESH_tcol1">TOPICS</th>
+                    <th className="ESH_tcol2">POSTS</th>
+                    <th className="ESH_tcol3">FRESHNESS</th>
                   </tr>
-                ))}
+
+                  {this.state.topics.map(topic => (
+                    <tr>
+                      <td>
+                        <a href={`/forum/${topic._id}`}>{topic.topic_name}</a>
+                        <br />
+                        {topic.topic_description}
+                      </td>
+                      <td className="ESH_tcol2">{topic.topic_posts.length}</td>
+                      <td>{topic.updatedAt}</td>
+                    </tr>
+                  ))}
+                </tbody>
               </table>
             </Col>
             <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
         </Container>
         <Chat />
-      </React.Fragment>
+      </React.Fragment >
     );
   }
 }

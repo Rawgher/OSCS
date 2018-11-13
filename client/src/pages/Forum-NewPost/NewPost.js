@@ -50,7 +50,7 @@ class NewPost extends Component {
       axios
         .post("/api/forum/newpost", {
           // RDP - Collin, if you change username above, you'll need to change this
-          post_author: this.props.user_id,
+          post_author: this.props.username,
           post_subject: this.state.post_title,
           post_body: this.state.post_body,
           post_topic: this.state.post_topic
