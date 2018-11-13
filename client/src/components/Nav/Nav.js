@@ -5,6 +5,7 @@ import { orange } from "@material-ui/core/colors";
 import Tabs from "@material-ui/core/Tabs";
 import { Link } from "react-router-dom";
 import Tab from "@material-ui/core/Tab";
+import axios from "axios";
 import "./Nav.css";
 
 class NavTabs extends React.Component {
@@ -15,13 +16,27 @@ class NavTabs extends React.Component {
   isAuthenticated = () => {
     if (this.props.loggedIn === true) {
       return true;
-  }
-  return false;
-}
+    }
+    return false;
+  };
 
-  logout = () => {
-    console.log("I am being logged out");
-    window.location.reload();
+  logout = (e) => {
+    e.preventDefault();
+    console.log("logging out");
+    axios
+      .post("/api/auth/logout")
+      .then(response => {
+        console.log(response.data);
+        if (response.status === 200) {
+          this.props.updateUser({
+            loggedIn: false,
+            username: null
+          });
+        }
+      })
+      .catch(error => {
+        console.log("Logout error", error);
+      });
   };
 
   handleChange = (event, value) => {
@@ -93,7 +108,7 @@ class NavTabs extends React.Component {
                 to="/login"
                 style={styles.tabPosition}
               />
-             )}
+            )}
           </Tabs>
         </AppBar>
       </MuiThemeProvider>

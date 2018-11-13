@@ -38,12 +38,12 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const { classes, user } = this.props;
+    const { classes, username } = this.props;
 
     const sideList = (
       <div className={classes.list}>
         <List>
-          <UserProfile user={user} />
+          <UserProfile username={username} />
           {["Inbox", "Favorites", "Submissions"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>

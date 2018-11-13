@@ -69,6 +69,8 @@ class App extends Component {
                 <Categories
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+
                 />
               )}
             />
@@ -84,9 +86,42 @@ class App extends Component {
                 />
               )}
             />
-            <Route exact path="/forum/:id" render={() => (<Posts loggedIn={this.state.loggedIn}/>)} />
-            <Route exact path="/forum/post/:id" render={() => (<ThisPost loggedIn={this.state.loggedIn}/>)} />
-            <Route exact path="/forum/user/:id" render={() => (<User loggedIn={this.state.loggedIn}/>)} />
+            <Route
+              exact
+              path="/forum/:id"
+              render={() => (
+                <Posts
+                  updateUser={this.updateUser}
+                  loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/forum/post/:id"
+              render={() => (
+                <ThisPost
+                  updateUser={this.updateUser}
+                  loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/forum/user/:id"
+              render={() => (
+                <User
+                  updateUser={this.updateUser}
+                  loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+
+                />
+              )}
+            />
             <Route
               exact
               path="/search"
@@ -94,21 +129,46 @@ class App extends Component {
                 <Search
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
-                  user={this.state.username}
+                  username={this.state.username}
                   user_id={this.state.user_id}
                 />
               )}
             />
-            <Route exact path="/aboutus" render={() => (<About loggedIn={this.state.loggedIn} />)} />
+            <Route
+              exact
+              path="/aboutus"
+              render={() => (
+                <About
+                  updateUser={this.updateUser}
+                  loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+
+                />
+              )}
+            />
             <Route
               exact
               path="/documentation"
-              render={() => (<DocumentationPage loggedIn={this.state.loggedIn} />)}
+              render={() => (
+                <DocumentationPage
+                  updateUser={this.updateUser}
+                  loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+
+                />
+              )}
             />
             <Route
               exact
               path="/login"
-              render={() => (<Authentication updateUser={this.updateUser} loggedIn={this.state.loggedIn} />)}
+              render={() => (
+                <Authentication
+                  updateUser={this.updateUser}
+                  loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+
+                />
+              )}
             />
             <Route render={() => <NoMatch />} />
           </Switch>

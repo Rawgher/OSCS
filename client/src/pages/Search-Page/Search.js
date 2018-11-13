@@ -17,8 +17,8 @@ import Bing from "../../components/Bing";
 
 class Search extends Component {
   constructor(props) {
-    super(props)
-  };
+    super(props);
+  }
 
   state = {
     search: "",
@@ -79,7 +79,11 @@ class Search extends Component {
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs loggedIn={this.props.loggedIn} />
+              <NavTabs
+                updateUser={this.props.updateUser}
+                loggedIn={this.props.loggedIn}
+                username={this.props.username}
+              />
             </Col>
           </Row>
         </Container>
@@ -117,7 +121,7 @@ class Search extends Component {
               </div>
             </Col>
             <Col size="md-2">
-              <Sidebar user={this.props.user} />
+              <Sidebar username={this.props.username} />
               <Chat />
             </Col>
           </Row>
