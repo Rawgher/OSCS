@@ -111,7 +111,6 @@ const postsSeed = [
         "post_body": "What CSS framework should I use to make my page look the best?",
         "post_rating": 69,
         "post_topic": "CSS",
-        "post_number": 1,
         "post_update": date,
         "createdAt": date,
         "updatedAt": date
@@ -122,7 +121,6 @@ const postsSeed = [
         "post_body": "How can I make my code more difficult?",
         "post_rating": 9,
         "post_topic": "Javascript",
-        "post_number": 2,
         "post_update": date,
         "createdAt": date,
         "updatedAt": date
@@ -133,7 +131,6 @@ const postsSeed = [
         "post_body": "How do I use an <a> tag properly?",
         "post_rating": 90,
         "post_topic": "Javascript",
-        "post_number": 3,
         "post_update": date,
         "createdAt": date,
         "updatedAt": date
@@ -144,7 +141,6 @@ const postsSeed = [
         "post_body": "How do I get my Spotify API keys?",
         "post_rating": 9001,
         "post_topic": "API AJAX",
-        "post_number": 4,
         "post_update": date,
         "createdAt": date,
         "updatedAt": date
@@ -155,7 +151,6 @@ const postsSeed = [
         "post_body": "My seeds are not seeding",
         "post_rating": 500,
         "post_topic": "mySQL",
-        "post_number": 5,
         "post_update": date,
         "createdAt": date,
         "updatedAt": date

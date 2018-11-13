@@ -54,7 +54,7 @@ class Categories extends Component {
                 {this.state.topics.map(topic => (
                   <tr>
                     <td>
-                      <a href={`/forum/${topic.topic_number}`}>
+                      <a href={`/forum/${topic.topic_id}`}>
                         {topic.topic_name}
                       </a>
                       <br />
