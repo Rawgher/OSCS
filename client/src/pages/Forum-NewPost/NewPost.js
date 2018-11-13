@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { Redirect } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
@@ -8,11 +9,10 @@ import ForumSidebar from "../../components/Forum-Sidebar";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
-import axios from "axios";
 import "./NewPost.css";
 
-// TODO: set post_author to current user id
 class NewPost extends Component {
+<<<<<<< HEAD
   state = {
     post_subject: "",
     post_body: ""
@@ -20,8 +20,15 @@ class NewPost extends Component {
 
   constructor() {
     super();
+=======
+  constructor(props) {
+    super(props);
+>>>>>>> master
     this.state = {
-      post_title: ""
+      post_title: "",
+      post_body: "",
+      post_author: "",
+      post_topic: ""
     };
   }
 
@@ -36,22 +43,25 @@ class NewPost extends Component {
     });
   };
 
-  // ======= ELAINE ========
-  //  Use this for user_id
-  // {this.props.user_id}
-
-  // fix routing for creating new post
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.props.user_id, this.props.username);
     if (this.state.post_title && this.state.post_body) {
       axios
-        .post({
-          post_author: this.state.post_author,
-          post_subject: this.state.posts_title,
-          post_body: this.state.post_body
+        .post("/api/forum/posts", {
+          post_author: this.props.user_id,
+          post_subject: this.state.post_title,
+          post_body: this.state.post_body,
+          post_topic: this.state.post_topic
         })
-        .catch(err => console.log(err));
+        .then(function (res) {
+          // TODO: change routing!!!
+          console.log("it worked");
+          res.redirect(`/forum/categories`);
+        })
+        .catch(
+          err => console.log(err)
+        );
     }
   };
 
@@ -94,6 +104,16 @@ class NewPost extends Component {
                   <label for="post_title" id="textarea1" className="active">
                     Post Title
                   </label>
+                </div>
+                <div className="input-field">
+                  <select className="browser-default" id="post_topic" name="post_topic" onChange= {this.handleInputChange.bind(this)}>
+                    <option value="" disabled selected>Choose Topic</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="API AJAX">API/AJAX</option>
+                    <option value="mySQL">mySQL</option>
+                  </select>
                 </div>
                 <div className="input-field">
                   <textarea
