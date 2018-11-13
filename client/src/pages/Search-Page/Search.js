@@ -129,7 +129,10 @@ class Search extends Component {
               </div>
             </Col>
             <Col size="md-2">
-              <Sidebar username={this.props.username} />
+              <Sidebar
+                loggedIn={this.props.loggedIn}
+                username={this.props.username}
+              />
               <Chat loggedIn={this.props.loggedIn} />
             </Col>
           </Row>

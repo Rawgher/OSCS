@@ -27,8 +27,15 @@ class Sidebar extends React.Component {
     top: false,
     left: false,
     bottom: false,
-    right: false
+    right: false,
+    display: "none"
   };
+
+  componentDidMount() {
+    if (this.props.loggedIn === true) {
+      this.setState({ display: true });
+    }
+  }
 
   toggleDrawer(side, open) {
     console.log("toggle drawer working");
@@ -61,6 +68,7 @@ class Sidebar extends React.Component {
       <div id="profile-drawer-container">
         <Button
           id="profileButton"
+          style={{ display: this.state.display }}
           onClick={() => this.toggleDrawer("left", true)}
         >
           My Profile
