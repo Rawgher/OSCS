@@ -15,10 +15,12 @@ import Background from "../../components/Background";
 import APIMenuList from "../../components/APIMenuList";
 import Bing from "../../components/Bing";
 
+// roger - neeed to make a function specific for what happens to youtube since its showing first
+// second function for otehr ones that will show only when clicked and toggle from there
 class Search extends Component {
   constructor(props) {
-    super(props)
-  };
+    super(props);
+  }
 
   state = {
     search: "",
