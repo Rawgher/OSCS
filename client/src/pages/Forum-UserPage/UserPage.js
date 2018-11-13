@@ -6,7 +6,6 @@ import BackBtn from "../../components/BackBtn";
 import "./UserPage.css";
 
 class UserPage extends Component {
-  // TODO: get correct state key-value pairs!!
   state = {
     user: []
   };
@@ -37,13 +36,13 @@ class UserPage extends Component {
           <Col size="md-9" className="ESH_forum-col">
             <div className="ESH_body-title">POSTS</div>
             <PostList>
-              {/* TODO: find correct keys for post key-value pairing */}
-              {/* {this.state.user_posts.map(post => (
+              {this.state.user_posts.map(post => (
                 <PostListItem key={post._id}>
                   <a href={`/forum/post/${post._id}`}>{post.post_subject}</a>
                   {post.updatedAt}
                 </PostListItem>
-              ))} */}
+              ))}{" "}
+              */}
             </PostList>
 
             <div className="ESH_body-title">COMMENTS</div>
