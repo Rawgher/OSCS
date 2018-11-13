@@ -12,6 +12,7 @@ import User from "./pages/Forum-UserPage";
 import Search from "./pages/Search-Page";
 import About from "./pages/About";
 import DocumentationPage from "./pages/Documentation/Documentation";
+import ElainePostTest from "./pages/ElainePostTest";
 import axios from "axios";
 
 class App extends Component {
@@ -110,6 +111,8 @@ class App extends Component {
               path="/login"
               render={() => <Authentication updateUser={this.updateUser} />}
             />
+            <Route exact path="/elainetest" render={() => <ElainePostTest />} />
+
             <Route render={() => <NoMatch />} />
           </Switch>
         </div>
