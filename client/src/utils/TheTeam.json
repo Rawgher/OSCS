@@ -2,8 +2,7 @@
   {
     "id": 1,
     "name": "Elaine",
-    "image": "/images/elaineBw.png",
-    "colorImage": "/images/elaine.png",
+    "image": "/images/elaine.png",
     "description": "Elaine graduated from Alfonzo University with a welding degree. She dedicated her first four post graduation years to catching butterflies. She is now a full time train conductor",
     "githubURL": "https://github.com/Rawgher/react-clicky-game",
     "linkedInURL": "#",
@@ -12,8 +11,7 @@
   {
     "id": 2,
     "name": "Roger",
-    "image": "/images/rogerBw.png",
-    "colorImage": "/images/roger.png",
+    "image": "/images/roger.png",
     "description": "Elaine graduated from Alfonzo University with a welding degree. She dedicated her first four post graduation years to catching butterflies. She is now a full time train conductor",
     "githubURL": "https://github.com/Rawgher/react-clicky-game",
     "linkedInURL": "#",
@@ -22,7 +20,7 @@
   {
     "id": 3,
     "name": "Enea",
-    "colorImage": "/images/enea.png",
+    "image": "/images/enea.png",
     "description": "Elaine graduated from Alfonzo University with a welding degree. She dedicated her first four post graduation years to catching butterflies. She is now a full time train conductor",
     "githubURL": "https://github.com/Rawgher/react-clicky-game",
     "linkedInURL": "#",
@@ -31,8 +29,7 @@
   {
     "id": 4,
     "name": "Celia",
-    "image": "/images/celiaBw.png",
-    "colorImage": "/images/celia.png",
+    "image": "/images/celia.png",
     "description": "Elaine graduated from Alfonzo University with a welding degree. She dedicated her first four post graduation years to catching butterflies. She is now a full time train conductor",
     "githubURL": "https://github.com/Rawgher/react-clicky-game",
     "linkedInURL": "#",
@@ -41,8 +38,7 @@
   {
     "id": 5,
     "name": "Jordan",
-    "image": "/images/jordanBw.png",
-    "colorImage": "/images/jordan.png",
+    "image": "/images/jordan.png",
     "description": "Elaine graduated from Alfonzo University with a welding degree. She dedicated her first four post graduation years to catching butterflies. She is now a full time train conductor",
     "githubURL": "https://github.com/Rawgher/react-clicky-game",
     "linkedInURL": "#",
@@ -51,8 +47,7 @@
   {
     "id": 6,
     "name": "Collin",
-    "image": "/images/collinBw.png",
-    "colorImage": "/images/collin.png",
+    "image": "/images/collin.png",
     "description": "Elaine graduated from Alfonzo University with a welding degree. She dedicated her first four post graduation years to catching butterflies. She is now a full time train conductor",
     "githubURL": "https://github.com/Rawgher/react-clicky-game",
     "linkedInURL": "#",
