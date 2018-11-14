@@ -88,42 +88,9 @@ class App extends Component {
                 />
               )}
             />
-            <Route
-              exact
-              path="/forum/:id"
-              render={() => (
-                <Posts
-                  updateUser={this.updateUser}
-                  loggedIn={this.state.loggedIn}
-                  username={this.state.username}
-
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/forum/post/:id"
-              render={() => (
-                <ThisPost
-                  updateUser={this.updateUser}
-                  loggedIn={this.state.loggedIn}
-                  username={this.state.username}
-
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/forum/user/:id"
-              render={() => (
-                <User
-                  updateUser={this.updateUser}
-                  loggedIn={this.state.loggedIn}
-                  username={this.state.username}
-
-                />
-              )}
-            />
+            <Route exact path="/forum/:id" component = {Posts} />
+            <Route exact path="/forum/post/:id" component = {ThisPost} />
+            <Route exact path="/forum/user/:id" component = {User} />
             <Route
               exact
               path="/search"
