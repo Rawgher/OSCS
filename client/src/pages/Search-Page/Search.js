@@ -29,7 +29,8 @@ class Search extends Component {
     videos: [],
     youtubeshown: true,
     stackshown: true,
-    bingshown: true
+    bingshown: true,
+    allshown: true
   };
 
   enterPressed = event => {
@@ -74,12 +75,24 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
+  toggleAll = () => {
+    this.state.youtubeshown === true
+      ? this.setState({ youtubeshown: false })
+      : this.setState({ youtubeshown: true });
+    this.state.stackshown === true
+      ? this.setState({ stackshown: false })
+      : this.setState({ stackshown: true });
+    this.state.bingshown === true
+      ? this.setState({ bingshown: false })
+      : this.setState({ bingshown: true });
+  };
+
   toggleYoutube = () => {
-    if (this.state.stackshown === false) {
-      this.setState({ stackshown: true });
+    if (this.state.stackshown === true) {
+      this.setState({ stackshown: false });
     }
-    if (this.state.bingshown === false) {
-      this.setState({ bingshown: true });
+    if (this.state.bingshown === true) {
+      this.setState({ bingshown: false });
     }
     this.setState({
       youtubeshown: !this.state.youtubeshown
@@ -90,8 +103,8 @@ class Search extends Component {
     if (this.state.youtubeshown === true) {
       this.setState({ youtubeshown: false });
     }
-    if (this.state.bingshown === false) {
-      this.setState({ bingshown: true });
+    if (this.state.bingshown === true) {
+      this.setState({ bingshown: false });
     }
     this.setState({
       stackshown: !this.state.stackshown
@@ -102,8 +115,8 @@ class Search extends Component {
     if (this.state.youtubeshown === true) {
       this.setState({ youtubeshown: false });
     }
-    if (this.state.stackshown === false) {
-      this.setState({ stackshown: true });
+    if (this.state.stackshown === true) {
+      this.setState({ stackshown: false });
     }
     this.setState({
       bingshown: !this.state.bingshown
@@ -111,6 +124,10 @@ class Search extends Component {
   };
 
   render() {
+    let allShown = {
+      display: this.state.allShown ? "block" : "none"
+    };
+
     let youshown = {
       display: this.state.youtubeshown ? "block" : "none"
     };
@@ -121,18 +138,6 @@ class Search extends Component {
 
     let bingshown = {
       display: this.state.bingshown ? "block" : "none"
-    };
-
-    let youhidden = {
-      display: this.state.youtubeshown ? "none" : "block"
-    };
-
-    let stackhidden = {
-      display: this.state.stackshown ? "none" : "block"
-    };
-
-    let binghidden = {
-      display: this.state.bingshown ? "none" : "block"
     };
 
     if (this.props.loggedIn === true) {
@@ -173,6 +178,7 @@ class Search extends Component {
                   toggleYoutube={this.toggleYoutube}
                   toggleStack={this.toggleStack}
                   toggleBing={this.toggleBing}
+                  toggleAll={this.toggleAll}
                 />
               </div>
             </Col>
@@ -182,10 +188,10 @@ class Search extends Component {
                   <div className="RDPyoutubeDiv" style={youshown}>
                     <Youtube id="test" videos={this.state.videos} />
                   </div>
-                  <div className="RDPstackDiv" style={stackhidden}>
+                  <div className="RDPstackDiv" style={stackshown}>
                     <Stack results={this.state.stackResults} />
                   </div>
-                  <div className="RDPbingDiv" style={binghidden}>
+                  <div className="RDPbingDiv" style={bingshown}>
                     <Bing bing={this.state.bingSearch} />
                   </div>
                 </div>

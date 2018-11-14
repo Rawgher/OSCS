@@ -46,6 +46,16 @@ class APIMenuList extends React.Component {
           <MenuList id="EGA-apiMenuList">
             <MenuItem
               className="EGA-apiListItem"
+              onClick={this.props.toggleAll.bind(
+                "RDPyoutubeDiv",
+                "RDPstackDiv",
+                "RDPbingDiv"
+              )}
+            >
+              Main
+            </MenuItem>
+            <MenuItem
+              className="EGA-apiListItem"
               onClick={this.props.toggleYoutube.bind("RDPyoutubeDiv")}
             >
               Youtube
