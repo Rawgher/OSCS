@@ -81,7 +81,7 @@ class Search extends Component {
       : this.setState({ youtubeshown: true });
     this.state.stackshown === true
       ? this.setState({ stackshown: false })
-      : this.setState({ stackshown: true });
+      : this.setState({ stackshown: false });
     this.state.bingshown === true
       ? this.setState({ bingshown: false })
       : this.setState({ bingshown: true });
