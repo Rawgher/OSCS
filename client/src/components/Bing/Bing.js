@@ -5,13 +5,29 @@ import Icon from "@material-ui/core/Icon";
 
 class Bing extends React.Component {
   state = {
-    disabled: true
+    disabled: true,
+    favorited: false
   };
 
   componentDidMount() {
     if (this.props.loggedIn === true) {
       this.setState({ disabled: false });
     }
+  }
+
+  favoriteThis() {
+    this.setState({
+      favorited: !this.state.favorited
+    });
+  }
+
+  renderText() {
+    var text = (this.state.favorited) ? "Favorited" : "Favorite";
+
+    return [
+      text,
+      <Icon style={{ marginLeft: 15, color: "#FFFF00" }}>grade</Icon>
+    ];
   }
 
   render() {
@@ -34,9 +50,10 @@ class Bing extends React.Component {
               size="large"
               id="favorite"
               disabled={this.state.disabled}
+              disableRipple={this.state.disabled}
+              onClick={this.favoriteThis}
             >
-              Favorite
-              <Icon style={{ marginLeft: 15, color: "#FFFF00" }}>favorite</Icon>
+              {this.renderText()}
             </Button>
           </div>
         </div>

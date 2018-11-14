@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Modal from '@material-ui/core/Modal';
+import MUIModal from '@material-ui/core/Modal';
+import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 
 function getModalStyle() {
@@ -24,8 +25,8 @@ class Modal extends Component {
     };
 
     render() {
-        return (
-            <Modal
+        return ({ children }) => (
+            <MUIModal
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
                 open={this.state.open}
@@ -34,7 +35,8 @@ class Modal extends Component {
                 <div style={getModalStyle()}>
                     {children}
                 </div>
-            </Modal>
+                <Button onClick={this.handleClose}>Close</Button>
+            </MUIModal>
         );
     }
 }

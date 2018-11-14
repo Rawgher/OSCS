@@ -49,8 +49,8 @@ table {
 }
 
 th,
-.ESH_account-info,
-.ESH_body-title {
+.ESH_body-title,
+.ESH_account-property {
   font-weight: normal;
   font-size: 18px;
 }

@@ -10,13 +10,29 @@ import "./Youtube.css";
 
 class Youtube extends React.Component {
   state = {
-    disabled: true
+    disabled: true,
+    favorited: false
   };
 
   componentDidMount() {
     if (this.props.loggedIn === true) {
       this.setState({ disabled: false });
     }
+  }
+
+  favoriteThis() {
+    this.setState({
+      favorited: !this.state.favorited
+    });
+  }
+
+  renderText() {
+    var text = (this.state.favorited) ? "Favorited" : "Favorite";
+    
+      return [
+        text,
+        <Icon style={{ marginLeft: 15, color: "#FFFF00" }}>grade</Icon>
+      ];
   }
 
   render() {
@@ -42,11 +58,11 @@ class Youtube extends React.Component {
             id="favorite"
             disabled={this.state.disabled}
             disableRipple={this.state.disabled}
+            onClick={this.favoriteThis}
           >
-            Favorite
-            <Icon style={{ marginLeft: 15, color: "#FFFF00" }}>grade</Icon>
+          {this.renderText()}
           </Button>
-        </div>
+        </div>  
       </div>
     ));
   }
