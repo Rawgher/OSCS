@@ -17,12 +17,16 @@ class Categories extends Component {
     axios
       .get("/api/forum/categories")
       .then(res => {
-        console.log(res.data);
         this.setState({ topics: res.data });
       })
       .catch(err => {
         console.log("this is err=>", err);
       });
+  }
+
+  convertDate(theDate) {
+    var d = new Date(theDate);
+    return d.toLocaleDateString().replace(/\//g, '-');
   }
 
   render() {
@@ -65,7 +69,7 @@ class Categories extends Component {
                         {topic.topic_description}
                       </td>
                       <td className="ESH_tcol2">{topic.topic_posts.length}</td>
-                      <td>{topic.updatedAt}</td>
+                      <td>{this.convertDate(topic.updatedAt)}</td>
                     </tr>
                   ))}
                 </tbody>

@@ -4,10 +4,6 @@ import { Button } from "@material-ui/core";
 import { Star } from "@material-ui/icons";
 import "./Youtube.css";
 
-// ===== TODO =====
-// add function on favorite hover to "Unfavorited"
-// add function on unfavorited hover to "Favorite"
-
 class Youtube extends React.Component {
   state = {
     disabled: true,
