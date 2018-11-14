@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const UserSchema = new Schema({
     user_name: { type: String, unique: true, required: true, trim: true },
     user_firstName: { type: String, required: true, trim: true },
+    user_lastName: { type: String, required: true, trim: true },
     user_pass: { type: String, required: true, trim: true },
     user_level: { type: Number, required: true, default: 1},
     user_topics: [{type: Schema.Types.ObjectId, ref: "Topic"}],

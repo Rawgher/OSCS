@@ -5,7 +5,6 @@ const TopicSchema = new Schema({
     topic_author: { type: Schema.Types.ObjectId, ref: "User", required: true },
     topic_name: { type: String, required: true },
     topic_description: { type: String, required: true },
-    topic_number: { type: Number, required: true },
     topic_posts: [{type: Schema.Types.ObjectId, ref: "Post"}],
     topic_update: {type: Date, default: Date.now },
     createdAt: { type: Date, default: Date.now },
