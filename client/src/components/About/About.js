@@ -26,19 +26,19 @@ class About extends React.Component {
                 <br />
                 <span className="EGA-orange">One Stop</span> Code Shop (OSCS) is
                 a platform that lets users query coding related questions while
-                leveraging powerful APIs. OSCS prioritizes search results for
-                you. <br />
+                leveraging powerful APIs. OSCS then prioritizes search results
+                for you. <br />
                 <br />
                 In OSCS, the top most reliable knowledge bases such as Stack
                 Overflow, Youtube, Amazon, and Bing are queried from a single
                 search bar. Results are then automatically filtered and screened
-                for the most useful criteria including things such as response
+                for the most useful criteria; including things such as response
                 ratings, top views, relevant dates, and regex accuracy. <br />
                 <br />
                 Users will find answers from multiple sources faster and without
                 ever having to load new pages. <br />
                 <br />
-                With OSCS, our goal is to help deliver knowledge more
+                With OSCS, our goal is to help deliver knowledge faster and more
                 efficiently.
               </p>
             </div>
