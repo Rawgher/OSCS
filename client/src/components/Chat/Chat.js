@@ -37,13 +37,17 @@ class Chat extends React.Component {
         }
       ],
       message: "",
-      open: false
+      open: false,
+      disabled: true
     };
   }
 
   componentDidMount() {
     if (this.state.username.length) {
       this.initChat();
+    }
+    if (this.props.loggedIn === true) {
+      this.setState({ disabled: false });
     }
   }
 
@@ -144,6 +148,7 @@ class Chat extends React.Component {
           variant="fab"
           className="chat-button"
           onClick={this.changeState.bind(this)}
+          disabled={this.state.disabled}
         >
           {this.state.open ? <CloseIcon /> : <ChatIcon />}
         </Button>

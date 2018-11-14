@@ -51,14 +51,10 @@ class Authentication extends React.Component {
           <Row>
             <Container>
               <Fade isOpen={this.state.isLoginOpen} duration={500}>
-                {/* <div > */}
                 <LoginBox className="box-container" updateUser={this.props.updateUser} />
-                {/* </div> */}
               </Fade>
               <Fade isOpen={this.state.isRegisterOpen} duration={500}>
-                {/* <div > */}
                 <RegisterBox className="box-container" />
-                {/* </div> */}
               </Fade>
             </Container>
           </Row>

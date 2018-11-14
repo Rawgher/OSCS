@@ -12,6 +12,7 @@ import User from "./pages/Forum-UserPage";
 import Search from "./pages/Search-Page";
 import About from "./pages/About";
 import DocumentationPage from "./pages/Documentation/Documentation";
+import ElainePostTest from "./pages/ElainePostTest";
 import axios from "axios";
 
 class App extends Component {
@@ -69,6 +70,8 @@ class App extends Component {
                 <Categories
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+
                 />
               )}
             />
@@ -78,15 +81,49 @@ class App extends Component {
               render={() => (
                 <NewPost
                   getUser={this.getUser}
+                  updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}
                   user_id={this.state.user_id}
                 />
               )}
             />
-            <Route exact path="/forum/:id" render={() => <Posts />} />
-            <Route exact path="/forum/post/:id" render={() => <ThisPost />} />
-            <Route exact path="/forum/user/:id" render={() => <User />} />
+            <Route
+              exact
+              path="/forum/:id"
+              render={() => (
+                <Posts
+                  updateUser={this.updateUser}
+                  loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/forum/post/:id"
+              render={() => (
+                <ThisPost
+                  updateUser={this.updateUser}
+                  loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/forum/user/:id"
+              render={() => (
+                <User
+                  updateUser={this.updateUser}
+                  loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+
+                />
+              )}
+            />
             <Route
               exact
               path="/search"
@@ -94,22 +131,49 @@ class App extends Component {
                 <Search
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
-                  user={this.state.username}
+                  username={this.state.username}
                   user_id={this.state.user_id}
                 />
               )}
             />
-            <Route exact path="/aboutus" render={() => <About />} />
+            <Route
+              exact
+              path="/aboutus"
+              render={() => (
+                <About
+                  updateUser={this.updateUser}
+                  loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+
+                />
+              )}
+            />
             <Route
               exact
               path="/documentation"
-              render={() => <DocumentationPage />}
+              render={() => (
+                <DocumentationPage
+                  updateUser={this.updateUser}
+                  loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+
+                />
+              )}
             />
             <Route
               exact
               path="/login"
-              render={() => <Authentication updateUser={this.updateUser} />}
+              render={() => (
+                <Authentication
+                  updateUser={this.updateUser}
+                  loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+
+                />
+              )}
             />
+            <Route exact path="/elainetest" render={() => <ElainePostTest />} />
+
             <Route render={() => <NoMatch />} />
           </Switch>
         </div>
