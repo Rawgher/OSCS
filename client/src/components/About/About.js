@@ -35,8 +35,8 @@ class About extends React.Component {
                 for the most useful criteria; including things such as response
                 ratings, top views, relevant dates, and regex accuracy. <br />
                 <br />
-                Users will find answers from multiple sources faster and without
-                ever having to load new pages. <br />
+                Users will find answers from multiple sources quickly and
+                without ever having to load new pages. <br />
                 <br />
                 With OSCS, our goal is to help deliver knowledge faster and more
                 efficiently.
