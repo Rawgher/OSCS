@@ -18,7 +18,7 @@ class Posts extends Component {
 
   componentDidMount() {
     axios
-      .get("/api/forum/posts/:id")
+      .get("/api/forum/" + this.props.match.params.id)
       .then(res => {
         this.setState({ posts: res.data });
       })
@@ -26,6 +26,12 @@ class Posts extends Component {
         console.log("this is err=>", err);
       });
   }
+
+convertDate(theDate) {
+  var d = new Date(theDate);
+  return d.toLocaleDateString().replace(/\//g,'-');
+}
+
 
   render() {
     return (
@@ -39,7 +45,7 @@ class Posts extends Component {
           </Row>
         </Container>
         <Grid item xs={12}>
-          <h4 className="ESH_main-title">TOPIC // {this.state.post_topic}</h4>
+          <h4 className="ESH_main-title">TOPIC // {this.state.post}</h4>
           <div className="ESH_line" />
         </Grid>
 
@@ -65,7 +71,7 @@ class Posts extends Component {
                     <a href={`/forum/post/${post._id}`}>{post.post_subject}</a>
                   </td>
                   <td className="ESH_tcol2">{post.post_body}</td>
-                  <td>{post.post_update}</td>
+                  <td>{this.convertDate(post.post_update)}</td>
                 </tr>
               ))}
             </table>

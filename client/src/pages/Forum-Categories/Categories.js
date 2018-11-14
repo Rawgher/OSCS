@@ -24,6 +24,11 @@ class Categories extends Component {
       });
   }
 
+  convertDate(theDate) {
+    var d = new Date(theDate);
+    return d.toLocaleDateString().replace(/\//g,'-');
+  }  
+
   render() {
     return (
       <React.Fragment>
@@ -59,7 +64,7 @@ class Categories extends Component {
                       {topic.topic_description}
                     </td>
                     <td className="ESH_tcol2">{topic.topic_posts.length}</td>
-                    <td>{topic.updatedAt}</td>
+                    <td>{this.convertDate(topic.updatedAt)}</td>
                   </tr>
                 ))}
               </table>

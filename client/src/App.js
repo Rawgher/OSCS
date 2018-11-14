@@ -85,8 +85,8 @@ class App extends Component {
                 />
               )}
             />
-            <Route exact path="/forum/:id" render={() => <Posts />} />
-            <Route exact path="/forum/post/:id" render={() => <ThisPost />} />
+            <Route exact path="/forum/:id" component={Posts} />
+            <Route exact path="/forum/post/:id" component={ThisPost} />
             <Route exact path="/forum/user/:id" render={() => <User />} />
             <Route
               exact
