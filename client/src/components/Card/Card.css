@@ -5,6 +5,24 @@
   background: none !important;
   overflow: unset;
 }
+#EGA-bwImage {
+  filter: none;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+#EGA-bwImage:hover {
+  filter: none;
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  cursor: pointer;
+}
 
 .fancy-card .v-border:before,
 .fancy-card .v-border:after {
