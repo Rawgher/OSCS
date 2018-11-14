@@ -26,7 +26,10 @@ class Search extends Component {
     search: "",
     bingSearch: [],
     stackResults: [],
-    videos: []
+    videos: [],
+    youtubeshown: true,
+    stackshown: true,
+    bingshown: true
   };
 
   enterPressed = event => {
@@ -71,7 +74,67 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
+  toggleYoutube = () => {
+    if (this.state.stackshown === false) {
+      this.setState({ stackshown: true });
+    }
+    if (this.state.bingshown === false) {
+      this.setState({ bingshown: true });
+    }
+    this.setState({
+      youtubeshown: !this.state.youtubeshown
+    });
+  };
+
+  toggleStack = () => {
+    if (this.state.youtubeshown === true) {
+      this.setState({ youtubeshown: false });
+    }
+    if (this.state.bingshown === false) {
+      this.setState({ bingshown: true });
+    }
+    this.setState({
+      stackshown: !this.state.stackshown
+    });
+  };
+
+  toggleBing = () => {
+    if (this.state.youtubeshown === true) {
+      this.setState({ youtubeshown: false });
+    }
+    if (this.state.stackshown === false) {
+      this.setState({ stackshown: true });
+    }
+    this.setState({
+      bingshown: !this.state.bingshown
+    });
+  };
+
   render() {
+    let youshown = {
+      display: this.state.youtubeshown ? "block" : "none"
+    };
+
+    let stackshown = {
+      display: this.state.stackshown ? "block" : "none"
+    };
+
+    let bingshown = {
+      display: this.state.bingshown ? "block" : "none"
+    };
+
+    let youhidden = {
+      display: this.state.youtubeshown ? "none" : "block"
+    };
+
+    let stackhidden = {
+      display: this.state.stackshown ? "none" : "block"
+    };
+
+    let binghidden = {
+      display: this.state.bingshown ? "none" : "block"
+    };
+
     if (this.props.loggedIn === true) {
       console.log("logged in");
     }
@@ -106,15 +169,25 @@ class Search extends Component {
             <Col size="md-1" />
             <Col size="md-2">
               <div id="EGA-sideTabs">
-                <APIMenuList />
+                <APIMenuList
+                  toggleYoutube={this.toggleYoutube}
+                  toggleStack={this.toggleStack}
+                  toggleBing={this.toggleBing}
+                />
               </div>
             </Col>
             <Col size="md-7">
               <div id="EGA-externalPadding">
                 <div id="EGA-videoContainer" style={{ minHeight: 10 }}>
-                  <Youtube id="test" videos={this.state.videos} />
-                  <Stack results={this.state.stackResults} />
-                  <Bing bing={this.state.bingSearch} />
+                  <div className="RDPyoutubeDiv" style={youshown}>
+                    <Youtube id="test" videos={this.state.videos} />
+                  </div>
+                  <div className="RDPstackDiv" style={stackhidden}>
+                    <Stack results={this.state.stackResults} />
+                  </div>
+                  <div className="RDPbingDiv" style={binghidden}>
+                    <Bing bing={this.state.bingSearch} />
+                  </div>
                 </div>
               </div>
             </Col>
