@@ -46,6 +46,7 @@ class About extends React.Component {
                     id={TheTeam.id}
                     key={TheTeam.id}
                     image={TheTeam.image}
+                    colorImage={TheTeam.colorImage}
                     name={TheTeam.name}
                     description={TheTeam.description}
                     githubURL={TheTeam.githubURL}

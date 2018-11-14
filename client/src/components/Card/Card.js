@@ -23,16 +23,17 @@ const styles = {
     maxWidth: "75%",
     margin: "auto",
     textAlign: "center",
-    display: "flex",
+    display: "none",
     borderRaius: "50%"
     // border: "1px solid white"
   },
-  imageBw: {
+  colorImage: {
     maxWidth: "75%",
     margin: "auto",
     textAlign: "center",
     display: "flex",
     borderRaius: "50%"
+    // display: "flex"
     // border: "1px solid white"
   }
 };
@@ -46,8 +47,12 @@ function MediaCard(props) {
         <div className="h-border" />
         <div className="content" />
         <Card className={classes.card}>
-          {/* <img src={props.image} className={classes.image} /> */}
-          <img src={props.image} className={classes.image} />
+          {/* <img src={props.image} id="EGA-bwImage" className={classes.image} /> */}
+          <img
+            src={props.colorImage}
+            id="EGA-bwImage"
+            className={classes.colorImage}
+          />
           <CardActionArea>
             <CardMedia className={classes.media} title={props.name} />
             <CardContent>
