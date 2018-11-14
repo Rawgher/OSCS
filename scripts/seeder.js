@@ -102,81 +102,6 @@ const topicsSeed = [
 ];
 
 const postsSeed = [
-<<<<<<< HEAD
-    {
-        "post_author": "Hunter4Lyfe",
-        "post_subject": "Make look nice",
-        "post_body": "What CSS framework should I use to make my page look the best?",
-        "post_rating": 69,
-        "post_topic": "CSS",
-        "post_update": date,
-        "createdAt": date,
-        "updatedAt": date
-    },
-    {
-        "post_author": "MyLaifu4Waifu",
-        "post_subject": "I like a challenge",
-        "post_body": "How can I make my code more difficult?",
-        "post_rating": 9,
-        "post_topic": "Javascript",
-        "post_update": date,
-        "createdAt": date,
-        "updatedAt": date
-    },
-    {
-        "post_author": "Rawgher",
-        "post_subject": "<a> links",
-        "post_body": "How do I use an <a> tag properly?",
-        "post_rating": 90,
-        "post_topic": "Javascript",
-        "post_update": date,
-        "createdAt": date,
-        "updatedAt": date
-    },
-    {
-        "post_author": "GreyIsLife",
-        "post_subject": "APIs",
-        "post_body": "How do I get my Spotify API keys?",
-        "post_rating": 9001,
-        "post_topic": "API AJAX",
-        "post_update": date,
-        "createdAt": date,
-        "updatedAt": date
-    },
-    {
-        "post_author": "Hunter4Lyfe",
-        "post_subject": "SQL HELP ME!",
-        "post_body": "My seeds are not seeding",
-        "post_rating": 500,
-        "post_topic": "mySQL",
-        "post_update": date,
-        "createdAt": date,
-        "updatedAt": date
-    },
-    {
-        "post_author": "MyLaifu4Waifu",
-        "post_subject": "DATEONLY!",
-        "post_body": "Why doesn't datatypes.DATEONLY work???",
-        "post_rating": 1000000,
-        "post_topic": "mySQL",
-        "post_number": 6,
-        "post_update": date,
-        "createdAt": date,
-        "updatedAt": date
-    },
-    {
-        "post_author": "JS94",
-        "post_subject": "My code",
-        "post_body": "My code isn't working, what should I do?",
-        "post_rating": 15,
-        "post_topic": "Javascript",
-        "post_number": 7,
-        "post_update": date,
-        "createdAt": date,
-        "updatedAt": date
-    }
-]
-=======
   {
     post_author: "Hunter4Lyfe",
     post_subject: "Make look nice",
@@ -248,7 +173,6 @@ const postsSeed = [
     updatedAt: date
   }
 ];
->>>>>>> master
 
 const repliesSeed = [
   {

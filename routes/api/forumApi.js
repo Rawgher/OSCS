@@ -21,7 +21,7 @@ router.route("/posts").get(forumController.findPostById);
 
 // display all replies of a topic
 router
-  .route("/post/:id")
+  .route("/posts/:id")
   .get(forumController.findPostById)
   .post(forumController.createReply);
 
