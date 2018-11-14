@@ -24,20 +24,29 @@ const styles = {
     margin: "auto",
     textAlign: "center",
     display: "flex",
-    borderRadius: "50%",
-    border: "1px solid white"
+    borderRaius: "50%"
+    // border: "1px solid white"
+  },
+  imageBw: {
+    maxWidth: "75%",
+    margin: "auto",
+    textAlign: "center",
+    display: "flex",
+    borderRaius: "50%"
+    // border: "1px solid white"
   }
 };
 
 function MediaCard(props) {
   const { classes } = props;
   return (
-    <div class="cards cf">
-      <div class="fancy-card ">
-        <div class="v-border" />
-        <div class="h-border" />
-        <div class="content" />
+    <div className="cards cf">
+      <div className="fancy-card ">
+        <div className="v-border" />
+        <div className="h-border" />
+        <div className="content" />
         <Card className={classes.card}>
+          {/* <img src={props.image} className={classes.image} /> */}
           <img src={props.image} className={classes.image} />
           <CardActionArea>
             <CardMedia className={classes.media} title={props.name} />

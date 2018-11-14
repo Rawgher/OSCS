@@ -5,6 +5,9 @@
   background: none !important;
   overflow: unset;
 }
+#EGA-colorImage:hover {
+  display: none;
+}
 
 .fancy-card .v-border:before,
 .fancy-card .v-border:after {
