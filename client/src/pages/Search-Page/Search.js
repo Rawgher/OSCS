@@ -141,7 +141,11 @@ class Search extends Component {
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs />
+              <NavTabs
+                updateUser={this.props.updateUser}
+                loggedIn={this.props.loggedIn}
+                username={this.props.username}
+              />
             </Col>
           </Row>
         </Container>
@@ -160,8 +164,6 @@ class Search extends Component {
           </Container>
         </div>
         <Container fluid>
-          {/* <h3>{this.props.user}</h3>
-          <h3>{this.props.user_id}</h3> */}
           <Row>
             <Col size="md-1" />
             <Col size="md-2">
@@ -178,20 +180,33 @@ class Search extends Component {
               <div id="EGA-externalPadding">
                 <div id="EGA-videoContainer" style={{ minHeight: 10 }}>
                   <div className="RDPyoutubeDiv" style={youshown}>
-                    <Youtube id="test" videos={this.state.videos} />
+                    <Youtube
+                      id="test"
+                      loggedIn={this.props.loggedIn}
+                      videos={this.state.videos}
+                    />
                   </div>
                   <div className="RDPstackDiv" style={stackshown}>
-                    <Stack results={this.state.stackResults} />
+                    <Stack
+                      loggedIn={this.props.loggedIn}
+                      results={this.state.stackResults}
+                    />
                   </div>
                   <div className="RDPbingDiv" style={bingshown}>
-                    <Bing bing={this.state.bingSearch} />
+                    <Bing
+                      bing={this.state.bingSearch}
+                      loggedIn={this.props.loggedIn}
+                    />
                   </div>
                 </div>
               </div>
             </Col>
             <Col size="md-2">
-              <Sidebar user={this.props.user} />
-              <Chat />
+              <Sidebar
+                loggedIn={this.props.loggedIn}
+                username={this.props.username}
+              />
+              <Chat loggedIn={this.props.loggedIn} />
             </Col>
           </Row>
         </Container>

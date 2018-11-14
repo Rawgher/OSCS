@@ -1,0 +1,72 @@
+import React from "react";
+import YouTube from "react-youtube";
+import { Button, IconButton } from "@material-ui/core";
+import { Star } from "@material-ui/icons";
+import "./Youtube.css";
+
+// ===== TODO =====
+// add function on favorite hover to "Unfavorited"
+// add function on unfavorited hover to "Favorite"
+
+class Youtube extends React.Component {
+  state = {
+    disabled: true
+  };
+
+  componentDidMount() {
+    if (this.props.loggedIn === true) {
+      this.setState({ disabled: false });
+    }
+  }
+
+  render() {
+    const opts = {
+      // height: "390",
+      // width: "640",
+      width: "100%",
+      maxWidth: "640",
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+        autoplay: 0
+      }
+    };
+
+    const { videos } = this.props;
+    return videos.map((a, id) => (
+      <div key={id}>
+        <YouTube videoId={a.videoId} opts={opts} onReady={this._onReady} />
+        <div class="fav-div">
+          <Button
+            aria-label="Add to favorites"
+            variant="contained"
+            size="large"
+            id="favorite"
+            disabled={this.state.disabled}
+            disableRipple={this.state.disabled}
+          >
+            Favorite  
+            <Star />
+          </Button>
+        </div>
+      </div>
+    ));
+  }
+
+  _onReady(event) {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
+
+    var tabs = document.getElementById("EGA-sideTabs");
+    tabs.style.display = "block";
+
+    var element = document.getElementById("EGA-videoContainer");
+    element.style.display = "block";
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest"
+    });
+  }
+}
+
+export default Youtube;
