@@ -1,7 +1,7 @@
 import React from "react";
 import YouTube from "react-youtube";
-import Button from "@material-ui/core/Button";
-import Icon from "@material-ui/core/Icon";
+import { Button, IconButton } from "@material-ui/core";
+import { Star } from "@material-ui/icons";
 import "./Youtube.css";
 
 // ===== TODO =====
@@ -37,14 +37,15 @@ class Youtube extends React.Component {
         <YouTube videoId={a.videoId} opts={opts} onReady={this._onReady} />
         <div class="fav-div">
           <Button
+            aria-label="Add to favorites"
             variant="contained"
             size="large"
             id="favorite"
             disabled={this.state.disabled}
             disableRipple={this.state.disabled}
           >
-            Favorite
-            <Icon style={{ marginLeft: 15, color: "#FFFF00" }}>favorite</Icon>
+            Favorite  
+            <Star />
           </Button>
         </div>
       </div>

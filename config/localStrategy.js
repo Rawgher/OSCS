@@ -1,8 +1,6 @@
 const User = require('../models/userTable');
 const LocalStrategy = require('passport-local').Strategy;
 
-console.log("is the strategy happening");
-
 const strategy = new LocalStrategy(
     {
         usernameField: "user_name",

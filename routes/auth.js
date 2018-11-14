@@ -42,7 +42,7 @@ router.get("/", (req, res, next) => {
 router.post(
   "/login",
   function(req, res, next) {
-    console.log("routes/user.js, login, req.body: ", req.body);
+    console.log("routes/auth.js, login, req.body: ", req.body);
     next();
   },
   passport.authenticate("local"),
@@ -66,6 +66,26 @@ router.post("/logout", (req, res) => {
     res.send({ msg: "no user to log out" });
   }
 });
+
+router.get(
+  "/github",
+  function(req, res, next) {
+    console.log("routes/auth.js, github login, req.body: ", req.body);
+    next();
+  },
+  passport.authenticate("github"),
+  (req, res) => {
+    console.log("github login user", res);
+  }
+);
+
+router.get(
+  "/github/callback",
+  passport.authenticate("github", { failureRedirect: "/" }),
+  function(req, res) {
+    res.redirect("/user");
+  }
+);
 
 module.exports = router;
 
