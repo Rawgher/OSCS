@@ -1,16 +1,21 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+const bcrypt = require('bcryptjs');
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/OSCSmongo");
 
 const date = new Date();
+
+const hashPassword = plainTextPassword => {
+    return bcrypt.hashSync(plainTextPassword, 10);
+}
 
 const userSeed = [
   {
     user_name: "Hunter4Lyfe",
     user_firstName: "Enea",
     user_lastName: "Destiny",
-    user_pass: "Destiny2",
+    user_pass: hashPassword("Destiny2"),
     user_level: 0,
     createdAt: date,
     updatedAt: date
@@ -19,7 +24,7 @@ const userSeed = [
     user_name: "Rawgher",
     user_firstName: "Roger",
     user_lastName: "Penderheisenburgerer",
-    user_pass: "CurseUFlapjack",
+    user_pass: hashPassword("CurseUFlapjack"),
     user_level: 1,
     createdAt: date,
     updatedAt: date
@@ -28,7 +33,7 @@ const userSeed = [
     user_name: "MyLaifu4Waifu",
     user_firstName: "Collin",
     user_lastName: "Fumanchu",
-    user_pass: "SenpaiPlz",
+    user_pass: hashPassword("SenpaiPlz"),
     user_level: 0,
     createdAt: date,
     updatedAt: date
@@ -37,7 +42,7 @@ const userSeed = [
     user_name: "GreyIsLife",
     user_firstName: "Elaine",
     user_lastName: "Queen",
-    user_pass: "lessthan3",
+    user_pass: hashPassword("lessthan3"),
     user_level: 1,
     createdAt: date,
     updatedAt: date
@@ -46,7 +51,7 @@ const userSeed = [
     user_name: "JS94",
     user_firstName: "Jordan",
     user_lastName: "Schrodinger",
-    user_pass: "1a2b3",
+    user_pass: hashPassword("1a2b3"),
     user_level: 0,
     createdAt: date,
     updatedAt: date
