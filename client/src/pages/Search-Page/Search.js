@@ -76,15 +76,11 @@ class Search extends Component {
   };
 
   toggleAll = () => {
-    this.state.youtubeshown === true
-      ? this.setState({ youtubeshown: false })
-      : this.setState({ youtubeshown: true });
-    this.state.stackshown === true
-      ? this.setState({ stackshown: false })
-      : this.setState({ stackshown: false });
-    this.state.bingshown === true
-      ? this.setState({ bingshown: false })
-      : this.setState({ bingshown: true });
+    this.setState({
+      youtubeshown: !this.state.youtubeshown,
+      stackshown: !this.state.stackshown,
+      bingshown: !this.state.bingshown
+    });
   };
 
   toggleYoutube = () => {
@@ -124,10 +120,6 @@ class Search extends Component {
   };
 
   render() {
-    let allShown = {
-      display: this.state.allShown ? "block" : "none"
-    };
-
     let youshown = {
       display: this.state.youtubeshown ? "block" : "none"
     };
