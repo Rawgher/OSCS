@@ -19,7 +19,7 @@ const strategy = new LocalStrategy(
                 console.log("User not found");
                 return done(null, false, { message: "Inccorect username" });
             }
-            if (user.user_pass !== password) {
+            if (!user.checkPassword(password)) {
                 console.log("Password incorrect: ", password);
                 return done(null, false, { message: "Incorrect password" });
             }

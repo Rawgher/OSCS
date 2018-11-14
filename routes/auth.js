@@ -56,6 +56,17 @@ router.post(
   }
 );
 
+router.post("/logout", (req, res) => {
+  if (req.user) {
+    console.log("logging out");
+    req.logout();
+    res.send({ msg: "logging out" });
+    window.location.assign("/search");
+  } else {
+    res.send({ msg: "no user to log out" });
+  }
+});
+
 module.exports = router;
 
 // var passport = require("passport");
