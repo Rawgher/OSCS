@@ -1,6 +1,6 @@
 import React from "react";
 import "./Bing.css";
-import { Button, IconButton } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { Star } from "@material-ui/icons";
 
 class Bing extends React.Component {

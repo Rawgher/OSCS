@@ -14,8 +14,6 @@ import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
 import APIMenuList from "../../components/APIMenuList";
 import Bing from "../../components/Bing";
-import Modal from "../../components/Modal";
-import Typography from '@material-ui/core/Typography';
 
 class Search extends Component {
   constructor(props) {
@@ -77,11 +75,6 @@ class Search extends Component {
     }
     return (
       <React.Fragment>
-        <Modal>
-          <Typography variant="h6">
-            Added to favorites
-          </Typography>
-        </Modal>
         <Container fluid>
           <Background />
           <Row>

@@ -41,7 +41,8 @@ const styles = theme => ({
 class StackCards extends React.Component {
   state = {
     disabled: true,
-    open: false
+    open: false,
+    favorited: false
   };
   convertDate = props => {
     var newDate = new Date(parseInt(props) * 1000);
@@ -52,8 +53,13 @@ class StackCards extends React.Component {
     if (this.props.loggedIn === true) {
       this.setState({ disabled: false, open: true });
     }
-
   }
+
+  favoriteThis() {
+    this.setState({
+      favorited: !this.state.favorited
+    });
+  }  
 
   render() {
     const { classes, results } = this.props;
@@ -94,6 +100,7 @@ class StackCards extends React.Component {
               aria-label="Add to favorites"
               disabled={this.state.disabled}
               disableRipple={this.state.disabled}
+              onClick={this.favoriteThis}
             >
               <Star />
             </IconButton>
