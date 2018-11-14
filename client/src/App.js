@@ -13,6 +13,7 @@ import Search from "./pages/Search-Page";
 import About from "./pages/About";
 import DocumentationPage from "./pages/Documentation/Documentation";
 import ElainePostTest from "./pages/ElainePostTest";
+import ElaineThisPost from "./pages/ElaineThisPost";
 import axios from "axios";
 
 class App extends Component {
@@ -71,7 +72,6 @@ class App extends Component {
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}
-
                 />
               )}
             />
@@ -88,9 +88,9 @@ class App extends Component {
                 />
               )}
             />
-            <Route exact path="/forum/:id" component = {Posts} />
-            <Route exact path="/forum/post/:id" component = {ThisPost} />
-            <Route exact path="/forum/user/:id" component = {User} />
+            <Route exact path="/forum/:id" component={Posts} />
+            <Route exact path="/forum/post/:id" component={ThisPost} />
+            <Route exact path="/forum/user/:id" component={User} />
             <Route
               exact
               path="/search"
@@ -111,7 +111,6 @@ class App extends Component {
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}
-
                 />
               )}
             />
@@ -123,7 +122,6 @@ class App extends Component {
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}
-
                 />
               )}
             />
@@ -135,11 +133,15 @@ class App extends Component {
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}
-
                 />
               )}
             />
             <Route exact path="/elainetest" render={() => <ElainePostTest />} />
+            <Route
+              exact
+              path="/elainethispost"
+              render={() => <ElaineThisPost />}
+            />
 
             <Route render={() => <NoMatch />} />
           </Switch>
