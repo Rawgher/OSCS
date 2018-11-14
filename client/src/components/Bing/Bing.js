@@ -1,5 +1,7 @@
 import React from "react";
 import "./Bing.css";
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
 
 class Bing extends React.Component {
   render() {
@@ -15,7 +17,13 @@ class Bing extends React.Component {
               {a.name}
             </p>
           </a>
-          <p className="RDPwhiteText RDPpaddingBot">{a.snippet}</p>
+          <p className="RDPwhiteText">{a.snippet}</p>
+          <div class="fav-div">
+            <Button variant="contained" size="large" id="favorite">
+              Favorite
+            <Icon style={{ marginLeft: 15, color: "#FFFF00" }}>favorite</Icon>
+            </Button>
+          </div>
         </div>
       </div>
     ));
