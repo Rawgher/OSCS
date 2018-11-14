@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Authentication from "./pages/Authentication-Page";
 import NoMatch from "./pages/NoMatch";

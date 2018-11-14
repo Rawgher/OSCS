@@ -2,6 +2,7 @@ import React from "react";
 import TransitionGroup from "react-transition-group";
 import LoginBox from "../../components/Auth/Login";
 import RegisterBox from "../../components/Auth/Register";
+import Background from "../../components/Background";
 import { Container, Col, Row } from "../../components/Grid";
 import Fade from "../../components/Transitions/Fade/Fade";
 
@@ -26,6 +27,7 @@ class Authentication extends React.Component {
   render() {
     return (
       <Container>
+                <Background />
         <Col size="sm-12">
           <Row>
             <div

@@ -33,3 +33,9 @@ a:hover {
 .EGA-orange {
   color: rgb(255, 115, 0);
 }
+#EGA-tabsContainer div div div button:focus {
+  background: none;
+}
+#EGA-tabsContainer div div div button:hover {
+  color: rgb(255, 115, 0) !important;
+}

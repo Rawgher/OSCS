@@ -108,6 +108,7 @@ class NavTabs extends React.Component {
                 component={Link}
                 to="/login"
                 style={styles.tabPosition}
+                className="jrsTab"
               />
             )}
           </Tabs>
