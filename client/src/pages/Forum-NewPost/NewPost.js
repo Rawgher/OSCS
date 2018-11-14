@@ -38,14 +38,8 @@ class NewPost extends Component {
     console.log(this.props.user_id, this.props.username);
     if (this.state.post_title && this.state.post_body) {
       axios
-<<<<<<< HEAD
-        .post("/api/forum/newpost", {
-          // RDP - Collin, if you change username above, you'll need to change this
-          post_author: this.props.username,
-=======
         .post("/api/forum/posts", {
           post_author: this.props.user_id,
->>>>>>> master
           post_subject: this.state.post_title,
           post_body: this.state.post_body,
           post_topic: this.state.post_topic
@@ -53,17 +47,13 @@ class NewPost extends Component {
         .then(function (res) {
           // TODO: change routing!!!
           console.log("it worked");
-          res.redirect(`/forum/categories`);
+          res.redirect(`/forum/${this.state.post_id}`);
         })
         .catch(
           err => console.log(err)
         );
     }
   };
-
-
-
-
 
   render() {
     return (
