@@ -7,7 +7,7 @@ import CardActions from "@material-ui/core/CardActions";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { Visibility, ThumbUpAlt, Favorite, Share } from "@material-ui/icons";
+import { Visibility, ThumbUpAlt, Star, Share } from "@material-ui/icons";
 
 const styles = theme => ({
   cardHeader: {
@@ -40,7 +40,8 @@ const styles = theme => ({
 
 class StackCards extends React.Component {
   state = {
-    disabled: true
+    disabled: true,
+    open: false
   };
   convertDate = props => {
     var newDate = new Date(parseInt(props) * 1000);
@@ -49,8 +50,9 @@ class StackCards extends React.Component {
 
   componentDidMount() {
     if (this.props.loggedIn === true) {
-      this.setState({ disabled: false });
+      this.setState({ disabled: false, open: true });
     }
+
   }
 
   render() {
@@ -93,7 +95,7 @@ class StackCards extends React.Component {
               disabled={this.state.disabled}
               disableRipple={this.state.disabled}
             >
-              <Favorite />
+              <Star />
             </IconButton>
             <IconButton aria-label="Share">
               <Share />

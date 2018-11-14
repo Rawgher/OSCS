@@ -1,7 +1,7 @@
 import React from "react";
 import YouTube from "react-youtube";
-import Button from "@material-ui/core/Button";
-import Icon from "@material-ui/core/Icon";
+import { Button, IconButton } from "@material-ui/core";
+import { Star } from "@material-ui/icons";
 import "./Youtube.css";
 
 // ===== TODO =====
@@ -31,7 +31,7 @@ class Youtube extends React.Component {
     
       return [
         text,
-        <Icon style={{ marginLeft: 15, color: "#FFFF00" }}>grade</Icon>
+        <Star />
       ];
   }
 
@@ -53,6 +53,7 @@ class Youtube extends React.Component {
         <YouTube videoId={a.videoId} opts={opts} onReady={this._onReady} />
         <div class="fav-div">
           <Button
+            aria-label="Add to favorites"
             variant="contained"
             size="large"
             id="favorite"
@@ -60,7 +61,7 @@ class Youtube extends React.Component {
             disableRipple={this.state.disabled}
             onClick={this.favoriteThis}
           >
-          {this.renderText()}
+            {this.renderText()}
           </Button>
         </div>  
       </div>
