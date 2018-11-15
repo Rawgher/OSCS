@@ -49,23 +49,27 @@ class RegisterBox extends React.Component {
     e.preventDefault();
     console.log("sign-up, username: " + this.state.username);
 
-    const { firstName, username, password } = this.state;
+    const { firstName, lastName, username, password } = this.state;
     console.log(firstName, username, password);
     axios
       .post("api/auth/signup", {
         user_firstName: firstName,
+        user_lastName: lastName,
         user_name: username,
         user_pass: password
       })
       .then(response => {
         console.log(response);
-        if (!response.data.errmsg) {
+        if (!response.data.error) {
           console.log("successful signup");
           this.setState({
-            redirectTo: "/search"
+            redirectTo: "/login"
           });
         } else {
           console.log("Signup error");
+          this.setState({
+            message: response.data.error
+          });
         }
       })
       .catch(err => {

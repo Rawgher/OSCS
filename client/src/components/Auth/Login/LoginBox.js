@@ -67,6 +67,9 @@ class LoginBox extends React.Component {
       })
       .catch(error => {
         console.log("login error: ", error);
+        this.setState({
+          message: "Sorry, there appears to be an issue with your login."
+        });
       });
   };
 
