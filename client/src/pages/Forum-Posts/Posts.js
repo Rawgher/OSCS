@@ -32,7 +32,6 @@ convertDate(theDate) {
   return d.toLocaleDateString().replace(/\//g,'-');
 }
 
-
   render() {
     return (
       <Grid container>
@@ -68,11 +67,10 @@ convertDate(theDate) {
                 <th className="ESH_tcol3">FRESHNESS</th>
               </tr>
 
-              {/* TODO: find correct keys for mapping */}
               {this.state.posts.map(post => (
                 <tr>
                   <td>
-                    <a href={`/forum/post/${post._id}`}>{post.post_subject}</a>
+                    <a href={`/forum/post/${post._id }`}>{post.post_subject}</a>
                   </td>
                   <td className="ESH_tcol2">{post.post_body}</td>
                   <td>{this.convertDate(post.post_update)}</td>

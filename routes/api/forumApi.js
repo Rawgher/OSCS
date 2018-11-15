@@ -16,17 +16,11 @@ router
   .get(forumController.findAllTopics)
   .post(forumController.createTopic);
 
-// display all posts of a topic
-router.route("/posts").get(forumController.findPostById);
 
-
-
-
-// display all replies of a topic
+// display all replies of a post
 router
   .route("/post/:id")
-  .get(forumController.findPostById)
-  .post(forumController.createReply);
+  .get(forumController.findRepliesByPostId);
 
 // creating a new post
 router
@@ -37,6 +31,9 @@ router
 
 
 // keep this at bottom
-router.route("/:id").get(forumController.findPostsByTopicId);
+//display all posts of a topic
+router
+.route("/:id")
+.get(forumController.findPostsByTopicId);
 
 module.exports = router;
