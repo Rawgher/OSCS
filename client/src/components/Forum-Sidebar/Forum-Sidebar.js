@@ -17,7 +17,6 @@ class ForumSidebar extends Component {
   }
 
   render() {
-    console.log(this.props.loggedIn);
     return (
       <Col size="md-3">
         <Button

@@ -15,16 +15,22 @@ import Background from "../../components/Background";
 import APIMenuList from "../../components/APIMenuList";
 import Bing from "../../components/Bing";
 
+// roger - neeed to make a function specific for what happens to youtube since its showing first
+// second function for otehr ones that will show only when clicked and toggle from there
 class Search extends Component {
   constructor(props) {
-    super(props)
-  };
+    super(props);
+  }
 
   state = {
     search: "",
     bingSearch: [],
     stackResults: [],
-    videos: []
+    videos: [],
+    youtubeshown: true,
+    stackshown: true,
+    bingshown: true,
+    allshown: true
   };
 
   enterPressed = event => {
@@ -69,7 +75,63 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
+  toggleAll = () => {
+    this.setState({
+      youtubeshown: !this.state.youtubeshown,
+      stackshown: !this.state.stackshown,
+      bingshown: !this.state.bingshown
+    });
+  };
+
+  toggleYoutube = () => {
+    if (this.state.stackshown === true) {
+      this.setState({ stackshown: false });
+    }
+    if (this.state.bingshown === true) {
+      this.setState({ bingshown: false });
+    }
+    this.setState({
+      youtubeshown: !this.state.youtubeshown
+    });
+  };
+
+  toggleStack = () => {
+    if (this.state.youtubeshown === true) {
+      this.setState({ youtubeshown: false });
+    }
+    if (this.state.bingshown === true) {
+      this.setState({ bingshown: false });
+    }
+    this.setState({
+      stackshown: !this.state.stackshown
+    });
+  };
+
+  toggleBing = () => {
+    if (this.state.youtubeshown === true) {
+      this.setState({ youtubeshown: false });
+    }
+    if (this.state.stackshown === true) {
+      this.setState({ stackshown: false });
+    }
+    this.setState({
+      bingshown: !this.state.bingshown
+    });
+  };
+
   render() {
+    let youshown = {
+      display: this.state.youtubeshown ? "block" : "none"
+    };
+
+    let stackshown = {
+      display: this.state.stackshown ? "block" : "none"
+    };
+
+    let bingshown = {
+      display: this.state.bingshown ? "block" : "none"
+    };
+
     if (this.props.loggedIn === true) {
       console.log("logged in");
     }
@@ -79,7 +141,11 @@ class Search extends Component {
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs />
+              <NavTabs
+                updateUser={this.props.updateUser}
+                loggedIn={this.props.loggedIn}
+                username={this.props.username}
+              />
             </Col>
           </Row>
         </Container>
@@ -98,27 +164,49 @@ class Search extends Component {
           </Container>
         </div>
         <Container fluid>
-          {/* <h3>{this.props.user}</h3>
-          <h3>{this.props.user_id}</h3> */}
           <Row>
             <Col size="md-1" />
             <Col size="md-2">
               <div id="EGA-sideTabs">
-                <APIMenuList />
+                <APIMenuList
+                  toggleYoutube={this.toggleYoutube}
+                  toggleStack={this.toggleStack}
+                  toggleBing={this.toggleBing}
+                  toggleAll={this.toggleAll}
+                />
               </div>
             </Col>
             <Col size="md-7">
               <div id="EGA-externalPadding">
                 <div id="EGA-videoContainer" style={{ minHeight: 10 }}>
-                  <Youtube id="test" videos={this.state.videos} />
-                  <Stack results={this.state.stackResults} />
-                  <Bing bing={this.state.bingSearch} />
+                  <div className="RDPyoutubeDiv" style={youshown}>
+                    <Youtube
+                      id="test"
+                      loggedIn={this.props.loggedIn}
+                      videos={this.state.videos}
+                    />
+                  </div>
+                  <div className="RDPstackDiv" style={stackshown}>
+                    <Stack
+                      loggedIn={this.props.loggedIn}
+                      results={this.state.stackResults}
+                    />
+                  </div>
+                  <div className="RDPbingDiv" style={bingshown}>
+                    <Bing
+                      bing={this.state.bingSearch}
+                      loggedIn={this.props.loggedIn}
+                    />
+                  </div>
                 </div>
               </div>
             </Col>
             <Col size="md-2">
-              <Sidebar user={this.props.user} />
-              <Chat />
+              <Sidebar
+                loggedIn={this.props.loggedIn}
+                username={this.props.username}
+              />
+              <Chat loggedIn={this.props.loggedIn} />
             </Col>
           </Row>
         </Container>

@@ -1,9 +1,19 @@
 import React from "react";
 import "./Bing.css";
-import Button from "@material-ui/core/Button";
-import Icon from "@material-ui/core/Icon";
+import { Button, IconButton } from "@material-ui/core";
+import { Star } from "@material-ui/icons";
 
 class Bing extends React.Component {
+  state = {
+    disabled: true
+  };
+
+  componentDidMount() {
+    if (this.props.loggedIn === true) {
+      this.setState({ disabled: false });
+    }
+  }
+
   render() {
     const { bing } = this.props;
 
@@ -19,9 +29,16 @@ class Bing extends React.Component {
           </a>
           <p className="RDPwhiteText">{a.snippet}</p>
           <div class="fav-div">
-            <Button variant="contained" size="large" id="favorite">
+            <Button
+              aria-label="Add to favorites"
+              variant="contained"
+              size="large"
+              id="favorite"
+              disabled={this.state.disabled}
+              disableRipple={this.state.disabled}
+            >
               Favorite
-            <Icon style={{ marginLeft: 15, color: "#FFFF00" }}>favorite</Icon>
+              <Star />
             </Button>
           </div>
         </div>
