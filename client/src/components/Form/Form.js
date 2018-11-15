@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Button from "@material-ui/core/Button";
 // import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 // import MenuItem from "@material-ui/core/MenuItem";
@@ -26,16 +27,66 @@ const styles = theme => ({
 class Form extends React.Component {
   state = {
     name: "",
-    age: "",
-    multiline: "Controlled"
+    nameError: "",
+    email: "",
+    emailError: "",
+    question: "",
+    questionError: ""
   };
 
-  handleChange = name => event => {
+  change = e => {
+    this.props.onChange({ [e.target.name]: e.target.value });
     this.setState({
-      [name]: event.target.value
+      [e.target.name]: e.target.value
     });
   };
+  validate = () => {
+    let isError = false;
+    const errors = {
+      nameError: "",
+      emailError: "",
+      questionError: ""
+    };
+    if (this.state.name == !String) {
+      isError = true;
+      errors.nameError = "Your name must be a string value";
+    }
+    if (this.state.email.indexOf("@") === -1) {
+      isError = true;
+      errors.emailError = "Please enter a valid e-mail";
+    }
 
+    this.setState({
+      ...this.state,
+      ...errors
+    });
+
+    return isError;
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    const err = this.validate();
+    if (!err) {
+      //clear form
+      this.setState({
+        name: "",
+        nameError: "",
+        email: "",
+        emailError: "",
+        question: "",
+        questionError: ""
+      });
+      this.props.onChange({
+        name: "",
+        nameError: "",
+        email: "",
+        emailError: "",
+        question: "",
+        questionError: ""
+      });
+    }
+  };
   render() {
     const { classes } = this.props;
 
@@ -48,33 +99,53 @@ class Form extends React.Component {
       >
         <TextField
           id="outlined-name"
-          label="Name"
+          name="name"
+          label="name"
           className={classes.textField}
           value={this.state.name}
-          onChange={this.handleChange("name")}
+          onChange={e => this.change(e)}
+          errorText={this.state.nameError}
           margin="normal"
           variant="outlined"
         />
 
         <TextField
           id="outlined-email-input"
-          label="Email"
+          name="email"
+          label="email"
           className={classes.textField}
           type="email"
-          name="email"
+          className={classes.textField}
+          value={this.state.email}
+          onChange={e => this.change(e)}
+          errorText={this.state.emailError}
           autoComplete="email"
           margin="normal"
           variant="outlined"
         />
         <TextField
           id="outlined-multiline-static"
-          label="Question"
+          name="question"
+          label="question"
           multiline
           rows="10"
           className={classes.textField}
+          value={this.state.question}
+          onChange={e => this.change(e)}
+          errorText={this.state.questionError}
           margin="normal"
           variant="outlined"
         />
+
+        <Button
+          id="EGA-sendButton"
+          variant="outlined"
+          label="Submit"
+          onClick={e => this.onSubmit(e)}
+          primary
+        >
+          Send
+        </Button>
       </form>
     );
   }
@@ -85,67 +156,3 @@ Form.propTypes = {
 };
 
 export default withStyles(styles)(Form);
-
-// import React from "react";
-// import "./Form.css";
-// import TextField from "@material-ui/core/TextField";
-
-// const Form = props => (
-//   <div className="container EGA-whiteText">
-//     <form>
-//       <div className="form-group row has-warning EGA-whiteText">
-//         <label
-//           for="inputHorizontalWarning"
-//           className="col-sm-2 col-form-label EGA-whiteText"
-//         >
-//           Name
-//         </label>
-//         <div className="col-sm-10 EGA-whiteText">
-//           <input
-//             type="text"
-//             className="form-control form-control-warning EGA-whiteText"
-//             id="inputHorizontalWarning"
-//             placeholder="Your Name"
-//           />
-//         </div>
-//       </div>
-//       <div className="form-group row has-warning EGA-whiteText">
-//         <label
-//           for="inputHorizontalWarning"
-//           className="col-sm-2 col-form-label EGA-whiteText"
-//         >
-//           Email
-//         </label>
-//         <div className="col-sm-10 EGA-whiteText">
-//           <input
-//             type="email"
-//             className="form-control form-control-warning EGA-whiteText"
-//             id="inputHorizontalWarning"
-//             placeholder="name@example.com"
-//           />
-//         </div>
-//       </div>
-//       <div className="form-group row has-warning EGA-whiteText">
-//         <label
-//           for="inputHorizontalWarning"
-//           className="col-sm-2 col-form-label EGA-whiteText"
-//         >
-//           Question
-//         </label>
-//         <div className="col-sm-10 EGA-whiteText">
-//           <TextField
-//             className="EGA-textField"
-//             id="standard-multiline-static"
-//             label="Multiline"
-//             multiline
-//             rows="4"
-//             defaultValue="Default Value"
-//             margin="normal"
-//           />
-//         </div>
-//       </div>
-//     </form>
-//   </div>
-// );
-
-// export default Form;

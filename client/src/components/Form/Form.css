@@ -7,7 +7,9 @@
   -webkit-box-shadow: 0 1px 0 0 rgb(255, 115, 0) !important;
   box-shadow: 0 1px 0 0 rgb(255, 115, 0) !important;
 }
-#inputHorizontalWarning {
+#outlined-multiline-static {
+  padding-top: 10px;
+  border-bottom: 1px solid #9e9e9e;
 }
 .EGA-textField {
   width: 100%;
@@ -15,7 +17,21 @@
   color: white !important;
   border-color: white;
 }
-
+#EGA-sendButton {
+  color: white;
+  margin-top: 10px;
+  border-color: white;
+}
+#EGA-sendButton:hover {
+  background: rgb(255, 115, 0);
+}
+#EGA-sendButton:active {
+  background: rgb(255, 115, 0);
+}
+#EGA-sendButton:focus {
+  background: none;
+  border-color: rgb(255, 115, 0);
+}
 #EGA-contactForm {
   display: flex;
   width: 80%;
