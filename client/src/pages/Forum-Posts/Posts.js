@@ -48,7 +48,7 @@ convertDate(theDate) {
           </Row>
         </Container>
         <Grid item xs={12}>
-          <h4 className="ESH_main-title">TOPIC // {this.state.post}</h4>
+          <h4 className="ESH_main-title">TOPIC // {this.state.posts.post_topic}</h4>
           <div className="ESH_line" />
         </Grid>
 
