@@ -20,7 +20,8 @@ router
 // display all replies of a post
 router
   .route("/post/:id")
-  .get(forumController.findRepliesByPostId);
+  .get(forumController.findRepliesByPostId)
+  .post(forumController.createReply);
 
 // creating a new post
 router
