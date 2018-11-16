@@ -60,6 +60,41 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
 
+    countPostsByTopicId: function (req, res) {
+        db.Topic
+            .find(req.query)
+            .then(dbModel => {
+                dbModel.forEach(eachTopic => {
+                    db.Post
+                        .find({ post_topic: eachTopic.topic_name })
+                        .then(dbPostModel => res.json(dbPostModel))
+                        .catch(err => res.status(422).json(err));
+                });
+            })
+            .update({ topic_posts: dbPostModel.length })
+            .catch(err => res.status(422).json(err));
+    },
+
+    countRepliesOfPostsByTopicId: function (req, res) {
+        db.Topic
+            .findById(req.params.id)
+            .then(dbModel => {
+                db.Post
+                    .find({ post_topic: dbModel.topic_name })
+                    .then(dbPostModel => {
+                        dbPostModel.forEach(eachPost => {
+                            db.Reply
+                                .find({ reply_post: eachPost.post_subject })
+                                .then(dbReplyModel => res.json(dbReplyModel));
+                        })
+                            .catch(err => res.status(422).json(err));
+                    })
+                    .update({ post_replies: dbReplyModel.length })
+                    .catch(err => res.status(422).json(err));
+            })
+            .catch(err => res.status(422).json(err));
+    },
+
     createTopic: function (req, res) {
         db.Topic
             .create(req.body)

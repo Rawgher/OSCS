@@ -9,8 +9,6 @@ import Background from "../../components/Background";
 import axios from "axios";
 import "./Posts.css";
 
-// TODO: change topic state to topic user clicks on
-
 class Posts extends Component {
   state = {
     thistopic: [],
@@ -19,13 +17,20 @@ class Posts extends Component {
 
   componentDidMount() {
     axios
-      .get("/api/forum/" + this.props.match.params.id)
-      .then(res => {
-        this.setState({ posts: res.data });
-      })
+      .get("/api/forum/replycount/" + this.props.match.params.id)
       .catch(err => {
         console.log("this is err=>", err);
-      });
+      })
+      .then(
+        axios
+          .get("/api/forum/" + this.props.match.params.id)
+          .then(res => {
+            this.setState({ posts: res.data });
+          })
+          .catch(err => {
+            console.log("this is err=>", err);
+          })
+      )
 
     axios
       .get("/api/forum/catinfo/" + this.props.match.params.id)
@@ -37,10 +42,10 @@ class Posts extends Component {
       });
   }
 
-convertDate(theDate) {
-  var d = new Date(theDate);
-  return d.toLocaleDateString().replace(/\//g,'-');
-}
+  convertDate(theDate) {
+    var d = new Date(theDate);
+    return d.toLocaleDateString().replace(/\//g, '-');
+  }
 
   render() {
     return (
@@ -82,7 +87,7 @@ convertDate(theDate) {
                   <td>
                     <a href={`/forum/post/${post._id}`}>{post.post_subject}</a>
                   </td>
-                  <td className="ESH_tcol2">{post.post_body}</td>
+                  <td className="ESH_tcol2">{post.post_replies}</td>
                   <td>{this.convertDate(post.post_update)}</td>
                 </tr>
               ))}

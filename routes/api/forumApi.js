@@ -37,6 +37,16 @@ router
   .route("/catinfo/:id")
   .get(forumController.findTopicInfoById);
 
+// fetch post count for topics
+router
+  .route("/topiccount/")
+  .get(forumController.countPostsByTopicId);
+
+// fetch reply count for posts
+router
+  .route("/replycount/:id")
+  .get(forumController.countRepliesOfPostsByTopicId);
+
 // keep this at bottom
 //display all posts of a topic
 router
