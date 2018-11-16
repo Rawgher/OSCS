@@ -10,11 +10,7 @@ import "./ThisPost.css";
 
 class ThisPost extends Component {
   state = {
-<<<<<<< HEAD
-    post: [],
-=======
     thispost:[],
->>>>>>> master
     replies: []
   };
 
@@ -23,7 +19,7 @@ class ThisPost extends Component {
       // post route
       .get("/api/forum/post/" + this.props.match.params.id)
       .then(res => {
-        this.setState({ post: res.data });
+        this.setState({ replies: res.data });
       })
       .catch(err => {
         console.log("this is err=>", err);
@@ -48,18 +44,18 @@ class ThisPost extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.post_title && this.state.post_body) {
+    if (this.state.thispost.post_title && this.state.thispost.post_body) {
       axios
         .post("/api/forum/posts", {
           post_author: this.props.user_id,
-          post_subject: this.state.post_title,
-          post_body: this.state.post_body,
-          post_topic: this.state.post_topic
+          post_subject: this.state.thispost.post_title,
+          post_body: this.state.thispost.post_body,
+          post_topic: this.state.thispost.post_topic
         })
         .then(function (res) {
           // TODO: change routing!!!
           console.log("it worked");
-          res.redirect(`/forum/${this.state.post_id}`);
+          res.redirect(`/forum/${this.state.thispost.post_id}`);
         })
         .catch(
           err => console.log(err)
@@ -74,7 +70,7 @@ class ThisPost extends Component {
         <Container>
           <Row>
             <Col size="md-12">
-              <h4 className="ESH_main-title">TOPIC // {this.state.thispost.post_subject}</h4>
+              <h4 className="ESH_main-title">{this.state.thispost.post_topic} // {this.state.thispost.post_subject}</h4>
               <div className="ESH_line" />
             </Col>
           </Row>
@@ -82,41 +78,24 @@ class ThisPost extends Component {
           <Row>
             <Col size="md-9" className="ESH_forum-col">
               <div className="ESH_body-title">
-                <b>{title}This is my posts title</b>
-                <div style={{ fontStyle: 'italic' }}>{this.state.post.updatedAt}</div>
+                <b>{this.state.thispost.post_subject}</b>
+                <div style={{ fontStyle: 'italic' }}>{this.state.thispost.updatedAt}</div>
               </div>
               <p className="ESH_padding">
-                this is a long string of stuff caues this is my question. i spelt stuff wrong in the first sentence. that shows my attention to detail
-                </p>
+                {this.state.thispost.post_body}
+              </p>
 
               <div className="ESH_body-title">COMMENTS</div>
 
               <ul class="ESH_user-posts">
+              {this.state.replies.map(reply => (
                 <li>
-                  this is a dumb comment
+                  {reply.reply_content}
                   <div className="ESH_comment-detail">
-                    on 12/12/1993 by <a href="/elainethispost">{this.state.post.post_author}Elaine</a>
+                    on {reply.reply_update} by <a href={`/forum/user/${reply.reply_author}`}></a>
                   </div>
                 </li>
-                <li>
-                  this is an even worse comment
-                  <div className="ESH_comment-detail">
-                    on 12/12/1993 by <a href="/elainethispost">{this.state.post.post_author}Elaine</a>
-                  </div>
-                </li>
-                <li>
-                  blah blah blah blah blah blah blah, blah blah blah... blah
-                  blah
-                  <div className="ESH_comment-detail">
-                    on 12/12/1993 by <a href="/elainethispost">{this.state.post.post_author}Elaine</a>
-                  </div>
-                </li>
-                <li>
-                  shut up collin
-                  <div className="ESH_comment-detail">
-                    on 12/12/1993 by <a href="/elainethispost">{this.state.post.post_author}Elaine</a>
-                  </div>
-                </li>
+              ))}
               </ul>
 
               <form>

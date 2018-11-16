@@ -31,9 +31,6 @@ class Posts extends Component {
   }
 
   render() {
-
-    console.log("this.state.post.post_subject:" + this.state.posts[0].post_subject);
-
     return (
       <React.Fragment>
         <Container fluid>
