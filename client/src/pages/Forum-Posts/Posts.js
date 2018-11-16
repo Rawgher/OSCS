@@ -29,7 +29,6 @@ class Posts extends Component {
     return d.toLocaleDateString().replace(/\//g, '-');
   }
 
-
   render() {
     return (
       <React.Fragment>
