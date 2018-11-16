@@ -7,7 +7,8 @@ import "./UserPage.css";
 
 class UserPage extends Component {
   state = {
-    user: []
+    user: [],
+    favorites: []
   };
 
   componentDidMount() {
@@ -41,8 +42,7 @@ class UserPage extends Component {
                   <a href={`/forum/post/${post._id}`}>{post.post_subject}</a>
                   {post.updatedAt}
                 </PostListItem>
-              ))}{" "}
-              */}
+              ))}
             </PostList>
 
             <div className="ESH_body-title">COMMENTS</div>
@@ -58,17 +58,26 @@ class UserPage extends Component {
             </PostList>
 
             <div className="ESH_body-title">FAVORITES</div>
-            <PostList>
-              {/* TODO: find correct keys for favorites key-value pairing */}
-              {/* {this.state.favorites.map(fav => (
-                                <PostListItem key={fav._id}>
-                                    <Link to={fav.type == "forum" ? `/forum/post/${fav.postID}` : fav.url}>
-                                        {fav.title}
-                                    </Link>
-                                    {fav.teaser}
-                                </PostListItem>
-                            ))} */}
-            </PostList>
+            <Row>
+              <Col size="md-6">
+                <div className="ESH_account-property">Youtube</div>
+
+              </Col>
+              <Col size="md-6">
+                <div className="ESH_account-property">Stack Overflow</div>
+
+              </Col>
+            </Row>
+            <Row>
+              <Col size="md-6">
+                <div className="ESH_account-property">Bing</div>
+
+              </Col>
+              <Col size="md-6">
+                <div className="ESH_account-property">Forum</div>
+
+              </Col>
+            </Row>
             <BackBtn />
           </Col>
 
@@ -78,19 +87,15 @@ class UserPage extends Component {
                 <tr>
                   {/* TODO: check the state key-values for account info */}
                   <td className="ESH_acct-property">Username: </td>
-                  <td>{this.state.username}</td>
+                  <td>{this.state.user.user_name}</td>
                 </tr>
                 <tr>
                   <td className="ESH_acct-property">First Name: </td>
-                  <td>{this.state.firstName}</td>
+                  <td>{this.state.user.user_firstName}</td>
                 </tr>
                 <tr>
                   <td className="ESH_acct-property">Last Name: </td>
-                  <td>{this.state.lastName}</td>
-                </tr>
-                <tr>
-                  <td className="ESH_acct-property">Email: </td>
-                  <td>{this.state.email}</td>
+                  <td>{this.state.user.user_lastName}</td>
                 </tr>
               </tbody>
             </table>

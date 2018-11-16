@@ -1,6 +1,7 @@
 body {
-  color: #3d3d3d;
+  color: #282828;
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  letter-spacing: .5px;
 }
 a,
 p,
@@ -40,6 +41,7 @@ table {
 .ESH_body-title {
   padding: 15px 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  color: white;
 }
 
 .ESH_account-info {
@@ -49,10 +51,11 @@ table {
 }
 
 th,
-.ESH_account-info,
-.ESH_body-title {
+.ESH_body-title,
+.ESH_account-property {
   font-weight: normal;
   font-size: 18px;
+  color: white;
 }
 
 /* Magic that makes the placeholder disappear when cursor is inside. */
@@ -79,4 +82,10 @@ textarea:focus::-moz-placeholder {
 }
 textarea:focus:-ms-input-placeholder {
   color: transparent !important;
+}
+
+@media screen and (max-width:600px) {
+  .ESH_main-title {
+    margin: 30px 0 20px;
+  }
 }

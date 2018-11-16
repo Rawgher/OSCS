@@ -1,13 +1,26 @@
 .ESH_body-title {
-  padding: 15px 5px;
+  padding: 15px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .ESH_padding {
-  padding: 5px;
-  padding-top: 25px;
+  padding: 25px 0 10px;
 }
 
 .ESH_user-posts {
   margin-bottom: 20px;
+  color: #202020;
+}
+
+.ESH_comment-detail {
+  color: #A9A9A9;
+  font-style: italic;
+}
+.ESH_comment-detail a:link {
+  color: #B0B0B0;
+  font-weight: bold;
+}
+
+.ESH_user-posts li {
+  margin: 5px 0;
 }

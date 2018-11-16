@@ -43,7 +43,7 @@ class ChatBox extends React.Component {
   };
 
   render() {
-   //console.log("ChatBox messages", this.props.messages);
+    //console.log("ChatBox messages", this.props.messages);
     return (
       <React.Fragment>
         {this.state.usersOpen ? <UsersBox users={this.props.users} /> : ""}
@@ -61,23 +61,19 @@ class ChatBox extends React.Component {
             )}
             Users Online
           </div>
-          {this.props.ready ? (
-            <React.Fragment>
-              <Messages
-                messages={this.props.messages}
-                username={this.props.username}
-              />
-              <input
-                className="message-submit"
-                placeholder="Type message"
-                value={this.state.message}
-                onChange={this.onChange.bind(this)}
-                onKeyUp={this.onKeyUp.bind(this)}
-              />
-            </React.Fragment>
-          ) : (
-            <EnterChat setUsername={this.props.setUsername.bind(this)} />
-          )}
+          <React.Fragment>
+            <Messages
+              messages={this.props.messages}
+              username={this.props.username}
+            />
+            <input
+              className="message-submit"
+              placeholder="Type message"
+              value={this.state.message}
+              onChange={this.onChange.bind(this)}
+              onKeyUp={this.onKeyUp.bind(this)}
+            />
+          </React.Fragment>
         </div>
       </React.Fragment>
     );
