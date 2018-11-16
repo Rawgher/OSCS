@@ -35,6 +35,11 @@ class ThisPost extends Component {
     });
   }
 
+  convertDate(theDate) {
+    var d = new Date(theDate);
+    return d.toLocaleDateString().replace(/\//g, '-');
+  }
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -42,15 +47,15 @@ class ThisPost extends Component {
     });
   };
 
+  // TODO: NOT WORKING
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.thispost.post_title && this.state.thispost.post_body) {
+    if (this.state.replies.reply_content && this.props.user_id) {
       axios
-        .post("/api/forum/posts", {
-          post_author: this.props.user_id,
-          post_subject: this.state.thispost.post_title,
-          post_body: this.state.thispost.post_body,
-          post_topic: this.state.thispost.post_topic
+        .post("/api/forum/post/" + this.state.replies._id, {
+          reply_author: this.props.user_id,
+          reply_content: this.state.replies.reply_content,
+          reply_post: this.state.thispost.post_topic
         })
         .then(function (res) {
           // TODO: change routing!!!
@@ -79,7 +84,7 @@ class ThisPost extends Component {
             <Col size="md-9" className="ESH_forum-col">
               <div className="ESH_body-title">
                 <b>{this.state.thispost.post_subject}</b>
-                <div style={{ fontStyle: 'italic' }}>{this.state.thispost.updatedAt}</div>
+                <div style={{ fontStyle: 'italic' }}>{this.convertDate(this.state.thispost.post_update)}</div>
               </div>
               <p className="ESH_padding">
                 {this.state.thispost.post_body}
