@@ -1,22 +1,34 @@
 import React from "react";
 import YouTube from "react-youtube";
-import { Button, IconButton } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { Star } from "@material-ui/icons";
 import "./Youtube.css";
 
-// ===== TODO =====
-// add function on favorite hover to "Unfavorited"
-// add function on unfavorited hover to "Favorite"
-
 class Youtube extends React.Component {
   state = {
-    disabled: true
+    disabled: true,
+    favorited: false
   };
 
   componentDidMount() {
     if (this.props.loggedIn === true) {
       this.setState({ disabled: false });
     }
+  }
+
+  favoriteThis() {
+    this.setState({
+      favorited: !this.state.favorited
+    });
+  }
+
+  renderText() {
+    var text = (this.state.favorited) ? "Favorited" : "Favorite";
+    
+      return [
+        text,
+        <Star />
+      ];
   }
 
   render() {
@@ -43,11 +55,11 @@ class Youtube extends React.Component {
             id="favorite"
             disabled={this.state.disabled}
             disableRipple={this.state.disabled}
+            onClick={this.favoriteThis}
           >
-            Favorite  
-            <Star />
+            {this.renderText()}
           </Button>
-        </div>
+        </div>  
       </div>
     ));
   }

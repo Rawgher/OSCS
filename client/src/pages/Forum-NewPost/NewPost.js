@@ -15,10 +15,7 @@ class NewPost extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      post_title: "",
-      post_body: "",
-      post_author: "",
-      post_topic: ""
+      post: []
     };
   }
 
@@ -36,28 +33,24 @@ class NewPost extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.props.user_id, this.props.username);
-    if (this.state.post_title && this.state.post_body) {
+    if (this.state.post.post_title && this.state.post.post_body) {
       axios
         .post("/api/forum/newpost", {
           post_author: this.props.user_id,
-          post_subject: this.state.post_title,
-          post_body: this.state.post_body,
-          post_topic: this.state.post_topic
+          post_subject: this.state.post.post_title,
+          post_body: this.state.post.post_body,
+          post_topic: this.state.post.post_topic
         })
         .then(function (res) {
           // TODO: change routing!!!
           console.log("it worked");
-          res.redirect(`/forum/categories`);
+          res.redirect(`/forum/${this.state.post.post_id}`);
         })
         .catch(
           err => console.log(err)
         );
     }
   };
-
-
-
-
 
   render() {
     return (
@@ -91,7 +84,7 @@ class NewPost extends Component {
                     id="post_title"
                     type="text"
                     name="post_title"
-                    value={this.state.post_title}
+                    value={this.state.post.post_title}
                     onChange={this.handleInputChange}
                     placeholder="Post Title"
                   />
@@ -115,7 +108,7 @@ class NewPost extends Component {
                     className="materialize-textarea"
                     name="post_body"
                     placeholder="Description"
-                    value={this.state.post_body}
+                    value={this.state.post.post_body}
                     onChange={this.handleInputChange}
                   />
                   <label id="textarea1" className="active">

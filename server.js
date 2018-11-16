@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const morgan = require('morgan');
+const morgan = require("morgan");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -72,7 +72,7 @@ server.listen(portt, () => {
 // Back to your regularly scheduled code
 
 // Define middleware here
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Serve up static assets (usually on heroku)
