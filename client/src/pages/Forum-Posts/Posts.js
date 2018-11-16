@@ -6,6 +6,7 @@ import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
 import axios from "axios";
+import ForumSidebar from "../../components/Forum-Sidebar";
 import "./Posts.css";
 
 class Posts extends Component {
@@ -22,6 +23,8 @@ class Posts extends Component {
       .catch(err => {
         console.log("this is err=>", err);
       });
+      
+    
   }
 
   convertDate(theDate) {
@@ -67,7 +70,7 @@ class Posts extends Component {
                   {this.state.posts.map(post => (
                     <tr>
                       <td>
-                        <a href={`/forum/${post._id}`}>{post.post_subject}</a>
+                        <a href={`/forum/post/${post._id}`}>{post.post_subject}</a>
                       </td>
                       <td className="ESH_tcol2">{post.post_body}</td>
                       <td>{this.convertDate(post.post_update)}</td>
@@ -79,7 +82,7 @@ class Posts extends Component {
               <BackBtn />
             </Col>
 
-            <Sidebar />
+            <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
         </Container>
         <Chat />
