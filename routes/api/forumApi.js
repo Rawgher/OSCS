@@ -17,7 +17,6 @@ router.route("/user/:id").get(forumController.findUserById);
 router
   .route("/categories")
   .get(forumController.findAllTopics)
-  .post(forumController.createTopic);
 
 // display all posts of a topic
 router.route("/posts").get(forumController.findPostById);
@@ -38,6 +37,21 @@ router
   .route("/newpost")
   .get(forumController.findTopicById)
   .post(forumController.createPost);
+
+// display topic info for posts page
+router
+  .route("/catinfo/:id")
+  .get(forumController.findTopicInfoById);
+
+// fetch post count for topics
+router
+  .route("/topiccount/")
+  .get(forumController.countPostsByTopicId);
+
+// fetch reply count for posts
+router
+  .route("/replycount/:id")
+  .get(forumController.countRepliesOfPostsByTopicId);
 
 // keep this at bottom
 //display all posts of a topic
