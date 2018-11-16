@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { Container, Row } from "../../Grid";
@@ -84,65 +84,60 @@ class LoginBox extends React.Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
-        <Card className={classes.card}>
-          <Container fluid>
-            <CardHeader title="Login" />
-            <CardContent>
-              <h5>{message}</h5>
-              <form onSubmit={this.handleSumbit}>
-                <Row>
-                  <TextField
-                    variant="outlined"
-                    label="Username"
-                    name="username"
-                    value={username}
-                    onChange={this.handleChange}
-                    required
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <IconButton>
-                            <Email />
-                          </IconButton>
-                        </InputAdornment>
-                      )
-                    }}
-                  />
-                </Row>
-                <Row>
-                  <TextField
-                    variant="outlined"
-                    type={this.state.showPassword ? "text" : "password"}
-                    label="Password"
-                    name="password"
-                    value={password}
-                    onChange={this.handleChange}
-                    required
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <IconButton
-                            aria-label="Toggle password visibility"
-                            onClick={this.handleClickShowPassword}
-                          >
-                            {this.state.showPassword ? (
-                              <VisibilityOff />
-                            ) : (
-                              <Visibility />
-                            )}
-                          </IconButton>
-                        </InputAdornment>
-                      )
-                    }}
-                  />
-                </Row>
-                <Button type="submit" variant="contained" color="success">
-                  Login
-                </Button>
-              </form>
-            </CardContent>
-          </Container>
-        </Card>
+        <Container fluid>
+          <h5>{message}</h5>
+          <form onSubmit={this.handleSumbit}>
+            <Row>
+              <TextField
+                variant="outlined"
+                label="Username"
+                name="username"
+                value={username}
+                onChange={this.handleChange}
+                required
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton>
+                        <Email />
+                      </IconButton>
+                    </InputAdornment>
+                  )
+                }}
+              />
+            </Row>
+            <Row>
+              <TextField
+                variant="outlined"
+                type={this.state.showPassword ? "text" : "password"}
+                label="Password"
+                name="password"
+                value={password}
+                onChange={this.handleChange}
+                required
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="Toggle password visibility"
+                        onClick={this.handleClickShowPassword}
+                      >
+                        {this.state.showPassword ? (
+                          <VisibilityOff />
+                        ) : (
+                          <Visibility />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  )
+                }}
+              />
+            </Row>
+            <Button type="submit" variant="contained" color="success">
+              Login
+            </Button>
+          </form>
+        </Container>
       );
     }
   }

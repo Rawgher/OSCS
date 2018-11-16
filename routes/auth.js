@@ -64,7 +64,7 @@ router.post("/logout", (req, res) => {
   if (req.user) {
     console.log("logging out");
     req.logout();
-    window.location.assign("/search");
+    location.reload();
   }
 });
 

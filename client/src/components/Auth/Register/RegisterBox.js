@@ -3,7 +3,6 @@ import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { Container, Row } from "../../Grid";
-import { Card, CardHeader, CardContent } from "@material-ui/core/";
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
@@ -29,9 +28,7 @@ class RegisterBox extends React.Component {
       firstName: "",
       lastName: "",
       username: "",
-      email: "",
       password: "",
-      confirmPassword: "",
       message: "",
       redirectTo: null
     };
@@ -85,81 +82,76 @@ class RegisterBox extends React.Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
-        <Card className={classes.card}>
-          <Container fluid>
-            <CardHeader title="Sign Up" />
-            <CardContent>
-              <h5>{message}</h5>
-              <form onSubmit={this.handleSubmit}>
-                <Row>
-                  <TextField
-                    variant="outlined"
-                    label="First Name"
-                    name="firstName"
-                    value={firstName}
-                    onChange={this.handleChange}
-                    required
-                  />
-                  <TextField
-                    variant="outlined"
-                    label="Last Name"
-                    name="lastName"
-                    value={lastName}
-                    onChange={this.handleChange}
-                    required
-                  />
-                </Row>
-                <Row>
-                  <TextField
-                    variant="outlined"
-                    label="Username"
-                    name="username"
-                    value={username}
-                    onChange={this.handleChange}
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <IconButton>
-                            <Person />
-                          </IconButton>
-                        </InputAdornment>
-                      )
-                    }}
-                  />
-                </Row>
-                <Row>
-                  <TextField
-                    variant="outlined"
-                    type={this.state.showPassword ? "text" : "password"}
-                    label="Password"
-                    name="password"
-                    value={password}
-                    onChange={this.handleChange}
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <IconButton
-                            aria-label="Toggle password visibility"
-                            onClick={this.handleClickShowPassword}
-                          >
-                            {this.state.showPassword ? (
-                              <VisibilityOff />
-                            ) : (
-                              <Visibility />
-                            )}
-                          </IconButton>
-                        </InputAdornment>
-                      )
-                    }}
-                  />
-                </Row>
-                <Button type="submit" variant="contained" color="success">
-                  Sign-Up
-                </Button>
-              </form>
-            </CardContent>
-          </Container>
-        </Card>
+        <Container fluid>
+          <h5>{message}</h5>
+          <form onSubmit={this.handleSubmit}>
+            <Row>
+              <TextField
+                variant="outlined"
+                label="First Name"
+                name="firstName"
+                value={firstName}
+                onChange={this.handleChange}
+                required
+              />
+              <TextField
+                variant="outlined"
+                label="Last Name"
+                name="lastName"
+                value={lastName}
+                onChange={this.handleChange}
+                required
+              />
+            </Row>
+            <Row>
+              <TextField
+                variant="outlined"
+                label="Username"
+                name="username"
+                value={username}
+                onChange={this.handleChange}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton>
+                        <Person />
+                      </IconButton>
+                    </InputAdornment>
+                  )
+                }}
+              />
+            </Row>
+            <Row>
+              <TextField
+                variant="outlined"
+                type={this.state.showPassword ? "text" : "password"}
+                label="Password"
+                name="password"
+                value={password}
+                onChange={this.handleChange}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="Toggle password visibility"
+                        onClick={this.handleClickShowPassword}
+                      >
+                        {this.state.showPassword ? (
+                          <VisibilityOff />
+                        ) : (
+                          <Visibility />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  )
+                }}
+              />
+            </Row>
+            <Button type="submit" variant="contained" color="success">
+              Sign-Up
+            </Button>
+          </form>
+        </Container>
       );
     }
   }
