@@ -26,7 +26,7 @@ class ThisPost extends Component {
       <Grid container>
         <Grid item xs={12}>
           <h4 className="ESH_main-title">
-            TOPIC // {this.state.topic} // POST
+            {/* TOPIC // {this.state.topic} // POST */}
           </h4>
           <div className="ESH_line" />
         </Grid>
