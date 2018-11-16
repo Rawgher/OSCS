@@ -47,17 +47,13 @@ class NewPost extends Component {
         .then(function (res) {
           // TODO: change routing!!!
           console.log("it worked");
-          res.redirect(`/forum/categories`);
+          res.redirect(`/forum/${this.state.post_id}`);
         })
         .catch(
           err => console.log(err)
         );
     }
   };
-
-
-
-
 
   render() {
     return (
