@@ -38,11 +38,8 @@ class Chat extends React.Component {
   }
 
   componentDidMount() {
-    if (this.state.username.length) {
-      this.initChat();
-    }
     if (this.props.loggedIn === true) {
-      this.setState({ disabled: false });
+      this.initChat();
     }
   }
 
