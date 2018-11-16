@@ -13,6 +13,7 @@ import "./Posts.css";
 
 class Posts extends Component {
   state = {
+    thistopic: [],
     posts: []
   };
 
@@ -21,6 +22,15 @@ class Posts extends Component {
       .get("/api/forum/" + this.props.match.params.id)
       .then(res => {
         this.setState({ posts: res.data });
+      })
+      .catch(err => {
+        console.log("this is err=>", err);
+      });
+
+    axios
+      .get("/api/forum/catinfo/" + this.props.match.params.id)
+      .then(res => {
+        this.setState({ thistopic: res.data });
       })
       .catch(err => {
         console.log("this is err=>", err);
@@ -48,7 +58,7 @@ convertDate(theDate) {
           </Row>
         </Container>
         <Grid item xs={12}>
-          <h4 className="ESH_main-title">TOPIC // {this.state.posts.post_topic}</h4>
+          <h4 className="ESH_main-title">TOPIC // {this.state.thistopic.topic_name}</h4>
           <div className="ESH_line" />
         </Grid>
 

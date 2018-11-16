@@ -68,7 +68,7 @@ class Categories extends Component {
                       {topic.topic_description}
                     </td>
                     <td className="ESH_tcol2">{topic.topic_posts.length}</td>
-                    <td>{this.convertDate(topic.updatedAt)}</td>
+                    <td>{this.convertDate(topic.topic_update)}</td>
                   </tr>
                 ))}
               </table>

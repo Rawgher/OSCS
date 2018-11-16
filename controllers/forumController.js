@@ -29,7 +29,7 @@ module.exports = {
         db.Topic
             .find(req.query)
             .sort({ date: -1 })
-            .then(dbModel =>res.json(dbModel))
+            .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
 
@@ -40,15 +40,22 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
 
+    findTopicInfoById: function (req, res) {
+        db.Topic
+            .findById(req.params.id)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+
     findPostsByTopicId: function (req, res) {
         db.Topic
             .findById(req.params.id)
             .then(dbModel => {
                 db.Post
-                .find({ post_topic: dbModel.topic_name })
-                .sort({ date: -1 })
-                .then(dbModel => res.json(dbModel))
-                .catch(err => res.status(422).json(err));   
+                    .find({ post_topic: dbModel.topic_name })
+                    .sort({ date: -1 })
+                    .then(dbModel => res.json(dbModel))
+                    .catch(err => res.status(422).json(err));
             })
             .catch(err => res.status(422).json(err));
     },
@@ -81,10 +88,10 @@ module.exports = {
             .findById(req.params.id)
             .then(dbModel => {
                 db.Reply
-                .find({ reply_post: dbModel.post_subject })
-                .sort({ date: -1 })
-                .then(dbModel => res.json(dbModel))
-                .catch(err => res.status(422).json(err));   
+                    .find({ reply_post: dbModel.post_subject })
+                    .sort({ date: -1 })
+                    .then(dbModel => res.json(dbModel))
+                    .catch(err => res.status(422).json(err));
             })
             .catch(err => res.status(422).json(err));
     },
@@ -100,6 +107,13 @@ module.exports = {
         db.Post
             .create(req.body)
             .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
+            .then(dbTopicModel => {
+                db.Topic
+                    .find({ topic_name: dbModel.post_topic })
+                    .update({ topic_update: dbModel.post_update })
+                    .catch(err => res.status(422).json(err))
+            })
             .catch(err => res.status(422).json(err));
     },
 
@@ -130,6 +144,20 @@ module.exports = {
         db.Reply
             .create(req.body)
             .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
+            .then(dbPostModel => {
+                db.Post
+                    .find({ post_subject: dbModel.reply_post })
+                    .update({ post_update: dbModel.reply_update })
+                    .catch(err => res.status(422).json(err))
+                    .then(dbTopicModel => {
+                        db.Topic
+                            .find({ topic_name: dbPostModel.post_topic })
+                            .update({ topic_update: dbModel.reply_update })
+                            .catch(err => res.status(422).json(err))
+                    })
+                    .catch(err => res.status(422).json(err));
+            })
             .catch(err => res.status(422).json(err));
     },
 

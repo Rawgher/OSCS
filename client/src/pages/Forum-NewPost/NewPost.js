@@ -38,7 +38,7 @@ class NewPost extends Component {
     console.log(this.props.user_id, this.props.username);
     if (this.state.post_title && this.state.post_body) {
       axios
-        .post("/api/forum/posts", {
+        .post("/api/forum/newpost", {
           post_author: this.props.user_id,
           post_subject: this.state.post_title,
           post_body: this.state.post_body,
