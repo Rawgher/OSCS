@@ -1,9 +1,7 @@
-require("dotenv").config();
-
 export default {
   youtubeSearch: function(search) {
-    // const youtubeApiKey = process.env.youtubeKey
-    const youtubeApiKey = "AIzaSyDZ4WJqvmeaEhTRbGq9uNHPYjUy4pnlsn8";
+    const youtubeApiKey = process.env.REACT_APP_YoutubeKey;
+    // const youtubeApiKey = "AIzaSyDZ4WJqvmeaEhTRbGq9uNHPYjUy4pnlsn8";
     // console.log(youtubeApiKey)
 
     let queryURL = "https://www.googleapis.com/youtube/v3/search?";
