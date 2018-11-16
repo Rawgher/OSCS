@@ -1,21 +1,32 @@
 import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import BackBtn from "../../components/BackBtn";
+import axios from "axios";
 import "./ThisPost.css";
 
 class ThisPost extends Component {
   state = {
-    topic: "HTML"
-    // post,
-    // comments
+    replies: []
   };
+
+  componentDidMount() {
+    axios
+      .get("/api/forum/post/" + this.props.match.params.id)
+      .then(res => {
+        this.setState({ replies: res.data });
+      })
+      .catch(err => {
+        console.log("this is err=>", err);
+      });
+  }
+
 
   render() {
     return (
       <Grid container>
         <Grid item xs={12}>
           <h4 className="ESH_main-title">
-            TOPIC // {this.state.topic} // POST
+            {/* TOPIC // {this.state.topic} // POST */}
           </h4>
           <div className="ESH_line" />
         </Grid>
@@ -28,7 +39,7 @@ class ThisPost extends Component {
           spacing={24}
         >
           <Grid item xs={12} m={9} className="ESH_forum-col">
-            <div className="ESH_body-title">
+            {/* <div className="ESH_body-title">
               {this.state.post.title}
               <i>{this.state.post.updatedAt}</i>
               <p className="ESH_padding">{this.state.post.body}</p>
@@ -36,7 +47,7 @@ class ThisPost extends Component {
 
             <div className="ESH_body-title">
               COMMENTS ({this.state.post.commentNum})
-            </div>
+            </div> */}
 
             <ul class="ESH_user-posts">
               {/* TODO: find correct keys for mapping */}
