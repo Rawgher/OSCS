@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const forumController = require("../../controllers/forumController");
+require("dotenv");
+const nodemailer = require("nodemailer");
+const path = require("path");
 
 // login
 router.route("/login").get(forumController.findUserById);
@@ -14,6 +17,9 @@ router.route("/user/:id").get(forumController.findUserById);
 router
   .route("/categories")
   .get(forumController.findAllTopics)
+
+// display all posts of a topic
+router.route("/posts").get(forumController.findPostById);
 
 // display post info for replies page
 router
@@ -52,5 +58,34 @@ router
 router
 .route("/:id")
 .get(forumController.findPostsByTopicId);
+
+// POST MAILER
+
+var transporter = nodemailer.createTransport({
+  service: "Gmail",
+  auth: {
+    user: "",
+    pass: ""
+  }
+});
+
+router.post("/aboutus", (req, res) => {
+  var mailOptions = {
+    from: `${req.body.email}`,
+    to: process.env.ROGER,
+    subject: `${req.body.email}`,
+    text: `${req.body.question}`,
+    replyTo: `${req.body.email}`
+  };
+  transporter.sendMail(mailOptions, function(err, res) {
+    console.log(mailOptions);
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Your e-mail has been sent...");
+    }
+  });
+  // res.redirect("/thankYou");
+});
 
 module.exports = router;

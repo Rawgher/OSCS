@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 // import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
+import axios from "axios";
 import "./Form.css";
 
 const styles = theme => ({
@@ -24,16 +27,30 @@ const styles = theme => ({
 });
 
 class Form extends React.Component {
-  state = {
-    name: "",
-    age: "",
-    multiline: "Controlled"
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      question: ""
+    };
+  }
 
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value
     });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    axios
+      .post("/api/forum/aboutus", {
+        name: this.state.name,
+        email: this.state.email,
+        question: this.state.question
+      })
+      .then(() => console.log("this is shit bananas"));
   };
 
   render() {
@@ -63,6 +80,8 @@ class Form extends React.Component {
           type="email"
           name="email"
           autoComplete="email"
+          value={this.state.email}
+          onChange={this.handleChange("email")}
           margin="normal"
           variant="outlined"
         />
@@ -72,80 +91,29 @@ class Form extends React.Component {
           multiline
           rows="10"
           className={classes.textField}
+          value={this.state.question}
+          onChange={this.handleChange("question")}
           margin="normal"
           variant="outlined"
         />
+
+        <Button
+          variant="contained"
+          size="large"
+          type="submit"
+          name="action"
+          id="submit"
+          onClick={this.handleFormSubmit}
+        >
+          Submit
+          <Icon style={{ marginLeft: 15 }}>send</Icon>
+        </Button>
       </form>
     );
   }
 }
-
 Form.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(Form);
-
-// import React from "react";
-// import "./Form.css";
-// import TextField from "@material-ui/core/TextField";
-
-// const Form = props => (
-//   <div className="container EGA-whiteText">
-//     <form>
-//       <div className="form-group row has-warning EGA-whiteText">
-//         <label
-//           for="inputHorizontalWarning"
-//           className="col-sm-2 col-form-label EGA-whiteText"
-//         >
-//           Name
-//         </label>
-//         <div className="col-sm-10 EGA-whiteText">
-//           <input
-//             type="text"
-//             className="form-control form-control-warning EGA-whiteText"
-//             id="inputHorizontalWarning"
-//             placeholder="Your Name"
-//           />
-//         </div>
-//       </div>
-//       <div className="form-group row has-warning EGA-whiteText">
-//         <label
-//           for="inputHorizontalWarning"
-//           className="col-sm-2 col-form-label EGA-whiteText"
-//         >
-//           Email
-//         </label>
-//         <div className="col-sm-10 EGA-whiteText">
-//           <input
-//             type="email"
-//             className="form-control form-control-warning EGA-whiteText"
-//             id="inputHorizontalWarning"
-//             placeholder="name@example.com"
-//           />
-//         </div>
-//       </div>
-//       <div className="form-group row has-warning EGA-whiteText">
-//         <label
-//           for="inputHorizontalWarning"
-//           className="col-sm-2 col-form-label EGA-whiteText"
-//         >
-//           Question
-//         </label>
-//         <div className="col-sm-10 EGA-whiteText">
-//           <TextField
-//             className="EGA-textField"
-//             id="standard-multiline-static"
-//             label="Multiline"
-//             multiline
-//             rows="4"
-//             defaultValue="Default Value"
-//             margin="normal"
-//           />
-//         </div>
-//       </div>
-//     </form>
-//   </div>
-// );
-
-// export default Form;

@@ -8,9 +8,17 @@ import Form from "../Form/Form";
 
 class About extends React.Component {
   state = {
-    TheTeam
+    TheTeam,
+    fields: {}
   };
-
+  onChange = updatedValue => {
+    this.setState({
+      fields: {
+        ...this.state.fields,
+        ...updatedValue
+      }
+    });
+  };
   render() {
     return (
       <Container id="EGA-aboutPageContainer">
@@ -71,7 +79,7 @@ class About extends React.Component {
         <Row>
           <Col size="md-12 sm-12 xs-12">
             <h1 id="EGA-aboutTeamContactTitle">Ask us a question!</h1>
-            <Form />
+            <Form onChange={fields => this.onChange(fields)} />
           </Col>
         </Row>
       </Container>
