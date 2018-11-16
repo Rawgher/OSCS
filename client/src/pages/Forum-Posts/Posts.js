@@ -17,11 +17,11 @@ class Posts extends Component {
 
   componentDidMount() {
 
-    const {handle} = this.props.match.params.id;
-    console.log("handle" + handle);
+    // const {handle} = this.props.match.params.id;
+    // console.log("handle" + handle);
 
     axios
-      .get(`/api/forum/${handle}`)
+      .get("/api/forum/" + this.props.match.params.id)
       .then(res => {
         this.setState({ posts: res.data });
       })
