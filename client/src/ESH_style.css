@@ -1,6 +1,7 @@
 body {
-  color: #3d3d3d;
+  color: #282828;
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  letter-spacing: .5px;
 }
 a,
 p,
@@ -40,6 +41,7 @@ table {
 .ESH_body-title {
   padding: 15px 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  color: white;
 }
 
 .ESH_account-info {
@@ -53,6 +55,7 @@ th,
 .ESH_account-property {
   font-weight: normal;
   font-size: 18px;
+  color: white;
 }
 
 /* Magic that makes the placeholder disappear when cursor is inside. */
