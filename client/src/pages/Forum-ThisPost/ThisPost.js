@@ -6,6 +6,7 @@ import "./ThisPost.css";
 
 class ThisPost extends Component {
   state = {
+    thispost:[],
     replies: []
   };
 
@@ -18,6 +19,15 @@ class ThisPost extends Component {
       .catch(err => {
         console.log("this is err=>", err);
       });
+
+    axios
+    .get("/api/forum/postinfo/" + this.props.match.params.id)
+    .then(res => {
+      this.setState({ thispost: res.data })
+    })
+    .catch(err => {
+      console.log("this is err=>", err);
+    });
   }
 
 
@@ -26,7 +36,7 @@ class ThisPost extends Component {
       <Grid container>
         <Grid item xs={12}>
           <h4 className="ESH_main-title">
-            TOPIC // {this.state.topic} // POST
+            TOPIC // {this.state.thispost.post_subject} // POST
           </h4>
           <div className="ESH_line" />
         </Grid>
