@@ -10,7 +10,11 @@ import "./ThisPost.css";
 
 class ThisPost extends Component {
   state = {
+<<<<<<< HEAD
     post: [],
+=======
+    thispost:[],
+>>>>>>> master
     replies: []
   };
 
@@ -25,12 +29,14 @@ class ThisPost extends Component {
         console.log("this is err=>", err);
       });
 
-    // replies route
-    // axios
-    // .get("/api/forum/")
-    // .then(res => {
-    //   this.setState({ replies: res.data });
-    // });
+    axios
+    .get("/api/forum/postinfo/" + this.props.match.params.id)
+    .then(res => {
+      this.setState({ thispost: res.data })
+    })
+    .catch(err => {
+      console.log("this is err=>", err);
+    });
   }
 
   handleInputChange = event => {
@@ -62,15 +68,13 @@ class ThisPost extends Component {
   }
 
   render() {
-    const title = this.state.post.post_subject;
-
     return (
       <React.Fragment>
         <Background />
         <Container>
           <Row>
             <Col size="md-12">
-              <h4 className="ESH_main-title">{this.state.post.post_topic}HTML // {title}</h4>
+              <h4 className="ESH_main-title">TOPIC // {this.state.thispost.post_subject}</h4>
               <div className="ESH_line" />
             </Col>
           </Row>

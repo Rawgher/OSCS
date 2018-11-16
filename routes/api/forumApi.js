@@ -16,6 +16,10 @@ router
   .get(forumController.findAllTopics)
   .post(forumController.createTopic);
 
+// display post info for replies page
+router
+.route("/postinfo/:id")
+.get(forumController.findPostById);
 
 // display all replies of a post
 router
