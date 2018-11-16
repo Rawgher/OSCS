@@ -70,6 +70,8 @@ class App extends Component {
                 <Categories
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
+                  user={this.state.username}
+                  user_id={this.state.user_id}
                 />
               )}
             />
@@ -100,11 +102,27 @@ class App extends Component {
                 />
               )}
             />
-            <Route exact path="/aboutus" render={() => <About />} />
+            <Route
+              exact
+              path="/aboutus"
+              render={() => (
+                <About
+                  loggedIn={this.state.loggedIn}
+                  user={this.state.username}
+                  user_id={this.state.user_id}
+                />
+              )}
+            />
             <Route
               exact
               path="/documentation"
-              render={() => <DocumentationPage />}
+              render={() => (
+                <DocumentationPage
+                  loggedIn={this.state.loggedIn}
+                  user={this.state.username}
+                  user_id={this.state.user_id}
+                />
+              )}
             />
             <Route
               exact

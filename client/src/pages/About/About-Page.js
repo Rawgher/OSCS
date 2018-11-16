@@ -23,7 +23,11 @@ class AboutPage extends Component {
           </Col>
         </Row>
         <Sidebar />
-        <Chat />
+        <Chat
+          loggedIn={this.props.loggedIn}
+          user={this.props.user}
+          uid={this.props.user_id}
+        />
       </Container>
     );
   }
