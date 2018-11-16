@@ -23,8 +23,6 @@ class Posts extends Component {
       .catch(err => {
         console.log("this is err=>", err);
       });
-      
-    
   }
 
   convertDate(theDate) {
@@ -33,6 +31,9 @@ class Posts extends Component {
   }
 
   render() {
+
+    console.log("this.state.post.post_subject:" + this.state.posts[0].post_subject);
+
     return (
       <React.Fragment>
         <Container fluid>
@@ -51,14 +52,16 @@ class Posts extends Component {
         <Container>
           <Row>
             <Col size="md-12">
-              <h4 className="ESH_main-title">TOPIC // {this.state.posts.post_subject}</h4>
+              <h4 className="ESH_main-title">
+                TOPIC // {this.state.posts.post_subject}
+              </h4>
               <div className="ESH_line" />
             </Col>
           </Row>
 
           <Row>
             <Col size="md-9" className="ESH_forum-col">
-              <table style={{width: "100%"}}>
+              <table style={{ width: "100%" }}>
                 <tbody>
                   <tr className="ESH_th">
                     <th className="ESH_tcol1">THREAD</th>
