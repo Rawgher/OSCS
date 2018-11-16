@@ -18,7 +18,7 @@ class Posts extends Component {
 
   componentDidMount() {
     axios
-      .get("/api/forum/:id")
+      .get("/api/forum/" + this.props.match.params.id)
       .then(res => {
         this.setState({ posts: res.data });
       })
@@ -27,6 +27,11 @@ class Posts extends Component {
       });
   }
 
+convertDate(theDate) {
+  var d = new Date(theDate);
+  return d.toLocaleDateString().replace(/\//g,'-');
+}
+
   render() {
     return (
       <Grid container>
@@ -34,12 +39,16 @@ class Posts extends Component {
           <Background />
           <Row>
             <Col size="md-12">
-              <NavTabs auth={this.props.auth} />
+              <NavTabs
+                updateUser={this.props.updateUser}
+                loggedIn={this.props.loggedIn}
+                username={this.props.username}
+              />
             </Col>
           </Row>
         </Container>
         <Grid item xs={12}>
-          <h4 className="ESH_main-title">TOPIC // {this.state.topic}</h4>
+          <h4 className="ESH_main-title">TOPIC // {this.state.posts.post_topic}</h4>
           <div className="ESH_line" />
         </Grid>
 
@@ -58,14 +67,13 @@ class Posts extends Component {
                 <th className="ESH_tcol3">FRESHNESS</th>
               </tr>
 
-              {/* TODO: find correct keys for mapping */}
               {this.state.posts.map(post => (
                 <tr>
                   <td>
-                    <a href={`/forum/post/${post._id}`}>{post.title}</a>
+                    <a href={`/forum/post/${post._id}`}>{post.post_subject}</a>
                   </td>
-                  <td className="ESH_tcol2">{post.postNum}</td>
-                  <td>{post.updatedAt}</td>
+                  <td className="ESH_tcol2">{post.post_body}</td>
+                  <td>{this.convertDate(post.post_update)}</td>
                 </tr>
               ))}
             </table>

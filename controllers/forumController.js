@@ -40,6 +40,19 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
 
+    findPostsByTopicId: function (req, res) {
+        db.Topic
+            .findById(req.params.id)
+            .then(dbModel => {
+                db.Post
+                .find({ post_topic: dbModel.topic_name })
+                .sort({ date: -1 })
+                .then(dbModel => res.json(dbModel))
+                .catch(err => res.status(422).json(err));   
+            })
+            .catch(err => res.status(422).json(err));
+    },
+
     createTopic: function (req, res) {
         db.Topic
             .create(req.body)
@@ -61,6 +74,20 @@ module.exports = {
             .sort({ date: -1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+
+    findRepliesByPostId: function (req, res) {
+        res.send("hi")
+        // db.Post
+        //     .findById(req.params.id)
+        //     .then(dbModel => {
+        //         db.Reply
+        //         .find({ reply_post: dbModel.post_subject })
+        //         .sort({ date: -1 })
+        //         .then(dbModel => res.json(dbModel))
+        //         .catch(err => res.status(422).json(err));   
+        //     })
+        //     .catch(err => res.status(422).json(err));
     },
 
     findPostById: function (req, res) {

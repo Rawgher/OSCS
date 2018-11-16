@@ -13,7 +13,11 @@ class DocumentationPage extends Component {
         <Background />
         <Row>
           <Col size="md-12 sm-12 xs-6">
-            <NavTabs auth={this.props.auth} />
+            <NavTabs
+              updateUser={this.props.updateUser}
+              loggedIn={this.props.loggedIn}
+              username={this.props.username}
+            />
           </Col>
         </Row>
         <Row>

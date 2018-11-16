@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Grow from "@material-ui/core/Grow";
+// import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+// import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
-import Popper from "@material-ui/core/Popper";
+// import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { withStyles } from "@material-ui/core/styles";
@@ -44,16 +44,41 @@ class APIMenuList extends React.Component {
       <div className={classes.root}>
         <Paper className={classes.paper}>
           <MenuList id="EGA-apiMenuList">
-            <MenuItem className="EGA-apiListItem">Youtube</MenuItem>
-            <MenuItem className="EGA-apiListItem">Stack Overflow</MenuItem>
+            <MenuItem
+              className="EGA-apiListItem"
+              onClick={this.props.toggleAll.bind(
+                "RDPyoutubeDiv",
+                "RDPstackDiv",
+                "RDPbingDiv"
+              )}
+            >
+              Main
+            </MenuItem>
+            <MenuItem
+              className="EGA-apiListItem"
+              onClick={this.props.toggleYoutube.bind("RDPyoutubeDiv")}
+            >
+              Youtube
+            </MenuItem>
+            <MenuItem
+              className="EGA-apiListItem"
+              onClick={this.props.toggleStack.bind("RDPstackDiv")}
+            >
+              Stack Overflow
+            </MenuItem>
             <MenuItem className="EGA-apiListItem">Amazon</MenuItem>
             <MenuItem className="EGA-apiListItem">GitHub</MenuItem>
-            <MenuItem className="EGA-apiListItem">Bing</MenuItem>
+            <MenuItem
+              className="EGA-apiListItem"
+              onClick={this.props.toggleBing.bind("RDPbingDiv")}
+            >
+              Bing
+            </MenuItem>
             <MenuItem className="EGA-apiListItem">Forum</MenuItem>
           </MenuList>
         </Paper>
-        <div>
-          <Popper open={open} anchorEl={this.anchorEl} transition disablePortal>
+        {/* <div> */}
+        {/* <Popper open={open} anchorEl={this.anchorEl} transition disablePortal>
             {({ TransitionProps, placement }) => (
               <Grow
                 {...TransitionProps}
@@ -80,7 +105,7 @@ class APIMenuList extends React.Component {
               </Grow>
             )}
           </Popper>
-        </div>
+        </div> */}
       </div>
     );
   }
