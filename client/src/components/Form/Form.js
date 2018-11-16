@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "@material-ui/core/Button";
 // import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 // import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
+import axios from "axios";
 import "./Form.css";
 
 const styles = theme => ({
@@ -25,68 +27,32 @@ const styles = theme => ({
 });
 
 class Form extends React.Component {
-  state = {
-    name: "",
-    nameError: "",
-    email: "",
-    emailError: "",
-    question: "",
-    questionError: ""
-  };
-
-  change = e => {
-    this.props.onChange({ [e.target.name]: e.target.value });
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-  validate = () => {
-    let isError = false;
-    const errors = {
-      nameError: "",
-      emailError: "",
-      questionError: ""
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      question: ""
     };
-    if (this.state.name == !String) {
-      isError = true;
-      errors.nameError = "Your name must be a string value";
-    }
-    if (this.state.email.indexOf("@") === -1) {
-      isError = true;
-      errors.emailError = "Please enter a valid e-mail";
-    }
+  }
 
+  handleChange = name => event => {
     this.setState({
-      ...this.state,
-      ...errors
+      [name]: event.target.value
     });
-
-    return isError;
   };
 
-  onSubmit = e => {
-    e.preventDefault();
-    const err = this.validate();
-    if (!err) {
-      //clear form
-      this.setState({
-        name: "",
-        nameError: "",
-        email: "",
-        emailError: "",
-        question: "",
-        questionError: ""
-      });
-      this.props.onChange({
-        name: "",
-        nameError: "",
-        email: "",
-        emailError: "",
-        question: "",
-        questionError: ""
-      });
-    }
+  handleFormSubmit = event => {
+    event.preventDefault();
+    axios
+      .post("/api/forum/aboutus", {
+        name: this.state.name,
+        email: this.state.email,
+        question: this.state.question
+      })
+      .then(() => console.log("this is shit bananas"));
   };
+
   render() {
     const { classes } = this.props;
 
@@ -99,58 +65,53 @@ class Form extends React.Component {
       >
         <TextField
           id="outlined-name"
-          name="name"
-          label="name"
+          label="Name"
           className={classes.textField}
           value={this.state.name}
-          onChange={e => this.change(e)}
-          errorText={this.state.nameError}
+          onChange={this.handleChange("name")}
           margin="normal"
           variant="outlined"
         />
 
         <TextField
           id="outlined-email-input"
-          name="email"
-          label="email"
+          label="Email"
           className={classes.textField}
           type="email"
-          className={classes.textField}
-          value={this.state.email}
-          onChange={e => this.change(e)}
-          errorText={this.state.emailError}
+          name="email"
           autoComplete="email"
+          value={this.state.email}
+          onChange={this.handleChange("email")}
           margin="normal"
           variant="outlined"
         />
         <TextField
           id="outlined-multiline-static"
-          name="question"
-          label="question"
+          label="Question"
           multiline
           rows="10"
           className={classes.textField}
           value={this.state.question}
-          onChange={e => this.change(e)}
-          errorText={this.state.questionError}
+          onChange={this.handleChange("question")}
           margin="normal"
           variant="outlined"
         />
 
         <Button
-          id="EGA-sendButton"
-          variant="outlined"
-          label="Submit"
-          onClick={e => this.onSubmit(e)}
-          primary
+          variant="contained"
+          size="large"
+          type="submit"
+          name="action"
+          id="submit"
+          onClick={this.handleFormSubmit}
         >
-          Send
+          Submit
+          <Icon style={{ marginLeft: 15 }}>send</Icon>
         </Button>
       </form>
     );
   }
 }
-
 Form.propTypes = {
   classes: PropTypes.object.isRequired
 };

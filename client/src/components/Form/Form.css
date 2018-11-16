@@ -7,9 +7,10 @@
   -webkit-box-shadow: 0 1px 0 0 rgb(255, 115, 0) !important;
   box-shadow: 0 1px 0 0 rgb(255, 115, 0) !important;
 }
-#outlined-multiline-static {
+#question {
   padding-top: 10px;
   border-bottom: 1px solid #9e9e9e;
+  min-height: 100px;
 }
 .EGA-textField {
   width: 100%;
@@ -51,9 +52,7 @@
 #EGA-contactForm div label {
   color: white;
 }
-#outlined-multiline-static {
-  min-height: 100px;
-}
+
 #EGA-contactForm div div fieldset {
   color: white;
   border-color: white;
