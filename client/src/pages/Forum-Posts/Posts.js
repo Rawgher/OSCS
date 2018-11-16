@@ -7,6 +7,7 @@ import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
 import axios from "axios";
 import ForumSidebar from "../../components/Forum-Sidebar";
+
 import "./Posts.css";
 
 class Posts extends Component {
@@ -15,8 +16,12 @@ class Posts extends Component {
   };
 
   componentDidMount() {
+
+    const {handle} = this.props.match.params.id;
+    console.log("handle" + handle);
+
     axios
-      .get("/api/forum/" + this.props.match.params.id)
+      .get(`/api/forum/${handle}`)
       .then(res => {
         this.setState({ posts: res.data });
       })
@@ -83,7 +88,11 @@ class Posts extends Component {
             </Col>
 
             <ForumSidebar loggedIn={this.props.loggedIn} />
-          </Row>
+            <Sidebar
+              loggedIn={this.props.loggedIn}
+              username={this.props.username}
+            />
+            <Chat loggedIn={this.props.loggedIn} user={this.props.user} uid={this.props.user_id} />          </Row>
         </Container>
         <Chat />
       </React.Fragment>

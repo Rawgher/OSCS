@@ -4,8 +4,11 @@ import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
 import BackBtn from "../../components/BackBtn";
 import Background from "../../components/Background";
+import NavTabs from "../../components/Nav";
 import { Col, Row, Container } from "../../components/Grid";
 import ForumSidebar from "../../components/Forum-Sidebar";
+import Sidebar from "../../components/Sidebar";
+import Chat from "../../components/Chat";
 import "./ThisPost.css";
 
 class ThisPost extends Component {
@@ -71,7 +74,19 @@ class ThisPost extends Component {
   render() {
     return (
       <React.Fragment>
-        <Background />
+        <Container fluid>
+          <Background />
+          <Row>
+            <Col size="md-12">
+              <NavTabs
+                updateUser={this.props.updateUser}
+                loggedIn={this.props.loggedIn}
+                username={this.props.username}
+              />
+            </Col>
+          </Row>
+        </Container>
+
         <Container>
           <Row>
             <Col size="md-12">
@@ -129,8 +144,12 @@ class ThisPost extends Component {
               </form>
 
               <BackBtn />
+              <Sidebar
+              loggedIn={this.props.loggedIn}
+              username={this.props.username}
+            />
+            <Chat loggedIn={this.props.loggedIn} user={this.props.user} uid={this.props.user_id}/>
             </Col>
-
             <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
         </Container>
