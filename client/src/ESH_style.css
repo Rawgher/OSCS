@@ -83,3 +83,9 @@ textarea:focus::-moz-placeholder {
 textarea:focus:-ms-input-placeholder {
   color: transparent !important;
 }
+
+@media screen and (max-width:600px) {
+  .ESH_main-title {
+    margin: 30px 0 20px;
+  }
+}

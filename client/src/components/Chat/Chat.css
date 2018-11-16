@@ -3,6 +3,7 @@
   bottom: 20px;
   right: 20px;
   float: right;
+  z-index: 999;
 }
 .chat-button:hover,
 .chat-button:focus {
@@ -68,6 +69,7 @@
   width: 100%;
   position: absolute;
   bottom: 0;
+  background: rgb(196, 13, 13);
 }
 
 .message-input {
@@ -109,4 +111,18 @@
 
 .messages::-webkit-scrollbar-thumb {
   background: rgb(255, 115, 0);
+}
+
+@media screen and (max-width:600px) {
+  .chat-box {
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+    border-radius: 0;
+  }
+
+  .ng-space {
+    width: 100vw;
+    height: 90vh;
+  }
 }
