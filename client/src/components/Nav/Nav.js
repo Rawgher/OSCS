@@ -31,8 +31,9 @@ class NavTabs extends React.Component {
           this.props.updateUser({
             loggedIn: false,
             username: null
-          });
-          window.location.reload();
+          }).then(
+            window.location.reload()
+          );
         }
       })
       .catch(error => {

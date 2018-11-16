@@ -199,7 +199,7 @@
   color: #FFFCE8;
   text-transform: uppercase;
 }
-.Input input {
+.TextField div fieldset input {
   
   border: 0;
   color: #FFFCE8;
@@ -209,24 +209,21 @@
   font-size: 14px;
   font-weight: 300;
 }
-.Input input:focus ~ label {
+.Input div fieldset input:focus ~ label {
   opacity: 1;
 }
-.Input input[type='text'] ~ label::before {
+.Input div fieldset input[type='text'] ~ label::before {
   content: "\f007";
 }
-.Input input::-webkit-input-placeholder{
+.Input div fieldset input::-webkit-input-placeholder{
   color: #FFFFFF;
 }
-.Input input[type='email'] ~ label::before {
+.Input div fieldset input[type='email'] ~ label::before {
   content: "\f1fa";
 }
-.Input input[type='password'] ~ label::before {
+.Input div fieldset input[type='password'] ~ label::before {
   content: "\f023";
 }
-/* .Input .inputSmall {
-
-} */
 .iconVisibility {
   opacity: 0.7;
 }

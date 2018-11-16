@@ -85,11 +85,15 @@ class SignExpanded extends Component {
       .then(response => {
         console.log(response);
         if (!response.data.error) {
-          console.log("successful signup");
-          this.handleLogin();
-          //   this.setState({
-          //     redirectTo: "/login"
-          //   });
+		  console.log("successful signup");
+		  this.setState({
+			redirectTo: "/search"
+		  });
+		  this.props.updateUser({
+            loggedIn: true,
+            username: response.data.user_name,
+            user_id: response.data.user_id
+          });
         } else {
           console.log("Signup error");
           this.setState({
@@ -156,16 +160,9 @@ class SignExpanded extends Component {
                     <h2>
                       {this.props.type === "signIn" ? "SIGN IN" : "SIGN UP"}
                     </h2>
+					<h6 className="jrs_message">{message}</h6>
                     {this.props.type === "signUp" && (
                       <Row>
-                        {/* <Input
-                        id="firstName"
-                        type="text"
-                        name="firstName"
-                        value={firstName}
-                        onChange={this.handleChange}
-                        placeholder="FIRST NAME"
-					  /> */}
                         <TextField
                           id="firstName"
                           type="text"
@@ -209,16 +206,10 @@ class SignExpanded extends Component {
                       required
                     />
                     {this.props.type === "signUp" && (
-                      <SubmitButton
-                        type={this.props.type}
-                        //   onClick={this.handleSignUp}
-                      />
+                      <SubmitButton type={this.props.type} />
                     )}
                     {this.props.type === "signIn" && (
-                      <SubmitButton
-                        type={this.props.type}
-                        //   onClick={this.handleLogin}
-                      />
+                      <SubmitButton type={this.props.type} />
                     )}
                   </form>
                 )}
