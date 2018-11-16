@@ -18,12 +18,8 @@ class Chat extends React.Component {
     super(props);
     this.socket = null;
     this.state = {
-      username: localStorage.getItem("username")
-        ? localStorage.getItem("username")
-        : localStorage.setItem("username", this.props.user),
-      uid: localStorage.getItem("uid")
-        ? localStorage.getItem("uid")
-        : localStorage.setItem("uid", this.props.uid),
+      username: this.props.user,
+      uid: props.uid,
       users: [],
       messages: [
         {
