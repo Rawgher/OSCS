@@ -18,13 +18,8 @@ class Chat extends React.Component {
     super(props);
     this.socket = null;
     this.state = {
-      username: localStorage.getItem("username")
-        ? localStorage.getItem("username")
-        : "",
-      uid: localStorage.getItem("uid")
-        ? localStorage.getItem("uid")
-        : this.generateUID(),
-      chat_ready: false,
+      username: this.props.user,
+      uid: props.uid,
       users: [],
       messages: [
         {
@@ -136,10 +131,11 @@ class Chat extends React.Component {
           <ChatBox
             users={this.state.users}
             ready={this.state.chat_ready}
-            username={this.state.username}
+            username={this.state.user}
             setUsername={this.setUsername.bind(this)}
             messages={this.state.messages}
             sendMessage={this.sendMessage.bind(this)}
+            uid={this.props.uid}
           />
         ) : (
           ""
@@ -148,7 +144,7 @@ class Chat extends React.Component {
           variant="fab"
           className="chat-button"
           onClick={this.changeState.bind(this)}
-          disabled={this.state.disabled}
+          disabled={this.props.loggedIn ? false : true}
         >
           {this.state.open ? <CloseIcon /> : <ChatIcon />}
         </Button>
