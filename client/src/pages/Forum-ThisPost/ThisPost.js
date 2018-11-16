@@ -1,71 +1,140 @@
 import React, { Component } from "react";
-import Grid from "@material-ui/core/Grid";
+import axios from "axios";
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
 import BackBtn from "../../components/BackBtn";
+import Background from "../../components/Background";
+import { Col, Row, Container } from "../../components/Grid";
+import ForumSidebar from "../../components/Forum-Sidebar";
 import "./ThisPost.css";
 
 class ThisPost extends Component {
   state = {
-    topic: "HTML"
-    // post,
-    // comments
+    thispost:[],
+    replies: []
   };
+
+  componentDidMount() {
+    axios
+      // post route
+      .get("/api/forum/post/" + this.props.match.params.id)
+      .then(res => {
+        this.setState({ replies: res.data });
+      })
+      .catch(err => {
+        console.log("this is err=>", err);
+      });
+
+    axios
+    .get("/api/forum/postinfo/" + this.props.match.params.id)
+    .then(res => {
+      this.setState({ thispost: res.data })
+    })
+    .catch(err => {
+      console.log("this is err=>", err);
+    });
+  }
+
+  convertDate(theDate) {
+    var d = new Date(theDate);
+    return d.toLocaleDateString().replace(/\//g, '-');
+  }
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  // TODO: NOT WORKING
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (this.state.replies.reply_content && this.props.user_id) {
+      axios
+        .post("/api/forum/post/" + this.state.replies._id, {
+          reply_author: this.props.user_id,
+          reply_content: this.state.replies.reply_content,
+          reply_post: this.state.thispost.post_topic
+        })
+        .then(function (res) {
+          // TODO: change routing!!!
+          console.log("it worked");
+          res.redirect(`/forum/${this.state.thispost.post_id}`);
+        })
+        .catch(
+          err => console.log(err)
+        );
+    }
+  }
 
   render() {
     return (
-      <Grid container>
-        <Grid item xs={12}>
-          <h4 className="ESH_main-title">
-            TOPIC // {this.state.topic} // POST
-          </h4>
-          <div className="ESH_line" />
-        </Grid>
+      <React.Fragment>
+        <Background />
+        <Container>
+          <Row>
+            <Col size="md-12">
+              <h4 className="ESH_main-title">{this.state.thispost.post_topic} // {this.state.thispost.post_subject}</h4>
+              <div className="ESH_line" />
+            </Col>
+          </Row>
 
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={24}
-        >
-          <Grid item xs={12} m={9} className="ESH_forum-col">
-            <div className="ESH_body-title">
-              {this.state.post.title}
-              <i>{this.state.post.updatedAt}</i>
-              <p className="ESH_padding">{this.state.post.body}</p>
-            </div>
+          <Row>
+            <Col size="md-9" className="ESH_forum-col">
+              <div className="ESH_body-title">
+                <b>{this.state.thispost.post_subject}</b>
+                <div style={{ fontStyle: 'italic' }}>{this.convertDate(this.state.thispost.post_update)}</div>
+              </div>
+              <p className="ESH_padding">
+                {this.state.thispost.post_body}
+              </p>
 
-            <div className="ESH_body-title">
-              COMMENTS ({this.state.post.commentNum})
-            </div>
+              <div className="ESH_body-title">COMMENTS</div>
 
-            <ul class="ESH_user-posts">
-              {/* TODO: find correct keys for mapping */}
-              {/* {this.state.comments.map(comment => (
+              <ul class="ESH_user-posts">
+              {this.state.replies.map(reply => (
                 <li>
-                  {comment.body}
-                  <i>on {comment.updatedAt}</i>
-                  <i>by <a href="/forum/user/${user._id}"> {comment.author}</a></i>
+                  {reply.reply_content}
+                  <div className="ESH_comment-detail">
+                    on {reply.reply_update} by <a href={`/forum/user/${reply.reply_author}`}></a>
+                  </div>
                 </li>
-              ))} */}
-            </ul>
+              ))}
+              </ul>
 
-            {/* <form action={`/Forum/${this.state.post._id}`} method="post">
+              <form>
                 <div className="input-field">
-                    <textarea id="textarea1" placeholder="Write your comment here." class="materialize-textarea"
-                        name="replyBody"></textarea>
-                    <label id="textarea1"></label>
+                  <textarea
+                    id="textarea1"
+                    placeholder="Write your comment here."
+                    class="materialize-textarea"
+                    name="replyBody"
+                    value={this.state.post_body}
+                    onChange={this.handleInputChange}
+                  />
+                  <label id="textarea1" />
                 </div>
-                <button class="btn waves-effect waves-light comment-submit" type="submit" name="action" id="submit">Submit
-                    <i class="material-icons right">send</i>
-                </button>
-            </form> */}
+                <Button
+                  variant="contained"
+                  size="large"
+                  type="submit"
+                  name="action"
+                  id="submit"
+                  onClick={this.handleFormSubmit}
+                >
+                  Submit
+                  <Icon style={{ marginLeft: 15 }}>send</Icon>
+                </Button>
+              </form>
 
-            <BackBtn />
-          </Grid>
-        </Grid>
+              <BackBtn />
+            </Col>
 
-        {/* <Sidebar /> */}
-      </Grid>
+            <ForumSidebar loggedIn={this.props.loggedIn} />
+          </Row>
+        </Container>
+      </React.Fragment>
     );
   }
 }

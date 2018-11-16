@@ -22,10 +22,15 @@ router
 // display all posts of a topic
 router.route("/posts").get(forumController.findPostById);
 
-// display all replies of a topic
+// display post info for replies page
+router
+.route("/postinfo/:id")
+.get(forumController.findPostById);
+
+// display all replies of a post
 router
   .route("/post/:id")
-  .get(forumController.findPostById)
+  .get(forumController.findRepliesByPostId)
   .post(forumController.createReply);
 
 // creating a new post
@@ -35,7 +40,10 @@ router
   .post(forumController.createPost);
 
 // keep this at bottom
-router.route("/:id").get(forumController.findPostsByTopicId);
+//display all posts of a topic
+router
+.route("/:id")
+.get(forumController.findPostsByTopicId);
 
 // POST MAILER
 

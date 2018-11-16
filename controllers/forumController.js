@@ -81,7 +81,7 @@ module.exports = {
             .findById(req.params.id)
             .then(dbModel => {
                 db.Reply
-                .find({ reply_post: dbModel.topic_name })
+                .find({ reply_post: dbModel.post_subject })
                 .sort({ date: -1 })
                 .then(dbModel => res.json(dbModel))
                 .catch(err => res.status(422).json(err));   
