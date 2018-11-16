@@ -18,3 +18,9 @@
   z-index: -1;
   background: #656565;
 }
+
+@media screen and (max-width: 600px) {
+  .EGA-background-image {
+    height: 100vh;
+  }
+}

@@ -141,7 +141,11 @@ class NewPost extends Component {
 
             <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
-          <Chat />
+          <Chat
+            loggedIn={this.props.loggedIn}
+            user={this.props.user}
+            uid={this.props.user_id}
+          />
         </Container>
       </React.Fragment>
     );

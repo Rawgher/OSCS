@@ -71,6 +71,8 @@ class App extends Component {
                 <Categories
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
+                  user={this.state.username}
+                  user_id={this.state.user_id}
                   username={this.state.username}
                 />
               )}
@@ -108,6 +110,9 @@ class App extends Component {
               path="/aboutus"
               render={() => (
                 <About
+                  loggedIn={this.state.loggedIn}
+                  user={this.state.username}
+                  user_id={this.state.user_id}
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}
@@ -119,6 +124,9 @@ class App extends Component {
               path="/documentation"
               render={() => (
                 <DocumentationPage
+                  loggedIn={this.state.loggedIn}
+                  user={this.state.username}
+                  user_id={this.state.user_id}
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}
