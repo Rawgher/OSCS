@@ -45,10 +45,6 @@ router
   .route("/replycount/:id")
   .get(forumController.countRepliesOfPostsByTopicId);
 
-// keep this at bottom
-//display all posts of a topic
-router.route("/:id").get(forumController.findPostsByTopicId);
-
 // POST MAILER
 
 var transporter = nodemailer.createTransport({
@@ -76,5 +72,9 @@ router.post("/aboutus", (req, res) => {
     }
   });
 });
+
+// keep this at bottom
+//display all posts of a topic
+router.route("/:id").get(forumController.findPostsByTopicId);
 
 module.exports = router;
