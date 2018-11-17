@@ -11,14 +11,31 @@ import "./Posts.css";
 
 class Posts extends Component {
   state = {
+    thistopic: [],
     posts: []
   };
 
   componentDidMount() {
     axios
-      .get("/api/forum/" + this.props.match.params.id)
+      .get("/api/forum/replycount/" + this.props.match.params.id)
+      .catch(err => {
+        console.log("this is err=>", err);
+      })
+      .then(
+        axios
+          .get("/api/forum/" + this.props.match.params.id)
+          .then(res => {
+            this.setState({ posts: res.data });
+          })
+          .catch(err => {
+            console.log("this is err=>", err);
+          })
+      )
+
+    axios
+      .get("/api/forum/catinfo/" + this.props.match.params.id)
       .then(res => {
-        this.setState({ posts: res.data });
+        this.setState({ thistopic: res.data });
       })
       .catch(err => {
         console.log("this is err=>", err);
@@ -72,7 +89,7 @@ class Posts extends Component {
                       <td>
                         <a href={`/forum/post/${post._id}`}>{post.post_subject}</a>
                       </td>
-                      <td className="ESH_tcol2">{post.post_body}</td>
+                      <td className="ESH_tcol2">{post.post_replies}</td>
                       <td>{this.convertDate(post.post_update)}</td>
                     </tr>
                   ))}

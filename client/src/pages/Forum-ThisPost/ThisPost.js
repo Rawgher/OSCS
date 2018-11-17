@@ -10,7 +10,7 @@ import "./ThisPost.css";
 
 class ThisPost extends Component {
   state = {
-    thispost:[],
+    thispost: [],
     replies: []
   };
 
