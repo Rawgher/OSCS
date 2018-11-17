@@ -23,10 +23,13 @@ router.route("/postinfo/:id").get(forumController.findPostById);
 router.route("/post/:id").get(forumController.findRepliesByPostId);
 
 // creating a new reply
-router.route("/newreply").post(forumController.createReply);
+router
+  .route("/newreply")
+  .post(forumController.createReply);
 
 // creating a new post
-router.route("/newpost").post(forumController.createPost);
+router.route("/newpost")
+.post(forumController.createPost);
 
 // display topic info for posts page
 router.route("/catinfo/:id").get(forumController.findTopicInfoById);
