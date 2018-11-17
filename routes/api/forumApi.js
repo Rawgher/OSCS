@@ -5,22 +5,29 @@ const nodemailer = require("nodemailer");
 const path = require("path");
 
 // login
-router.route("/login").get(forumController.findUserById);
+router.
+  route("/login")
+  .get(forumController.findUserById);
 
 // account registration
-router.route("/registration").post(forumController.createUser);
+router
+  .route("/registration")
+  .post(forumController.createUser);
 
 // user account information
-router.route("/user/:id").get(forumController.findUserById);
+router
+  .route("/user/:id")
+  .get(forumController.findUserById);
 
 // display all topics
-router.route("/categories").get(forumController.findAllTopics);
-
-// display all posts of a topic
-router.route("/posts").get(forumController.findPostById);
+router
+  .route("/categories")
+  .get(forumController.findAllTopics);
 
 // display post info for replies page
-router.route("/postinfo/:id").get(forumController.findPostById);
+router
+  .route("/postinfo/:id")
+  .get(forumController.findPostById);
 
 // display all replies of a post
 router
@@ -31,19 +38,28 @@ router
 // creating a new post
 router
   .route("/newpost")
-  .get(forumController.findTopicById)
   .post(forumController.createPost);
 
 // display topic info for posts page
-router.route("/catinfo/:id").get(forumController.findTopicInfoById);
+router
+  .route("/catinfo/:id")
+  .get(forumController.findTopicInfoById);
 
 // fetch post count for topics
-router.route("/topiccount/").get(forumController.countPostsByTopicId);
+router
+  .route("/topiccount/")
+  .get(forumController.countPostsByTopicId);
 
 // fetch reply count for posts
 router
   .route("/replycount/:id")
   .get(forumController.countRepliesOfPostsByTopicId);
+
+// keep this at bottom
+//display all posts of a topic
+router
+  .route("/:id")
+  .get(forumController.findPostsByTopicId);
 
 // POST MAILER
 
@@ -63,7 +79,7 @@ router.post("/aboutus", (req, res) => {
     text: `${req.body.question}`,
     replyTo: `${req.body.email}`
   };
-  transporter.sendMail(mailOptions, function(err, res) {
+  transporter.sendMail(mailOptions, function (err, res) {
     console.log(mailOptions);
     if (err) {
       console.log(err);
@@ -71,10 +87,7 @@ router.post("/aboutus", (req, res) => {
       console.log("Your e-mail has been sent...");
     }
   });
+  // res.redirect("/thankYou");
 });
-
-// keep this at bottom
-//display all posts of a topic
-router.route("/:id").get(forumController.findPostsByTopicId);
 
 module.exports = router;
