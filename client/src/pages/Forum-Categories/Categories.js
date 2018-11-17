@@ -22,9 +22,6 @@ class Categories extends Component {
       })
       .catch(err => {
         console.log("this is err=>", err);
-<<<<<<< HEAD
-      });
-=======
       })
       .then(
         axios
@@ -36,7 +33,6 @@ class Categories extends Component {
             console.log("this is err=>", err);
           })
       );
->>>>>>> master
   }
 
   convertDate(theDate) {
@@ -85,7 +81,7 @@ class Categories extends Component {
                         <br />
                         {topic.topic_description}
                       </td>
-                      <td className="ESH_tcol2">{topic.topic_posts.length}</td>
+                      <td className="ESH_tcol2">3</td>
                       <td>{this.convertDate(topic.updatedAt)}</td>
                     </tr>
                   ))}

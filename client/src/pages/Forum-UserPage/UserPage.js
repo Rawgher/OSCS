@@ -77,51 +77,37 @@ class UserPage extends Component {
               ))} */}
               </PostList>
 
-<<<<<<< HEAD
               <div className="ESH_body-title">FAVORITES</div>
               <Row>
-                <Col size="md-6">
+                <Col size="md-6" className="youtube_col">
                   <div className="ESH_account-property">Youtube</div>
-
+                  <ul>
+                    <li><a href="https://youtu.be/nV5a5KihJMw">HTML Form and JavaScript onClick Event</a></li>
+                  </ul>
                 </Col>
-                <Col size="md-6">
+                <Col size="md-6" className="stack-col">
                   <div className="ESH_account-property">Stack Overflow</div>
-
+                  <ul>
+                    <li><a href="#">javascript click event separation</a></li>
+                  </ul>
                 </Col>
               </Row>
               <Row>
-                <Col size="md-6">
+                <Col size="md-6" className="bing-col">
                   <div className="ESH_account-property">Bing</div>
-
+                  <ul>
+                    <li><a href="https://www.w3schools.com/jsref/event_onclick.asp">onclick Event - W3Schools</a></li>
+                  </ul>
                 </Col>
                 <Col size="md-6">
                   <div className="ESH_account-property">Forum</div>
-
+                  <ul>
+                    <li><a href="/forum/post/5bf04d947261224b58cce486">APIs</a></li>
+                  </ul>
                 </Col>
               </Row>
               <BackBtn />
             </Col>
-=======
-            <div className="ESH_body-title">FAVORITES</div>
-            <Row>
-              <Col size="md-6">
-                <div className="ESH_account-property">Youtube</div>
-              </Col>
-              <Col size="md-6">
-                <div className="ESH_account-property">Stack Overflow</div>
-              </Col>
-            </Row>
-            <Row>
-              <Col size="md-6">
-                <div className="ESH_account-property">Bing</div>
-              </Col>
-              <Col size="md-6">
-                <div className="ESH_account-property">Forum</div>
-              </Col>
-            </Row>
-            <BackBtn />
-          </Col>
->>>>>>> master
 
             <Col size="md-3" className="ESH_account-info">
               <table>
