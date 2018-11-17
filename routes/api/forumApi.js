@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const forumController = require("../../controllers/forumController");
-require("dotenv");
+require("dotenv").config();
 const nodemailer = require("nodemailer");
 const path = require("path");
 
@@ -50,15 +50,15 @@ router
 var transporter = nodemailer.createTransport({
   service: "Gmail",
   auth: {
-    user: "",
-    pass: ""
+    user: process.env.email,
+    pass: process.env.emailPW
   }
 });
 
 router.post("/aboutus", (req, res) => {
   var mailOptions = {
     from: `${req.body.email}`,
-    to: process.env.ROGER,
+    to: process.env.email,
     subject: `${req.body.email}`,
     text: `${req.body.question}`,
     replyTo: `${req.body.email}`
