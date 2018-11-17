@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "./App.css";
+import "./Auth.css";
 import { Motion, spring } from "react-motion";
 import TextField from "@material-ui/core/TextField";
 import SubmitButton from "./SubmitButton";

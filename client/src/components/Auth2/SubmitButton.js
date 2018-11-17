@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './App.css';
+import './Auth.css';
 import FaGoogle from 'react-icons/lib/fa/google';
 import FaGithub from 'react-icons/lib/fa/github';
-import classNames from 'classnames';
 import Button from "@material-ui/core/Button";
 import { ArrowForward } from "@material-ui/icons";
 
@@ -11,10 +10,6 @@ import { ArrowForward } from "@material-ui/icons";
 const SubmitButton = (props) => {
 
 	let socialNets = null;
-	// var buttonClasses = classNames({
-	// 	'jrs-button': true,
-	// 	'sign-class': props.type === 'signIn' ? 'submitSignIn' : 'submitSignUp'
-	// });
 
 	if (props.type === 'signIn') {
 		socialNets = (
@@ -32,7 +27,6 @@ const SubmitButton = (props) => {
 	return (
 		<div className={'submitButton'}>
 			{socialNets}
-			{/* <button className={buttonClasses}><MdArrowForward/></button> */}
 			<Button type="submit" variant="contained" color="success">
               <ArrowForward />
             </Button>

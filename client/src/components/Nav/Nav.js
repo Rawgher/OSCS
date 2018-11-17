@@ -23,7 +23,6 @@ class NavTabs extends React.Component {
   };
 
   logout = e => {
-    // e.preventDefault();
     console.log("logging out");
     axios
       .post("/api/auth/logout")
@@ -36,9 +35,6 @@ class NavTabs extends React.Component {
           });
           console.log("is this loggin out?");
           window.location.reload();
-          // this.setState({
-          //   redirectTo: "/search"
-          // });
         }
       })
       .catch(error => {

@@ -32,7 +32,6 @@ router.post("/signup", function(req, res) {
         res.json(savedUser);
         passport.authenticate("local")(req, res, function() {
           console.log("logged new user in", req.user);
-          // res.send(req.user);
         });
       });
     }

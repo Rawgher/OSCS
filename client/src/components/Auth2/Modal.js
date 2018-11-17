@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "./App.css";
+import "./Auth.css";
 import Sign from "./Sign";
 import SignExpanded from "./SignExpanded";
 import SignCollapsed from "./SignCollapsed";

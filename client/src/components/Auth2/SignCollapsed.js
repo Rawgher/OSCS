@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './App.css';
+import './Auth.css';
 import MdAccountCircle from 'react-icons/lib/md/account-circle';
 import MdAddCircle from 'react-icons/lib/md/add-circle';
 
