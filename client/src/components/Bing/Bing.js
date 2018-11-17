@@ -1,6 +1,7 @@
 import React from "react";
 import "./Bing.css";
 import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import { Star } from "@material-ui/icons";
 
 class Bing extends React.Component {
@@ -22,12 +23,9 @@ class Bing extends React.Component {
   }
 
   renderText() {
-    var text = (this.state.favorited) ? "Favorited" : "Favorite";
+    var text = this.state.favorited ? "Favorited" : "Favorite";
 
-    return [
-      text,
-      <Star />
-    ];
+    return [text, <Star />];
   }
 
   render() {
@@ -38,11 +36,11 @@ class Bing extends React.Component {
     return bing.map((a, id) => (
       <div className="RDPleftAlign">
         <div key={id} className="RDPwhiteBorder">
-          <a href={a.url} target="_blank" rel="noreferrer noopener">
+          <Link to={a.url} target="_blank" rel="noreferrer noopener">
             <p className="RDPwhiteText RDPhoverLink RDPtitleSize RDPpaddingTop">
               {a.name}
             </p>
-          </a>
+          </Link>
           <p className="RDPwhiteText">{a.snippet}</p>
           <div class="fav-div">
             <Button
@@ -54,8 +52,7 @@ class Bing extends React.Component {
               disableRipple={this.state.disabled}
               onClick={this.favoriteThis}
             >
-              {this.renderText()}
-            >
+              {this.renderText()}>
             </Button>
           </div>
         </div>
