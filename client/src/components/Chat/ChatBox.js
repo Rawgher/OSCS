@@ -4,6 +4,7 @@ import UsersBox from "./UsersBox";
 import EnterChat from "./EnterChat";
 import Messages from "./Messages";
 import Tooltip from "@material-ui/core/Tooltip";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 class ChatBox extends React.Component {
   constructor(props) {
@@ -43,10 +44,20 @@ class ChatBox extends React.Component {
   };
 
   render() {
-   //console.log("ChatBox messages", this.props.messages);
+    //console.log("ChatBox messages", this.props.messages);
+    // const theme = createMuiTheme({
+    //   overrides: {
+    //     MuiTabs: {
+    //       indicator: {
+    //         backgroundColor: magenta,
+    //         display: "none"
+    //       }
+    //     }
+    //   }
+    // });
     return (
       <React.Fragment>
-        {this.state.usersOpen ? <UsersBox users={this.props.users} /> : ""}
+        {this.state.usersOpen ? <UsersBox users={this.props.users} user={this.props.username}/> : ""}
         <div className="chat-box black-border ng-space">
           <div className="chat-header">
             <h6>
@@ -61,23 +72,20 @@ class ChatBox extends React.Component {
             )}
             Users Online
           </div>
-          {this.props.ready ? (
-            <React.Fragment>
-              <Messages
-                messages={this.props.messages}
-                username={this.props.username}
-              />
-              <input
-                className="message-submit"
-                placeholder="Type message"
-                value={this.state.message}
-                onChange={this.onChange.bind(this)}
-                onKeyUp={this.onKeyUp.bind(this)}
-              />
-            </React.Fragment>
-          ) : (
-            <EnterChat setUsername={this.props.setUsername.bind(this)} />
-          )}
+          <React.Fragment>
+            <Messages
+              messages={this.props.messages}
+              username={this.props.username}
+            />
+            <input
+              className=""
+              id="message-submit"
+              placeholder="Type message"
+              value={this.state.message}
+              onChange={this.onChange.bind(this)}
+              onKeyUp={this.onKeyUp.bind(this)}
+            />
+          </React.Fragment>
         </div>
       </React.Fragment>
     );
