@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Sidebar from "../../components/Sidebar";
 import BackBtn from "../../components/BackBtn";
+import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
@@ -88,9 +89,9 @@ class Posts extends Component {
                   {this.state.posts.map(post => (
                     <tr>
                       <td>
-                        <a href={`/forum/post/${post._id}`}>
+                        <Link to={`/forum/post/${post._id}`}>
                           {post.post_subject}
-                        </a>
+                        </Link>
                       </td>
                       <td className="ESH_tcol2">{post.post_replies}</td>
                       <td>{this.convertDate(post.post_update)}</td>
