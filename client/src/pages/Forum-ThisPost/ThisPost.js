@@ -6,6 +6,8 @@ import BackBtn from "../../components/BackBtn";
 import Background from "../../components/Background";
 import { Col, Row, Container } from "../../components/Grid";
 import ForumSidebar from "../../components/Forum-Sidebar";
+import Chat from "../../components/Chat";
+import NavTabs from "../../components/Nav";
 import "./ThisPost.css";
 
 class ThisPost extends Component {
@@ -19,20 +21,23 @@ class ThisPost extends Component {
       // post route
       .get("/api/forum/post/" + this.props.match.params.id)
       .then(res => {
+        console.log("res: " + res);
+return;
         this.setState({ replies: res.data });
+        console.log("post route for thispost working!");
       })
       .catch(err => {
         console.log("this is err=>", err);
       });
 
     axios
-    .get("/api/forum/postinfo/" + this.props.match.params.id)
-    .then(res => {
-      this.setState({ thispost: res.data })
-    })
-    .catch(err => {
-      console.log("this is err=>", err);
-    });
+      .get("/api/forum/postinfo/" + this.props.match.params.id)
+      .then(res => {
+        this.setState({ thispost: res.data })
+      })
+      .catch(err => {
+        console.log("this is err=>", err);
+      });
   }
 
   convertDate(theDate) {
@@ -60,7 +65,7 @@ class ThisPost extends Component {
         .then(function (res) {
           // TODO: change routing!!!
           console.log("it worked");
-          res.redirect(`/forum/${this.state.thispost.post_id}`);
+          res.redirect(`/forum/${this.state.thispost._id}`);
         })
         .catch(
           err => console.log(err)
@@ -71,7 +76,18 @@ class ThisPost extends Component {
   render() {
     return (
       <React.Fragment>
+        <Container fluid>
         <Background />
+        <Row>
+            <Col size="md-12">
+              <NavTabs
+                updateUser={this.props.updateUser}
+                loggedIn={this.props.loggedIn}
+                username={this.props.username}
+              />
+            </Col>
+          </Row>
+        </Container>
         <Container>
           <Row>
             <Col size="md-12">

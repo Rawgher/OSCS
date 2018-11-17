@@ -15,20 +15,13 @@ class Categories extends Component {
 
   componentDidMount() {
     axios
-      .get("api/forum/topiccount")
+      .get("/api/forum/categories")
+      .then(res => {
+        this.setState({ topics: res.data });
+      })
       .catch(err => {
         console.log("this is err=>", err);
-      })
-      .then(
-        axios
-          .get("/api/forum/categories")
-          .then(res => {
-            this.setState({ topics: res.data });
-          })
-          .catch(err => {
-            console.log("this is err=>", err);
-          })
-      )
+      });
   }
 
   convertDate(theDate) {
@@ -75,8 +68,8 @@ class Categories extends Component {
                         <br />
                         {topic.topic_description}
                       </td>
-                      <td className="ESH_tcol2">{topic.topic_posts}</td>
-                      <td>{this.convertDate(topic.topic_update)}</td>
+                      <td className="ESH_tcol2">{topic.topic_posts.length}</td>
+                      <td>{this.convertDate(topic.updatedAt)}</td>
                     </tr>
                   ))}
                 </tbody>
