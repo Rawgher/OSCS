@@ -43,10 +43,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: flex-grow .3s ease;
-  -moz-transition: flex-grow .3s ease;
-  -webkit-transition: flex-grow .3s ease;
-  -o-transition: flex-grow .3s ease;
+  transition: flex-grow 0.3s ease;
+  -moz-transition: flex-grow 0.3s ease;
+  -webkit-transition: flex-grow 0.3s ease;
+  -o-transition: flex-grow 0.3s ease;
 }
 .signIn:hover {
   flex-grow: 1.2;
@@ -61,10 +61,10 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  transition: flex-grow .2s linear;
-  -moz-transition: flex-grow .2s linear;
-  -webkit-transition: flex-grow .2s linear;
-  -o-transition: flex-grow .2s linear;
+  transition: flex-grow 0.2s linear;
+  -moz-transition: flex-grow 0.2s linear;
+  -webkit-transition: flex-grow 0.2s linear;
+  -o-transition: flex-grow 0.2s linear;
 }
 .signInCollapsed:hover {
   flex-grow: 1.4;
@@ -79,10 +79,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: flex-grow .5s ease-out;
-  -moz-transition: flex-grow .5s ease-out;
-  -webkit-transition: flex-grow .5s ease-out;
-  -o-transition: flex-grow .5s ease-out;
+  transition: flex-grow 0.5s ease-out;
+  -moz-transition: flex-grow 0.5s ease-out;
+  -webkit-transition: flex-grow 0.5s ease-out;
+  -o-transition: flex-grow 0.5s ease-out;
 }
 .signUp {
   background-color: rgb(50, 50, 50);
@@ -94,10 +94,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: flex-grow .3s ease;
-  -moz-transition: flex-grow .3s ease;
-  -webkit-transition: flex-grow .3s ease;
-  -o-transition: flex-grow .3s ease;
+  transition: flex-grow 0.3s ease;
+  -moz-transition: flex-grow 0.3s ease;
+  -webkit-transition: flex-grow 0.3s ease;
+  -o-transition: flex-grow 0.3s ease;
 }
 .signUpCollapsed {
   background-color: rgb(50, 50, 50);
@@ -108,10 +108,10 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  transition: flex-grow .2s linear;
-  -moz-transition: flex-grow .2s linear;
-  -webkit-transition: flex-grow .2s linear;
-  -o-transition: flex-grow .2s linear;
+  transition: flex-grow 0.2s linear;
+  -moz-transition: flex-grow 0.2s linear;
+  -webkit-transition: flex-grow 0.2s linear;
+  -o-transition: flex-grow 0.2s linear;
 }
 .signUpCollapsed:hover {
   flex-grow: 1.4;
@@ -125,10 +125,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: flex-grow .5s ease-out;
-  -moz-transition: flex-grow .2s ease-out;
-  -webkit-transition: flex-grow .5s ease-out;
-  -o-transition: flex-grow .5s ease-out;
+  transition: flex-grow 0.5s ease-out;
+  -moz-transition: flex-grow 0.2s ease-out;
+  -webkit-transition: flex-grow 0.5s ease-out;
+  -o-transition: flex-grow 0.5s ease-out;
 }
 .signUp:hover {
   flex-grow: 1.2;
@@ -158,21 +158,35 @@
   margin-top: 20px;
   margin-bottom: 30px;
 }
-.logForm div div::before input {
-  border-bottom: none;
+.logForm div div input {
+  border: none !important;
+  box-shadow: none !important;
 }
+.logForm div div input:focus {
+  box-shadow: none !important;
+  border: none !important;
+}
+.logForm div div div {
+  color: white;
+}
+.logForm div div {
+  color: white;
+}
+.logForm div .MuiInput-underline-9:after {
+  border-bottom: 2px solid white !important;
+}
+
 .Input {
   display: flex;
   flex-direction: row;
   padding: 10px;
   margin-bottom: 5px;
-  color: #FFFCE8;
+  color: #fffce8;
   text-transform: uppercase;
 }
 .TextField div fieldset input {
-  
   border: 0;
-  color: #FFFCE8;
+  color: #fffce8;
   background: transparent;
   font-family: "Roboto Condensed", sans-serif;
   flex: 1 0 auto;
@@ -182,16 +196,16 @@
 .Input div fieldset input:focus ~ label {
   opacity: 1;
 }
-.Input div fieldset input[type='text'] ~ label::before {
+.Input div fieldset input[type="text"] ~ label::before {
   content: "\f007";
 }
-.Input div fieldset input::-webkit-input-placeholder{
-  color: #FFFFFF;
+.Input div fieldset input::-webkit-input-placeholder {
+  color: #ffffff;
 }
-.Input div fieldset input[type='email'] ~ label::before {
+.Input div fieldset input[type="email"] ~ label::before {
   content: "\f1fa";
 }
-.Input div fieldset input[type='password'] ~ label::before {
+.Input div fieldset input[type="password"] ~ label::before {
   content: "\f023";
 }
 .iconVisibility {
@@ -199,12 +213,13 @@
 }
 .iconVisibility:hover {
   opacity: 1;
-  cursor:pointer;
+  cursor: pointer;
 }
 .submitButton {
   display: flex;
   flex-direction: row;
   width: 100%;
+  margin-top: 30px;
 }
 .socialNets {
   flex-grow: 4;
@@ -228,7 +243,7 @@
   margin-top: 50px;
 }
 .submitSignIn {
-  background: #FF7300;
+  background: #ff7300;
   cursor: pointer;
 }
 .submitSignUp {
@@ -251,12 +266,12 @@
 
 .example-enter {
   margin-top: 30px;
-  opacity: .01;
+  opacity: 0.01;
 }
 .example-enter.example-enter-active {
   margin-top: 0px;
   opacity: 1;
-  transition: opacity .5s ease, margin .5s ease;
+  transition: opacity 0.5s ease, margin 0.5s ease;
 }
 
 .example-leave {
@@ -265,6 +280,6 @@
 }
 .example-leave.example-leave-active {
   margin-top: -30px;
-  opacity: .01;
-  transition: opacity .3s ease, margin .5s ease;
+  opacity: 0.01;
+  transition: opacity 0.3s ease, margin 0.5s ease;
 }

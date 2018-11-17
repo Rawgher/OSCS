@@ -75,7 +75,6 @@ router.post("/aboutus", (req, res) => {
       console.log("Your e-mail has been sent...");
     }
   });
-  // res.redirect("/thankYou");
 });
 
 module.exports = router;

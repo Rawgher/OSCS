@@ -44,13 +44,12 @@ class Form extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    axios
-      .post("/api/forum/aboutus", {
-        name: this.state.name,
-        email: this.state.email,
-        question: this.state.question
-      })
-      .then(() => console.log("this is shit bananas"));
+    if (!this.name || !this.email) return;
+    axios.post("/api/forum/aboutus", {
+      name: this.state.name,
+      email: this.state.email,
+      question: this.state.question
+    });
   };
 
   render() {
@@ -88,8 +87,6 @@ class Form extends React.Component {
         <TextField
           id="outlined-multiline-static"
           label="Question"
-          multiline
-          rows="10"
           className={classes.textField}
           value={this.state.question}
           onChange={this.handleChange("question")}
@@ -102,10 +99,10 @@ class Form extends React.Component {
           size="large"
           type="submit"
           name="action"
-          id="submit"
+          id="EGA-askButton"
           onClick={this.handleFormSubmit}
         >
-          Submit
+          Ask
           <Icon style={{ marginLeft: 15 }}>send</Icon>
         </Button>
       </form>
