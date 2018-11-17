@@ -30,7 +30,7 @@ class Posts extends Component {
           .catch(err => {
             console.log("this is err=>", err);
           })
-      )
+      );
 
     axios
       .get("/api/forum/catinfo/" + this.props.match.params.id)
@@ -44,7 +44,7 @@ class Posts extends Component {
 
   convertDate(theDate) {
     var d = new Date(theDate);
-    return d.toLocaleDateString().replace(/\//g, '-');
+    return d.toLocaleDateString().replace(/\//g, "-");
   }
 
   render() {
@@ -67,7 +67,7 @@ class Posts extends Component {
           <Row>
             <Col size="md-12">
               <h4 className="ESH_main-title">
-                TOPIC // {this.state.posts.post_subject}
+                TOPIC // {this.state.thistopic.topic_name}
               </h4>
               <div className="ESH_line" />
             </Col>
@@ -87,7 +87,9 @@ class Posts extends Component {
                   {this.state.posts.map(post => (
                     <tr>
                       <td>
-                        <a href={`/forum/post/${post._id}`}>{post.post_subject}</a>
+                        <a href={`/forum/post/${post._id}`}>
+                          {post.post_subject}
+                        </a>
                       </td>
                       <td className="ESH_tcol2">{post.post_replies}</td>
                       <td>{this.convertDate(post.post_update)}</td>
