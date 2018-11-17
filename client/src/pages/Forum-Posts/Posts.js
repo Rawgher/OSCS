@@ -28,7 +28,6 @@ class Posts extends Component {
           .then(res => {
             this.setState({ posts: res.data });
           })
-          .then(() => console.log(this.state.posts))
           .catch(err => {
             console.log("this is err=>", err);
           })

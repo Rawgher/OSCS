@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import NavTabs from "../../components/Nav";
 import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
 import BackBtn from "../../components/BackBtn";
@@ -12,12 +13,12 @@ import "./ThisPost.css";
 class ThisPost extends Component {
   state = {
     thispost: [],
-    replies: []
+    replies: [],
+    reply_body: ""
   };
 
   componentDidMount() {
     axios
-      // post route
       .get("/api/forum/post/" + this.props.match.params.id)
       .then(res => {
         this.setState({ replies: res.data });
@@ -55,12 +56,10 @@ class ThisPost extends Component {
       axios
         .post("/api/forum/post/" + this.state.replies._id, {
           reply_author: this.props.user_id,
-          reply_content: this.state.replies.reply_content,
-          reply_post: this.state.thispost.post_topic
+          reply_content: this.state.reply_body,
+          reply_post: this.state.thispost.post_subject
         })
         .then(function(res) {
-          // TODO: change routing!!!
-          console.log("it worked");
           res.redirect(`/forum/${this.state.thispost.post_id}`);
         })
         .catch(err => console.log(err));
@@ -70,7 +69,19 @@ class ThisPost extends Component {
   render() {
     return (
       <React.Fragment>
-        <Background />
+        <Container fluid>
+          <Background />
+          <Row>
+            <Col size="md-12">
+              <NavTabs
+                updateUser={this.props.updateUser}
+                loggedIn={this.props.loggedIn}
+                username={this.props.username}
+              />
+            </Col>
+          </Row>
+        </Container>
+
         <Container>
           <Row>
             <Col size="md-12">
@@ -99,8 +110,10 @@ class ThisPost extends Component {
                   <li>
                     {reply.reply_content}
                     <div className="ESH_comment-detail">
-                      on {reply.reply_update} by{" "}
-                      <Link to={`/forum/user/${reply.reply_author}`} />
+                      on {this.convertDate(reply.reply_update)} by{" "}
+                      <Link to={`/forum/user/${reply.reply_author}`}>
+                        {reply.reply_author}
+                      </Link>
                     </div>
                   </li>
                 ))}
@@ -112,8 +125,8 @@ class ThisPost extends Component {
                     id="textarea1"
                     placeholder="Write your comment here."
                     class="materialize-textarea"
-                    name="replyBody"
-                    value={this.state.post_body}
+                    name="reply_body"
+                    value={this.state.reply_body}
                     onChange={this.handleInputChange}
                   />
                   <label id="textarea1" />

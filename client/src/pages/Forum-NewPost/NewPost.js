@@ -42,8 +42,6 @@ class NewPost extends Component {
           post_topic: this.state.post.post_topic
         })
         .then(function (res) {
-          // TODO: change routing!!!
-          console.log("it worked");
           res.redirect(`/forum/${this.state.post.post_id}`);
         })
         .catch(
