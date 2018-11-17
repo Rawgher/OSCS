@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { Redirect } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Authentication from "./pages/Authentication-Page";
 import NoMatch from "./pages/NoMatch";
@@ -69,6 +68,7 @@ class App extends Component {
               path="/forum/categories"
               render={() => (
                 <Categories
+                  getUser={this.getUser}
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   user={this.state.username}
@@ -98,6 +98,7 @@ class App extends Component {
               path="/search"
               render={() => (
                 <Search
+                  getUser={this.getUser}
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}
@@ -110,7 +111,6 @@ class App extends Component {
               path="/aboutus"
               render={() => (
                 <About
-                  loggedIn={this.state.loggedIn}
                   user={this.state.username}
                   user_id={this.state.user_id}
                   updateUser={this.updateUser}
@@ -124,7 +124,6 @@ class App extends Component {
               path="/documentation"
               render={() => (
                 <DocumentationPage
-                  loggedIn={this.state.loggedIn}
                   user={this.state.username}
                   user_id={this.state.user_id}
                   updateUser={this.updateUser}
