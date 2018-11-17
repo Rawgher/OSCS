@@ -2,7 +2,7 @@ require("dotenv").config();
 
 export default {
   stackSearch: function(search) {
-    // const stackApiKey = process.env.stackKey;
+    // const stackAPIKey = process.env.stackKey;
 
     const stackAPIKey = "bDGLxdw38J9H0puc2BctAQ((";
 

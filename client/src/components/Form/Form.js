@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
-// import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
@@ -44,13 +42,11 @@ class Form extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    axios
-      .post("/api/forum/aboutus", {
-        name: this.state.name,
-        email: this.state.email,
-        question: this.state.question
-      })
-      .then(() => console.log("this is shit bananas"));
+    axios.post("/api/forum/aboutus", {
+      name: this.state.name,
+      email: this.state.email,
+      question: this.state.question
+    });
   };
 
   render() {
@@ -88,8 +84,6 @@ class Form extends React.Component {
         <TextField
           id="outlined-multiline-static"
           label="Question"
-          multiline
-          rows="10"
           className={classes.textField}
           value={this.state.question}
           onChange={this.handleChange("question")}
@@ -102,10 +96,10 @@ class Form extends React.Component {
           size="large"
           type="submit"
           name="action"
-          id="submit"
+          id="EGA-askButton"
           onClick={this.handleFormSubmit}
         >
-          Submit
+          Ask
           <Icon style={{ marginLeft: 15 }}>send</Icon>
         </Button>
       </form>

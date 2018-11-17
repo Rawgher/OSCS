@@ -34,6 +34,7 @@ class ForumSidebar extends Component {
           <ul>
             {/* TODO: get array of popular posts */}
             {/* {this.state.popular_posts.map(pp => (
+              // RDP - change this to a link instead of an a tag if we use it
                         <li><a href={`/forum/${pp.id}`}>{pp.title}</a></li>
                     ))} */}
           </ul>

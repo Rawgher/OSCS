@@ -18,18 +18,20 @@
   color: white !important;
   border-color: white;
 }
-#EGA-sendButton {
+
+#EGA-askButton {
   color: white;
   margin-top: 10px;
+  background: none;
   border-color: white;
 }
-#EGA-sendButton:hover {
+#EGA-askButton:hover {
   background: rgb(255, 115, 0);
 }
-#EGA-sendButton:active {
+#EGA-askButton:active {
   background: rgb(255, 115, 0);
 }
-#EGA-sendButton:focus {
+#EGA-askButton:focus {
   background: none;
   border-color: rgb(255, 115, 0);
 }

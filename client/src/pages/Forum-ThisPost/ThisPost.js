@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 import axios from "axios";
+import NavTabs from "../../components/Nav";
 import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
 import BackBtn from "../../components/BackBtn";
 import Background from "../../components/Background";
 import { Col, Row, Container } from "../../components/Grid";
 import ForumSidebar from "../../components/Forum-Sidebar";
-import Chat from "../../components/Chat";
-import NavTabs from "../../components/Nav";
+import { Link } from "react-router-dom";
 import "./ThisPost.css";
 
 class ThisPost extends Component {
   state = {
     thispost: [],
-    replies: []
+    replies: [],
+    reply_body: ""
   };
 
   componentDidMount() {
     axios
-      // post route
       .get("/api/forum/post/" + this.props.match.params.id)
       .then(res => {
         console.log("res: " + res);
@@ -33,7 +33,7 @@ return;
     axios
       .get("/api/forum/postinfo/" + this.props.match.params.id)
       .then(res => {
-        this.setState({ thispost: res.data })
+        this.setState({ thispost: res.data });
       })
       .catch(err => {
         console.log("this is err=>", err);
@@ -42,7 +42,7 @@ return;
 
   convertDate(theDate) {
     var d = new Date(theDate);
-    return d.toLocaleDateString().replace(/\//g, '-');
+    return d.toLocaleDateString().replace(/\//g, "-");
   }
 
   handleInputChange = event => {
@@ -55,30 +55,26 @@ return;
   // TODO: NOT WORKING
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.replies.reply_content && this.props.user_id) {
+    // if (this.state.replies.reply_content && this.props.user_id) {
       axios
-        .post("/api/forum/post/" + this.state.replies._id, {
-          reply_author: this.props.user_id,
-          reply_content: this.state.replies.reply_content,
-          reply_post: this.state.thispost.post_topic
+        .post("/api/forum/newreply/", {
+          reply_author: this.props.username,
+          reply_content: this.state.reply_body,
+          reply_post: this.state.thispost.post_subject
         })
-        .then(function (res) {
-          // TODO: change routing!!!
-          console.log("it worked");
-          res.redirect(`/forum/${this.state.thispost._id}`);
+        .then(function(res) {
+          res.redirect(`/forum/${this.state.thispost.post_id}`);
         })
-        .catch(
-          err => console.log(err)
-        );
-    }
-  }
+        .catch(err => console.log(err));
+    // }
+  };
 
   render() {
     return (
       <React.Fragment>
         <Container fluid>
-        <Background />
-        <Row>
+          <Background />
+          <Row>
             <Col size="md-12">
               <NavTabs
                 updateUser={this.props.updateUser}
@@ -91,7 +87,10 @@ return;
         <Container>
           <Row>
             <Col size="md-12">
-              <h4 className="ESH_main-title">{this.state.thispost.post_topic} // {this.state.thispost.post_subject}</h4>
+              <h4 className="ESH_main-title">
+                {this.state.thispost.post_topic} //{" "}
+                {this.state.thispost.post_subject}
+              </h4>
               <div className="ESH_line" />
             </Col>
           </Row>
@@ -100,23 +99,26 @@ return;
             <Col size="md-9" className="ESH_forum-col">
               <div className="ESH_body-title">
                 <b>{this.state.thispost.post_subject}</b>
-                <div style={{ fontStyle: 'italic' }}>{this.convertDate(this.state.thispost.post_update)}</div>
+                <div style={{ fontStyle: "italic" }}>
+                  {this.convertDate(this.state.thispost.post_update)}
+                </div>
               </div>
-              <p className="ESH_padding">
-                {this.state.thispost.post_body}
-              </p>
+              <p className="ESH_padding">{this.state.thispost.post_body}</p>
 
               <div className="ESH_body-title">COMMENTS</div>
 
               <ul class="ESH_user-posts">
-              {this.state.replies.map(reply => (
-                <li>
-                  {reply.reply_content}
-                  <div className="ESH_comment-detail">
-                    on {reply.reply_update} by <a href={`/forum/user/${reply.reply_author}`}></a>
-                  </div>
-                </li>
-              ))}
+                {this.state.replies.map(reply => (
+                  <li>
+                    {reply.reply_content}
+                    <div className="ESH_comment-detail">
+                      on {this.convertDate(reply.reply_update)} by{" "}
+                      <Link to={`/forum/user/${reply.reply_author}`}>
+                        {reply.reply_author}
+                      </Link>
+                    </div>
+                  </li>
+                ))}
               </ul>
 
               <form>
@@ -125,8 +127,8 @@ return;
                     id="textarea1"
                     placeholder="Write your comment here."
                     class="materialize-textarea"
-                    name="replyBody"
-                    value={this.state.post_body}
+                    name="reply_body"
+                    value={this.state.reply_body}
                     onChange={this.handleInputChange}
                   />
                   <label id="textarea1" />

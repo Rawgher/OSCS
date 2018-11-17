@@ -23,7 +23,7 @@ class UserProfile extends React.Component {
           avatar={
             <Avatar
               alt="#"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfDb5XEj5NRS8CkhJx2DpO0Hw6ysCbIo0V5kFzqOHUGSLrs9dy"
+              src="./favicon-16x16.png"
             />
           }
           label = {username }
