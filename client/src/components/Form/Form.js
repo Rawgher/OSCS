@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
-// import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
@@ -44,7 +42,6 @@ class Form extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (!this.name || !this.email) return;
     axios.post("/api/forum/aboutus", {
       name: this.state.name,
       email: this.state.email,

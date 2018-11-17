@@ -16,23 +16,20 @@ router.route("/user/:id").get(forumController.findUserById);
 // display all topics
 router.route("/categories").get(forumController.findAllTopics);
 
-// display all posts of a topic
-router.route("/posts").get(forumController.findPostById);
-
 // display post info for replies page
 router.route("/postinfo/:id").get(forumController.findPostById);
 
 // display all replies of a post
+router.route("/post/:id").get(forumController.findRepliesByPostId);
+
+// creating a new reply
 router
-  .route("/post/:id")
-  .get(forumController.findRepliesByPostId)
+  .route("/newreply")
   .post(forumController.createReply);
 
 // creating a new post
-router
-  .route("/newpost")
-  .get(forumController.findTopicById)
-  .post(forumController.createPost);
+router.route("/newpost")
+.post(forumController.createPost);
 
 // display topic info for posts page
 router.route("/catinfo/:id").get(forumController.findTopicInfoById);
@@ -75,6 +72,7 @@ router.post("/aboutus", (req, res) => {
       console.log("Your e-mail has been sent...");
     }
   });
+  // res.redirect("/thankYou");
 });
 
 module.exports = router;
