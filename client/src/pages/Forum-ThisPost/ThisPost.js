@@ -53,7 +53,7 @@ class ThisPost extends Component {
     event.preventDefault();
     if (this.state.replies.reply_content && this.props.user_id) {
       axios
-        .post("/api/forum/post/" + this.state.replies._id, {
+        .post("/api/forum/newreply/", {
           reply_author: this.props.user_id,
           reply_content: this.state.reply_body,
           reply_post: this.state.thispost.post_subject
