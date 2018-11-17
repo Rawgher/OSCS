@@ -15,7 +15,10 @@ class NewPost extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      post: []
+      post: [],
+      post_title: "",
+      post_body: "",
+      post_topic: ""
     };
   }
 
@@ -33,21 +36,19 @@ class NewPost extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.props.user_id, this.props.username);
-    if (this.state.post.post_title && this.state.post.post_body) {
-      axios
-        .post("/api/forum/newpost", {
-          post_author: this.props.username,
-          post_subject: this.state.post.post_title,
-          post_body: this.state.post.post_body,
-          post_topic: this.state.post.post_topic
-        })
-        .then(function (res) {
-          res.redirect(`/forum/${this.state.post.post_id}`);
-        })
-        .catch(
-          err => console.log(err)
-        );
-    }
+    // if (this.state.post.post_title && this.state.post.post_body) {
+    axios
+      .post("/api/forum/newpost", {
+        post_author: this.props.username,
+        post_subject: this.state.post_title,
+        post_body: this.state.post_body,
+        post_topic: this.state.post_topic
+      })
+      // .then(function (res) {
+      //   res.redirect(`/forum/${this.state.post.post_id}`);
+      // })
+      .catch(err => console.log(err));
+    // }
   };
 
   render() {
@@ -82,7 +83,7 @@ class NewPost extends Component {
                     id="post_title"
                     type="text"
                     name="post_title"
-                    value={this.state.post.post_title}
+                    value={this.state.post_title}
                     onChange={this.handleInputChange}
                     placeholder="Post Title"
                   />
@@ -91,8 +92,15 @@ class NewPost extends Component {
                   </label>
                 </div>
                 <div className="input-field">
-                  <select className="browser-default" id="post_topic" name="post_topic" onChange= {this.handleInputChange.bind(this)}>
-                    <option value="" disabled selected>Choose Topic</option>
+                  <select
+                    className="browser-default"
+                    id="post_topic"
+                    name="post_topic"
+                    onChange={this.handleInputChange.bind(this)}
+                  >
+                    <option value="" disabled selected>
+                      Choose Topic
+                    </option>
                     <option value="HTML">HTML</option>
                     <option value="CSS">CSS</option>
                     <option value="Javascript">Javascript</option>
@@ -106,7 +114,7 @@ class NewPost extends Component {
                     className="materialize-textarea"
                     name="post_body"
                     placeholder="Description"
-                    value={this.state.post.post_body}
+                    value={this.state.post_body}
                     onChange={this.handleInputChange}
                   />
                   <label id="textarea1" className="active">
