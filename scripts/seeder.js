@@ -182,7 +182,7 @@ const postsSeed = [
 const repliesSeed = [
   {
     reply_author: "GreyIsLife",
-    reply_post: 2,
+    reply_post: "I like a challenge",
     reply_content: "delete system32",
     reply_rating: 7500,
     reply_update: date,
@@ -191,7 +191,7 @@ const repliesSeed = [
   },
   {
     reply_author: "JS94",
-    reply_post: 3,
+    reply_post: "<a> links",
     reply_content:
       "You need an href set to your desired location, and you can add a target if you want.",
     reply_rating: 8000,
@@ -201,7 +201,7 @@ const repliesSeed = [
   },
   {
     reply_author: "GreyIsLife",
-    reply_post: 4,
+    reply_post: "APIs",
     reply_content: "cry in a corner, then give it to me",
     reply_rating: 1500,
     reply_update: date,
@@ -210,7 +210,7 @@ const repliesSeed = [
   },
   {
     reply_author: "Hunter4Lyfe",
-    reply_post: 1,
+    reply_post: "Make look nice",
     reply_content: "I am a fan of materialize CSS",
     reply_rating: 1500,
     reply_update: date,
@@ -219,7 +219,7 @@ const repliesSeed = [
   },
   {
     reply_author: "Rawgher",
-    reply_post: 1,
+    reply_post: "Make look nice",
     reply_content: "I usually stick to tachyons.io",
     reply_rating: 15004,
     reply_update: date,
@@ -228,7 +228,7 @@ const repliesSeed = [
   },
   {
     reply_author: "GreyIsLife",
-    reply_post: 1,
+    reply_post: "Make look nice",
     reply_content: "Why not just use plain old, boring bootstrap?",
     reply_rating: 15030,
     reply_update: date,
@@ -237,7 +237,7 @@ const repliesSeed = [
   },
   {
     reply_author: "JS94",
-    reply_post: 2,
+    reply_post: "I like a challenge",
     reply_content: "Have you tried typing rm -r in your command line?",
     reply_rating: 15010,
     reply_update: date,
@@ -246,7 +246,7 @@ const repliesSeed = [
   },
   {
     reply_author: "GreyIsLife",
-    reply_post: 2,
+    reply_post: "I like a challenge",
     reply_content: "This is Enea isn't it?",
     reply_rating: 51,
     reply_update: date,
@@ -255,7 +255,7 @@ const repliesSeed = [
   },
   {
     reply_author: "Rawgher",
-    reply_post: 2,
+    reply_post: "I like a challenge",
     reply_content: "Don't install any of your npms nd watch the rage flow.",
     reply_rating: 500,
     reply_update: date,
@@ -264,7 +264,7 @@ const repliesSeed = [
   },
   {
     reply_author: "GreyIsLife",
-    reply_post: 2,
+    reply_post: "I like a challenge",
     reply_content: "I agree with Rawgher",
     reply_rating: 10,
     reply_update: date,
@@ -273,7 +273,7 @@ const repliesSeed = [
   },
   {
     reply_author: "Hunter4Lyfe",
-    reply_post: 1,
+    reply_post: "Make look nice",
     reply_content: "I like where you all went with this...",
     reply_rating: 150,
     reply_update: date,
@@ -282,7 +282,7 @@ const repliesSeed = [
   },
   {
     reply_author: "Hunter4Lyfe",
-    reply_post: 4,
+    reply_post: "APIs",
     reply_content: "You can find a link to sign up if you google search it",
     reply_rating: 15,
     reply_update: date,
@@ -291,7 +291,7 @@ const repliesSeed = [
   },
   {
     reply_author: "Rawgher",
-    reply_post: 4,
+    reply_post: "APIs",
     reply_content: "Then you haveto wait like a week for your keys",
     reply_rating: 5000,
     reply_update: date,
@@ -300,7 +300,7 @@ const repliesSeed = [
   },
   {
     reply_author: "Rawgher",
-    reply_post: 4,
+    reply_post: "APIs",
     reply_content: "I hope your homework in't due soon...",
     reply_rating: 15010,
     reply_update: date,
@@ -309,7 +309,7 @@ const repliesSeed = [
   },
   {
     reply_author: "Rawgher",
-    reply_post: 5,
+    reply_post: "SQL HELP ME!",
     reply_content: "Are all of the needed columns being seeded in the row?",
     reply_rating: 15,
     reply_update: date,
@@ -318,7 +318,7 @@ const repliesSeed = [
   },
   {
     reply_author: "MyLaifu4Waifu",
-    reply_post: 5,
+    reply_post: "SQL HELP ME!",
     reply_content:
       "If your database changed, make sure to drop your schema and rerun it",
     reply_rating: 10,
@@ -328,7 +328,7 @@ const repliesSeed = [
   },
   {
     reply_author: "JS94",
-    reply_post: 5,
+    reply_post: "SQL HELP ME!",
     reply_content:
       "I kept running into this issue too.  I just had to rerun the schema",
     reply_rating: 13,
@@ -338,7 +338,7 @@ const repliesSeed = [
   },
   {
     reply_author: "MyLaifu4Waifu",
-    reply_post: 6,
+    reply_post: "DATEONLY!",
     reply_content:
       "Cause mySQL decided not to change their documentation and make us think things are gonnawork fine",
     reply_rating: 12500,
@@ -348,7 +348,7 @@ const repliesSeed = [
   },
   {
     reply_author: "GreyIsLife",
-    reply_post: 7,
+    reply_post: "My code",
     reply_content: "Look for a similar repo!",
     reply_rating: 9001,
     reply_update: date,
@@ -357,7 +357,7 @@ const repliesSeed = [
   },
   {
     reply_author: "Rawgher",
-    reply_post: 7,
+    reply_post: "My code",
     reply_content: "No, you shouldn't do that.  Try some google-fu",
     reply_rating: 1500123,
     reply_update: date,
@@ -366,7 +366,7 @@ const repliesSeed = [
   },
   {
     reply_author: "Hunter4Lyfe",
-    reply_post: 7,
+    reply_post: "My code",
     reply_content:
       "Yeah, that wouldn't be ethical.  Ron always says ethical hacking only.",
     reply_rating: 100,
@@ -376,7 +376,7 @@ const repliesSeed = [
   },
   {
     reply_author: "MyLaifu4Waifu",
-    reply_post: 7,
+    reply_post: "My code",
     reply_content:
       "And remember, if any part of your code is optional, don't do it",
     reply_rating: 9000001,

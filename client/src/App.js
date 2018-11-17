@@ -71,6 +71,8 @@ class App extends Component {
                   getUser={this.getUser}
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
+                  user={this.state.username}
+                  user_id={this.state.user_id}
                   username={this.state.username}
                 />
               )}
@@ -109,7 +111,8 @@ class App extends Component {
               path="/aboutus"
               render={() => (
                 <About
-                  getUser={this.getUser}
+                  user={this.state.username}
+                  user_id={this.state.user_id}
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}
@@ -121,7 +124,8 @@ class App extends Component {
               path="/documentation"
               render={() => (
                 <DocumentationPage
-                  getUser={this.getUser}
+                  user={this.state.username}
+                  user_id={this.state.user_id}
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}

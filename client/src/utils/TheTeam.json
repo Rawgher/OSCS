@@ -3,28 +3,28 @@
     "id": 1,
     "name": "Elaine",
     "image": "/images/elaine.png",
-    "description": "Elaine graduated from Alfonzo University with a welding degree. She dedicated her first four post graduation years to catching butterflies. She is now a full time train conductor",
-    "githubURL": "https://github.com/Rawgher/react-clicky-game",
-    "linkedInURL": "#",
-    "alt": "Profile Card Component"
+    "description": "Elaine graduated from Alfonzo University with a welding degree. She dedicated her first four post graduation years to catching butterflies. She is now a full time train conductor.",
+    "githubURL": "https://github.com/luflicesh",
+    "linkedInURL": "https://www.linkedin.com/in/elaineshh/",
+    "alt": "Image of Elaine"
   },
   {
     "id": 2,
     "name": "Roger",
     "image": "/images/roger.png",
     "description": "At the age of 12, Roger became the youngest British woman in history to successfully ride an adolescent female goat across the country of Greenland. Now 46, Roger resides in Helmshore England where she runs a small brothel for cats.",
-    "githubURL": "https://github.com/Rawgher/react-clicky-game",
-    "linkedInURL": "#",
-    "alt": "Profile Card Component"
+    "githubURL": "https://github.com/Rawgher",
+    "linkedInURL": "https://www.linkedin.com/in/roger-pender",
+    "alt": "Image of Roger"
   },
   {
     "id": 3,
     "name": "Enea",
     "image": "/images/enea.png",
     "description": "Enea has been missing for 16 days now. Noone has questioned his wareabouts as he is known for his dissappearing acts. He once disappeared for 2 years only to be found living in Collin's attic, using his blazing fast wifi and living off of cheeze-its and tap water.",
-    "githubURL": "https://github.com/Rawgher/react-clicky-game",
-    "linkedInURL": "#",
-    "alt": "Profile Card Component"
+    "githubURL": "https://github.com/EneaAntonicelli",
+    "linkedInURL": "https://www.linkedin.com/in/eneaantonicelli/",
+    "alt": "Image of Enea"
   },
   {
     "id": 4,
@@ -33,24 +33,24 @@
     "description": "Celia started her career as an arborist, specializing in Sago Palms. Her current hobbies include polishing car mufflers, walking in circles, and stealing sand from public volleyball courts.",
     "githubURL": "https://github.com/Rawgher/react-clicky-game",
     "linkedInURL": "#",
-    "alt": "Profile Card Component"
+    "alt": "Image of Celia"
   },
   {
     "id": 5,
     "name": "Jordan",
     "image": "/images/jordan.png",
-    "description": "Jordan might not be human. His dashing good looks have earned him the reputation of High Chancellor at the local dive bar. On full moons, Jordan curls up into a ball and rolls around his hallway pretending to be a bowling ball, knocking down imaginary pins and yelling 'Star Trek II: The Wrath' of Khan movie quotes",
-    "githubURL": "https://github.com/Rawgher/react-clicky-game",
-    "linkedInURL": "#",
-    "alt": "Profile Card Component"
+    "description": "Jordan might not be human. His dashing good looks have earned him the reputation of High Chancellor at the local dive bar. On full moons, Jordan curls up into a ball and rolls around his hallway pretending to be a bowling ball, knocking down imaginary pins and yelling 'Star Trek II: The Wrath of Khan' movie quotes.",
+    "githubURL": "https://github.com/mikerowpeniscool",
+    "linkedInURL": "https://linkedin.com/in/mikerowpeen/",
+    "alt": "Image of Jordan"
   },
   {
     "id": 6,
     "name": "Collin",
     "image": "/images/collin.png",
-    "description": "Collin has saved more lives than Gene Simmons. His philanthropic endeavors have earned him the nick name Chewey C-Money... Well this is akward... I just received word that Collin is no longer with us. He was apparently just killed from an allergic reaction to console gaming. RIP in peace Chewey C-Money. You will be sorely missed.",
+    "description": "Collin has saved more lives than Gene Simmons. His philanthropic endeavors have earned him the nick name Chewey C-Money. Chewey's lifelong obsession over a porpoise named Susan that he once interacted with when he was a young child has gotten him arrested six times. That said, you will find no record of these arrests; because Collin... Works for Kaiser Permanente.",
     "githubURL": "https://github.com/Rawgher/react-clicky-game",
     "linkedInURL": "#",
-    "alt": "Profile Card Component"
+    "alt": "Image of Collin"
   }
 ]

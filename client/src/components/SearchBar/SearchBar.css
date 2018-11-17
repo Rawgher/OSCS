@@ -56,3 +56,10 @@
 #EGA-searchField:focus {
   box-shadow: none;
 }
+
+@media screen and (max-width: 600px) {
+  #EGA-searchField {
+    width: 90%;
+    padding-left: 45px;
+  }
+}
