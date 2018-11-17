@@ -1,5 +1,5 @@
 ## One Stop Code Shop
-A learning tool built for bootcampers, by bootcampers. One Stop Code is a new platform for web development students to quickly find educational resources and engage in a like-minded community of budding developers. Our goal for this project is to create a single, go-to platform for beginners to successfully navigate their own coding journey.
+A learning tool built for bootcampers, by bootcampers. One Stop Code Shope is a new platform for web development students to quickly find educational resources and engage in a like-minded community of budding developers. Our goal for this project is to create a single, go-to platform for beginners to successfully navigate their own coding journey.
 
 You can visit the deployed project [here](https://onestopcodeshop.herokuapp.com/) 
 
