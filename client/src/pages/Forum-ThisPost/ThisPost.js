@@ -52,10 +52,10 @@ class ThisPost extends Component {
   // TODO: NOT WORKING
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.replies.reply_content && this.props.user_id) {
+    // if (this.state.replies.reply_content && this.props.user_id) {
       axios
         .post("/api/forum/newreply/", {
-          reply_author: this.props.user_id,
+          reply_author: this.props.username,
           reply_content: this.state.reply_body,
           reply_post: this.state.thispost.post_subject
         })
@@ -63,7 +63,7 @@ class ThisPost extends Component {
           res.redirect(`/forum/${this.state.thispost.post_id}`);
         })
         .catch(err => console.log(err));
-    }
+    // }
   };
 
   render() {

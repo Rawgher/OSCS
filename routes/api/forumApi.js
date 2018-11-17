@@ -28,7 +28,8 @@ router
   .post(forumController.createReply);
 
 // creating a new post
-router.route("/newpost").post(forumController.createPost);
+router.route("/newpost")
+.post(forumController.createPost);
 
 // display topic info for posts page
 router.route("/catinfo/:id").get(forumController.findTopicInfoById);

@@ -188,11 +188,12 @@ module.exports = {
                     .then(dbTopicModel => {
                         db.Topic
                             .find({ topic_name: dbPostModel.post_topic })
-                            .update({ topic_update: dbTopicModel.reply_update })
+                            .update({ topic_update: dbModel.reply_update })
                             .catch(err => res.status(422).json(err))
                     })
                     .catch(err => res.status(422).json(err));
             })
+            .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
 
