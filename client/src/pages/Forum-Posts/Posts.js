@@ -92,7 +92,7 @@ class Posts extends Component {
                           {post.post_subject}
                         </Link>
                       </td>
-                      <td className="ESH_tcol2">{post.post_replies}</td>
+                      <td className="ESH_tcol2">3</td>
                       <td>{this.convertDate(post.post_update)}</td>
                     </tr>
                   ))}
