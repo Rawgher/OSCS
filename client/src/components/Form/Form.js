@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 // import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
 import "./Form.css";
 
 const styles = theme => ({
@@ -26,14 +28,18 @@ const styles = theme => ({
 class Form extends React.Component {
   state = {
     name: "",
-    age: "",
-    multiline: "Controlled"
+    email: "",
+    question: ""
   };
 
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value
     });
+  };
+  handleFormSubmit = event => {
+    event.preventDefault();
+    console.log("yo");
   };
 
   render() {
@@ -75,6 +81,18 @@ class Form extends React.Component {
           margin="normal"
           variant="outlined"
         />
+
+        <Button
+          variant="contained"
+          size="large"
+          type="submit"
+          name="action"
+          id="submit"
+          onClick={this.handleFormSubmit}
+        >
+          Submit
+          <Icon style={{ marginLeft: 15 }}>send</Icon>
+        </Button>
       </form>
     );
   }
