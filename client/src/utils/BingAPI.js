@@ -2,8 +2,8 @@ const https = require("https");
 
 export default {
   bingSearch: function(search) {
-    // const SUBSCRIPTION_KEY = process.env.SUBSCRIPTION_KEY
-    const SUBSCRIPTION_KEY = "1e61ef8e51744e889d109185995b9489";
+    const SUBSCRIPTION_KEY = process.env.SUBSCRIPTION_KEY;
+    // const SUBSCRIPTION_KEY = "1e61ef8e51744e889d109185995b9489";
     if (!SUBSCRIPTION_KEY) {
       throw new Error("Missing the AZURE_SUBSCRIPTION_KEY environment varable");
     }

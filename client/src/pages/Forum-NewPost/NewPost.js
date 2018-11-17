@@ -22,9 +22,9 @@ class NewPost extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.getUser();
-  }
+  // componentDidMount() {
+  //   this.props.getUser();
+  // }
 
   handleInputChange = event => {
     const { name, value } = event.target;

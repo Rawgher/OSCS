@@ -82,8 +82,9 @@ class App extends Component {
               path="/forum/newpost"
               render={() => (
                 <NewPost
-                  getUser={this.getUser}
+                  // getUser={this.getUser}
                   updateUser={this.updateUser}
+                  user={this.state.username}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}
                   user_id={this.state.user_id}
