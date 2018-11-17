@@ -69,7 +69,7 @@ router.post("/logout", (req, res) => {
   if (req.user) {
     console.log("logging out");
     req.logout();
-    location.reload();
+    res.send();
   }
 });
 

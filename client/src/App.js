@@ -68,6 +68,7 @@ class App extends Component {
               path="/forum/categories"
               render={() => (
                 <Categories
+                  getUser={this.getUser}
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}
@@ -95,6 +96,7 @@ class App extends Component {
               path="/search"
               render={() => (
                 <Search
+                  getUser={this.getUser}
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}
@@ -107,6 +109,7 @@ class App extends Component {
               path="/aboutus"
               render={() => (
                 <About
+                  getUser={this.getUser}
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}
@@ -118,6 +121,7 @@ class App extends Component {
               path="/documentation"
               render={() => (
                 <DocumentationPage
+                  getUser={this.getUser}
                   updateUser={this.updateUser}
                   loggedIn={this.state.loggedIn}
                   username={this.state.username}

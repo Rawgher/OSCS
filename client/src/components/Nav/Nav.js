@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { orange } from "@material-ui/core/colors";
@@ -10,7 +11,8 @@ import "./Nav.css";
 
 class NavTabs extends React.Component {
   state = {
-    value: 0
+    value: 0,
+    redirectTo: null,
   };
 
   isAuthenticated = () => {
@@ -20,8 +22,8 @@ class NavTabs extends React.Component {
     return false;
   };
 
-  logout = (e) => {
-    e.preventDefault();
+  logout = e => {
+    // e.preventDefault();
     console.log("logging out");
     axios
       .post("/api/auth/logout")
@@ -31,9 +33,12 @@ class NavTabs extends React.Component {
           this.props.updateUser({
             loggedIn: false,
             username: null
-          }).then(
-            window.location.reload()
-          );
+          });
+          console.log("is this loggin out?");
+          window.location.reload();
+          // this.setState({
+          //   redirectTo: "/search"
+          // });
         }
       })
       .catch(error => {
@@ -60,62 +65,66 @@ class NavTabs extends React.Component {
     const styles = {
       tabPosition: {}
     };
-    return (
-      <MuiThemeProvider theme={theme}>
-        <AppBar id="EGA-appBar" position="absolute">
-          <h4 className="EGA-search-logo-title">
-            <span className="EGA-orange">ONE STOP</span> CODE SHOP
-          </h4>
-          <Tabs
-            id="EGA-tabsContainer"
-            value={value}
-            onChange={this.handleChange}
-            onClick={event => event.preventDefault()}
-          >
-            <Tab
-              label="Home"
-              component={Link}
-              to="/search"
-              style={styles.tabPosition}
-            />
-            <Tab
-              label="About"
-              component={Link}
-              to="/aboutus"
-              style={styles.tabPosition}
-            />
-            <Tab
-              label="Documentation"
-              component={Link}
-              to="/documentation"
-              style={styles.tabPosition}
-            />
-            <Tab
-              label="Forum"
-              component={Link}
-              to="/forum/categories"
-              style={styles.tabPosition}
-            />
-            {this.isAuthenticated() && (
+    if (this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }} />;
+    } else {
+      return (
+        <MuiThemeProvider theme={theme}>
+          <AppBar id="EGA-appBar" position="absolute">
+            <h4 className="EGA-search-logo-title">
+              <span className="EGA-orange">ONE STOP</span> CODE SHOP
+            </h4>
+            <Tabs
+              id="EGA-tabsContainer"
+              value={value}
+              onChange={this.handleChange}
+              onClick={event => event.preventDefault()}
+            >
               <Tab
-                label="Logout"
-                onClick={this.logout}
-                style={styles.tabPosition}
-              />
-            )}
-            {!this.isAuthenticated() && (
-              <Tab
-                label="Login"
+                label="Home"
                 component={Link}
-                to="/login"
+                to="/search"
                 style={styles.tabPosition}
-                className="jrsTab"
               />
-            )}
-          </Tabs>
-        </AppBar>
-      </MuiThemeProvider>
-    );
+              <Tab
+                label="About"
+                component={Link}
+                to="/aboutus"
+                style={styles.tabPosition}
+              />
+              <Tab
+                label="Documentation"
+                component={Link}
+                to="/documentation"
+                style={styles.tabPosition}
+              />
+              <Tab
+                label="Forum"
+                component={Link}
+                to="/forum/categories"
+                style={styles.tabPosition}
+              />
+              {this.props.loggedIn === true && (
+                <Tab
+                  label="Logout"
+                  onClick={this.logout}
+                  style={styles.tabPosition}
+                />
+              )}
+              {this.props.loggedIn === false && (
+                <Tab
+                  label="Login"
+                  component={Link}
+                  to="/login"
+                  style={styles.tabPosition}
+                  className="jrsTab"
+                />
+              )}
+            </Tabs>
+          </AppBar>
+        </MuiThemeProvider>
+      );
+    }
   }
 }
 
