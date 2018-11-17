@@ -36,7 +36,7 @@ router
 
 // creating a new reply
 router
-  .router("/newreply")
+  .route("/newreply")
   .post(forumController.createReply);
 
 // creating a new post
