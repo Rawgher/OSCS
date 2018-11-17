@@ -19,19 +19,19 @@ const tutorialSteps = [
     imgPath: "https://i.imgur.com/sDCDTe5.jpg"
   },
   {
-    label: "Navigating the Forum",
+    label: "Navigating the YouTube page",
     imgPath: "https://i.imgur.com/wMraA92.jpg"
   },
   {
-    label: "Logging in and saving work",
+    label: "Navigating the StackOverflow page",
     imgPath: "https://i.imgur.com/JTcGcJD.jpg"
   },
   {
-    label: "Roger is a boner",
+    label: "Navigating the SignIn Page",
     imgPath: "https://i.imgur.com/c9NNupR.jpg"
   },
   {
-    label: "Searching using the API stack",
+    label: "Sign up to gain more access",
     imgPath: "https://i.imgur.com/475wXmI.jpg"
   },
   {
@@ -39,19 +39,19 @@ const tutorialSteps = [
     imgPath: "https://i.imgur.com/UnhFqlw.jpg"
   },
   {
-    label: "Logging in and saving work",
+    label: "Creating a new Forum Post",
     imgPath: "https://i.imgur.com/x3kS6He.jpg"
   },
   {
-    label: "Roger is a boner",
+    label: "Creating a new Forum Post",
     imgPath: "https://i.imgur.com/c9AREJP.jpg"
   },
   {
-    label: "Logging in and saving work",
+    label: "Navigating the Forum",
     imgPath: "https://i.imgur.com/zsQcO99.jpg"
   },
   {
-    label: "Roger is a boner",
+    label: "Navigating the Forum",
     imgPath: "https://i.imgur.com/I9UvGwl.jpg"
   }
 ];
