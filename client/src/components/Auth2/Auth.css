@@ -33,16 +33,6 @@
   justify-content: center;
   height: 100%;
 }
-.dot {
-  font-size: 5px;
-  color: rgba(64, 70, 86, 0.5);
-  padding-top: 15px;
-}
-.dotSelected {
-  font-size: 5px;
-  color: rgba(64, 70, 86, 1);
-  padding-top: 15px;
-}
 .signIn {
   background-color: rgb(255, 135, 38);
   color: rgb(255, 255, 255);
@@ -167,6 +157,9 @@
 .logForm h2 {
   margin-top: 20px;
   margin-bottom: 30px;
+}
+.logForm div div::before input {
+  border-bottom: none;
 }
 .Input {
   display: flex;

@@ -166,7 +166,6 @@ class SignExpanded extends Component {
                         <TextField
                           id="firstName"
                           type="text"
-                          variant="outlined"
                           placeholder="First Name"
                           name="firstName"
                           value={firstName}
@@ -176,7 +175,6 @@ class SignExpanded extends Component {
                         <TextField
                           id="lastName"
                           type="text"
-                          variant="outlined"
                           placeholder="Last Name"
                           name="lastName"
                           value={lastName}
@@ -188,7 +186,6 @@ class SignExpanded extends Component {
                     <TextField
                       id="username"
                       type="text"
-                      variant="outlined"
                       placeholder="Username"
                       name="username"
                       value={username}
@@ -198,7 +195,6 @@ class SignExpanded extends Component {
                     <TextField
                       id="password"
                       type="password"
-                      variant="outlined"
                       placeholder="Password"
                       name="password"
                       value={password}
