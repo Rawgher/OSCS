@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Sidebar from "../../components/Sidebar";
 import BackBtn from "../../components/BackBtn";
+import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
@@ -30,7 +31,7 @@ class Posts extends Component {
           .catch(err => {
             console.log("this is err=>", err);
           })
-      )
+      );
 
     axios
       .get("/api/forum/catinfo/" + this.props.match.params.id)
@@ -44,7 +45,7 @@ class Posts extends Component {
 
   convertDate(theDate) {
     var d = new Date(theDate);
-    return d.toLocaleDateString().replace(/\//g, '-');
+    return d.toLocaleDateString().replace(/\//g, "-");
   }
 
   render() {
@@ -87,7 +88,9 @@ class Posts extends Component {
                   {this.state.posts.map(post => (
                     <tr>
                       <td>
-                        <a href={`/forum/post/${post._id}`}>{post.post_subject}</a>
+                        <Link to={`/forum/post/${post._id}`}>
+                          {post.post_subject}
+                        </Link>
                       </td>
                       <td className="ESH_tcol2">{post.post_replies}</td>
                       <td>{this.convertDate(post.post_update)}</td>

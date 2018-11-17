@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../../ESH_style.css";
 import "./Categories.css";
+import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import ForumSidebar from "../../components/Forum-Sidebar";
 import Chat from "../../components/Chat";
@@ -28,12 +29,12 @@ class Categories extends Component {
           .catch(err => {
             console.log("this is err=>", err);
           })
-      )
+      );
   }
 
   convertDate(theDate) {
     var d = new Date(theDate);
-    return d.toLocaleDateString().replace(/\//g, '-');
+    return d.toLocaleDateString().replace(/\//g, "-");
   }
 
   render() {
@@ -71,7 +72,9 @@ class Categories extends Component {
                   {this.state.topics.map(topic => (
                     <tr>
                       <td>
-                        <a href={`/forum/${topic._id}`}>{topic.topic_name}</a>
+                        <Link to={`/forum/${topic._id}`}>
+                          {topic.topic_name}
+                        </Link>
                         <br />
                         {topic.topic_description}
                       </td>
@@ -86,7 +89,7 @@ class Categories extends Component {
           </Row>
         </Container>
         <Chat />
-      </React.Fragment >
+      </React.Fragment>
     );
   }
 }

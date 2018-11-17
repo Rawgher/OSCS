@@ -44,7 +44,6 @@ class Form extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (!this.name || !this.email) return;
     axios.post("/api/forum/aboutus", {
       name: this.state.name,
       email: this.state.email,
