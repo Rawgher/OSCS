@@ -16,22 +16,43 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const tutorialSteps = [
   {
     label: "Searching using the API stack",
-    imgPath:
-      "https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/WS-collection-create-new-screen2-p2.png"
+    imgPath: "https://i.imgur.com/sDCDTe5.jpg"
   },
   {
     label: "Navigating the Forum",
-    imgPath:
-      "https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/WS-auth-Digest+copy.png"
+    imgPath: "https://i.imgur.com/wMraA92.jpg"
   },
   {
     label: "Logging in and saving work",
-    imgPath: "https://i.stack.imgur.com/3y8TK.png"
+    imgPath: "https://i.imgur.com/JTcGcJD.jpg"
   },
   {
     label: "Roger is a boner",
-    imgPath:
-      "https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/WS-auth-BearerToken.png"
+    imgPath: "https://i.imgur.com/c9NNupR.jpg"
+  },
+  {
+    label: "Searching using the API stack",
+    imgPath: "https://i.imgur.com/475wXmI.jpg"
+  },
+  {
+    label: "Navigating the Forum",
+    imgPath: "https://i.imgur.com/UnhFqlw.jpg"
+  },
+  {
+    label: "Logging in and saving work",
+    imgPath: "https://i.imgur.com/x3kS6He.jpg"
+  },
+  {
+    label: "Roger is a boner",
+    imgPath: "https://i.imgur.com/c9AREJP.jpg"
+  },
+  {
+    label: "Logging in and saving work",
+    imgPath: "https://i.imgur.com/zsQcO99.jpg"
+  },
+  {
+    label: "Roger is a boner",
+    imgPath: "https://i.imgur.com/I9UvGwl.jpg"
   }
 ];
 
@@ -109,7 +130,7 @@ class ProgressMobileStepper extends React.Component {
           </AutoPlaySwipeableViews>
           <MobileStepper
             variant="progress"
-            steps={4}
+            steps={11}
             position="static"
             activeStep={this.state.activeStep}
             className={classes.root}
