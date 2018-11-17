@@ -7,13 +7,14 @@ import BackBtn from "../../components/BackBtn";
 import Background from "../../components/Background";
 import { Col, Row, Container } from "../../components/Grid";
 import ForumSidebar from "../../components/Forum-Sidebar";
+import { Link } from "react-router-dom";
 import "./ThisPost.css";
 
 class ThisPost extends Component {
   state = {
     thispost: [],
     replies: [],
-    reply_body: "",
+    reply_body: ""
   };
 
   componentDidMount() {
@@ -27,18 +28,18 @@ class ThisPost extends Component {
       });
 
     axios
-    .get("/api/forum/postinfo/" + this.props.match.params.id)
-    .then(res => {
-      this.setState({ thispost: res.data })
-    })
-    .catch(err => {
-      console.log("this is err=>", err);
-    });
+      .get("/api/forum/postinfo/" + this.props.match.params.id)
+      .then(res => {
+        this.setState({ thispost: res.data });
+      })
+      .catch(err => {
+        console.log("this is err=>", err);
+      });
   }
 
   convertDate(theDate) {
     var d = new Date(theDate);
-    return d.toLocaleDateString().replace(/\//g, '-');
+    return d.toLocaleDateString().replace(/\//g, "-");
   }
 
   handleInputChange = event => {
@@ -58,14 +59,12 @@ class ThisPost extends Component {
           reply_content: this.state.reply_body,
           reply_post: this.state.thispost.post_subject
         })
-        .then(function (res) {
+        .then(function(res) {
           res.redirect(`/forum/${this.state.thispost.post_id}`);
         })
-        .catch(
-          err => console.log(err)
-        );
+        .catch(err => console.log(err));
     }
-  }
+  };
 
   render() {
     return (
@@ -86,7 +85,10 @@ class ThisPost extends Component {
         <Container>
           <Row>
             <Col size="md-12">
-              <h4 className="ESH_main-title">{this.state.thispost.post_topic} // {this.state.thispost.post_subject}</h4>
+              <h4 className="ESH_main-title">
+                {this.state.thispost.post_topic} //{" "}
+                {this.state.thispost.post_subject}
+              </h4>
               <div className="ESH_line" />
             </Col>
           </Row>
@@ -95,23 +97,26 @@ class ThisPost extends Component {
             <Col size="md-9" className="ESH_forum-col">
               <div className="ESH_body-title">
                 <b>{this.state.thispost.post_subject}</b>
-                <div style={{ fontStyle: 'italic' }}>{this.convertDate(this.state.thispost.post_update)}</div>
+                <div style={{ fontStyle: "italic" }}>
+                  {this.convertDate(this.state.thispost.post_update)}
+                </div>
               </div>
-              <p className="ESH_padding">
-                {this.state.thispost.post_body}
-              </p>
+              <p className="ESH_padding">{this.state.thispost.post_body}</p>
 
               <div className="ESH_body-title">COMMENTS</div>
 
               <ul class="ESH_user-posts">
-              {this.state.replies.map(reply => (
-                <li>
-                  {reply.reply_content}
-                  <div className="ESH_comment-detail">
-                    on {this.convertDate(reply.reply_update)} by <a href={`/forum/user/${reply.reply_author}`}>{reply.reply_author}</a>
-                  </div>
-                </li>
-              ))}
+                {this.state.replies.map(reply => (
+                  <li>
+                    {reply.reply_content}
+                    <div className="ESH_comment-detail">
+                      on {this.convertDate(reply.reply_update)} by{" "}
+                      <Link to={`/forum/user/${reply.reply_author}`}>
+                        {reply.reply_author}
+                      </Link>
+                    </div>
+                  </li>
+                ))}
               </ul>
 
               <form>
