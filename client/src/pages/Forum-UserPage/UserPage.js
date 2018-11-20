@@ -7,18 +7,20 @@ import "./UserPage.css";
 
 class UserPage extends Component {
   state = {
-    user: [],
+    user: {},
     favorites: []
   };
 
-  componentDidMount() {
+  componentWillMount() {
     axios
       .get("/api/forum/user/:id")
       .then(res => {
+        console.log("********* data ********");
         console.log(res.data);
-        this.setState({ user: res.data });
+        this.setState({ user: res.data[0] });
       })
       .catch(err => {
+        console.log("User's Page");
         console.log("this is err=>", err);
       });
   }
@@ -28,7 +30,7 @@ class UserPage extends Component {
       <Container>
         <Row>
           <Col size="md-12">
-            <h4 className="ESH_main-title">USER // {this.state.username}</h4>
+            <h4 className="ESH_main-title">USER // {this.state.user.username}</h4>
             <div className="ESH_line" />
           </Col>
         </Row>
@@ -37,12 +39,16 @@ class UserPage extends Component {
           <Col size="md-9" className="ESH_forum-col">
             <div className="ESH_body-title">POSTS</div>
             <PostList>
-              {this.state.user_posts.map(post => (
-                <PostListItem key={post._id}>
-                  <a href={`/forum/post/${post._id}`}>{post.post_subject}</a>
-                  {post.updatedAt}
-                </PostListItem>
-              ))}
+              {this.state.user.posts
+                ? this.state.user.posts.map(post => (
+                    <PostListItem key={post._id}>
+                      <a href={`/forum/post/${post._id}`}>
+                        {post.post_subject}
+                      </a>
+                      {post.updatedAt}
+                    </PostListItem>
+                  ))
+                : ""}
             </PostList>
 
             <div className="ESH_body-title">COMMENTS</div>
@@ -61,26 +67,23 @@ class UserPage extends Component {
             <Row>
               <Col size="md-6">
                 <div className="ESH_account-property">Youtube</div>
-
               </Col>
               <Col size="md-6">
                 <div className="ESH_account-property">Stack Overflow</div>
-
               </Col>
             </Row>
             <Row>
               <Col size="md-6">
                 <div className="ESH_account-property">Bing</div>
-
               </Col>
               <Col size="md-6">
                 <div className="ESH_account-property">Forum</div>
-
               </Col>
             </Row>
             <BackBtn />
           </Col>
 
+          {(this.state.user.username === this.props.username) ?
           <Col size="md-3" className="ESH_account-info">
             <table>
               <tbody>
@@ -99,7 +102,7 @@ class UserPage extends Component {
                 </tr>
               </tbody>
             </table>
-          </Col>
+          </Col> : ""}
         </Row>
       </Container>
     );
