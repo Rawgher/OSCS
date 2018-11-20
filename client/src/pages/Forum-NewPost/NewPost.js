@@ -9,6 +9,7 @@ import ForumSidebar from "../../components/Forum-Sidebar";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
+import Sidebar from "../../components/Sidebar";
 import "./NewPost.css";
 
 class NewPost extends Component {
@@ -140,6 +141,10 @@ class NewPost extends Component {
 
             <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
+          <Sidebar
+            loggedIn={this.props.loggedIn}
+            username={this.props.username}
+          />
           <Chat
             loggedIn={this.props.loggedIn}
             user={this.props.user}

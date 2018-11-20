@@ -4,6 +4,7 @@ import { PostList, PostListItem } from "../../components/PostList";
 import { Col, Row, Container } from "../../components/Grid";
 import BackBtn from "../../components/BackBtn";
 import { Link } from "react-router-dom";
+import Sidebar from "../../components/Sidebar";
 import Background from "../../components/Background";
 import NavTabs from "../../components/Nav";
 import "./UserPage.css";
@@ -153,31 +154,31 @@ class UserPage extends Component {
               <BackBtn />
             </Col>
 
-            <Col size="md-3" className="ESH_account-info">
-              <table>
-                <tbody>
-                  <tr>
-                    {/* TODO: check the state key-values for account info */}
-                    <td className="ESH_acct-property">Username: </td>
-                    {/* <td>{this.state.user.user_name}</td> */}
-                    <td>Rawgher</td>
-                  </tr>
-                  <tr>
-                    <td className="ESH_acct-property">First Name: </td>
-                    {/* <td>{this.state.user.user_firstName}</td> */}
-                    <td>Roger</td>
-                  </tr>
-                  <tr>
-                    <td className="ESH_acct-property">Last Name: </td>
-                    {/* <td>{this.state.user.user_lastName}</td> */}
-                    <td>Pender</td>
-                  </tr>
-                </tbody>
-              </table>
-            </Col>
-          </Row>
-        </Container>
-      </React.Fragment>
+          <Col size="md-3" className="ESH_account-info">
+            <table>
+              <tbody>
+                <tr>
+                  {/* TODO: check the state key-values for account info */}
+                  <td className="ESH_acct-property">Username: </td>
+                  <td>{this.state.user.user_name}</td>
+                </tr>
+                <tr>
+                  <td className="ESH_acct-property">First Name: </td>
+                  <td>{this.state.user.user_firstName}</td>
+                </tr>
+                <tr>
+                  <td className="ESH_acct-property">Last Name: </td>
+                  <td>{this.state.user.user_lastName}</td>
+                </tr>
+              </tbody>
+            </table>
+          </Col>
+        </Row>
+        <Sidebar
+          loggedIn={this.props.loggedIn}
+          username={this.props.username}
+        />
+      </Container>
     );
   }
 }

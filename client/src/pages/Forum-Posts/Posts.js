@@ -104,6 +104,10 @@ class Posts extends Component {
 
             <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
+          <Sidebar
+            loggedIn={this.props.loggedIn}
+            username={this.props.username}
+          />
         </Container>
         <Chat />
       </React.Fragment>
