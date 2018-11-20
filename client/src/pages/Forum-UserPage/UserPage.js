@@ -7,8 +7,6 @@ import { Link } from "react-router-dom";
 import Background from "../../components/Background";
 import NavTabs from "../../components/Nav";
 import Sidebar from "../../components/Sidebar";
-import Background from "../../components/Background";
-import NavTabs from "../../components/Nav";
 import "./UserPage.css";
 
 class UserPage extends Component {
@@ -44,7 +42,6 @@ class UserPage extends Component {
             </Col>
           </Row>
         </Container>
-<<<<<<< HEAD
 
         <Container>
           <Row>
@@ -55,18 +52,6 @@ class UserPage extends Component {
             </Col>
           </Row>
 
-=======
-
-        <Container>
-          <Row>
-            <Col size="md-12">
-              {/* <h4 className="ESH_main-title">USER // {this.state.username}</h4> */}
-              <h4 className="ESH_main-title">USER // Rawgher</h4>
-              <div className="ESH_line" />
-            </Col>
-          </Row>
-
->>>>>>> master
           <Row>
             <Col size="md-9" className="ESH_forum-col">
               <div className="ESH_body-title">POSTS</div>
@@ -82,7 +67,6 @@ class UserPage extends Component {
                   </Link>{" "}
                   <br />
                   2018-11-17
-<<<<<<< HEAD
                 </PostListItem>
                 <br />
                 <PostListItem key="5befe86b36801d002905554c">
@@ -92,17 +76,6 @@ class UserPage extends Component {
                   <br />
                   2018-11-17
                 </PostListItem>
-=======
-                </PostListItem>
-                <br />
-                <PostListItem key="5befe86b36801d002905554c">
-                  <Link to={"/forum/post/5befe86b36801d002905554c"}>
-                    Images
-                  </Link>{" "}
-                  <br />
-                  2018-11-17
-                </PostListItem>
->>>>>>> master
                 {/* ))} */}
               </PostList>
 
