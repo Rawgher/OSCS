@@ -1,23 +1,24 @@
 .ESH_top-posts {
-    margin: 20px 0 0;
+  margin: 20px 0 0;
 }
 
 .ESH_top-posts li {
-    padding: 8px 0;
+  padding: 8px 0;
 }
 
 .ESH_title {
-    font-size: 20px;
-    color: white;
-    padding: 0 0 10px;
+  font-size: 20px;
+  color: white;
+  padding: 0 0 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 #create-post {
-    margin: 10px 0;
-    color: black !important;
+  margin: 10px 0;
+  color: black !important;
 }
 
 #create-post:hover {
-    background: rgb(255, 115, 0) !important;
-    color: black !important;
+  background: rgb(255, 115, 0) !important;
+  color: black !important;
 }

@@ -2,9 +2,9 @@ require("dotenv").config();
 
 export default {
   stackSearch: function(search) {
-    const stackAPIKey = process.env.stackKey;
+    // const stackAPIKey = process.env.stackKey;
 
-    // const stackAPIKey = "bDGLxdw38J9H0puc2BctAQ((";
+    const stackAPIKey = "bDGLxdw38J9H0puc2BctAQ((";
 
     let queryURL = "https://api.stackexchange.com/2.2/similar?";
 

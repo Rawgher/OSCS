@@ -11,7 +11,7 @@ router.route("/login").get(forumController.findUserById);
 router.route("/registration").post(forumController.createUser);
 
 // user account information
-router.route("/user/:id").get(forumController.findUserById);
+router.route("/user/:user_name").get(forumController.findUserById);
 
 // display all topics
 router.route("/categories").get(forumController.findAllTopics);
@@ -23,13 +23,10 @@ router.route("/postinfo/:id").get(forumController.findPostById);
 router.route("/post/:id").get(forumController.findRepliesByPostId);
 
 // creating a new reply
-router
-  .route("/newreply")
-  .post(forumController.createReply);
+router.route("/newreply").post(forumController.createReply);
 
 // creating a new post
-router.route("/newpost")
-.post(forumController.createPost);
+router.route("/newpost").post(forumController.createPost);
 
 // display topic info for posts page
 router.route("/catinfo/:id").get(forumController.findTopicInfoById);
