@@ -8,6 +8,7 @@ import Background from "../../components/Background";
 import { Col, Row, Container } from "../../components/Grid";
 import ForumSidebar from "../../components/Forum-Sidebar";
 import { Link } from "react-router-dom";
+import Sidebar from "../../components/Sidebar";
 import "./ThisPost.css";
 
 class ThisPost extends Component {
@@ -53,16 +54,16 @@ class ThisPost extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     // if (this.state.replies.reply_content && this.props.user_id) {
-      axios
-        .post("/api/forum/newreply/", {
-          reply_author: this.props.username,
-          reply_content: this.state.reply_body,
-          reply_post: this.state.thispost.post_subject
-        })
-        .then(function(res) {
-          res.redirect(`/forum/${this.state.thispost.post_id}`);
-        })
-        .catch(err => console.log(err));
+    axios
+      .post("/api/forum/newreply/", {
+        reply_author: this.props.username,
+        reply_content: this.state.reply_body,
+        reply_post: this.state.thispost.post_subject
+      })
+      .then(function(res) {
+        res.redirect(`/forum/${this.state.thispost.post_id}`);
+      })
+      .catch(err => console.log(err));
     // }
   };
 
@@ -149,6 +150,10 @@ class ThisPost extends Component {
 
             <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
+          <Sidebar
+            loggedIn={this.props.loggedIn}
+            username={this.props.username}
+          />
         </Container>
       </React.Fragment>
     );
