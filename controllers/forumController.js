@@ -81,15 +81,21 @@ module.exports = {
             .then(dbModel => {
                 db.Post
                     .find({ post_topic: dbModel.topic_name })
+                    .then(dbPostModel => res.json(dbPostModel))
                     .then(dbPostModel => {
                         dbPostModel.forEach(eachPost => {
                             db.Reply
                                 .find({ reply_post: eachPost.post_subject })
-                                .then(dbReplyModel => res.json(dbReplyModel));
+                                .then(dbReplyModel => {
+                                    db.Post
+                                        .find({ post_subject: dbReplyModel.reply_post })
+                                        .update({ post_replies: dbReplyModel.length })
+                                        .then(dbUpdatedPostModel);
+                                })
+                                .catch(err => res.status(422).json(err));
                         })
                             .catch(err => res.status(422).json(err));
                     })
-                    .update({ post_replies: dbReplyModel.length })
                     .catch(err => res.status(422).json(err));
             })
             .catch(err => res.status(422).json(err));
@@ -203,4 +209,14 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+
+// favorites collection queries
+
+    createFavorite: function (req, res) {
+        db.Favorites
+            .create(req.body)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    }
+
 };

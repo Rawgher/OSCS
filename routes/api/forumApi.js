@@ -39,6 +39,11 @@ router
   .route("/replycount/:id")
   .get(forumController.countRepliesOfPostsByTopicId);
 
+// make a favorite
+router
+  .route("/addfavorite/")
+  .post(forumController.createFavorite);
+
 // keep this at bottom
 //display all posts of a topic
 router.route("/:id").get(forumController.findPostsByTopicId);
