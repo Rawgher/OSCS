@@ -4,6 +4,7 @@ import { PostList, PostListItem } from "../../components/PostList";
 import { Col, Row, Container } from "../../components/Grid";
 import BackBtn from "../../components/BackBtn";
 import { Link } from "react-router-dom";
+import Sidebar from "../../components/Sidebar";
 import "./UserPage.css";
 
 class UserPage extends Component {
@@ -100,6 +101,10 @@ class UserPage extends Component {
             </table>
           </Col>
         </Row>
+        <Sidebar
+          loggedIn={this.props.loggedIn}
+          username={this.props.username}
+        />
       </Container>
     );
   }

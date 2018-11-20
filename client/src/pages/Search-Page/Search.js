@@ -206,7 +206,11 @@ class Search extends Component {
                 loggedIn={this.props.loggedIn}
                 username={this.props.username}
               />
-              <Chat loggedIn={this.props.loggedIn} user={this.props.user} uid={this.props.user_id}/>
+              <Chat
+                loggedIn={this.props.loggedIn}
+                user={this.props.user}
+                uid={this.props.user_id}
+              />
             </Col>
           </Row>
         </Container>

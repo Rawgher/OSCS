@@ -8,6 +8,7 @@ import ForumSidebar from "../../components/Forum-Sidebar";
 import Chat from "../../components/Chat";
 import NavTabs from "../../components/Nav";
 import Background from "../../components/Background";
+import Sidebar from "../../components/Sidebar";
 
 class Categories extends Component {
   state = {
@@ -87,6 +88,10 @@ class Categories extends Component {
             </Col>
             <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
+          <Sidebar
+            loggedIn={this.props.loggedIn}
+            username={this.props.username}
+          />
         </Container>
         <Chat />
       </React.Fragment>
