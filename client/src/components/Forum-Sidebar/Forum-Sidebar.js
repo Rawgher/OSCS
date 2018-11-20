@@ -32,6 +32,15 @@ class ForumSidebar extends Component {
         <div class="ESH_top-posts">
           <div class="ESH_title">POPULAR POSTS</div>
           <ul>
+            <li>
+              <a href="/forum/post/5bf04d947261224b58cce483">Make look nice</a>
+            </li>
+            <li>
+              <a href="/forum/post/5bf04d947261224b58cce485">&lt;a> links</a>
+            </li>
+            <li>
+              <a href="/forum/post/5bf04d947261224b58cce488">DATEONLY!</a>
+            </li>
             {/* TODO: get array of popular posts */}
             {/* {this.state.popular_posts.map(pp => (
               // RDP - change this to a link instead of an a tag if we use it

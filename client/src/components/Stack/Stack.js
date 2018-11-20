@@ -59,7 +59,7 @@ class StackCards extends React.Component {
     this.setState({
       favorited: !this.state.favorited
     });
-  }  
+  }
 
   render() {
     const { classes, results } = this.props;
@@ -104,9 +104,11 @@ class StackCards extends React.Component {
             >
               <Star />
             </IconButton>
-            <IconButton aria-label="Share">
-              <Share />
-            </IconButton>
+            <a href={a.link} target="_blank">
+              <IconButton aria-label="Share">
+                <Share />
+              </IconButton>
+            </a>
           </CardActions>
         </div>
       </Card>
