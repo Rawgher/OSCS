@@ -8,6 +8,7 @@ import Background from "../../components/Background";
 import { Col, Row, Container } from "../../components/Grid";
 import ForumSidebar from "../../components/Forum-Sidebar";
 import { Link } from "react-router-dom";
+import Sidebar from "../../components/Sidebar";
 import "./ThisPost.css";
 
 class ThisPost extends Component {
@@ -151,11 +152,14 @@ class ThisPost extends Component {
 
             <ForumSidebar loggedIn={this.props.loggedIn} />
           </Row>
+          <Sidebar
+            loggedIn={this.props.loggedIn}
+            username={this.props.username}
+          />
         </Container>
       </React.Fragment>
     );
   }
 }
-// }
 
 export default ThisPost;
