@@ -15,7 +15,8 @@ class ThisPost extends Component {
   state = {
     thispost: [],
     replies: [],
-    reply_body: ""
+    reply_body: "",
+    redirect: false
   };
 
   componentDidMount() {
@@ -50,7 +51,6 @@ class ThisPost extends Component {
     });
   };
 
-  // TODO: NOT WORKING
   handleFormSubmit = event => {
     event.preventDefault();
     // if (this.state.replies.reply_content && this.props.user_id) {
@@ -60,8 +60,10 @@ class ThisPost extends Component {
         reply_content: this.state.reply_body,
         reply_post: this.state.thispost.post_subject
       })
-      .then(function(res) {
-        res.redirect(`/forum/${this.state.thispost.post_id}`);
+      .then(res => {
+        let replies = [...this.state.replies];
+        replies.push(res.data);
+        this.setState({ replies });
       })
       .catch(err => console.log(err));
     // }
