@@ -25,7 +25,10 @@ class DocumentationPage extends Component {
             <Documentation />
           </Col>
         </Row>
-        <Sidebar />
+        <Sidebar
+          loggedIn={this.props.loggedIn}
+          username={this.props.username}
+        />
         <Chat
           loggedIn={this.props.loggedIn}
           user={this.props.user}
