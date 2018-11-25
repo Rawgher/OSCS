@@ -5,8 +5,7 @@ const passport = require("../config/passport");
 
 router.post("/signup", function(req, res) {
   console.log("user signup");
-  console.log(req.body, req.session);
-  // req.session.username = req.body.username;
+  // console.log(req.body, req.session);
 
   User.findOne({ user_name: req.body.user_name }, (err, user) => {
     if (err) {
@@ -29,9 +28,9 @@ router.post("/signup", function(req, res) {
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);
         console.log("saved new user to db");
-        res.json(savedUser);
-        passport.authenticate("local")(req, res, function() {
-          console.log("logged new user in", req.user);
+        req.login(savedUser, (err) => {
+          console.log("logged new user in");
+          res.send(savedUser);
         });
       });
     }
@@ -50,12 +49,12 @@ router.get("/", (req, res, next) => {
 router.post(
   "/login",
   function(req, res, next) {
-    console.log("routes/auth.js, login, req.body: ", req.body);
+    // console.log("routes/auth.js, login, req.body: ", req.body);
     next();
   },
   passport.authenticate("local"),
   (req, res) => {
-    console.log("logged in", req.user);
+    console.log("User logged in");
     var userInfo = {
       user_name: req.user.user_name,
       user_id: req.user._id
@@ -66,7 +65,7 @@ router.post(
 
 router.post("/logout", (req, res) => {
   if (req.user) {
-    console.log("logging out");
+    console.log("Logging user out");
     req.logout();
     res.send();
   }
