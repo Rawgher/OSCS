@@ -37,14 +37,14 @@ router.post("/signup", function(req, res) {
   });
 });
 
-router.get("/", (req, res, next) => {
-  console.log("===== user!! =====", req.user);
-  if (req.user) {
-    res.json({ user: req.user });
-  } else {
-    res.json({ user: null });
-  }
-});
+// router.get("/", (req, res, next) => {
+//   console.log("===== user!! =====", req.user);
+//   if (req.user) {
+//     res.json({ user: req.user });
+//   } else {
+//     res.json({ user: null });
+//   }
+// });
 
 router.post(
   "/login",
@@ -73,20 +73,15 @@ router.post("/logout", (req, res) => {
 
 router.get(
   "/github",
-  passport.authenticate("github"),
-  (req, res) => {
-    console.log("Going to Github");
-  //   console.log("github login user", res);
-  //   res.redirect("/user");
-  }
-);
+  passport.authenticate("github", { scope: [ 'read:user'] }));
 
 router.get(
-  "/github/callback",
+  "/github/callback", 
   passport.authenticate("github", { failureRedirect: "/login" }),
-  function(req, res) {
-    console.log("redirecting back to OSCS")
-    res.redirect("/user");
+  (req, res) => {
+    console.log(req, res);
+    // console.log("redirecting back to OSCS")
+    // res.redirect("/user");
   }
 );
 

@@ -7,13 +7,6 @@ import Button from "@material-ui/core/Button";
 import { ArrowForward } from "@material-ui/icons";
 
 class SubmitButton extends Component {
-//   githubLogin = () => {
-// 	console.log("github Login");
-// 	axios.get('/api/auth/github')
-// 	.then(response => {
-// 		console.log("the github login has a response");
-// 	});
-//   };
 
   render() {
     let socialNets = null;
