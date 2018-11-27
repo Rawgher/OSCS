@@ -1,6 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('./localStrategy');
-// const gitHubStrategy = require('./gitHubStrategy');
+const GithubStrategy = require('./githubStrategy');
 const User = require("../models/userTable");
 
 // Called on login, saves the id to session req.session.passport.user
@@ -25,6 +25,7 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(LocalStrategy);
+passport.use(GithubStrategy);
 
 module.exports = passport;
 

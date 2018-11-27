@@ -1,41 +1,48 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './Auth.css';
-import FaGoogle from 'react-icons/lib/fa/google';
-import FaGithub from 'react-icons/lib/fa/github';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import "./Auth.css";
+import FaGoogle from "react-icons/lib/fa/google";
+import FaGithub from "react-icons/lib/fa/github";
 import Button from "@material-ui/core/Button";
 import { ArrowForward } from "@material-ui/icons";
 
+class SubmitButton extends Component {
+//   githubLogin = () => {
+// 	console.log("github Login");
+// 	axios.get('/api/auth/github')
+// 	.then(response => {
+// 		console.log("the github login has a response");
+// 	});
+//   };
 
-const SubmitButton = (props) => {
+  render() {
+    let socialNets = null;
 
-	let socialNets = null;
-
-	if (props.type === 'signIn') {
-		socialNets = (
-			<div className='socialNets'>
-				<FaGoogle className='socialNetsIcon'/>
-				<FaGithub className='socialNetsIcon'/>
-			</div>
-		)
-	} else {
-		socialNets = (
-			<div className='socialNets'>
-			</div>
-		)
-	}
-	return (
-		<div className={'submitButton'}>
-			{socialNets}
-			<Button type="submit" variant="contained" color="success">
-              <ArrowForward />
-            </Button>
-		</div>
-	);
-} 
+    if (this.props.type === "signIn") {
+      socialNets = (
+        <div className="socialNets">
+          <FaGoogle className="socialNetsIcon" />
+		  <a href="http://localhost:3001/api/auth/github">
+		  	<FaGithub className="socialNetsIcon" />
+		  </a>
+        </div>
+      );
+    } else {
+      socialNets = <div className="socialNets" />;
+    }
+    return (
+      <div className={"submitButton"}>
+        {socialNets}
+        <Button type="submit" variant="contained" color="success">
+          <ArrowForward />
+        </Button>
+      </div>
+    );
+  }
+}
 
 SubmitButton.PropTypes = {
-	type: PropTypes.String
+  type: PropTypes.String
 };
 
 export default SubmitButton;

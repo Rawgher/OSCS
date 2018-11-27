@@ -73,20 +73,19 @@ router.post("/logout", (req, res) => {
 
 router.get(
   "/github",
-  function(req, res, next) {
-    console.log("routes/auth.js, github login, req.body: ", req.body);
-    next();
-  },
   passport.authenticate("github"),
   (req, res) => {
-    console.log("github login user", res);
+    console.log("Going to Github");
+  //   console.log("github login user", res);
+  //   res.redirect("/user");
   }
 );
 
 router.get(
   "/github/callback",
-  passport.authenticate("github", { failureRedirect: "/" }),
+  passport.authenticate("github", { failureRedirect: "/login" }),
   function(req, res) {
+    console.log("redirecting back to OSCS")
     res.redirect("/user");
   }
 );
