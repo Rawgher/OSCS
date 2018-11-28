@@ -34,6 +34,7 @@
     "nodemailer": "^4.6.8",
     "passport": "^0.4.0",
     "passport-github2": "^0.1.11",
+    "passport-google-oauth20": "^1.0.0",
     "passport-local": "^1.0.0",
     "react-chat-widget": "^2.1.4-1",
     "react-icons": "^3.2.2",

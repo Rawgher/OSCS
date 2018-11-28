@@ -43,7 +43,7 @@ class SignExpanded extends Component {
     const { username, password } = this.state;
     // console.log(username, password);
     axios
-      .post("/api/auth/login", {
+      .post("/auth/login", {
         user_name: username,
         user_pass: password
       })
@@ -76,7 +76,7 @@ class SignExpanded extends Component {
     const { firstName, lastName, username, password } = this.state;
     // console.log(firstName, username, password);
     axios
-      .post("api/auth/signup", {
+      .post("/auth/signup", {
         user_firstName: firstName,
         user_lastName: lastName,
         user_name: username,

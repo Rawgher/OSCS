@@ -38,7 +38,7 @@ class App extends Component {
   }
 
   getUser() {
-    axios.get("api/auth/").then(response => {
+    axios.get("/auth/").then(response => {
       console.log("Get user response: ", response.data);
       if (response.data.user) {
         console.log("Get user: there is a user saved in the server session: ");

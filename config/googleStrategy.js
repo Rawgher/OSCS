@@ -1,7 +1,7 @@
-var GitHubStrategy = require("passport-github2").Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require("../models/userTable");
 
-var strategy = new GitHubStrategy(
+var strategy = new GoogleStrategy(
   {
     clientID: "c72c3660a05968eb82df",
     clientSecret: "f2e26ad5ac17ef172cf1dcc7758333fc8bfabab1",
