@@ -7,14 +7,14 @@ var strategy = new GitHubStrategy(
     clientSecret: "f2e26ad5ac17ef172cf1dcc7758333fc8bfabab1",
     callbackURL: "http://localhost:3001/api/auth/github/callback"
   },
-  (accessToken, refreshToken, profile, cb) => {
+  (accessToken, refreshToken, profile, done) => {
     console.log("passport callback function fired");
     // console.log(profile);
     var fullName = profile.displayName.split(" ");
-    User.findOne({ github_id: profile.id }).then((user) => {
-      if (user) {
-        console.log("found user: ", user);
-        done(null, user);
+    User.findOne({ github_id: profile.id }).then(currentUser => {
+      if (currentUser) {
+        console.log("found user: ", currentUser);
+        done(null, currentUser);
       } else {
         console.log("creating new github user");
         githubUser = new User({
@@ -23,20 +23,18 @@ var strategy = new GitHubStrategy(
           user_firstName: fullName[0],
           user_lastName: fullName[1],
           user_pass: profile._json.node_id
-        }).save().then((err, newUser) => {
-          if (err) {
-            console.log(err); // handle errors!
-          } else {
-            console.log("successfully saved new github user ", newUser);
-            // done(null, newUser);
-          }
-        });
+        })
+          .save()
+          .then((err, newUser) => {
+            if (err) {
+              console.log(err); // handle errors!
+            } else {
+              console.log("successfully saved new github user ", newUser);
+              done(null, newUser);
+            }
+          });
       }
     });
-
-    //
-    // }
-    // });
   }
 );
 

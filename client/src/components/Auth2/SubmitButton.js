@@ -5,8 +5,37 @@ import FaGoogle from "react-icons/lib/fa/google";
 import FaGithub from "react-icons/lib/fa/github";
 import Button from "@material-ui/core/Button";
 import { ArrowForward } from "@material-ui/icons";
+import axios from 'axios';
 
 class SubmitButton extends Component {
+
+  githubLogin = e => {
+    e.preventDefault();
+    console.log("handleSubmit login");
+
+    axios
+      .get("/api/auth/github")
+      .then(response => {
+        console.log("login response: ", response);
+        if (response.status === 200) {
+          // update App.js state
+          this.props.updateUser({
+            loggedIn: true,
+            username: response.data.user_name,
+            user_id: response.data.user_id
+          });
+          this.setState({
+            redirectTo: "/search"
+          });
+        }
+      })
+      .catch(error => {
+        console.log("login error: ", error);
+        this.setState({
+          message: "Sorry, there appears to be an issue with your login."
+        });
+      });
+  };
 
   render() {
     let socialNets = null;
@@ -15,8 +44,11 @@ class SubmitButton extends Component {
       socialNets = (
         <div className="socialNets">
           <FaGoogle className="socialNetsIcon" />
-		  <a href="http://localhost:3001/api/auth/github">
-		  	<FaGithub className="socialNetsIcon" />
+      <a href="api/auth/github">
+      {/* <Button onClick={this.githubLogin}> */}
+      <FaGithub className="socialNetsIcon" />
+
+      {/* </Button> */}
 		  </a>
         </div>
       );

@@ -28,7 +28,7 @@ router.post("/signup", function(req, res) {
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);
         console.log("saved new user to db");
-        req.login(savedUser, (err) => {
+        req.login(savedUser, err => {
           console.log("logged new user in");
           res.send(savedUser);
         });
@@ -37,14 +37,14 @@ router.post("/signup", function(req, res) {
   });
 });
 
-// router.get("/", (req, res, next) => {
-//   console.log("===== user!! =====", req.user);
-//   if (req.user) {
-//     res.json({ user: req.user });
-//   } else {
-//     res.json({ user: null });
-//   }
-// });
+router.get("/", (req, res, next) => {
+  console.log("===== user!! =====", req.user);
+  if (req.user) {
+    res.json({ user: req.user });
+  } else {
+    res.json({ user: null });
+  }
+});
 
 router.post(
   "/login",
@@ -73,15 +73,22 @@ router.post("/logout", (req, res) => {
 
 router.get(
   "/github",
-  passport.authenticate("github", { scope: [ 'read:user'] }));
+  passport.authenticate("github", { scope: ["read:user"] })
+);
 
 router.get(
-  "/github/callback", 
-  passport.authenticate("github", { failureRedirect: "/login" }),
+  "/github/callback",
+  passport.authenticate("github", {
+    successRedirect: "http://localhost:3000/search",
+    failureRedirect: "/login"
+  }),
   (req, res) => {
-    console.log(req, res);
-    // console.log("redirecting back to OSCS")
-    // res.redirect("/user");
+    console.log("redirecting back to OSCS");
+    var userInfo = {
+      user_name: req.user.user_name,
+      user_id: req.user._id
+    };
+    res.send(userInfo);
   }
 );
 
