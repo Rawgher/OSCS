@@ -9,31 +9,32 @@ var strategy = new GitHubStrategy(
   },
   (accessToken, refreshToken, profile, cb) => {
     console.log("passport callback function fired");
-    console.log(profile);
+    // console.log(profile);
+    var fullName = profile.displayName.split(" ");
+    User.findOne({ github_id: profile.id }).then((user) => {
+      if (user) {
+        console.log("found user: ", user);
+        done(null, user);
+      } else {
+        console.log("creating new github user");
+        githubUser = new User({
+          github_id: profile.id,
+          user_name: profile.username,
+          user_firstName: fullName[0],
+          user_lastName: fullName[1],
+          user_pass: profile._json.node_id
+        }).save().then((err, newUser) => {
+          if (err) {
+            console.log(err); // handle errors!
+          } else {
+            console.log("successfully saved new github user ", newUser);
+            // done(null, newUser);
+          }
+        });
+      }
+    });
 
-    // console.log("GibHub user profile: ", profile);
-    // return done(null, profile);
-    // User.findOne({ _id: profile.id }, function(err, user) {
-    //     if(err) {
-    //       console.log(err);  // handle errors!
-    //     }
-    //     if (!err && user !== null) {
-    //       done(null, user);
-    //     } else {
-    //       console.log(user);
-    // user = new User({
-    //   _id: profile.id,
-    //   user_name: profile.displayName,
-
-    // });
-    // user.save(function(err) {
-    //   if(err) {
-    //     console.log(err);  // handle errors!
-    //   } else {
-    //     console.log("saving user ...");
-    //     done(null, user);
-    //   }
-    // });
+    //
     // }
     // });
   }

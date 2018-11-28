@@ -12,7 +12,8 @@ const UserSchema = new Schema({
     user_posts: [{ type: Schema.Types.ObjectId, ref: "Post"}],
     user_replies: [{ type: Schema.Types.ObjectId, ref: "Reply"}],
     createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now }
+    updatedAt: { type: Date, default: Date.now },
+    github_id: { type: String, default: null }
 });
 
 // Define schema methods
