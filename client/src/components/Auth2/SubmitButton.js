@@ -42,7 +42,9 @@ class SubmitButton extends Component {
     if (this.props.type === "signIn") {
       socialNets = (
         <div className="socialNets">
-          <FaGoogle className="socialNetsIcon" />
+          <a href="http://localhost:3001/auth/google">
+            <FaGoogle className="socialNetsIcon" />
+          </a>
           <a href="http://localhost:3001/auth/github">
             <FaGithub className="socialNetsIcon" />
           </a>

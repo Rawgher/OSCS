@@ -72,6 +72,27 @@ router.post("/logout", (req, res) => {
 });
 
 router.get(
+  "/google",
+  passport.authenticate("google", { scope: ["profile"] })
+);
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: "http://localhost:3000/search",
+    failureRedirect: "/login"
+  }),
+  (req, res) => {
+    console.log("redirecting back to OSCS");
+    var userInfo = {
+      user_name: req.user.user_name,
+      user_id: req.user._id
+    };
+    res.send(userInfo);
+  }
+);
+
+router.get(
   "/github",
   passport.authenticate("github", { scope: ["read:user"] })
 );
