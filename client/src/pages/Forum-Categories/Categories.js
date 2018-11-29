@@ -93,7 +93,11 @@ class Categories extends Component {
             username={this.props.username}
           />
         </Container>
-        <Chat />
+        <Chat
+          loggedIn={this.props.loggedIn}
+          user={this.props.user}
+          uid={this.props.user_id}
+        />
       </React.Fragment>
     );
   }

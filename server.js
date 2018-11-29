@@ -95,16 +95,6 @@ app.use(passport.session());
 // Add routes, both API and view
 app.use(routes);
 
-// app.post('/api/auth/signup', (req, res) => {
-//   console.log("session test");
-//   req.session.username = req.body.username;
-//   res.end();
-// })
-
-// app.post('/api/auth/signup', (req, res, next) => {
-//   console.log("server post username: " + req.body.username);
-//   res.end();
-// })
 
 // app.use(express.static("./public")).get("*", function(req, res) {
 //   res.sendfile("./public/index.html");

@@ -5,7 +5,7 @@ import axios from 'axios';
 
 class LoginControl extends React.Component {
   logout() {
-    axios.get("api/auth/logout").then(
+    axios.get("/auth/logout").then(
         console.log(this.props.loggedIn),
         alert("You have logged out")
     );

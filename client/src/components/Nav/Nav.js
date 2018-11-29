@@ -25,7 +25,7 @@ class NavTabs extends React.Component {
   logout = e => {
     console.log("logging out");
     axios
-      .post("/api/auth/logout")
+      .post("/auth/logout")
       .then(response => {
         console.log(response.data);
         if (response.status === 200) {
