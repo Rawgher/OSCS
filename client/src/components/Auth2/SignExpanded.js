@@ -41,14 +41,14 @@ class SignExpanded extends Component {
     console.log("handleSubmit login");
 
     const { username, password } = this.state;
-    console.log(username, password);
+    // console.log(username, password);
     axios
-      .post("/api/auth/login", {
+      .post("/auth/login", {
         user_name: username,
         user_pass: password
       })
       .then(response => {
-        console.log("login response: ", response);
+        // console.log("login response: ", response);
         if (response.status === 200) {
           // update App.js state
           this.props.updateUser({
@@ -74,25 +74,25 @@ class SignExpanded extends Component {
     console.log("sign-up, username: " + this.state.username);
 
     const { firstName, lastName, username, password } = this.state;
-    console.log(firstName, username, password);
+    // console.log(firstName, username, password);
     axios
-      .post("api/auth/signup", {
+      .post("/auth/signup", {
         user_firstName: firstName,
         user_lastName: lastName,
         user_name: username,
         user_pass: password
       })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         if (!response.data.error) {
-		  console.log("successful signup");
-		  this.setState({
-			redirectTo: "/search"
-		  });
-		  this.props.updateUser({
+          console.log("successful signup");
+          this.props.updateUser({
             loggedIn: true,
             username: response.data.user_name,
             user_id: response.data.user_id
+          });
+          this.setState({
+            redirectTo: "/search"
           });
         } else {
           console.log("Signup error");
@@ -102,8 +102,7 @@ class SignExpanded extends Component {
         }
       })
       .catch(err => {
-        console.log("Signup server error");
-        console.log(err);
+        console.log("Signup server error", err);
       });
   };
 
@@ -160,7 +159,7 @@ class SignExpanded extends Component {
                     <h2>
                       {this.props.type === "signIn" ? "SIGN IN" : "SIGN UP"}
                     </h2>
-					<h6 className="jrs_message">{message}</h6>
+                    <h6 className="jrs_message">{message}</h6>
                     {this.props.type === "signUp" && (
                       <Row>
                         <TextField

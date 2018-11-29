@@ -1,36 +1,40 @@
-var GitHubStrategy = require('passport-github').Strategy;
-const User = require('../models/userTable');
+var GitHubStrategy = require("passport-github2").Strategy;
+const User = require("../models/userTable");
 
 var strategy = new GitHubStrategy(
   {
     clientID: "c72c3660a05968eb82df",
-    clientSecret: "f7b479d6d86cac41554725d42ee306c6ab162516",
-    callbackURL: "http://127.0.0.1:3000/auth/github/callback" || "https://onestopcodeshop.herokuapp.com/search/"
+    clientSecret: "f2e26ad5ac17ef172cf1dcc7758333fc8bfabab1",
+    callbackURL: "http://localhost:3001/auth/github/callback"
   },
-  function(accessToken, refreshToken, profile, cb) {
-    console.log("GibHub user profile: ", profile);
-    User.findOne({ _id: profile.id }, function(err, user) {
-        if(err) {
-          console.log(err);  // handle errors!
-        }
-        if (!err && user !== null) {
-          done(null, user);
-        } else {
-          user = new User({
-            _id: profile.id,
-            user_name: profile.displayName,
-
-          });
-          user.save(function(err) {
-            if(err) {
-              console.log(err);  // handle errors!
+  (accessToken, refreshToken, profile, done) => {
+    console.log("passport callback function fired");
+    // console.log(profile);
+    var fullName = profile.displayName.split(" ");
+    User.findOne({ github_id: profile.id }).then(currentUser => {
+      if (currentUser) {
+        console.log("found user: ", currentUser);
+        done(null, currentUser);
+      } else {
+        console.log("creating new github user");
+        githubUser = new User({
+          github_id: profile.id,
+          user_name: profile.username,
+          user_firstName: fullName[0],
+          user_lastName: fullName[1],
+          user_pass: profile._json.node_id
+        })
+          .save()
+          .then((err, newUser) => {
+            if (err) {
+              console.log(err); // handle errors!
             } else {
-              console.log("saving user ...");
-              done(null, user);
+              console.log("successfully saved new github user ", newUser);
+              done(null, newUser);
             }
           });
-        }
-      });
+      }
+    });
   }
 );
 

@@ -7,9 +7,6 @@ const path = require("path");
 // login
 router.route("/login").get(forumController.findUserById);
 
-// account registration
-router.route("/registration").post(forumController.createUser);
-
 // user account information
 router.route("/user/:user_name").get(forumController.findUserById);
 
