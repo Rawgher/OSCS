@@ -36,11 +36,11 @@ class Bing extends React.Component {
     return bing.map((a, id) => (
       <div className="RDPleftAlign">
         <div key={id} className="RDPwhiteBorder">
-          <Link to={a.url} target="_blank" rel="noreferrer noopener">
+          <a href={a.url} target="_blank" rel="noreferrer noopener">
             <p className="RDPwhiteText RDPhoverLink RDPtitleSize RDPpaddingTop">
               {a.name}
             </p>
-          </Link>
+          </a>
           <p className="RDPwhiteText">{a.snippet}</p>
           <div class="fav-div">
             <Button
