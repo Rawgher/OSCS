@@ -12,7 +12,7 @@ Additionally, as bootcampers, we know firsthand the kind of impact a learning co
 [![prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://prettier.io/)
 
 ## Screenshots
-![One Stop Code Shop 2](public/images/screenshot.gif)
+![One Stop Code Shop 2](/client/public/images/screenshot.gif)
 
 ## Tech/Libraries Used
 Built with:
